@@ -1,0 +1,33 @@
+PODS:
+  - Block-KVO (2.2.3)
+  - Expecta (1.0.0)
+  - OCMock (3.1.2)
+  - Specta (1.0.2)
+  - Typhoon (3.1.9):
+    - Typhoon/no-arc (= 3.1.9)
+  - Typhoon/no-arc (3.1.9)
+
+DEPENDENCIES:
+  - Block-KVO (from `https://github.com/iMartinKiss/Block-KVO.git`)
+  - Expecta (~> 1.0)
+  - OCMock (~> 3.1.2)
+  - Specta (~> 1.0)
+  - Typhoon (~> 3.1.8)
+
+EXTERNAL SOURCES:
+  Block-KVO:
+    :git: https://github.com/iMartinKiss/Block-KVO.git
+
+CHECKOUT OPTIONS:
+  Block-KVO:
+    :commit: 5a9320861a28caaa5e182bf9f7b3b4a45cb7522d
+    :git: https://github.com/iMartinKiss/Block-KVO.git
+
+SPEC CHECKSUMS:
+  Block-KVO: 2d335612191c0c4d63fe91cc78e735614c23eddf
+  Expecta: 32604574add2c46a36f8d2f716b6c5736eb75024
+  OCMock: a10ea9f0a6e921651f96f78b6faee95ebc813b92
+  Specta: 9cec98310dca411f7c7ffd6943552b501622abfe
+  Typhoon: b48a0ba0023f7ebc92d8693f79d4985dc0f94d13
+
+COCOAPODS: 0.37.2

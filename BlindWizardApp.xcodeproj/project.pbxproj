@@ -1,0 +1,544 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7FAB24D207C69E0B81926A2F /* libPods-BlindWizardApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F66DF0723764B2C29A3CB58 /* libPods-BlindWizardApp.a */; };
+		C3F6BDDB1B389B860088D924 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F6BDDA1B389B860088D924 /* main.m */; };
+		C3F6BDDE1B389B860088D924 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F6BDDD1B389B860088D924 /* AppDelegate.m */; };
+		C3F6BDE11B389B860088D924 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F6BDE01B389B860088D924 /* ViewController.m */; };
+		C3F6BDE41B389B860088D924 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3F6BDE21B389B860088D924 /* Main.storyboard */; };
+		C3F6BDE61B389B860088D924 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3F6BDE51B389B860088D924 /* Images.xcassets */; };
+		C3F6BDE91B389B860088D924 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3F6BDE71B389B860088D924 /* LaunchScreen.xib */; };
+		C3F6BDF51B389B860088D924 /* BlindWizardAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F6BDF41B389B860088D924 /* BlindWizardAppTests.m */; };
+		C3F6BE021B389C1B0088D924 /* NSObject+MTKTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F6BDFF1B389C1B0088D924 /* NSObject+MTKTest.m */; };
+		C3F6BE031B389C1B0088D924 /* UIViewController+TestSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F6BE011B389C1B0088D924 /* UIViewController+TestSegue.m */; };
+		DFD95E0BAFD8372FD963D424 /* libPods-BlindWizardAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FE3DB190173D277B949EE8E /* libPods-BlindWizardAppTests.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C3F6BDEF1B389B860088D924 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C3F6BDCD1B389B860088D924 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C3F6BDD41B389B860088D924;
+			remoteInfo = BlindWizardApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2FE3DB190173D277B949EE8E /* libPods-BlindWizardAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BlindWizardAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3C3EAA76789237AA3C2635A2 /* Pods-BlindWizardAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlindWizardAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BlindWizardAppTests/Pods-BlindWizardAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		694F5E0C5133767B47BE7698 /* Pods-BlindWizardApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlindWizardApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-BlindWizardApp/Pods-BlindWizardApp.release.xcconfig"; sourceTree = "<group>"; };
+		8F66DF0723764B2C29A3CB58 /* libPods-BlindWizardApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BlindWizardApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A4C82791F95AB8508FB957CA /* Pods-BlindWizardApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlindWizardApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BlindWizardApp/Pods-BlindWizardApp.debug.xcconfig"; sourceTree = "<group>"; };
+		C0BC9E0C707035A355E75B87 /* Pods-BlindWizardAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlindWizardAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BlindWizardAppTests/Pods-BlindWizardAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		C3F6BDD51B389B860088D924 /* BlindWizardApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlindWizardApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3F6BDD91B389B860088D924 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C3F6BDDA1B389B860088D924 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C3F6BDDC1B389B860088D924 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		C3F6BDDD1B389B860088D924 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		C3F6BDDF1B389B860088D924 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		C3F6BDE01B389B860088D924 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		C3F6BDE31B389B860088D924 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C3F6BDE51B389B860088D924 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		C3F6BDE81B389B860088D924 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		C3F6BDEE1B389B860088D924 /* BlindWizardAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlindWizardAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3F6BDF31B389B860088D924 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C3F6BDF41B389B860088D924 /* BlindWizardAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlindWizardAppTests.m; sourceTree = "<group>"; };
+		C3F6BDFE1B389C1B0088D924 /* NSObject+MTKTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MTKTest.h"; sourceTree = "<group>"; };
+		C3F6BDFF1B389C1B0088D924 /* NSObject+MTKTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MTKTest.m"; sourceTree = "<group>"; };
+		C3F6BE001B389C1B0088D924 /* UIViewController+TestSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+TestSegue.h"; sourceTree = "<group>"; };
+		C3F6BE011B389C1B0088D924 /* UIViewController+TestSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+TestSegue.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C3F6BDD21B389B860088D924 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7FAB24D207C69E0B81926A2F /* libPods-BlindWizardApp.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3F6BDEB1B389B860088D924 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DFD95E0BAFD8372FD963D424 /* libPods-BlindWizardAppTests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1A829DB1D62908C854E75663 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A4C82791F95AB8508FB957CA /* Pods-BlindWizardApp.debug.xcconfig */,
+				694F5E0C5133767B47BE7698 /* Pods-BlindWizardApp.release.xcconfig */,
+				3C3EAA76789237AA3C2635A2 /* Pods-BlindWizardAppTests.debug.xcconfig */,
+				C0BC9E0C707035A355E75B87 /* Pods-BlindWizardAppTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C3F6BDCC1B389B860088D924 = {
+			isa = PBXGroup;
+			children = (
+				C3F6BDD71B389B860088D924 /* BlindWizardApp */,
+				C3F6BDF11B389B860088D924 /* BlindWizardAppTests */,
+				C3F6BDD61B389B860088D924 /* Products */,
+				1A829DB1D62908C854E75663 /* Pods */,
+				CE5D98A7B0FE3CFC1A2D09FE /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		C3F6BDD61B389B860088D924 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C3F6BDD51B389B860088D924 /* BlindWizardApp.app */,
+				C3F6BDEE1B389B860088D924 /* BlindWizardAppTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C3F6BDD71B389B860088D924 /* BlindWizardApp */ = {
+			isa = PBXGroup;
+			children = (
+				C3F6BDDC1B389B860088D924 /* AppDelegate.h */,
+				C3F6BDDD1B389B860088D924 /* AppDelegate.m */,
+				C3F6BDDF1B389B860088D924 /* ViewController.h */,
+				C3F6BDE01B389B860088D924 /* ViewController.m */,
+				C3F6BDE21B389B860088D924 /* Main.storyboard */,
+				C3F6BDE51B389B860088D924 /* Images.xcassets */,
+				C3F6BDE71B389B860088D924 /* LaunchScreen.xib */,
+				C3F6BDD81B389B860088D924 /* Supporting Files */,
+			);
+			path = BlindWizardApp;
+			sourceTree = "<group>";
+		};
+		C3F6BDD81B389B860088D924 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C3F6BDD91B389B860088D924 /* Info.plist */,
+				C3F6BDDA1B389B860088D924 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C3F6BDF11B389B860088D924 /* BlindWizardAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				C3F6BDF41B389B860088D924 /* BlindWizardAppTests.m */,
+				C3F6BDF21B389B860088D924 /* Supporting Files */,
+			);
+			path = BlindWizardAppTests;
+			sourceTree = "<group>";
+		};
+		C3F6BDF21B389B860088D924 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C3F6BDFE1B389C1B0088D924 /* NSObject+MTKTest.h */,
+				C3F6BDFF1B389C1B0088D924 /* NSObject+MTKTest.m */,
+				C3F6BE001B389C1B0088D924 /* UIViewController+TestSegue.h */,
+				C3F6BE011B389C1B0088D924 /* UIViewController+TestSegue.m */,
+				C3F6BDF31B389B860088D924 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CE5D98A7B0FE3CFC1A2D09FE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8F66DF0723764B2C29A3CB58 /* libPods-BlindWizardApp.a */,
+				2FE3DB190173D277B949EE8E /* libPods-BlindWizardAppTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C3F6BDD41B389B860088D924 /* BlindWizardApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C3F6BDF81B389B860088D924 /* Build configuration list for PBXNativeTarget "BlindWizardApp" */;
+			buildPhases = (
+				25BB4804CEDAAABE5E0BECCF /* Check Pods Manifest.lock */,
+				C3F6BDD11B389B860088D924 /* Sources */,
+				C3F6BDD21B389B860088D924 /* Frameworks */,
+				C3F6BDD31B389B860088D924 /* Resources */,
+				50191FE4B24CD5EBD6923E32 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BlindWizardApp;
+			productName = BlindWizardApp;
+			productReference = C3F6BDD51B389B860088D924 /* BlindWizardApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C3F6BDED1B389B860088D924 /* BlindWizardAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C3F6BDFB1B389B860088D924 /* Build configuration list for PBXNativeTarget "BlindWizardAppTests" */;
+			buildPhases = (
+				CD8F6FF7011FF767B2920256 /* Check Pods Manifest.lock */,
+				C3F6BDEA1B389B860088D924 /* Sources */,
+				C3F6BDEB1B389B860088D924 /* Frameworks */,
+				C3F6BDEC1B389B860088D924 /* Resources */,
+				FC6393B90315BB2145E28626 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C3F6BDF01B389B860088D924 /* PBXTargetDependency */,
+			);
+			name = BlindWizardAppTests;
+			productName = BlindWizardAppTests;
+			productReference = C3F6BDEE1B389B860088D924 /* BlindWizardAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C3F6BDCD1B389B860088D924 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = Adronitis;
+				TargetAttributes = {
+					C3F6BDD41B389B860088D924 = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+					C3F6BDED1B389B860088D924 = {
+						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = C3F6BDD41B389B860088D924;
+					};
+				};
+			};
+			buildConfigurationList = C3F6BDD01B389B860088D924 /* Build configuration list for PBXProject "BlindWizardApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C3F6BDCC1B389B860088D924;
+			productRefGroup = C3F6BDD61B389B860088D924 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C3F6BDD41B389B860088D924 /* BlindWizardApp */,
+				C3F6BDED1B389B860088D924 /* BlindWizardAppTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C3F6BDD31B389B860088D924 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3F6BDE41B389B860088D924 /* Main.storyboard in Resources */,
+				C3F6BDE91B389B860088D924 /* LaunchScreen.xib in Resources */,
+				C3F6BDE61B389B860088D924 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3F6BDEC1B389B860088D924 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		25BB4804CEDAAABE5E0BECCF /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		50191FE4B24CD5EBD6923E32 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BlindWizardApp/Pods-BlindWizardApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CD8F6FF7011FF767B2920256 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FC6393B90315BB2145E28626 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BlindWizardAppTests/Pods-BlindWizardAppTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C3F6BDD11B389B860088D924 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3F6BDE11B389B860088D924 /* ViewController.m in Sources */,
+				C3F6BDDE1B389B860088D924 /* AppDelegate.m in Sources */,
+				C3F6BDDB1B389B860088D924 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3F6BDEA1B389B860088D924 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3F6BE021B389C1B0088D924 /* NSObject+MTKTest.m in Sources */,
+				C3F6BDF51B389B860088D924 /* BlindWizardAppTests.m in Sources */,
+				C3F6BE031B389C1B0088D924 /* UIViewController+TestSegue.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C3F6BDF01B389B860088D924 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C3F6BDD41B389B860088D924 /* BlindWizardApp */;
+			targetProxy = C3F6BDEF1B389B860088D924 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C3F6BDE21B389B860088D924 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C3F6BDE31B389B860088D924 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C3F6BDE71B389B860088D924 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C3F6BDE81B389B860088D924 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C3F6BDF61B389B860088D924 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		C3F6BDF71B389B860088D924 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C3F6BDF91B389B860088D924 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A4C82791F95AB8508FB957CA /* Pods-BlindWizardApp.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = BlindWizardApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		C3F6BDFA1B389B860088D924 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 694F5E0C5133767B47BE7698 /* Pods-BlindWizardApp.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = BlindWizardApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		C3F6BDFC1B389B860088D924 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3C3EAA76789237AA3C2635A2 /* Pods-BlindWizardAppTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = BlindWizardAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BlindWizardApp.app/BlindWizardApp";
+			};
+			name = Debug;
+		};
+		C3F6BDFD1B389B860088D924 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C0BC9E0C707035A355E75B87 /* Pods-BlindWizardAppTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = BlindWizardAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BlindWizardApp.app/BlindWizardApp";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C3F6BDD01B389B860088D924 /* Build configuration list for PBXProject "BlindWizardApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C3F6BDF61B389B860088D924 /* Debug */,
+				C3F6BDF71B389B860088D924 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C3F6BDF81B389B860088D924 /* Build configuration list for PBXNativeTarget "BlindWizardApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C3F6BDF91B389B860088D924 /* Debug */,
+				C3F6BDFA1B389B860088D924 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C3F6BDFB1B389B860088D924 /* Build configuration list for PBXNativeTarget "BlindWizardAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C3F6BDFC1B389B860088D924 /* Debug */,
+				C3F6BDFD1B389B860088D924 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C3F6BDCD1B389B860088D924 /* Project object */;
+}
