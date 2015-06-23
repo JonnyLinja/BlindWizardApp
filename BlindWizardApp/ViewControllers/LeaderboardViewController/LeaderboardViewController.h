@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  LeaderboardViewController.h
 //  BlindWizardApp
 //
 //  Created by N A on 6/22/15.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface LeaderboardViewController : UIViewController
 
 @end
-
