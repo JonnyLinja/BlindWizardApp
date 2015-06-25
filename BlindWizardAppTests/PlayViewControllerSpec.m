@@ -95,6 +95,10 @@ describe(@"PlayViewController", ^{
                 expect(sut.scoreLabel.text).to.equal(score);
             });
         });
+        
+        afterEach(^{
+            [playViewModelMock stopMocking];
+        });
     });
 });
 
