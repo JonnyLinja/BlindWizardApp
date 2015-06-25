@@ -23,7 +23,7 @@
 }
 
 - (IBAction)nextWave:(id)sender {
-    [self.viewModel nextWave];
+    [self.viewModel callNextWave];
 }
 
 - (void) dealloc {

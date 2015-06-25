@@ -1,5 +1,5 @@
 //
-//  PlayViewModel.h
+//  Game.h
 //  BlindWizardApp
 //
 //  Created by N A on 6/25/15.
@@ -8,10 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class Game;
-
-@interface PlayViewModel : NSObject
-@property (nonatomic, strong) Game *game; //inject
-@property (nonatomic, strong, readonly) NSString *score;
+@interface Game : NSObject
+@property (nonatomic, assign, readonly) NSInteger score;
 - (void) callNextWave;
 @end

@@ -168,16 +168,16 @@
                                 <exclude reference="fR2-4y-LcI"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="P1m-gx-egJ"/>
-                                <exclude reference="oNW-R0-826"/>
                                 <exclude reference="fD5-al-vdK"/>
                                 <exclude reference="rUM-pz-Lay"/>
+                                <exclude reference="P1m-gx-egJ"/>
+                                <exclude reference="oNW-R0-826"/>
+                                <exclude reference="DDh-In-xiI"/>
+                                <exclude reference="ZVG-HN-cuC"/>
                                 <exclude reference="NVz-sB-law"/>
                                 <exclude reference="dXb-ZY-gks"/>
                                 <exclude reference="h0Y-kj-NM4"/>
                                 <exclude reference="sPK-aI-D9t"/>
-                                <exclude reference="DDh-In-xiI"/>
-                                <exclude reference="ZVG-HN-cuC"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -188,16 +188,16 @@
                                 <include reference="fR2-4y-LcI"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="P1m-gx-egJ"/>
-                                <include reference="oNW-R0-826"/>
                                 <include reference="fD5-al-vdK"/>
                                 <include reference="rUM-pz-Lay"/>
+                                <include reference="P1m-gx-egJ"/>
+                                <include reference="oNW-R0-826"/>
+                                <include reference="DDh-In-xiI"/>
+                                <include reference="ZVG-HN-cuC"/>
                                 <include reference="NVz-sB-law"/>
                                 <include reference="dXb-ZY-gks"/>
                                 <include reference="h0Y-kj-NM4"/>
                                 <include reference="sPK-aI-D9t"/>
-                                <include reference="DDh-In-xiI"/>
-                                <include reference="ZVG-HN-cuC"/>
                             </mask>
                         </variation>
                     </view>
@@ -220,6 +220,7 @@
                         <viewControllerLayoutGuide type="bottom" id="KrN-xh-akb"/>
                     </layoutGuides>
                     <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="1L1-NF-ajx">
+                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>

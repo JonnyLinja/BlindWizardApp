@@ -79,7 +79,7 @@ describe(@"PlayViewController", ^{
                 [sut.nextWaveButton sendActionsForControlEvents:UIControlEventTouchUpInside];
                 
                 //expect
-                OCMVerify([playViewModelMock nextWave]);
+                OCMVerify([playViewModelMock callNextWave]);
             });
         });
         

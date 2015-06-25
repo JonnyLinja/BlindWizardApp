@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7FAB24D207C69E0B81926A2F /* libPods-BlindWizardApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F66DF0723764B2C29A3CB58 /* libPods-BlindWizardApp.a */; };
+		C34F7F621B3C991200D07881 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = C34F7F611B3C991200D07881 /* Game.m */; };
 		C3A3B3291B3BCCBF00ADF11A /* PlayViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A3B3281B3BCCBF00ADF11A /* PlayViewModel.m */; };
 		C3A3B32D1B3BD07400ADF11A /* BoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A3B32C1B3BD07400ADF11A /* BoardViewController.m */; };
 		C3A3B3301B3BD84700ADF11A /* PlayViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A3B32F1B3BD84700ADF11A /* PlayViewModel.m */; };
@@ -44,6 +45,8 @@
 		8F66DF0723764B2C29A3CB58 /* libPods-BlindWizardApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BlindWizardApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4C82791F95AB8508FB957CA /* Pods-BlindWizardApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlindWizardApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BlindWizardApp/Pods-BlindWizardApp.debug.xcconfig"; sourceTree = "<group>"; };
 		C0BC9E0C707035A355E75B87 /* Pods-BlindWizardAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlindWizardAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BlindWizardAppTests/Pods-BlindWizardAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		C34F7F601B3C991200D07881 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
+		C34F7F611B3C991200D07881 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
 		C3A3B3281B3BCCBF00ADF11A /* PlayViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayViewModel.m; sourceTree = "<group>"; };
 		C3A3B32B1B3BD07400ADF11A /* BoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardViewController.h; sourceTree = "<group>"; };
 		C3A3B32C1B3BD07400ADF11A /* BoardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardViewController.m; sourceTree = "<group>"; };
@@ -103,6 +106,15 @@
 				C0BC9E0C707035A355E75B87 /* Pods-BlindWizardAppTests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		C34F7F5F1B3C990000D07881 /* GameLogic */ = {
+			isa = PBXGroup;
+			children = (
+				C34F7F601B3C991200D07881 /* Game.h */,
+				C34F7F611B3C991200D07881 /* Game.m */,
+			);
+			path = GameLogic;
 			sourceTree = "<group>";
 		};
 		C3A3B32A1B3BD06C00ADF11A /* BoardViewController */ = {
@@ -167,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				C3F6BE041B38F6490088D924 /* Assemblies */,
+				C34F7F5F1B3C990000D07881 /* GameLogic */,
 				C3F6BE051B38F6490088D924 /* ViewControllers */,
 				C3F6BDDC1B389B860088D924 /* AppDelegate.h */,
 				C3F6BDDD1B389B860088D924 /* AppDelegate.m */,
@@ -408,6 +421,7 @@
 				C3A3B3301B3BD84700ADF11A /* PlayViewModel.m in Sources */,
 				C3A9E7B11B38FC1F006D9C68 /* PlayViewController.m in Sources */,
 				C3A9E7B91B38FDC4006D9C68 /* LeaderboardViewController.m in Sources */,
+				C34F7F621B3C991200D07881 /* Game.m in Sources */,
 				C3A9E7B51B38FC35006D9C68 /* TitleViewController.m in Sources */,
 				C3A3B32D1B3BD07400ADF11A /* BoardViewController.m in Sources */,
 				C3F6BDDE1B389B860088D924 /* AppDelegate.m in Sources */,
