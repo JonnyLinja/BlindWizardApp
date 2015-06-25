@@ -1,7 +1,6 @@
 #import <Specta/Specta.h>
 #import "Expecta.h"
 #import <OCMock/OCMock.h>
-
 #import "UIViewController+TestSegue.h"
 
 #import "TitleViewController.h"
@@ -41,7 +40,7 @@ describe(@"TitleViewController", ^{
             //because
             [sut.playButton sendActionsForControlEvents:UIControlEventTouchUpInside];
             
-            //expectations
+            //expect
             OCMVerify([storyboardMock instantiateViewControllerWithIdentifier:@"PlayViewController"]);
             expect(sut.segueDestinationViewController).to.equal(vc);
             
@@ -60,7 +59,7 @@ describe(@"TitleViewController", ^{
             //because
             [sut.leaderboardButton sendActionsForControlEvents:UIControlEventTouchUpInside];
             
-            //expectations
+            //expect
             OCMVerify([storyboardMock instantiateViewControllerWithIdentifier:@"LeaderboardViewController"]);
             expect(sut.segueDestinationViewController).to.equal(vc);
             

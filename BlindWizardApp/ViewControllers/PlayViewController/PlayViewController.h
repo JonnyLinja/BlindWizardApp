@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PlayViewController : UIViewController
+@class PlayViewModel;
 
+@interface PlayViewController : UIViewController
+@property (nonatomic, strong) PlayViewModel *viewModel;
+@property (nonatomic, weak) IBOutlet UIButton *closeButton;
+@property (nonatomic, weak) IBOutlet UILabel *scoreLabel;
+@property (nonatomic, weak) IBOutlet UIButton *nextWaveButton;
+- (IBAction)nextWave:(id)sender;
 @end
