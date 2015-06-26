@@ -118,7 +118,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="nextWave:" destination="HkQ-4G-IqO" eventType="touchUpInside" id="Kzv-5Q-Luh"/>
+                                    <action selector="tapNextWave:" destination="HkQ-4G-IqO" eventType="touchUpInside" id="zMp-t4-Qk8"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 points" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AyM-eZ-Af7">
@@ -222,11 +222,30 @@
                     <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="1L1-NF-ajx">
                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="nKU-n4-dIL" appends="YES" id="yH4-cV-MkQ"/>
+                            <outletCollection property="gestureRecognizers" destination="FFG-k4-TjF" appends="YES" id="0MK-VP-hF1"/>
+                        </connections>
                     </view>
                     <toolbarItems/>
+                    <connections>
+                        <outlet property="leftSwipeGestureRecognizer" destination="nKU-n4-dIL" id="1p9-rg-w8j"/>
+                        <outlet property="rightSwipeGestureRecognizer" destination="FFG-k4-TjF" id="mCJ-Se-OcK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZiW-Jv-KWG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="left" id="nKU-n4-dIL">
+                    <connections>
+                        <action selector="swipedLeft:" destination="h9S-8f-MZc" id="exV-wa-jAh"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="FFG-k4-TjF">
+                    <connections>
+                        <action selector="swipedRight:" destination="h9S-8f-MZc" id="bbg-qY-6b3"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1681.5" y="83.25"/>
         </scene>

@@ -22,7 +22,7 @@
     [self map:@keypath(self.viewModel.score) to:@keypath(self.scoreLabel.text) null:@"0 Points"];
 }
 
-- (IBAction)nextWave:(id)sender {
+- (IBAction)tapNextWave:(id)sender {
     [self.viewModel callNextWave];
 }
 

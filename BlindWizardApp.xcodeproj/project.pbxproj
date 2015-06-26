@@ -9,7 +9,9 @@
 /* Begin PBXBuildFile section */
 		7FAB24D207C69E0B81926A2F /* libPods-BlindWizardApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F66DF0723764B2C29A3CB58 /* libPods-BlindWizardApp.a */; };
 		C34F7F621B3C991200D07881 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = C34F7F611B3C991200D07881 /* Game.m */; };
-		C3A3B3291B3BCCBF00ADF11A /* PlayViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A3B3281B3BCCBF00ADF11A /* PlayViewModel.m */; };
+		C34F7F641B3CA29E00D07881 /* GameSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C34F7F631B3CA29E00D07881 /* GameSpec.m */; };
+		C34F7F671B3CD28A00D07881 /* BoardViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C34F7F661B3CD28A00D07881 /* BoardViewModel.m */; };
+		C3A3B3291B3BCCBF00ADF11A /* PlayViewModelSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A3B3281B3BCCBF00ADF11A /* PlayViewModelSpec.m */; };
 		C3A3B32D1B3BD07400ADF11A /* BoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A3B32C1B3BD07400ADF11A /* BoardViewController.m */; };
 		C3A3B3301B3BD84700ADF11A /* PlayViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A3B32F1B3BD84700ADF11A /* PlayViewModel.m */; };
 		C3A9E7B11B38FC1F006D9C68 /* PlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A9E7B01B38FC1F006D9C68 /* PlayViewController.m */; };
@@ -24,7 +26,7 @@
 		C3F6BE031B389C1B0088D924 /* UIViewController+TestSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F6BE011B389C1B0088D924 /* UIViewController+TestSegue.m */; };
 		C3F6BE071B38F6620088D924 /* TitleViewControllerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F6BE061B38F6620088D924 /* TitleViewControllerSpec.m */; };
 		C3F72DA71B3A2C800040909A /* PlayViewControllerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F72DA61B3A2C800040909A /* PlayViewControllerSpec.m */; };
-		C3F72DA91B3A312B0040909A /* BoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F72DA81B3A312B0040909A /* BoardViewController.m */; };
+		C3F72DA91B3A312B0040909A /* BoardViewControllerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F72DA81B3A312B0040909A /* BoardViewControllerSpec.m */; };
 		DFD95E0BAFD8372FD963D424 /* libPods-BlindWizardAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FE3DB190173D277B949EE8E /* libPods-BlindWizardAppTests.a */; };
 /* End PBXBuildFile section */
 
@@ -47,7 +49,10 @@
 		C0BC9E0C707035A355E75B87 /* Pods-BlindWizardAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlindWizardAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BlindWizardAppTests/Pods-BlindWizardAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		C34F7F601B3C991200D07881 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
 		C34F7F611B3C991200D07881 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
-		C3A3B3281B3BCCBF00ADF11A /* PlayViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayViewModel.m; sourceTree = "<group>"; };
+		C34F7F631B3CA29E00D07881 /* GameSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameSpec.m; sourceTree = "<group>"; };
+		C34F7F651B3CD28A00D07881 /* BoardViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardViewModel.h; sourceTree = "<group>"; };
+		C34F7F661B3CD28A00D07881 /* BoardViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardViewModel.m; sourceTree = "<group>"; };
+		C3A3B3281B3BCCBF00ADF11A /* PlayViewModelSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayViewModelSpec.m; sourceTree = "<group>"; };
 		C3A3B32B1B3BD07400ADF11A /* BoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardViewController.h; sourceTree = "<group>"; };
 		C3A3B32C1B3BD07400ADF11A /* BoardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardViewController.m; sourceTree = "<group>"; };
 		C3A3B32E1B3BD84700ADF11A /* PlayViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayViewModel.h; sourceTree = "<group>"; };
@@ -74,7 +79,7 @@
 		C3F6BE011B389C1B0088D924 /* UIViewController+TestSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+TestSegue.m"; sourceTree = "<group>"; };
 		C3F6BE061B38F6620088D924 /* TitleViewControllerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleViewControllerSpec.m; sourceTree = "<group>"; };
 		C3F72DA61B3A2C800040909A /* PlayViewControllerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayViewControllerSpec.m; sourceTree = "<group>"; };
-		C3F72DA81B3A312B0040909A /* BoardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardViewController.m; sourceTree = "<group>"; };
+		C3F72DA81B3A312B0040909A /* BoardViewControllerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardViewControllerSpec.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +127,8 @@
 			children = (
 				C3A3B32B1B3BD07400ADF11A /* BoardViewController.h */,
 				C3A3B32C1B3BD07400ADF11A /* BoardViewController.m */,
+				C34F7F651B3CD28A00D07881 /* BoardViewModel.h */,
+				C34F7F661B3CD28A00D07881 /* BoardViewModel.m */,
 			);
 			path = BoardViewController;
 			sourceTree = "<group>";
@@ -205,8 +212,9 @@
 			children = (
 				C3F6BE061B38F6620088D924 /* TitleViewControllerSpec.m */,
 				C3F72DA61B3A2C800040909A /* PlayViewControllerSpec.m */,
-				C3A3B3281B3BCCBF00ADF11A /* PlayViewModel.m */,
-				C3F72DA81B3A312B0040909A /* BoardViewController.m */,
+				C3A3B3281B3BCCBF00ADF11A /* PlayViewModelSpec.m */,
+				C3F72DA81B3A312B0040909A /* BoardViewControllerSpec.m */,
+				C34F7F631B3CA29E00D07881 /* GameSpec.m */,
 				C3F6BDF21B389B860088D924 /* Supporting Files */,
 			);
 			path = BlindWizardAppTests;
@@ -419,6 +427,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3A3B3301B3BD84700ADF11A /* PlayViewModel.m in Sources */,
+				C34F7F671B3CD28A00D07881 /* BoardViewModel.m in Sources */,
 				C3A9E7B11B38FC1F006D9C68 /* PlayViewController.m in Sources */,
 				C3A9E7B91B38FDC4006D9C68 /* LeaderboardViewController.m in Sources */,
 				C34F7F621B3C991200D07881 /* Game.m in Sources */,
@@ -434,10 +443,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3F6BE021B389C1B0088D924 /* NSObject+MTKTest.m in Sources */,
-				C3F72DA91B3A312B0040909A /* BoardViewController.m in Sources */,
+				C3F72DA91B3A312B0040909A /* BoardViewControllerSpec.m in Sources */,
 				C3F6BE071B38F6620088D924 /* TitleViewControllerSpec.m in Sources */,
 				C3F6BE031B389C1B0088D924 /* UIViewController+TestSegue.m in Sources */,
-				C3A3B3291B3BCCBF00ADF11A /* PlayViewModel.m in Sources */,
+				C3A3B3291B3BCCBF00ADF11A /* PlayViewModelSpec.m in Sources */,
+				C34F7F641B3CA29E00D07881 /* GameSpec.m in Sources */,
 				C3F72DA71B3A2C800040909A /* PlayViewControllerSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

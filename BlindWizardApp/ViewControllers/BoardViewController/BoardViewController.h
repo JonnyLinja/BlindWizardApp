@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BoardViewController : UIViewController
+@class BoardViewModel;
 
+@interface BoardViewController : UIViewController
+@property (nonatomic, strong) BoardViewModel *viewModel; //inject
+@property (nonatomic, weak) IBOutlet UISwipeGestureRecognizer *leftSwipeGestureRecognizer;
+@property (nonatomic, weak) IBOutlet UISwipeGestureRecognizer *rightSwipeGestureRecognizer;
+- (IBAction)swipedLeft:(UISwipeGestureRecognizer *)sender;
+- (IBAction)swipedRight:(UISwipeGestureRecognizer *)sender;
 @end

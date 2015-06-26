@@ -15,5 +15,5 @@
 @property (nonatomic, weak) IBOutlet UIButton *closeButton;
 @property (nonatomic, weak) IBOutlet UILabel *scoreLabel;
 @property (nonatomic, weak) IBOutlet UIButton *nextWaveButton;
-- (IBAction)nextWave:(id)sender;
+- (IBAction)tapNextWave:(id)sender;
 @end
