@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface Game : NSObject
+@property (nonatomic, assign, readonly) BOOL gameInProgress;
 @property (nonatomic, assign, readonly) NSInteger score;
+- (void) startGame;
 - (void) callNextWave;
 @end

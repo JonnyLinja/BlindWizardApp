@@ -19,6 +19,16 @@ describe(@"PlayViewModel", ^{
         sut.game = gameMock;
     });
     
+    context(@"when trying to start the game", ^{
+        it(@"should start the game", ^{
+            //because
+            [sut startGame];
+            
+            //expect
+            OCMVerify([gameMock startGame]);
+        });
+    });
+    
     context(@"when game score changes", ^{
         it(@"should convert score to a displayable string", ^{
             //because
@@ -39,9 +49,23 @@ describe(@"PlayViewModel", ^{
         });
     });
     
-    //notification stuff?
-    context(@"when game ends", ^{
-        it(@"should create the next wave", ^{
+    context(@"when game is over", ^{
+        it(@"should set game in progress to NO", ^{
+            //because
+            [sut notifyKeyPath:@"game.gameInProgress" setTo:@NO];
+            
+            //expect
+            expect(sut.gameInProgress).to.beFalsy();
+        });
+    });
+    
+    context(@"when game is playing", ^{
+        it(@"should set game in progress to YES", ^{
+            //because
+            [sut notifyKeyPath:@"game.gameInProgress" setTo:@YES];
+            
+            //expect
+            expect(sut.gameInProgress).to.beTruthy();
         });
     });
     

@@ -10,6 +10,10 @@
 
 @implementation Game
 
+- (void) startGame {
+    
+}
+
 - (void) callNextWave {
     
 }
