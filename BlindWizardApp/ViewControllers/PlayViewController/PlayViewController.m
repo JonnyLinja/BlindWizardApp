@@ -20,10 +20,16 @@
     [super viewDidLoad];
     
     [self map:@keypath(self.viewModel.score) to:@keypath(self.scoreLabel.text) null:@"0 Points"];
+    [self map:@keypath(self.viewModel.gameInProgress) to:@keypath(self.playAgainButton.hidden) null:@YES];
+    [self.viewModel startGame];
 }
 
-- (IBAction)tapNextWave:(id)sender {
+- (IBAction)tappedNextWave:(id)sender {
     [self.viewModel callNextWave];
+}
+
+- (IBAction)tappedPlayAgain:(id)sender {
+    [self.viewModel startGame];
 }
 
 - (void) dealloc {

@@ -43,7 +43,7 @@ describe(@"BoardViewController", ^{
     });
     
     context(@"when swiping left", ^{
-        it(@"should swipe the objects to the left", ^{
+        it(@"should swipe left using the point", ^{
             //context
             CGPoint point = CGPointMake(10, 10);
             __block id swipeMock = OCMClassMock([UISwipeGestureRecognizer class]);
@@ -55,11 +55,14 @@ describe(@"BoardViewController", ^{
             //expect
             OCMVerify([swipeMock locationInView:sut.view]);
             OCMVerify([boardViewModelMock swipeLeftFromPoint:point]);
+            
+            //cleanup
+            [swipeMock stopMocking];
         });
     });
     
     context(@"when swiping right", ^{
-        it(@"should swipe the objects to the right", ^{
+        it(@"should swipe right using the point", ^{
             //context
             CGPoint point = CGPointMake(10, 10);
             __block id swipeMock = OCMClassMock([UISwipeGestureRecognizer class]);
@@ -71,6 +74,9 @@ describe(@"BoardViewController", ^{
             //expect
             OCMVerify([swipeMock locationInView:sut.view]);
             OCMVerify([boardViewModelMock swipeRightFromPoint:point]);
+            
+            //cleanup
+            [swipeMock stopMocking];
         });
     });
     

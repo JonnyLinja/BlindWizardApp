@@ -31,6 +31,10 @@
     [self.game callNextWave];
 }
 
+- (void) startGame {
+    
+}
+
 - (void) dealloc {
     [self removeAllObservations];
 }

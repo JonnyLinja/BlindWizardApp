@@ -11,9 +11,11 @@
 @class PlayViewModel;
 
 @interface PlayViewController : UIViewController
-@property (nonatomic, strong) PlayViewModel *viewModel;
+@property (nonatomic, strong) PlayViewModel *viewModel; //inject
 @property (nonatomic, weak) IBOutlet UIButton *closeButton;
 @property (nonatomic, weak) IBOutlet UILabel *scoreLabel;
 @property (nonatomic, weak) IBOutlet UIButton *nextWaveButton;
-- (IBAction)tapNextWave:(id)sender;
+@property (nonatomic, weak) IBOutlet UIButton *playAgainButton;
+- (IBAction)tappedNextWave:(id)sender;
+- (IBAction)tappedPlayAgain:(id)sender;
 @end

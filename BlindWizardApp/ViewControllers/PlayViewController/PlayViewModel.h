@@ -12,6 +12,8 @@
 
 @interface PlayViewModel : NSObject
 @property (nonatomic, strong) Game *game; //inject
+@property (nonatomic, assign, readonly) BOOL gameInProgress;
 @property (nonatomic, strong, readonly) NSString *score;
 - (void) callNextWave;
+- (void) startGame;
 @end

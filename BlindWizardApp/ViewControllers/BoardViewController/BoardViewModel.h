@@ -9,7 +9,10 @@
 #import <Foundation/Foundation.h>
 #import <CoreGraphics/CoreGraphics.h>
 
+@class Game;
+
 @interface BoardViewModel : NSObject
+@property (nonatomic, strong) Game *game; //inject
 - (void) swipeLeftFromPoint:(CGPoint)point;
 - (void) swipeRightFromPoint:(CGPoint)point;
 @end

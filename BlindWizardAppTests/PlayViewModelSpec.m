@@ -13,9 +13,6 @@ describe(@"PlayViewModel", ^{
     __block PlayViewModel *sut;
     __block id gameMock;
     
-    beforeAll(^{
-    });
-    
     beforeEach(^{
         sut = [[PlayViewModel alloc] init];
         gameMock = OCMClassMock([Game class]);
@@ -39,6 +36,12 @@ describe(@"PlayViewModel", ^{
             
             //expect
             OCMVerify([gameMock callNextWave]);
+        });
+    });
+    
+    //notification stuff?
+    context(@"when game ends", ^{
+        it(@"should create the next wave", ^{
         });
     });
     

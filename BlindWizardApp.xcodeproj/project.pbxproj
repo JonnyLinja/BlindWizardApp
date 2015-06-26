@@ -11,6 +11,7 @@
 		C34F7F621B3C991200D07881 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = C34F7F611B3C991200D07881 /* Game.m */; };
 		C34F7F641B3CA29E00D07881 /* GameSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C34F7F631B3CA29E00D07881 /* GameSpec.m */; };
 		C34F7F671B3CD28A00D07881 /* BoardViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C34F7F661B3CD28A00D07881 /* BoardViewModel.m */; };
+		C37B74951B3CF5FF00D22D5E /* BoardViewModelSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C37B74941B3CF5FF00D22D5E /* BoardViewModelSpec.m */; };
 		C3A3B3291B3BCCBF00ADF11A /* PlayViewModelSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A3B3281B3BCCBF00ADF11A /* PlayViewModelSpec.m */; };
 		C3A3B32D1B3BD07400ADF11A /* BoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A3B32C1B3BD07400ADF11A /* BoardViewController.m */; };
 		C3A3B3301B3BD84700ADF11A /* PlayViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A3B32F1B3BD84700ADF11A /* PlayViewModel.m */; };
@@ -52,6 +53,7 @@
 		C34F7F631B3CA29E00D07881 /* GameSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameSpec.m; sourceTree = "<group>"; };
 		C34F7F651B3CD28A00D07881 /* BoardViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardViewModel.h; sourceTree = "<group>"; };
 		C34F7F661B3CD28A00D07881 /* BoardViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardViewModel.m; sourceTree = "<group>"; };
+		C37B74941B3CF5FF00D22D5E /* BoardViewModelSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardViewModelSpec.m; sourceTree = "<group>"; };
 		C3A3B3281B3BCCBF00ADF11A /* PlayViewModelSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayViewModelSpec.m; sourceTree = "<group>"; };
 		C3A3B32B1B3BD07400ADF11A /* BoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardViewController.h; sourceTree = "<group>"; };
 		C3A3B32C1B3BD07400ADF11A /* BoardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardViewController.m; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 				C3F72DA61B3A2C800040909A /* PlayViewControllerSpec.m */,
 				C3A3B3281B3BCCBF00ADF11A /* PlayViewModelSpec.m */,
 				C3F72DA81B3A312B0040909A /* BoardViewControllerSpec.m */,
+				C37B74941B3CF5FF00D22D5E /* BoardViewModelSpec.m */,
 				C34F7F631B3CA29E00D07881 /* GameSpec.m */,
 				C3F6BDF21B389B860088D924 /* Supporting Files */,
 			);
@@ -448,6 +451,7 @@
 				C3F6BE031B389C1B0088D924 /* UIViewController+TestSegue.m in Sources */,
 				C3A3B3291B3BCCBF00ADF11A /* PlayViewModelSpec.m in Sources */,
 				C34F7F641B3CA29E00D07881 /* GameSpec.m in Sources */,
+				C37B74951B3CF5FF00D22D5E /* BoardViewModelSpec.m in Sources */,
 				C3F72DA71B3A2C800040909A /* PlayViewControllerSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

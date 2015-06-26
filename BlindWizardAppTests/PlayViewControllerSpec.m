@@ -62,15 +62,29 @@ describe(@"PlayViewController", ^{
             //cleanup
             [storyboardMock stopMocking];
         });
+        
+        it(@"should have a play again button", ^{
+            //because
+            [sut view];
+            
+            //expect
+            expect(sut.playAgainButton).toNot.beNil();
+        });
     });
     
-    context(@"after loaded", ^{
+    context(@"after ui elements loaded", ^{
         __block id playViewModelMock;
 
         beforeEach(^{
             playViewModelMock = OCMClassMock([PlayViewModel class]);
             sut.viewModel = playViewModelMock;
             [sut view];
+        });
+        
+        context(@"when loaded", ^{
+            it(@"should start the game", ^{
+                OCMVerify([playViewModelMock startGame]);
+            });
         });
         
         context(@"when user taps the next wave button", ^{
@@ -96,7 +110,46 @@ describe(@"PlayViewController", ^{
             });
         });
         
+        context(@"when game is over", ^{
+            it(@"should show the play again button", ^{
+                //because
+                [sut notifyKeyPath:@"viewModel.gameInProgress" setTo:@NO];
+                
+                //expect
+                expect(sut.playAgainButton.hidden).to.beFalsy();
+            });
+        });
+        
+        context(@"when game is playing", ^{
+            it(@"should hide the play again button", ^{
+                //because
+                [sut notifyKeyPath:@"viewModel.gameInProgress" setTo:@YES];
+                
+                //expect
+                expect(sut.playAgainButton.hidden).to.beTruthy();
+            });
+        });
+        
         afterEach(^{
+            [playViewModelMock stopMocking];
+        });
+    });
+    
+    //pulled out since calling [sut view] after setting the mock makes it always pass
+    context(@"when the player taps on play again", ^{
+        it(@"should start the game", ^{
+            //context
+            [sut view];
+            id playViewModelMock = OCMClassMock([PlayViewModel class]);
+            sut.viewModel = playViewModelMock;
+            
+            //because
+            [sut.playAgainButton sendActionsForControlEvents:UIControlEventTouchUpInside];
+            
+            //expect
+            OCMVerify([playViewModelMock startGame]);
+            
+            //cleanup
             [playViewModelMock stopMocking];
         });
     });
