@@ -10,9 +10,11 @@
 #import <CoreGraphics/CoreGraphics.h>
 
 @class Game;
+@class GridCalculator;
 
 @interface BoardViewModel : NSObject
 @property (nonatomic, strong) Game *game; //inject
+@property (nonatomic, strong) GridCalculator *gridCalculator; //inject
 - (void) swipeLeftFromPoint:(CGPoint)point;
 - (void) swipeRightFromPoint:(CGPoint)point;
 @end

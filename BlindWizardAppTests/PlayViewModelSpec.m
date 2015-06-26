@@ -39,8 +39,8 @@ describe(@"PlayViewModel", ^{
         });
     });
     
-    context(@"when trying to create the next wave", ^{
-        it(@"should create the next wave", ^{
+    context(@"when trying to call the next wave", ^{
+        it(@"should call the next wave", ^{
             //because
             [sut callNextWave];
             

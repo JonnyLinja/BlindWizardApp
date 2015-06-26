@@ -18,6 +18,7 @@
 		C3A9E7B11B38FC1F006D9C68 /* PlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A9E7B01B38FC1F006D9C68 /* PlayViewController.m */; };
 		C3A9E7B51B38FC35006D9C68 /* TitleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A9E7B41B38FC35006D9C68 /* TitleViewController.m */; };
 		C3A9E7B91B38FDC4006D9C68 /* LeaderboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A9E7B81B38FDC4006D9C68 /* LeaderboardViewController.m */; };
+		C3E313811B3E141800ADB0AB /* GridCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E313801B3E141800ADB0AB /* GridCalculator.m */; };
 		C3F6BDDB1B389B860088D924 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F6BDDA1B389B860088D924 /* main.m */; };
 		C3F6BDDE1B389B860088D924 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F6BDDD1B389B860088D924 /* AppDelegate.m */; };
 		C3F6BDE41B389B860088D924 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3F6BDE21B389B860088D924 /* Main.storyboard */; };
@@ -65,6 +66,8 @@
 		C3A9E7B41B38FC35006D9C68 /* TitleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleViewController.m; sourceTree = "<group>"; };
 		C3A9E7B71B38FDC4006D9C68 /* LeaderboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeaderboardViewController.h; sourceTree = "<group>"; };
 		C3A9E7B81B38FDC4006D9C68 /* LeaderboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeaderboardViewController.m; sourceTree = "<group>"; };
+		C3E3137F1B3E141800ADB0AB /* GridCalculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridCalculator.h; sourceTree = "<group>"; };
+		C3E313801B3E141800ADB0AB /* GridCalculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridCalculator.m; sourceTree = "<group>"; };
 		C3F6BDD51B389B860088D924 /* BlindWizardApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlindWizardApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3F6BDD91B389B860088D924 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C3F6BDDA1B389B860088D924 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -120,6 +123,8 @@
 			children = (
 				C34F7F601B3C991200D07881 /* Game.h */,
 				C34F7F611B3C991200D07881 /* Game.m */,
+				C3E3137F1B3E141800ADB0AB /* GridCalculator.h */,
+				C3E313801B3E141800ADB0AB /* GridCalculator.m */,
 			);
 			path = GameLogic;
 			sourceTree = "<group>";
@@ -434,6 +439,7 @@
 				C3A9E7B11B38FC1F006D9C68 /* PlayViewController.m in Sources */,
 				C3A9E7B91B38FDC4006D9C68 /* LeaderboardViewController.m in Sources */,
 				C34F7F621B3C991200D07881 /* Game.m in Sources */,
+				C3E313811B3E141800ADB0AB /* GridCalculator.m in Sources */,
 				C3A9E7B51B38FC35006D9C68 /* TitleViewController.m in Sources */,
 				C3A3B32D1B3BD07400ADF11A /* BoardViewController.m in Sources */,
 				C3F6BDDE1B389B860088D924 /* AppDelegate.m in Sources */,

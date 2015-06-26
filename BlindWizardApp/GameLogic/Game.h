@@ -11,6 +11,11 @@
 @interface Game : NSObject
 @property (nonatomic, assign, readonly) BOOL gameInProgress;
 @property (nonatomic, assign, readonly) NSInteger score;
++ (NSString *) CreateNotificationName;
++ (NSString *) MoveNotificationName;
++ (NSString *) DestroyNotificationName;
 - (void) startGame;
 - (void) callNextWave;
+- (void) swipeLeftOnRow:(NSInteger)row;
+- (void) swipeRightOnRow:(NSInteger)row;
 @end

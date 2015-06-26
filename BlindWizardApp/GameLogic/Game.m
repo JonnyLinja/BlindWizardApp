@@ -10,11 +10,31 @@
 
 @implementation Game
 
++ (NSString *) CreateNotificationName {
+    return @"GameCreateNotificationName";
+}
+
++ (NSString *) MoveNotificationName {
+    return @"GameMoveNotificationName";
+}
+
++ (NSString *) DestroyNotificationName {
+    return @"DestroyNotificationName";
+}
+
 - (void) startGame {
     
 }
 
 - (void) callNextWave {
+    
+}
+
+- (void) swipeLeftOnRow:(NSInteger)row {
+    
+}
+
+- (void) swipeRightOnRow:(NSInteger)row {
     
 }
 
