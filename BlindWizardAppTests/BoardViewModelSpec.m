@@ -39,6 +39,10 @@ describe(@"BoardViewModel", ^{
             OCMVerify([notificationMock addObserver:sut selector:[OCMArg anySelector] name:[Game MoveNotificationName] object:sut.game]);
         });
         
+        it(@"should listen for danger notifications", ^{
+            OCMVerify([notificationMock addObserver:sut selector:[OCMArg anySelector] name:[Game DangerNotificationName] object:sut.game]);
+        });
+        
         it(@"should listen for destroy notifications", ^{
             OCMVerify([notificationMock addObserver:sut selector:[OCMArg anySelector] name:[Game DestroyNotificationName] object:sut.game]);
         });
@@ -130,20 +134,33 @@ describe(@"BoardViewModel", ^{
             });
         });
         
-        context(@"when there are objects to be moved", ^{
-            it(@"should move and animate the objects", ^{
+        context(@"when there are enemies to be moved", ^{
+            it(@"should move and animate the enemies", ^{
                 
             });
         });
         
-        context(@"when there are objects to be destroyed", ^{
-            it(@"should destroy and animate the objects", ^{
+        context(@"when there are enemies marked as dangerously close", ^{
+            it(@"should run a danger animation for those enemies, and stop the danger animation for the others", ^{
+                
+            });
+        });
+        
+        context(@"when there are enemies to be destroyed", ^{
+            it(@"should destroy the enemies and animate it", ^{
                 
             });
         });
         
         afterEach(^{
             [gameFactoryMock stopMocking];
+        });
+    });
+    
+    //TODO:
+    pending(@"when animations are run", ^{
+        it(@"should pause the game until they are complete", ^{
+            
         });
     });
     

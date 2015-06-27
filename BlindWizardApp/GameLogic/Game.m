@@ -18,6 +18,10 @@
     return @"GameMoveNotificationName";
 }
 
++ (NSString *) DangerNotificationName {
+    return @"GameDangerNotificationName";
+}
+
 + (NSString *) DestroyNotificationName {
     return @"DestroyNotificationName";
 }

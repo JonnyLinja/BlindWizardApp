@@ -30,6 +30,7 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(create:) name:[Game CreateNotificationName] object:self.game];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(move:) name:[Game MoveNotificationName] object:self.game];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(danger:) name:[Game DangerNotificationName] object:self.game];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(destroy:) name:[Game DestroyNotificationName] object:self.game];
 }
 
@@ -53,6 +54,10 @@
 }
 
 - (void) move:(NSNotification *)notification {
+    
+}
+
+- (void) danger:(NSNotification *)notification {
     
 }
 

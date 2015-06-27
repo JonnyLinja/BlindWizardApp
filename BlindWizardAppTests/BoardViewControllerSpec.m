@@ -36,7 +36,7 @@ describe(@"BoardViewController", ^{
             expect(sut.rightSwipeGestureRecognizer.view).to.equal(sut.view);
         });
         
-        //not sure how to do this yet, or if it even belongs in the VC, leave for later
+        //TODO: not sure how to do this yet, or if it even belongs in the VC, leave for later
         pending(@"should display initial blocks", ^{
             
         });
