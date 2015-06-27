@@ -5,6 +5,12 @@
 #import "BoardViewModel.h"
 #import "Game.h"
 #import "GridCalculator.h"
+#import "GameFactory.h"
+#import "ObjectPosition.h"
+#import "EnemyViewModel.h"
+
+//TODO: THERE SHOULD ALSO BE A JIGGLE COMMAND
+//MAYBE CAN DO THAT ON THE ACTUAL VIEWS THOUGH
 
 SpecBegin(BoardViewModel)
 
@@ -87,21 +93,57 @@ describe(@"BoardViewModel", ^{
         });
     });
     
-    context(@"when there are objects to be created", ^{
-        it(@"should create and animate the objects", ^{
-            
+    context(@"notification handling", ^{
+        __block id gameFactoryMock;
+        
+        beforeEach(^{
+            gameFactoryMock = OCMClassMock([GameFactory class]);
+            sut.gameFactory = gameFactoryMock;
         });
-    });
+        
+        context(@"when there are enemies to be created", ^{
+            it(@"should create the enemies, animate them, and store them", ^{
+                //context
+                ObjectPosition *pos1 = [[ObjectPosition alloc] initWithRow:5 andColumn:0];
+                ObjectPosition *pos2 = [[ObjectPosition alloc] initWithRow:5 andColumn:1];
+                id model1Mock = OCMClassMock([EnemyViewModel class]);
+                id model2Mock = OCMClassMock([EnemyViewModel class]);
+                OCMStub([gameFactoryMock createEnemyAtPosition:pos1]).andReturn(model1Mock);
+                OCMStub([gameFactoryMock createEnemyAtPosition:pos2]).andReturn(model2Mock);
+                NSDictionary *userInfo = @{@"indices" : @[pos1, pos2]};
+                NSNotification *notification = [NSNotification notificationWithName:[Game CreateNotificationName] object:sut.game userInfo:userInfo];
 
-    context(@"when there are objects to be moved", ^{
-        it(@"should move and animate the objects", ^{
-            
+                //because
+                [sut create:notification];
+                
+                //expect
+                OCMVerify([gameFactoryMock createEnemyAtPosition:pos1]);
+                OCMVerify([gameFactoryMock createEnemyAtPosition:pos2]);
+                OCMVerify([model1Mock runCreateAnimation]);
+                OCMVerify([model2Mock runCreateAnimation]);
+                expect([sut.enemies objectForKey:pos1]).to.equal(model1Mock);
+                expect([sut.enemies objectForKey:pos2]).to.equal(model2Mock);
+
+                //cleanup
+                [model1Mock stopMocking];
+                [model2Mock stopMocking];
+            });
         });
-    });
-    
-    context(@"when there are objects to be destroyed", ^{
-        it(@"should destroy and animate the objects", ^{
-            
+        
+        context(@"when there are objects to be moved", ^{
+            it(@"should move and animate the objects", ^{
+                
+            });
+        });
+        
+        context(@"when there are objects to be destroyed", ^{
+            it(@"should destroy and animate the objects", ^{
+                
+            });
+        });
+        
+        afterEach(^{
+            [gameFactoryMock stopMocking];
         });
     });
     

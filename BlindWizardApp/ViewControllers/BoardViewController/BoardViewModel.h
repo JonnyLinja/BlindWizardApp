@@ -11,10 +11,18 @@
 
 @class Game;
 @class GridCalculator;
+@class GameFactory;
 
 @interface BoardViewModel : NSObject
+
 @property (nonatomic, strong) Game *game; //inject
 @property (nonatomic, strong) GridCalculator *gridCalculator; //inject
+@property (nonatomic, strong) GameFactory *gameFactory; //inject
+
 - (void) swipeLeftFromPoint:(CGPoint)point;
 - (void) swipeRightFromPoint:(CGPoint)point;
+
+//for testing only
+@property (nonatomic, strong) NSMutableDictionary *enemies;
+- (void) create:(NSNotification *)notification;
 @end

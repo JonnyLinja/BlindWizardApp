@@ -9,8 +9,21 @@
 #import "BoardViewModel.h"
 #import "Game.h"
 #import "GridCalculator.h"
+#import "GameFactory.h"
+#import "ObjectPosition.h"
+#import "EnemyViewModel.h"
 
 @implementation BoardViewModel
+
+- (id) init {
+    self = [super init];
+    if(!self) return nil;
+    
+    NSMutableDictionary *d = [[NSMutableDictionary alloc] init];
+    self.enemies = d;
+    
+    return self;
+}
 
 - (void) setGame:(Game *)game {
     _game = game;
@@ -31,7 +44,12 @@
 }
 
 - (void) create:(NSNotification *)notification {
-    
+    NSArray *array = [notification.userInfo objectForKey:@"indices"];
+    for(ObjectPosition *position in array) {
+        EnemyViewModel *evm = [self.gameFactory createEnemyAtPosition:position];
+        [evm runCreateAnimation];
+        [self.enemies setObject:evm forKey:position];
+    }
 }
 
 - (void) move:(NSNotification *)notification {
