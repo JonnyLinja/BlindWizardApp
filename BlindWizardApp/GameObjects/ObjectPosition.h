@@ -8,8 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ObjectPosition : NSObject <NSCopying>
-@property (nonatomic, assign) NSInteger row;
-@property (nonatomic, assign) NSInteger column;
-- (id) initWithRow:(NSInteger)row andColumn:(NSInteger) column;
-@end
+typedef struct {
+    CGFloat min;
+    CGFloat max;
+} ObjectPosition;
+
+static inline ObjectPosition ObjectPositionMake(int row, int column) {
+    ObjectPosition p;
+    p.row = row;
+    p.column = column;
+    return p;
+}

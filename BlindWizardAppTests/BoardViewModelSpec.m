@@ -6,7 +6,6 @@
 #import "Game.h"
 #import "GridCalculator.h"
 #import "GameFactory.h"
-#import "ObjectPosition.h"
 #import "EnemyViewModel.h"
 
 //TODO: THERE SHOULD ALSO BE A JIGGLE COMMAND
@@ -17,11 +16,14 @@ SpecBegin(BoardViewModel)
 describe(@"BoardViewModel", ^{
     __block BoardViewModel *sut;
     __block id gameMock;
+    __block id gridCalculatorMock;
     
     beforeEach(^{
         sut = [[BoardViewModel alloc] init];
         gameMock = OCMClassMock([Game class]);
         sut.game = gameMock;
+        gridCalculatorMock = OCMClassMock([GridCalculator class]);
+        sut.gridCalculator = gridCalculatorMock;
     });
     
     context(@"when initialized", ^{
@@ -35,8 +37,19 @@ describe(@"BoardViewModel", ^{
             OCMVerify([notificationMock addObserver:sut selector:[OCMArg anySelector] name:[Game CreateNotificationName] object:sut.game]);
         });
         
-        it(@"should listen for move notifications", ^{
-            OCMVerify([notificationMock addObserver:sut selector:[OCMArg anySelector] name:[Game MoveNotificationName] object:sut.game]);
+        it(@"should listen for shift left notifications", ^{
+        });
+        
+        it(@"should listen for shift right notifications", ^{
+        });
+        
+        it(@"should listen for the move to beginning of row notifications", ^{
+        });
+        
+        it(@"should listen for the move to end of row notifications", ^{
+        });
+        
+        it(@"should listen for drop notifications", ^{
         });
         
         it(@"should listen for danger notifications", ^{
@@ -53,13 +66,6 @@ describe(@"BoardViewModel", ^{
     });
     
     context(@"swiping", ^{
-        __block id gridCalculatorMock;
-        
-        beforeEach(^{
-            gridCalculatorMock = OCMClassMock([GridCalculator class]);
-            sut.gridCalculator = gridCalculatorMock;
-        });
-        
         context(@"when swiping left", ^{
             it(@"should swipe the row to the left", ^{
                 //context
@@ -91,10 +97,6 @@ describe(@"BoardViewModel", ^{
                 OCMVerify([gameMock swipeRightOnRow:row]);
             });
         });
-        
-        afterEach(^{
-            [gridCalculatorMock stopMocking];
-        });
     });
     
     context(@"notification handling", ^{
@@ -105,49 +107,99 @@ describe(@"BoardViewModel", ^{
             sut.gameFactory = gameFactoryMock;
         });
         
-        context(@"when there are enemies to be created", ^{
-            it(@"should create the enemies, animate them, and store them", ^{
+        context(@"when there is an enemy to be created", ^{
+            it(@"should create the enemy, animate it, and store it", ^{
                 //context
-                ObjectPosition *pos1 = [[ObjectPosition alloc] initWithRow:5 andColumn:0];
-                ObjectPosition *pos2 = [[ObjectPosition alloc] initWithRow:5 andColumn:1];
-                id model1Mock = OCMClassMock([EnemyViewModel class]);
-                id model2Mock = OCMClassMock([EnemyViewModel class]);
-                OCMStub([gameFactoryMock createEnemyAtPosition:pos1]).andReturn(model1Mock);
-                OCMStub([gameFactoryMock createEnemyAtPosition:pos2]).andReturn(model2Mock);
-                NSDictionary *userInfo = @{@"indices" : @[pos1, pos2]};
+                NSInteger row = 5;
+                NSInteger column = 0;
+                NSString *position = [NSString stringWithFormat:@"%li:%li", row, column];
+                id modelMock = OCMClassMock([EnemyViewModel class]);
+                OCMStub([gameFactoryMock createEnemyAtRow:row column:column]).andReturn(modelMock);
+                NSDictionary *userInfo = @{@"row" : @(row), @"column" : @(column)};
                 NSNotification *notification = [NSNotification notificationWithName:[Game CreateNotificationName] object:sut.game userInfo:userInfo];
 
                 //because
                 [sut create:notification];
                 
                 //expect
-                OCMVerify([gameFactoryMock createEnemyAtPosition:pos1]);
-                OCMVerify([gameFactoryMock createEnemyAtPosition:pos2]);
-                OCMVerify([model1Mock runCreateAnimation]);
-                OCMVerify([model2Mock runCreateAnimation]);
-                expect([sut.enemies objectForKey:pos1]).to.equal(model1Mock);
-                expect([sut.enemies objectForKey:pos2]).to.equal(model2Mock);
+                OCMVerify([gameFactoryMock createEnemyAtRow:row column:column]);
+                OCMVerify([modelMock runCreateAnimation]);
+                expect([sut.enemies objectForKey:position]).to.equal(modelMock);
 
                 //cleanup
-                [model1Mock stopMocking];
-                [model2Mock stopMocking];
+                [modelMock stopMocking];
             });
         });
         
-        context(@"when there are enemies to be moved", ^{
-            it(@"should move and animate the enemies", ^{
+        context(@"when there is an enemy to be shifted left", ^{
+            it(@"should move and animate the enemy to the left, then set its position in the store", ^{
+                //context
+                NSInteger fromRow = 5;
+                NSInteger toRow = 5;
+                NSInteger fromColumn = 2;
+                NSInteger toColumn = 1;
+                NSString *origPos = [NSString stringWithFormat:@"%li:%li", fromRow, fromColumn];
+                NSString *newPos = [NSString stringWithFormat:@"%li:%li", toRow, toColumn];
+                CGPoint toPoint = CGPointZero;
+                id modelMock = OCMClassMock([EnemyViewModel class]);
+                OCMStub([gridCalculatorMock calculatePointForRow:toRow column:toColumn]).andReturn(toPoint);
+                [sut.enemies setObject:modelMock forKey:origPos];
+                NSDictionary *userInfo = @{@"row" : @(fromRow), @"column" : @(fromColumn)};
+                NSNotification *notification = [NSNotification notificationWithName:[Game ShiftLeftNotificationName] object:sut.game userInfo:userInfo];
+                
+                //because
+                [sut shiftLeft:notification];
+                
+                //expect
+                OCMVerify([gridCalculatorMock calculatePointForRow:toRow column:toColumn]);
+                OCMVerify([modelMock animateMoveToCGPoint:toPoint]);
+                expect([sut.enemies objectForKey:origPos]).to.beNil();
+                expect([sut.enemies objectForKey:newPos]).to.equal(modelMock);
+                
+                //cleanup
+                [modelMock stopMocking];
+            });
+        });
+        
+        context(@"when there is an enemy to be shifted right", ^{
+            it(@"should move and animate the enemy to the right, then set its position in the store", ^{
+            });
+        });
+        
+        context(@"when there is an enemy to be set to the beginning of the row", ^{
+            //TODO: this is complicated, may want to expand on it
+            it(@"should move and animate the enemy off screen to the right, then place the enemy at the beginning of the row", ^{
+            });
+            it(@"should create an animate a sprite from off screen to the left, and animate it to the beginning of the row, then remove it", ^{
+            });
+        });
+        
+        context(@"when there is an enemy to be set to the end of the row", ^{
+            //TODO: this is complicated, may want to expand on it
+            it(@"should move and animate the enemy off screen to the left, then place the enemy at the end of the row", ^{
+            });
+            it(@"should create an animate a sprite from off screen to the right, and animate it to the end of the row, then remove it", ^{
+            });
+        });
+        
+        context(@"when is an enemy to be dropped to the bottom of the column", ^{
+            it(@"should move and animate the enemy to the new position", ^{
                 
             });
         });
         
-        context(@"when there are enemies marked as dangerously close", ^{
+        //TODO: consider the userinfo
+        //is this a, it just passes a column and i have to find it? but requires more search code so not sure i like...as it's a dictionary
+        //is this a, array of what to shakey shakey, this might be the best way, leaning this way as can do set comparison and no searching
+        //is this a, individual one to shake? it's more aligned with everything else but doens't help me "stop" existing dangerous ones, would need a "stop" almost eww
+        pending(@"when there are enemies marked as dangerously close", ^{
             it(@"should run a danger animation for those enemies, and stop the danger animation for the others", ^{
                 
             });
         });
         
-        context(@"when there are enemies to be destroyed", ^{
-            it(@"should destroy the enemies and animate it", ^{
+        context(@"when there is an enemy to be destroyed", ^{
+            it(@"should destroy the enemy, animate it, and remove it from the stores", ^{
                 
             });
         });
@@ -166,6 +218,7 @@ describe(@"BoardViewModel", ^{
     
     afterEach(^{
         [gameMock stopMocking];
+        [gridCalculatorMock stopMocking];
     });
 });
 

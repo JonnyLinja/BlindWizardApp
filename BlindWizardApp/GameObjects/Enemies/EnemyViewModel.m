@@ -14,4 +14,8 @@
     
 }
 
+- (void) animateMoveToCGPoint:(CGPoint)point {
+    
+}
+
 @end

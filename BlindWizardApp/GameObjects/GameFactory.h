@@ -12,5 +12,5 @@
 @class ObjectPosition;
 
 @interface GameFactory : NSObject
-- (EnemyViewModel *) createEnemyAtPosition:(ObjectPosition *)position;
+- (EnemyViewModel *) createEnemyAtRow:(NSInteger)row column:(NSInteger)column;
 @end

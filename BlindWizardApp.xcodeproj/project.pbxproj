@@ -19,7 +19,6 @@
 		C3A9E7B51B38FC35006D9C68 /* TitleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A9E7B41B38FC35006D9C68 /* TitleViewController.m */; };
 		C3A9E7B91B38FDC4006D9C68 /* LeaderboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A9E7B81B38FDC4006D9C68 /* LeaderboardViewController.m */; };
 		C3BEFDF81B3E1997002930BA /* GameFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = C3BEFDF71B3E1997002930BA /* GameFactory.m */; };
-		C3BEFDFB1B3E1B9A002930BA /* ObjectPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = C3BEFDFA1B3E1B9A002930BA /* ObjectPosition.m */; };
 		C3BEFDFF1B3E1E0A002930BA /* EnemyViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C3BEFDFE1B3E1E0A002930BA /* EnemyViewModel.m */; };
 		C3BEFE021B3E1E1A002930BA /* EnemyView.m in Sources */ = {isa = PBXBuildFile; fileRef = C3BEFE011B3E1E1A002930BA /* EnemyView.m */; };
 		C3E313811B3E141800ADB0AB /* GridCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E313801B3E141800ADB0AB /* GridCalculator.m */; };
@@ -73,7 +72,6 @@
 		C3BEFDF61B3E1997002930BA /* GameFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameFactory.h; sourceTree = "<group>"; };
 		C3BEFDF71B3E1997002930BA /* GameFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameFactory.m; sourceTree = "<group>"; };
 		C3BEFDF91B3E1B9A002930BA /* ObjectPosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectPosition.h; sourceTree = "<group>"; };
-		C3BEFDFA1B3E1B9A002930BA /* ObjectPosition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectPosition.m; sourceTree = "<group>"; };
 		C3BEFDFD1B3E1E0A002930BA /* EnemyViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnemyViewModel.h; sourceTree = "<group>"; };
 		C3BEFDFE1B3E1E0A002930BA /* EnemyViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnemyViewModel.m; sourceTree = "<group>"; };
 		C3BEFE001B3E1E1A002930BA /* EnemyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnemyView.h; sourceTree = "<group>"; };
@@ -188,7 +186,6 @@
 				C3BEFDF61B3E1997002930BA /* GameFactory.h */,
 				C3BEFDF71B3E1997002930BA /* GameFactory.m */,
 				C3BEFDF91B3E1B9A002930BA /* ObjectPosition.h */,
-				C3BEFDFA1B3E1B9A002930BA /* ObjectPosition.m */,
 			);
 			path = GameObjects;
 			sourceTree = "<group>";
@@ -483,7 +480,6 @@
 				C3F6BDDE1B389B860088D924 /* AppDelegate.m in Sources */,
 				C3F6BDDB1B389B860088D924 /* main.m in Sources */,
 				C3BEFDF81B3E1997002930BA /* GameFactory.m in Sources */,
-				C3BEFDFB1B3E1B9A002930BA /* ObjectPosition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,7 +10,7 @@
 
 @implementation GameFactory
 
-- (EnemyViewModel *) createEnemyAtPosition:(ObjectPosition *)position {
+- (EnemyViewModel *) createEnemyAtRow:(NSInteger)row column:(NSInteger)column {
     return nil;
 }
 

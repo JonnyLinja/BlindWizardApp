@@ -14,8 +14,8 @@
     return @"GameCreateNotificationName";
 }
 
-+ (NSString *) MoveNotificationName {
-    return @"GameMoveNotificationName";
++ (NSString *) ShiftLeftNotificationName {
+    return @"GameShiftLeftNotificationName";
 }
 
 + (NSString *) DangerNotificationName {

@@ -25,4 +25,5 @@
 //for testing only
 @property (nonatomic, strong) NSMutableDictionary *enemies;
 - (void) create:(NSNotification *)notification;
+- (void) shiftLeft:(NSNotification *)notification;
 @end

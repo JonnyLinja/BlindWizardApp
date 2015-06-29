@@ -14,4 +14,8 @@
     return -1;
 }
 
+- (CGPoint) calculatePointForRow:(NSInteger)row column:(NSInteger)column {
+    return CGPointZero;
+}
+
 @end

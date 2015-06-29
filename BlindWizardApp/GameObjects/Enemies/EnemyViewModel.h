@@ -7,7 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreGraphics/CoreGraphics.h>
 
 @interface EnemyViewModel : NSObject
 - (void) runCreateAnimation;
+- (void) animateMoveToCGPoint:(CGPoint)point;
 @end
