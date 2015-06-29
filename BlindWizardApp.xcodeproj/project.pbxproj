@@ -71,7 +71,6 @@
 		C3A9E7B81B38FDC4006D9C68 /* LeaderboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeaderboardViewController.m; sourceTree = "<group>"; };
 		C3BEFDF61B3E1997002930BA /* GameFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameFactory.h; sourceTree = "<group>"; };
 		C3BEFDF71B3E1997002930BA /* GameFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameFactory.m; sourceTree = "<group>"; };
-		C3BEFDF91B3E1B9A002930BA /* ObjectPosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectPosition.h; sourceTree = "<group>"; };
 		C3BEFDFD1B3E1E0A002930BA /* EnemyViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnemyViewModel.h; sourceTree = "<group>"; };
 		C3BEFDFE1B3E1E0A002930BA /* EnemyViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnemyViewModel.m; sourceTree = "<group>"; };
 		C3BEFE001B3E1E1A002930BA /* EnemyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnemyView.h; sourceTree = "<group>"; };
@@ -185,7 +184,6 @@
 				C3BEFDFC1B3E1DFC002930BA /* Enemies */,
 				C3BEFDF61B3E1997002930BA /* GameFactory.h */,
 				C3BEFDF71B3E1997002930BA /* GameFactory.m */,
-				C3BEFDF91B3E1B9A002930BA /* ObjectPosition.h */,
 			);
 			path = GameObjects;
 			sourceTree = "<group>";
