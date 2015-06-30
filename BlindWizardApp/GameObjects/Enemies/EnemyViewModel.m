@@ -18,4 +18,12 @@
     
 }
 
+- (void) animateMoveToCGPoint:(CGPoint)movePoint thenSnapToCGPoint:(CGPoint)snapPoint {
+    
+}
+
+- (void) animateMoveToCGPoint:(CGPoint)point removeAfter:(BOOL)remove {
+    
+}
+
 @end

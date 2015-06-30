@@ -44,6 +44,7 @@ describe(@"BoardViewModel", ^{
         });
         
         it(@"should listen for the move to beginning of row notifications", ^{
+            OCMVerify([notificationMock addObserver:sut selector:[OCMArg anySelector] name:[Game MoveToRowHeadNotificationName] object:sut.game]);
         });
         
         it(@"should listen for the move to end of row notifications", ^{
@@ -135,7 +136,7 @@ describe(@"BoardViewModel", ^{
         });
         
         context(@"when there is an enemy to be shifted left", ^{
-            it(@"should move and animate the enemy to the left, then set its position in the store", ^{
+            it(@"should animate move the enemy to the left and store it", ^{
                 //context
                 NSInteger row = 5;
                 NSInteger fromColumn = 2;
@@ -162,7 +163,7 @@ describe(@"BoardViewModel", ^{
         });
         
         context(@"when there is an enemy to be shifted right", ^{
-            it(@"should move and animate the enemy to the right, then set its position in the store", ^{
+            it(@"should animate move the enemy to the right and store it", ^{
                 //context
                 NSInteger row = 5;
                 NSInteger fromColumn = 2;
@@ -189,10 +190,40 @@ describe(@"BoardViewModel", ^{
         });
         
         context(@"when there is an enemy to be set to the beginning of the row", ^{
-            //TODO: this is complicated, may want to expand on it
-            it(@"should animate move the enemy off screen to the right, then place the enemy at the beginning of the row", ^{
-            });
-            it(@"should create an animate a sprite from off screen to the left, and animate it to the beginning of the row, then remove it", ^{
+            it(@"should animate move the enemy to the right, along with a duplicate from offscreen to the left, and store the enemy", ^{
+                //context
+                NSInteger type = 1;
+                NSInteger row = 5;
+                NSInteger fromColumn = 4;
+                NSInteger toColumn = fromColumn+1;
+                NSInteger beginColumn = 0;
+                NSInteger offscreenColumn = beginColumn-1;
+                CGPoint toPoint = CGPointMake(10, 10);
+                CGPoint snapPoint = CGPointZero;
+                id modelMock = OCMClassMock([EnemyViewModel class]);
+                id tempMock = OCMClassMock([EnemyViewModel class]);
+                NSDictionary *userInfo = @{@"row" : @(row), @"column" : @(fromColumn)};
+                NSNotification *notification = [NSNotification notificationWithName:[Game MoveToRowHeadNotificationName] object:sut.game userInfo:userInfo];
+                OCMStub([modelMock enemyType]).andReturn(type);
+                OCMStub([gridCalculatorMock calculatePointForRow:row column:toColumn]).andReturn(toPoint);
+                OCMStub([gridStorageMock objectForRow:row column:fromColumn]).andReturn(modelMock);
+                OCMStub([gameFactoryMock createEnemyWithType:type atRow:row column:offscreenColumn]).andReturn(tempMock);
+                
+                //because
+                [sut moveToRowHead:notification];
+                
+                //expect
+                OCMVerify([gridCalculatorMock calculatePointForRow:row column:toColumn]);
+                OCMVerify([gridStorageMock objectForRow:row column:fromColumn]);
+                OCMVerify([modelMock animateMoveToCGPoint:toPoint thenSnapToCGPoint:snapPoint]);
+                OCMVerify([gridStorageMock promiseSetObject:modelMock forRow:row column:beginColumn]);
+                OCMVerify([modelMock enemyType]);
+                OCMVerify([gameFactoryMock createEnemyWithType:type atRow:row column:offscreenColumn]);
+                OCMVerify([tempMock animateMoveToCGPoint:snapPoint removeAfter:YES]);
+
+                //cleanup
+                [modelMock stopMocking];
+                [tempMock stopMocking];
             });
         });
         
@@ -214,6 +245,9 @@ describe(@"BoardViewModel", ^{
         //is this a, it just passes a column and i have to find it? but requires more search code so not sure i like...as it's a dictionary
         //is this a, array of what to shakey shakey, this might be the best way, leaning this way as can do set comparison and no searching
         //is this a, individual one to shake? it's more aligned with everything else but doens't help me "stop" existing dangerous ones, would need a "stop" almost eww
+        //perhaps stop shaking is fine too, out of danger and singles removes responsibility from the BoardVM
+        //consider that just cuz new ones shake doesn't mean old ones should necessarily stop
+        //so stop should be separate
         pending(@"when there are enemies marked as dangerously close", ^{
             it(@"should run a danger animation for those enemies, and stop the danger animation for the others", ^{
                 

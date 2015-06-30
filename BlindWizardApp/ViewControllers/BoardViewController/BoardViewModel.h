@@ -28,4 +28,5 @@
 - (void) create:(NSNotification *)notification;
 - (void) shiftLeft:(NSNotification *)notification;
 - (void) shiftRight:(NSNotification *)notification;
+- (void) moveToRowHead:(NSNotification *)notification;
 @end

@@ -21,6 +21,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(create:) name:[Game CreateNotificationName] object:self.game];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(shiftLeft:) name:[Game ShiftLeftNotificationName] object:self.game];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(shiftRight:) name:[Game ShiftRightNotificationName] object:self.game];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moveToRowHead:) name:[Game MoveToRowHeadNotificationName] object:self.game];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(danger:) name:[Game DangerNotificationName] object:self.game];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(destroy:) name:[Game DestroyNotificationName] object:self.game];
 }
@@ -67,6 +68,22 @@
     
     [evm animateMoveToCGPoint:newPoint];
     [self.gridStorage promiseSetObject:evm forRow:row column:toColumn];
+}
+
+- (void) moveToRowHead:(NSNotification *)notification {
+    NSInteger row = [[notification.userInfo objectForKey:@"row"] integerValue];
+    NSInteger column = [[notification.userInfo objectForKey:@"column"] integerValue];
+    NSInteger toColumn = column+1;
+
+    EnemyViewModel *evm = [self.gridStorage objectForRow:row column:column];
+    CGPoint newPoint = [self.gridCalculator calculatePointForRow:row column:toColumn];
+    CGPoint snapPoint = [self.gridCalculator calculatePointForRow:row column:0];
+
+    [evm animateMoveToCGPoint:newPoint thenSnapToCGPoint:snapPoint];
+    [self.gridStorage promiseSetObject:evm forRow:row column:0];
+    
+    EnemyViewModel *sprite = [self.gameFactory createEnemyWithType:evm.enemyType atRow:row column:-1];
+    [sprite animateMoveToCGPoint:snapPoint removeAfter:YES];
 }
 
 - (void) danger:(NSNotification *)notification {

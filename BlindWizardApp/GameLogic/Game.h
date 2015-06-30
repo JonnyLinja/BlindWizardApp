@@ -14,6 +14,7 @@
 + (NSString *) CreateNotificationName;
 + (NSString *) ShiftLeftNotificationName;
 + (NSString *) ShiftRightNotificationName;
++ (NSString *) MoveToRowHeadNotificationName;
 + (NSString *) DangerNotificationName;
 + (NSString *) DestroyNotificationName;
 - (void) startGame;

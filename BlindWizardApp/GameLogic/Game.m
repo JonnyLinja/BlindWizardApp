@@ -22,6 +22,10 @@
     return @"GameShiftRightNotificationName";
 }
 
++ (NSString *) MoveToRowHeadNotificationName {
+    return @"GameMoveToRowHeadNotificationName";
+}
+
 + (NSString *) DangerNotificationName {
     return @"GameDangerNotificationName";
 }
