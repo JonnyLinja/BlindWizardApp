@@ -28,15 +28,15 @@
     return self;
 }
 
+- (id) objectForRow:(NSInteger)row column:(NSInteger)column {
+    NSString *key = [self.keyGenerator stringKeyForRow:row column:column];
+    return [self.objects objectForKey:key];
+}
+
 - (void) promiseSetObject:(id)obj forRow:(NSInteger)row column:(NSInteger)column {
     NSString *key = [self.keyGenerator stringKeyForRow:row column:column];
     [self.objectsToAdd setObject:obj forKey:key];
     [self.keysToRemove addObject:key];
-}
-
-- (id) objectForRow:(NSInteger)row column:(NSInteger)column {
-    NSString *key = [self.keyGenerator stringKeyForRow:row column:column];
-    return [self.objects objectForKey:key];
 }
 
 - (void) promiseRemoveObjectForRow:(NSInteger)row column:(NSInteger)column {
