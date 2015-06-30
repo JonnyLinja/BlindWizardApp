@@ -48,6 +48,7 @@ describe(@"BoardViewModel", ^{
         });
         
         it(@"should listen for the move to end of row notifications", ^{
+            OCMVerify([notificationMock addObserver:sut selector:[OCMArg anySelector] name:[Game MoveToRowTailNotificationName] object:sut.game]);
         });
         
         it(@"should listen for drop notifications", ^{

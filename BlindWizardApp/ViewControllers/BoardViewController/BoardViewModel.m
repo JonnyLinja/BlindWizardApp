@@ -22,6 +22,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(shiftLeft:) name:[Game ShiftLeftNotificationName] object:self.game];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(shiftRight:) name:[Game ShiftRightNotificationName] object:self.game];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moveToRowHead:) name:[Game MoveToRowHeadNotificationName] object:self.game];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moveToRowTail:) name:[Game MoveToRowTailNotificationName] object:self.game];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(danger:) name:[Game DangerNotificationName] object:self.game];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(destroy:) name:[Game DestroyNotificationName] object:self.game];
 }
