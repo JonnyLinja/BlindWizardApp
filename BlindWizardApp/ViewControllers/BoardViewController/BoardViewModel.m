@@ -30,6 +30,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(danger:) name:[Game DangerNotificationName] object:self.game];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pacify:) name:[Game PacifyNotificationName] object:self.game];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(destroy:) name:[Game DestroyNotificationName] object:self.game];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleGameActionComplete) name:[Game GameActionCompleteNotificationName] object:self.game];
 }
 
 - (void) swipeLeftFromPoint:(CGPoint)point {
@@ -195,6 +196,10 @@
     
     //store
     [self.gridStorage promiseRemoveObjectForRow:row column:column];
+}
+
+- (void) handleGameActionComplete {
+    [self.gridStorage fulfillPromises];
 }
 
 - (void) dealloc {

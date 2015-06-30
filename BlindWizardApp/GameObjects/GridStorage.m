@@ -22,4 +22,8 @@
     
 }
 
+- (void) fulfillPromises {
+    
+}
+
 @end

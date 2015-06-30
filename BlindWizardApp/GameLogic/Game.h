@@ -20,6 +20,7 @@
 + (NSString *) DangerNotificationName;
 + (NSString *) PacifyNotificationName;
 + (NSString *) DestroyNotificationName;
++ (NSString *) GameActionCompleteNotificationName;
 - (void) startGame;
 - (void) callNextWave;
 - (void) swipeLeftOnRow:(NSInteger)row;

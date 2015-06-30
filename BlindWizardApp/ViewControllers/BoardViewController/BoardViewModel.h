@@ -33,4 +33,5 @@
 - (void) danger:(NSNotification *)notification;
 - (void) pacify:(NSNotification *)notification;
 - (void) destroy:(NSNotification *)notification;
+- (void) handleGameActionComplete;
 @end

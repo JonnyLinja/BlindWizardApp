@@ -46,6 +46,10 @@
     return @"DestroyNotificationName";
 }
 
++ (NSString *) GameActionCompleteNotificationName {
+    return @"GameActionCompleteNotificationName";
+}
+
 - (void) startGame {
     
 }

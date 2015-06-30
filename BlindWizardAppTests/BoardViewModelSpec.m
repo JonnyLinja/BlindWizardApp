@@ -327,13 +327,21 @@ describe(@"BoardViewModel", ^{
             });
         });
         
+        context(@"when a game action completes", ^{
+           it(@"should update the grid storage", ^{
+               //because
+               [sut handleGameActionComplete];
+               
+               //expect
+               OCMVerify([gridStorageMock fulfillPromises]);
+           });
+        });
+        
         afterEach(^{
             [gameFactoryMock stopMocking];
             [gridStorageMock stopMocking];
         });
     });
-    
-    //TODO: listening for end of stages in order to save the store itself
     
     //TODO:
     pending(@"when animations are run", ^{

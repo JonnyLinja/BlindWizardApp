@@ -12,4 +12,5 @@
 - (void) promiseSetObject:modelMock forRow:(NSInteger)row column:(NSInteger)column;
 - (id) objectForRow:(NSInteger)row column:(NSInteger)column;
 - (void) promiseRemoveObjectForRow:(NSInteger)row column:(NSInteger)column;
+- (void) fulfillPromises;
 @end
