@@ -30,6 +30,10 @@
     return @"GameMoveToRowTailNotificationName";
 }
 
++ (NSString *) DropNotificationName {
+    return @"GameDropNotificationName";
+}
+
 + (NSString *) DangerNotificationName {
     return @"GameDangerNotificationName";
 }

@@ -231,7 +231,28 @@ describe(@"BoardViewModel", ^{
         
         context(@"when is an enemy to be dropped to the bottom of the column", ^{
             it(@"should move and animate the enemy to the new position", ^{
+                //context
+                NSInteger fromRow = 3;
+                NSInteger toRow = 0;
+                NSInteger column = 3;
+                CGPoint toPoint = CGPointZero;
+                id modelMock = OCMClassMock([EnemyViewModel class]);
+                NSDictionary *userInfo = @{@"fromRow" : @(fromRow), @"toRow" : @(toRow), @"column" : @(column)};
+                NSNotification *notification = [NSNotification notificationWithName:[Game DropNotificationName] object:sut.game userInfo:userInfo];
+                OCMStub([gridCalculatorMock calculatePointForRow:toRow column:column]).andReturn(toPoint);
+                OCMStub([gridStorageMock objectForRow:fromRow column:column]).andReturn(modelMock);
                 
+                //because
+                [sut drop:notification];
+                
+                //expect
+                OCMVerify([gridCalculatorMock calculatePointForRow:toRow column:column]);
+                OCMVerify([gridStorageMock objectForRow:fromRow column:column]);
+                OCMVerify([modelMock animateMoveToCGPoint:toPoint]);
+                OCMVerify([gridStorageMock promiseSetObject:modelMock forRow:toRow column:column]);
+
+                //cleanup
+                [modelMock stopMocking];
             });
         });
         
@@ -256,6 +277,7 @@ describe(@"BoardViewModel", ^{
         
         afterEach(^{
             [gameFactoryMock stopMocking];
+            [gridStorageMock stopMocking];
         });
     });
     
