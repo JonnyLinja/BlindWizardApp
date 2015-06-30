@@ -32,4 +32,5 @@
 - (void) drop:(NSNotification *)notification;
 - (void) danger:(NSNotification *)notification;
 - (void) pacify:(NSNotification *)notification;
+- (void) destroy:(NSNotification *)notification;
 @end

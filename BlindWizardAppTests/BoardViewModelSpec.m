@@ -300,9 +300,30 @@ describe(@"BoardViewModel", ^{
             });
         });
         
+        //TODO: Explosions! For now, skipping it in favor of barebones
         context(@"when there is an enemy to be destroyed", ^{
-            it(@"should destroy the enemy, animate it, and remove it from the stores", ^{
+            it(@"should destroy the enemy, animate it with a sprite, and remove it from the stores", ^{
+                //context
+                NSInteger row = 2;
+                NSInteger column = 2;
+                id modelMock = OCMClassMock([EnemyViewModel class]);
+                //id explosionMock = OCMClassMock([Explosion class]);
+                NSDictionary *userInfo = @{@"row" : @(row), @"column" : @(column)};
+                NSNotification *notification = [NSNotification notificationWithName:[Game DestroyNotificationName] object:sut.game userInfo:userInfo];
+                OCMStub([gridStorageMock objectForRow:row column:column]).andReturn(modelMock);
+                //OCMStub([gameFactoryMock createExplosionAtRow:row column:column]).andReturn(explosionMock);
                 
+                //because
+                [sut destroy:notification];
+                
+                //expect
+                OCMVerify([gridStorageMock objectForRow:row column:column]);
+                OCMVerify([modelMock runDestroyAnimation]);
+                OCMVerify([gridStorageMock promiseRemoveObjectForRow:row column:column]);
+                
+                //cleanup
+                [modelMock stopMocking];
+                //[explosionMock stopMocking];
             });
         });
         

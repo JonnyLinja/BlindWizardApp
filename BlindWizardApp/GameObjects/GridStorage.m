@@ -18,4 +18,8 @@
     return nil;
 }
 
+- (void) promiseRemoveObjectForRow:(NSInteger)row column:(NSInteger)column {
+    
+}
+
 @end

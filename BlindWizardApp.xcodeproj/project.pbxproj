@@ -130,6 +130,13 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		C34EFBFE1B425CCA0079B6DC /* Effects */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Effects;
+			sourceTree = "<group>";
+		};
 		C34F7F5F1B3C990000D07881 /* GameLogic */ = {
 			isa = PBXGroup;
 			children = (
@@ -185,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				C3BEFDFC1B3E1DFC002930BA /* Enemies */,
+				C34EFBFE1B425CCA0079B6DC /* Effects */,
 				C3BEFDF61B3E1997002930BA /* GameFactory.h */,
 				C3BEFDF71B3E1997002930BA /* GameFactory.m */,
 				C34EFBFB1B4239810079B6DC /* GridStorage.h */,

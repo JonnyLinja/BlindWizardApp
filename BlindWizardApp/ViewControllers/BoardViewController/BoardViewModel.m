@@ -183,7 +183,18 @@
 }
 
 - (void) destroy:(NSNotification *)notification {
+    //parse values
+    NSInteger row = [[notification.userInfo objectForKey:@"row"] integerValue];
+    NSInteger column = [[notification.userInfo objectForKey:@"column"] integerValue];
     
+    //get
+    EnemyViewModel *evm = [self.gridStorage objectForRow:row column:column];
+    
+    //animate
+    [evm runDestroyAnimation];
+    
+    //store
+    [self.gridStorage promiseRemoveObjectForRow:row column:column];
 }
 
 - (void) dealloc {
