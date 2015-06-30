@@ -15,10 +15,6 @@
 
 @implementation BoardViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-}
-
 - (IBAction)swipedLeft:(UISwipeGestureRecognizer *)sender {
     CGPoint point = [sender locationInView:self.view];
     [self.viewModel swipeLeftFromPoint:point];

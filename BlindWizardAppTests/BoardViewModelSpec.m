@@ -24,49 +24,6 @@ describe(@"BoardViewModel", ^{
         sut.gridCalculator = gridCalculatorMock;
     });
     
-    context(@"when initialized", ^{
-        __block id notificationMock;
-        
-        beforeAll(^{
-            notificationMock = OCMPartialMock([NSNotificationCenter defaultCenter]);
-        });
-        
-        it(@"should listen for create notifications", ^{
-            OCMVerify([notificationMock addObserver:sut selector:[OCMArg anySelector] name:[Game CreateNotificationName] object:sut.game]);
-        });
-        
-        it(@"should listen for shift left notifications", ^{
-            OCMVerify([notificationMock addObserver:sut selector:[OCMArg anySelector] name:[Game ShiftLeftNotificationName] object:sut.game]);
-        });
-        
-        it(@"should listen for shift right notifications", ^{
-            OCMVerify([notificationMock addObserver:sut selector:[OCMArg anySelector] name:[Game ShiftRightNotificationName] object:sut.game]);
-        });
-        
-        it(@"should listen for the move to beginning of row notifications", ^{
-            OCMVerify([notificationMock addObserver:sut selector:[OCMArg anySelector] name:[Game MoveToRowHeadNotificationName] object:sut.game]);
-        });
-        
-        it(@"should listen for the move to end of row notifications", ^{
-            OCMVerify([notificationMock addObserver:sut selector:[OCMArg anySelector] name:[Game MoveToRowTailNotificationName] object:sut.game]);
-        });
-        
-        it(@"should listen for drop notifications", ^{
-        });
-        
-        it(@"should listen for danger notifications", ^{
-            OCMVerify([notificationMock addObserver:sut selector:[OCMArg anySelector] name:[Game DangerNotificationName] object:sut.game]);
-        });
-        
-        it(@"should listen for destroy notifications", ^{
-            OCMVerify([notificationMock addObserver:sut selector:[OCMArg anySelector] name:[Game DestroyNotificationName] object:sut.game]);
-        });
-        
-        afterAll(^{
-            [notificationMock stopMocking];
-        });
-    });
-    
     context(@"swiping", ^{
         context(@"when swiping left", ^{
             it(@"should swipe the row to the left", ^{

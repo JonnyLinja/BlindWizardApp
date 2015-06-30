@@ -24,7 +24,6 @@
 - (void) swipeLeftFromPoint:(CGPoint)point;
 - (void) swipeRightFromPoint:(CGPoint)point;
 
-//for testing only
 - (void) create:(NSNotification *)notification;
 - (void) shiftLeft:(NSNotification *)notification;
 - (void) shiftRight:(NSNotification *)notification;

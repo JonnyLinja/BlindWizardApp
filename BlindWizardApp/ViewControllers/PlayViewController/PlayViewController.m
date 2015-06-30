@@ -17,10 +17,14 @@
 @implementation PlayViewController
 
 - (void)viewDidLoad {
+    //super
     [super viewDidLoad];
     
+    //bind
     [self map:@keypath(self.viewModel.score) to:@keypath(self.scoreLabel.text) null:@"0 Points"];
     [self map:@keypath(self.viewModel.gameInProgress) to:@keypath(self.playAgainButton.hidden) null:@YES];
+    
+    //start
     [self.viewModel startGame];
 }
 
