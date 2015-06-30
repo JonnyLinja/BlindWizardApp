@@ -19,7 +19,7 @@
     //save
     _game = game;
     
-    //notifications
+    //notifications - not under test but necessary
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(create:) name:[Game CreateNotificationName] object:self.game];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(shiftLeft:) name:[Game ShiftLeftNotificationName] object:self.game];
@@ -148,7 +148,7 @@
 }
 
 - (void) dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [[NSNotificationCenter defaultCenter] removeObserver:self]; //not under test
 }
 
 @end
