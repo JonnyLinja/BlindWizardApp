@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		7FAB24D207C69E0B81926A2F /* libPods-BlindWizardApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F66DF0723764B2C29A3CB58 /* libPods-BlindWizardApp.a */; };
+		C34EFBF71B4212860079B6DC /* NSString+GridPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = C34EFBF61B4212860079B6DC /* NSString+GridPosition.m */; };
+		C34EFBF91B42131B0079B6DC /* NSString+GridPositionSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C34EFBF81B42131B0079B6DC /* NSString+GridPositionSpec.m */; };
 		C34F7F621B3C991200D07881 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = C34F7F611B3C991200D07881 /* Game.m */; };
 		C34F7F641B3CA29E00D07881 /* GameSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C34F7F631B3CA29E00D07881 /* GameSpec.m */; };
 		C34F7F671B3CD28A00D07881 /* BoardViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C34F7F661B3CD28A00D07881 /* BoardViewModel.m */; };
@@ -52,6 +54,9 @@
 		8F66DF0723764B2C29A3CB58 /* libPods-BlindWizardApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BlindWizardApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4C82791F95AB8508FB957CA /* Pods-BlindWizardApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlindWizardApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BlindWizardApp/Pods-BlindWizardApp.debug.xcconfig"; sourceTree = "<group>"; };
 		C0BC9E0C707035A355E75B87 /* Pods-BlindWizardAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlindWizardAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BlindWizardAppTests/Pods-BlindWizardAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		C34EFBF51B4212860079B6DC /* NSString+GridPosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+GridPosition.h"; sourceTree = "<group>"; };
+		C34EFBF61B4212860079B6DC /* NSString+GridPosition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+GridPosition.m"; sourceTree = "<group>"; };
+		C34EFBF81B42131B0079B6DC /* NSString+GridPositionSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+GridPositionSpec.m"; sourceTree = "<group>"; };
 		C34F7F601B3C991200D07881 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
 		C34F7F611B3C991200D07881 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
 		C34F7F631B3CA29E00D07881 /* GameSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameSpec.m; sourceTree = "<group>"; };
@@ -134,6 +139,8 @@
 				C34F7F611B3C991200D07881 /* Game.m */,
 				C3E3137F1B3E141800ADB0AB /* GridCalculator.h */,
 				C3E313801B3E141800ADB0AB /* GridCalculator.m */,
+				C34EFBF51B4212860079B6DC /* NSString+GridPosition.h */,
+				C34EFBF61B4212860079B6DC /* NSString+GridPosition.m */,
 			);
 			path = GameLogic;
 			sourceTree = "<group>";
@@ -253,6 +260,7 @@
 				C3A3B3281B3BCCBF00ADF11A /* PlayViewModelSpec.m */,
 				C3F72DA81B3A312B0040909A /* BoardViewControllerSpec.m */,
 				C37B74941B3CF5FF00D22D5E /* BoardViewModelSpec.m */,
+				C34EFBF81B42131B0079B6DC /* NSString+GridPositionSpec.m */,
 				C34F7F631B3CA29E00D07881 /* GameSpec.m */,
 				C3F6BDF21B389B860088D924 /* Supporting Files */,
 			);
@@ -473,6 +481,7 @@
 				C34F7F621B3C991200D07881 /* Game.m in Sources */,
 				C3E313811B3E141800ADB0AB /* GridCalculator.m in Sources */,
 				C3A9E7B51B38FC35006D9C68 /* TitleViewController.m in Sources */,
+				C34EFBF71B4212860079B6DC /* NSString+GridPosition.m in Sources */,
 				C3A3B32D1B3BD07400ADF11A /* BoardViewController.m in Sources */,
 				C3BEFE021B3E1E1A002930BA /* EnemyView.m in Sources */,
 				C3F6BDDE1B389B860088D924 /* AppDelegate.m in Sources */,
@@ -490,6 +499,7 @@
 				C3F6BE071B38F6620088D924 /* TitleViewControllerSpec.m in Sources */,
 				C3F6BE031B389C1B0088D924 /* UIViewController+TestSegue.m in Sources */,
 				C3A3B3291B3BCCBF00ADF11A /* PlayViewModelSpec.m in Sources */,
+				C34EFBF91B42131B0079B6DC /* NSString+GridPositionSpec.m in Sources */,
 				C34F7F641B3CA29E00D07881 /* GameSpec.m in Sources */,
 				C37B74951B3CF5FF00D22D5E /* BoardViewModelSpec.m in Sources */,
 				C3F72DA71B3A2C800040909A /* PlayViewControllerSpec.m in Sources */,

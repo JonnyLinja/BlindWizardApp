@@ -7,6 +7,7 @@
 #import "GridCalculator.h"
 #import "GameFactory.h"
 #import "EnemyViewModel.h"
+#import "NSString+GridPosition.h"
 
 //TODO: THERE SHOULD ALSO BE A JIGGLE COMMAND
 //MAYBE CAN DO THAT ON THE ACTUAL VIEWS THOUGH
@@ -112,7 +113,7 @@ describe(@"BoardViewModel", ^{
                 //context
                 NSInteger row = 5;
                 NSInteger column = 0;
-                NSString *position = [NSString stringWithFormat:@"%li:%li", row, column];
+                NSString *position = [NSString stringFromRow:row column:column];
                 id modelMock = OCMClassMock([EnemyViewModel class]);
                 OCMStub([gameFactoryMock createEnemyAtRow:row column:column]).andReturn(modelMock);
                 NSDictionary *userInfo = @{@"row" : @(row), @"column" : @(column)};
@@ -138,8 +139,8 @@ describe(@"BoardViewModel", ^{
                 NSInteger toRow = 5;
                 NSInteger fromColumn = 2;
                 NSInteger toColumn = 1;
-                NSString *origPos = [NSString stringWithFormat:@"%li:%li", fromRow, fromColumn];
-                NSString *newPos = [NSString stringWithFormat:@"%li:%li", toRow, toColumn];
+                NSString *origPos = [NSString stringFromRow:fromRow column:fromColumn];
+                NSString *newPos = [NSString stringFromRow:toRow column:toColumn];
                 CGPoint toPoint = CGPointZero;
                 id modelMock = OCMClassMock([EnemyViewModel class]);
                 OCMStub([gridCalculatorMock calculatePointForRow:toRow column:toColumn]).andReturn(toPoint);

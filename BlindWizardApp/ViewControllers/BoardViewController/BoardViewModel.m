@@ -11,6 +11,7 @@
 #import "GridCalculator.h"
 #import "GameFactory.h"
 #import "EnemyViewModel.h"
+#import "NSString+GridPosition.h"
 
 @implementation BoardViewModel
 
@@ -18,10 +19,7 @@
     self = [super init];
     if(!self) return nil;
     
-    //NSMutableDictionary *d = [[NSMutableDictionary alloc] init];
-    //self.enemies = d;
     self.enemies = [NSMutableDictionary new];
-    //NSLog(@"enemies! %@", self.enemies);
     
     return self;
 }
@@ -49,14 +47,14 @@
     NSInteger column = [[notification.userInfo objectForKey:@"column"] integerValue];
     EnemyViewModel *evm = [self.gameFactory createEnemyAtRow:row column:column];
     [evm runCreateAnimation];
-    [self.enemies setObject:evm forKey:[NSString stringWithFormat:@"%li:%li", row, column]];
+    [self.enemies setObject:evm forKey:[NSString stringFromRow:row column:column]];
 }
 
 - (void) shiftLeft:(NSNotification *)notification {
     NSInteger row = [[notification.userInfo objectForKey:@"row"] integerValue];
     NSInteger column = [[notification.userInfo objectForKey:@"column"] integerValue];
-    NSString *position = [NSString stringWithFormat:@"%li:%li", row, column];
-    NSString *newPosition = [NSString stringWithFormat:@"%li:%li", row, column-1];
+    NSString *position = [NSString stringFromRow:row column:column];
+    NSString *newPosition = [NSString stringFromRow:row column:column-1];
 
     EnemyViewModel *evm = [self.enemies objectForKey:position];
     CGPoint newPoint = [self.gridCalculator calculatePointForRow:row column:column-1];
