@@ -39,9 +39,11 @@ describe(@"BoardViewModel", ^{
         });
         
         it(@"should listen for shift left notifications", ^{
+            OCMVerify([notificationMock addObserver:sut selector:[OCMArg anySelector] name:[Game ShiftLeftNotificationName] object:sut.game]);
         });
         
         it(@"should listen for shift right notifications", ^{
+            OCMVerify([notificationMock addObserver:sut selector:[OCMArg anySelector] name:[Game ShiftRightNotificationName] object:sut.game]);
         });
         
         it(@"should listen for the move to beginning of row notifications", ^{
@@ -137,9 +139,9 @@ describe(@"BoardViewModel", ^{
             it(@"should move and animate the enemy to the left, then set its position in the store", ^{
                 //context
                 NSInteger fromRow = 5;
-                NSInteger toRow = 5;
+                NSInteger toRow = fromRow;
                 NSInteger fromColumn = 2;
-                NSInteger toColumn = 1;
+                NSInteger toColumn = fromColumn-1;
                 NSString *origPos = [NSString stringFromRow:fromRow column:fromColumn];
                 NSString *newPos = [NSString stringFromRow:toRow column:toColumn];
                 CGPoint toPoint = CGPointZero;
@@ -165,6 +167,31 @@ describe(@"BoardViewModel", ^{
         
         context(@"when there is an enemy to be shifted right", ^{
             it(@"should move and animate the enemy to the right, then set its position in the store", ^{
+                //context
+                NSInteger fromRow = 5;
+                NSInteger toRow = fromRow;
+                NSInteger fromColumn = 2;
+                NSInteger toColumn = fromColumn+1;
+                NSString *origPos = [NSString stringFromRow:fromRow column:fromColumn];
+                NSString *newPos = [NSString stringFromRow:toRow column:toColumn];
+                CGPoint toPoint = CGPointZero;
+                id modelMock = OCMClassMock([EnemyViewModel class]);
+                OCMStub([gridCalculatorMock calculatePointForRow:toRow column:toColumn]).andReturn(toPoint);
+                [sut.enemies setObject:modelMock forKey:origPos];
+                NSDictionary *userInfo = @{@"row" : @(fromRow), @"column" : @(fromColumn)};
+                NSNotification *notification = [NSNotification notificationWithName:[Game ShiftRightNotificationName] object:sut.game userInfo:userInfo];
+                
+                //because
+                [sut shiftRight:notification];
+                
+                //expect
+                OCMVerify([gridCalculatorMock calculatePointForRow:toRow column:toColumn]);
+                OCMVerify([modelMock animateMoveToCGPoint:toPoint]);
+                expect([sut.enemies objectForKey:origPos]).to.beNil();
+                expect([sut.enemies objectForKey:newPos]).to.equal(modelMock);
+                
+                //cleanup
+                [modelMock stopMocking];
             });
         });
         

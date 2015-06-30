@@ -28,6 +28,8 @@
     _game = game;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(create:) name:[Game CreateNotificationName] object:self.game];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(shiftLeft:) name:[Game ShiftLeftNotificationName] object:self.game];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(shiftRight:) name:[Game ShiftRightNotificationName] object:self.game];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(danger:) name:[Game DangerNotificationName] object:self.game];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(destroy:) name:[Game DestroyNotificationName] object:self.game];
 }
@@ -59,6 +61,21 @@
 
     EnemyViewModel *evm = [self.enemies objectForKey:position];
     CGPoint newPoint = [self.gridCalculator calculatePointForRow:row column:column-1];
+    
+    [evm animateMoveToCGPoint:newPoint];
+    
+    [self.enemies setObject:evm forKey:newPosition];
+    [self.enemies removeObjectForKey:position];
+}
+
+- (void) shiftRight:(NSNotification *)notification {
+    NSInteger row = [[notification.userInfo objectForKey:@"row"] integerValue];
+    NSInteger column = [[notification.userInfo objectForKey:@"column"] integerValue];
+    NSString *position = [NSString stringFromRow:row column:column];
+    NSString *newPosition = [NSString stringFromRow:row column:column+1];
+    
+    EnemyViewModel *evm = [self.enemies objectForKey:position];
+    CGPoint newPoint = [self.gridCalculator calculatePointForRow:row column:column+1];
     
     [evm animateMoveToCGPoint:newPoint];
     

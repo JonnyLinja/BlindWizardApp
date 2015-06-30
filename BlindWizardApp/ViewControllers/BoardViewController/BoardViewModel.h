@@ -26,4 +26,5 @@
 @property (nonatomic, strong) NSMutableDictionary *enemies;
 - (void) create:(NSNotification *)notification;
 - (void) shiftLeft:(NSNotification *)notification;
+- (void) shiftRight:(NSNotification *)notification;
 @end

@@ -18,6 +18,10 @@
     return @"GameShiftLeftNotificationName";
 }
 
++ (NSString *) ShiftRightNotificationName {
+    return @"GameShiftRightNotificationName";
+}
+
 + (NSString *) DangerNotificationName {
     return @"GameDangerNotificationName";
 }

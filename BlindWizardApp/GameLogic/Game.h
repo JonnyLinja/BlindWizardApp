@@ -13,6 +13,7 @@
 @property (nonatomic, assign, readonly) NSInteger score;
 + (NSString *) CreateNotificationName;
 + (NSString *) ShiftLeftNotificationName;
++ (NSString *) ShiftRightNotificationName;
 + (NSString *) DangerNotificationName;
 + (NSString *) DestroyNotificationName;
 - (void) startGame;
