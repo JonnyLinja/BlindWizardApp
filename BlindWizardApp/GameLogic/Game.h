@@ -9,8 +9,12 @@
 #import <Foundation/Foundation.h>
 
 @interface Game : NSObject
+@property (nonatomic, assign) NSInteger numRows;
+@property (nonatomic, assign) NSInteger numColumns;
 @property (nonatomic, assign, readonly) BOOL gameInProgress;
 @property (nonatomic, assign, readonly) NSInteger score;
+
+//notificaitons
 + (NSString *) CreateNotificationName;
 + (NSString *) ShiftLeftNotificationName;
 + (NSString *) ShiftRightNotificationName;
@@ -21,8 +25,15 @@
 + (NSString *) PacifyNotificationName;
 + (NSString *) DestroyNotificationName;
 + (NSString *) GameActionCompleteNotificationName;
+
+//public
 - (void) startGame;
 - (void) callNextWave;
 - (void) swipeLeftOnRow:(NSInteger)row;
 - (void) swipeRightOnRow:(NSInteger)row;
+
+//testing only
+@property (nonatomic, strong) NSMutableArray *data;
+- (void) executeShiftLeftOnRow:(NSInteger)row;
+
 @end
