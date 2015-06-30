@@ -45,7 +45,8 @@
 - (void) create:(NSNotification *)notification {
     NSInteger row = [[notification.userInfo objectForKey:@"row"] integerValue];
     NSInteger column = [[notification.userInfo objectForKey:@"column"] integerValue];
-    EnemyViewModel *evm = [self.gameFactory createEnemyAtRow:row column:column];
+    NSInteger type = [[notification.userInfo objectForKey:@"type"] integerValue];
+    EnemyViewModel *evm = [self.gameFactory createEnemyWithType:type atRow:row column:column];
     [evm runCreateAnimation];
     [self.enemies setObject:evm forKey:[NSString stringFromRow:row column:column]];
 }

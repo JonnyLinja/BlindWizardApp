@@ -9,8 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @class EnemyViewModel;
-@class ObjectPosition;
 
 @interface GameFactory : NSObject
-- (EnemyViewModel *) createEnemyAtRow:(NSInteger)row column:(NSInteger)column;
+- (EnemyViewModel *) createEnemyWithType:(NSInteger)type atRow:(NSInteger)row column:(NSInteger)column;
 @end

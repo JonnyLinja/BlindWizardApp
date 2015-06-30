@@ -114,16 +114,17 @@ describe(@"BoardViewModel", ^{
                 NSInteger row = 5;
                 NSInteger column = 0;
                 NSString *position = [NSString stringFromRow:row column:column];
+                NSInteger type = 1;
                 id modelMock = OCMClassMock([EnemyViewModel class]);
-                OCMStub([gameFactoryMock createEnemyAtRow:row column:column]).andReturn(modelMock);
-                NSDictionary *userInfo = @{@"row" : @(row), @"column" : @(column)};
+                OCMStub([gameFactoryMock createEnemyWithType:type atRow:row column:column]).andReturn(modelMock);
+                NSDictionary *userInfo = @{@"row" : @(row), @"column" : @(column), @"type" : @(type)};
                 NSNotification *notification = [NSNotification notificationWithName:[Game CreateNotificationName] object:sut.game userInfo:userInfo];
 
                 //because
                 [sut create:notification];
                 
                 //expect
-                OCMVerify([gameFactoryMock createEnemyAtRow:row column:column]);
+                OCMVerify([gameFactoryMock createEnemyWithType:type atRow:row column:column]);
                 OCMVerify([modelMock runCreateAnimation]);
                 expect([sut.enemies objectForKey:position]).to.equal(modelMock);
 

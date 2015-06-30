@@ -9,8 +9,6 @@
 #import <Foundation/Foundation.h>
 #import <CoreGraphics/CoreGraphics.h>
 
-@class ObjectPosition;
-
 @interface GridCalculator : NSObject
 - (NSInteger) calculateRowForYPos:(CGFloat)yPos;
 - (CGPoint) calculatePointForRow:(NSInteger)row column:(NSInteger)column;
