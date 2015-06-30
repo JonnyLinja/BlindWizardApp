@@ -14,6 +14,10 @@
     
 }
 
+- (void) runDangerAnimation {
+    
+}
+
 - (void) animateMoveToCGPoint:(CGPoint)point {
     
 }

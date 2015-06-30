@@ -256,16 +256,25 @@ describe(@"BoardViewModel", ^{
             });
         });
         
-        //TODO: consider the userinfo
-        //is this a, it just passes a column and i have to find it? but requires more search code so not sure i like...as it's a dictionary
-        //is this a, array of what to shakey shakey, this might be the best way, leaning this way as can do set comparison and no searching
-        //is this a, individual one to shake? it's more aligned with everything else but doens't help me "stop" existing dangerous ones, would need a "stop" almost eww
-        //perhaps stop shaking is fine too, out of danger and singles removes responsibility from the BoardVM
-        //consider that just cuz new ones shake doesn't mean old ones should necessarily stop
-        //so stop should be separate
-        pending(@"when there are enemies marked as dangerously close", ^{
-            it(@"should run a danger animation for those enemies, and stop the danger animation for the others", ^{
+        context(@"when there are enemies marked as dangerously close", ^{
+            it(@"should run a danger animation for those enemies", ^{
+                //context
+                NSInteger row = 2;
+                NSInteger column = 2;
+                id modelMock = OCMClassMock([EnemyViewModel class]);
+                NSDictionary *userInfo = @{@"row" : @(row), @"column" : @(column)};
+                NSNotification *notification = [NSNotification notificationWithName:[Game DangerNotificationName] object:sut.game userInfo:userInfo];
+                OCMStub([gridStorageMock objectForRow:row column:column]).andReturn(modelMock);
                 
+                //because
+                [sut danger:notification];
+                
+                //expect
+                OCMVerify([gridStorageMock objectForRow:row column:column]);
+                OCMVerify([modelMock runDangerAnimation]);
+                
+                //cleanup
+                [modelMock stopMocking];
             });
         });
         

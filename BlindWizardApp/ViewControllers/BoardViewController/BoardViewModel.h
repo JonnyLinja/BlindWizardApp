@@ -30,4 +30,5 @@
 - (void) moveToRowHead:(NSNotification *)notification;
 - (void) moveToRowTail:(NSNotification *)notification;
 - (void) drop:(NSNotification *)notification;
+- (void) danger:(NSNotification *)notification;
 @end
