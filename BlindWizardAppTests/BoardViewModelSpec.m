@@ -7,10 +7,7 @@
 #import "GridCalculator.h"
 #import "GameFactory.h"
 #import "EnemyViewModel.h"
-#import "NSString+GridPosition.h"
-
-//TODO: THERE SHOULD ALSO BE A JIGGLE COMMAND
-//MAYBE CAN DO THAT ON THE ACTUAL VIEWS THOUGH
+#import "GridStorage.h"
 
 SpecBegin(BoardViewModel)
 
@@ -104,10 +101,13 @@ describe(@"BoardViewModel", ^{
     
     context(@"notification handling", ^{
         __block id gameFactoryMock;
+        __block id gridStorageMock;
         
         beforeEach(^{
             gameFactoryMock = OCMClassMock([GameFactory class]);
             sut.gameFactory = gameFactoryMock;
+            gridStorageMock = OCMClassMock([GridStorage class]);
+            sut.gridStorage = gridStorageMock;
         });
         
         context(@"when there is an enemy to be created", ^{
@@ -115,12 +115,11 @@ describe(@"BoardViewModel", ^{
                 //context
                 NSInteger row = 5;
                 NSInteger column = 0;
-                NSString *position = [NSString stringFromRow:row column:column];
                 NSInteger type = 1;
                 id modelMock = OCMClassMock([EnemyViewModel class]);
-                OCMStub([gameFactoryMock createEnemyWithType:type atRow:row column:column]).andReturn(modelMock);
                 NSDictionary *userInfo = @{@"row" : @(row), @"column" : @(column), @"type" : @(type)};
                 NSNotification *notification = [NSNotification notificationWithName:[Game CreateNotificationName] object:sut.game userInfo:userInfo];
+                OCMStub([gameFactoryMock createEnemyWithType:type atRow:row column:column]).andReturn(modelMock);
 
                 //because
                 [sut create:notification];
@@ -128,7 +127,7 @@ describe(@"BoardViewModel", ^{
                 //expect
                 OCMVerify([gameFactoryMock createEnemyWithType:type atRow:row column:column]);
                 OCMVerify([modelMock runCreateAnimation]);
-                expect([sut.enemies objectForKey:position]).to.equal(modelMock);
+                OCMVerify([gridStorageMock promiseSetObject:modelMock forRow:row column:column]);
 
                 //cleanup
                 [modelMock stopMocking];
@@ -138,27 +137,24 @@ describe(@"BoardViewModel", ^{
         context(@"when there is an enemy to be shifted left", ^{
             it(@"should move and animate the enemy to the left, then set its position in the store", ^{
                 //context
-                NSInteger fromRow = 5;
-                NSInteger toRow = fromRow;
+                NSInteger row = 5;
                 NSInteger fromColumn = 2;
                 NSInteger toColumn = fromColumn-1;
-                NSString *origPos = [NSString stringFromRow:fromRow column:fromColumn];
-                NSString *newPos = [NSString stringFromRow:toRow column:toColumn];
                 CGPoint toPoint = CGPointZero;
                 id modelMock = OCMClassMock([EnemyViewModel class]);
-                OCMStub([gridCalculatorMock calculatePointForRow:toRow column:toColumn]).andReturn(toPoint);
-                [sut.enemies setObject:modelMock forKey:origPos];
-                NSDictionary *userInfo = @{@"row" : @(fromRow), @"column" : @(fromColumn)};
+                NSDictionary *userInfo = @{@"row" : @(row), @"column" : @(fromColumn)};
                 NSNotification *notification = [NSNotification notificationWithName:[Game ShiftLeftNotificationName] object:sut.game userInfo:userInfo];
-                
+                OCMStub([gridCalculatorMock calculatePointForRow:row column:toColumn]).andReturn(toPoint);
+                OCMStub([gridStorageMock objectForRow:row column:fromColumn]).andReturn(modelMock);
+
                 //because
                 [sut shiftLeft:notification];
                 
                 //expect
-                OCMVerify([gridCalculatorMock calculatePointForRow:toRow column:toColumn]);
+                OCMVerify([gridCalculatorMock calculatePointForRow:row column:toColumn]);
+                OCMVerify([gridStorageMock objectForRow:row column:fromColumn]);
                 OCMVerify([modelMock animateMoveToCGPoint:toPoint]);
-                expect([sut.enemies objectForKey:origPos]).to.beNil();
-                expect([sut.enemies objectForKey:newPos]).to.equal(modelMock);
+                OCMVerify([gridStorageMock promiseSetObject:modelMock forRow:row column:toColumn]);
                 
                 //cleanup
                 [modelMock stopMocking];
@@ -168,27 +164,24 @@ describe(@"BoardViewModel", ^{
         context(@"when there is an enemy to be shifted right", ^{
             it(@"should move and animate the enemy to the right, then set its position in the store", ^{
                 //context
-                NSInteger fromRow = 5;
-                NSInteger toRow = fromRow;
+                NSInteger row = 5;
                 NSInteger fromColumn = 2;
                 NSInteger toColumn = fromColumn+1;
-                NSString *origPos = [NSString stringFromRow:fromRow column:fromColumn];
-                NSString *newPos = [NSString stringFromRow:toRow column:toColumn];
                 CGPoint toPoint = CGPointZero;
                 id modelMock = OCMClassMock([EnemyViewModel class]);
-                OCMStub([gridCalculatorMock calculatePointForRow:toRow column:toColumn]).andReturn(toPoint);
-                [sut.enemies setObject:modelMock forKey:origPos];
-                NSDictionary *userInfo = @{@"row" : @(fromRow), @"column" : @(fromColumn)};
+                NSDictionary *userInfo = @{@"row" : @(row), @"column" : @(fromColumn)};
                 NSNotification *notification = [NSNotification notificationWithName:[Game ShiftRightNotificationName] object:sut.game userInfo:userInfo];
-                
+                OCMStub([gridCalculatorMock calculatePointForRow:row column:toColumn]).andReturn(toPoint);
+                OCMStub([gridStorageMock objectForRow:row column:fromColumn]).andReturn(modelMock);
+
                 //because
                 [sut shiftRight:notification];
                 
                 //expect
-                OCMVerify([gridCalculatorMock calculatePointForRow:toRow column:toColumn]);
+                OCMVerify([gridCalculatorMock calculatePointForRow:row column:toColumn]);
+                OCMVerify([gridStorageMock objectForRow:row column:fromColumn]);
                 OCMVerify([modelMock animateMoveToCGPoint:toPoint]);
-                expect([sut.enemies objectForKey:origPos]).to.beNil();
-                expect([sut.enemies objectForKey:newPos]).to.equal(modelMock);
+                OCMVerify([gridStorageMock promiseSetObject:modelMock forRow:row column:toColumn]);
                 
                 //cleanup
                 [modelMock stopMocking];
@@ -197,7 +190,7 @@ describe(@"BoardViewModel", ^{
         
         context(@"when there is an enemy to be set to the beginning of the row", ^{
             //TODO: this is complicated, may want to expand on it
-            it(@"should move and animate the enemy off screen to the right, then place the enemy at the beginning of the row", ^{
+            it(@"should animate move the enemy off screen to the right, then place the enemy at the beginning of the row", ^{
             });
             it(@"should create an animate a sprite from off screen to the left, and animate it to the beginning of the row, then remove it", ^{
             });
@@ -237,6 +230,8 @@ describe(@"BoardViewModel", ^{
             [gameFactoryMock stopMocking];
         });
     });
+    
+    //TODO: listening for end of stages in order to save the store itself
     
     //TODO:
     pending(@"when animations are run", ^{

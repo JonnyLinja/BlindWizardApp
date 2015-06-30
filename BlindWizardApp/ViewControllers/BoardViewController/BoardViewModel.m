@@ -11,18 +11,9 @@
 #import "GridCalculator.h"
 #import "GameFactory.h"
 #import "EnemyViewModel.h"
-#import "NSString+GridPosition.h"
+#import "GridStorage.h"
 
 @implementation BoardViewModel
-
-- (id) init {
-    self = [super init];
-    if(!self) return nil;
-    
-    self.enemies = [NSMutableDictionary new];
-    
-    return self;
-}
 
 - (void) setGame:(Game *)game {
     _game = game;
@@ -48,39 +39,34 @@
     NSInteger row = [[notification.userInfo objectForKey:@"row"] integerValue];
     NSInteger column = [[notification.userInfo objectForKey:@"column"] integerValue];
     NSInteger type = [[notification.userInfo objectForKey:@"type"] integerValue];
+    
     EnemyViewModel *evm = [self.gameFactory createEnemyWithType:type atRow:row column:column];
     [evm runCreateAnimation];
-    [self.enemies setObject:evm forKey:[NSString stringFromRow:row column:column]];
+    [self.gridStorage promiseSetObject:evm forRow:row column:column];
 }
 
 - (void) shiftLeft:(NSNotification *)notification {
     NSInteger row = [[notification.userInfo objectForKey:@"row"] integerValue];
     NSInteger column = [[notification.userInfo objectForKey:@"column"] integerValue];
-    NSString *position = [NSString stringFromRow:row column:column];
-    NSString *newPosition = [NSString stringFromRow:row column:column-1];
+    NSInteger toColumn = column-1;
 
-    EnemyViewModel *evm = [self.enemies objectForKey:position];
-    CGPoint newPoint = [self.gridCalculator calculatePointForRow:row column:column-1];
+    EnemyViewModel *evm = [self.gridStorage objectForRow:row column:column];
+    CGPoint newPoint = [self.gridCalculator calculatePointForRow:row column:toColumn];
     
     [evm animateMoveToCGPoint:newPoint];
-    
-    [self.enemies setObject:evm forKey:newPosition];
-    [self.enemies removeObjectForKey:position];
+    [self.gridStorage promiseSetObject:evm forRow:row column:toColumn];
 }
 
 - (void) shiftRight:(NSNotification *)notification {
     NSInteger row = [[notification.userInfo objectForKey:@"row"] integerValue];
     NSInteger column = [[notification.userInfo objectForKey:@"column"] integerValue];
-    NSString *position = [NSString stringFromRow:row column:column];
-    NSString *newPosition = [NSString stringFromRow:row column:column+1];
+    NSInteger toColumn = column+1;
     
-    EnemyViewModel *evm = [self.enemies objectForKey:position];
-    CGPoint newPoint = [self.gridCalculator calculatePointForRow:row column:column+1];
+    EnemyViewModel *evm = [self.gridStorage objectForRow:row column:column];
+    CGPoint newPoint = [self.gridCalculator calculatePointForRow:row column:toColumn];
     
     [evm animateMoveToCGPoint:newPoint];
-    
-    [self.enemies setObject:evm forKey:newPosition];
-    [self.enemies removeObjectForKey:position];
+    [self.gridStorage promiseSetObject:evm forRow:row column:toColumn];
 }
 
 - (void) danger:(NSNotification *)notification {

@@ -12,18 +12,19 @@
 @class Game;
 @class GridCalculator;
 @class GameFactory;
+@class GridStorage;
 
 @interface BoardViewModel : NSObject
 
 @property (nonatomic, strong) Game *game; //inject
 @property (nonatomic, strong) GridCalculator *gridCalculator; //inject
 @property (nonatomic, strong) GameFactory *gameFactory; //inject
+@property (nonatomic, strong) GridStorage *gridStorage; //inject
 
 - (void) swipeLeftFromPoint:(CGPoint)point;
 - (void) swipeRightFromPoint:(CGPoint)point;
 
 //for testing only
-@property (nonatomic, strong) NSMutableDictionary *enemies;
 - (void) create:(NSNotification *)notification;
 - (void) shiftLeft:(NSNotification *)notification;
 - (void) shiftRight:(NSNotification *)notification;
