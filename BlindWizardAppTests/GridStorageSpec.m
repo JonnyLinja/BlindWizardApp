@@ -41,7 +41,7 @@ describe(@"GridStorage", ^{
     });
     
     context(@"when promising to set an object at a row and column", ^{
-        it(@"should add the object to a pending store for the key and add the key to a pending removal store", ^{
+        it(@"should queue the object to be removed from its old position and added to its new position", ^{
             //context
             NSString *key = @"1:2";
             NSInteger row = 1;
@@ -60,7 +60,7 @@ describe(@"GridStorage", ^{
     });
     
     context(@"when promising to remove an object at a row and column", ^{
-        it(@"should add the key to a pending removal store", ^{
+        it(@"should queue the object to be removed from its original position", ^{
             //context
             NSString *key = @"1:2";
             NSInteger row = 1;
@@ -77,7 +77,7 @@ describe(@"GridStorage", ^{
     });
 
     context(@"when fulfilling promises", ^{
-        it(@"should remove all objects w/ pending removal store keys, add objects from the pending store, and reset both pending stores", ^{
+        it(@"should remove all objects promised, add objects promised, and reset both queues", ^{
             //context
             NSObject *obj1 = [NSObject new];
             NSObject *obj2 = [NSObject new];
