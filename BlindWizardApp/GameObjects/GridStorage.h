@@ -8,8 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+@class GridStorageKeyGenerator;
+
 @interface GridStorage : NSObject
-- (void) promiseSetObject:modelMock forRow:(NSInteger)row column:(NSInteger)column;
+@property (nonatomic, strong) GridStorageKeyGenerator *keyGenerator; //inject
+@property (nonatomic, strong, readonly) NSMutableDictionary *objects; //testing only
+@property (nonatomic, strong, readonly) NSMutableDictionary *objectsToAdd; //testing only
+@property (nonatomic, strong, readonly) NSMutableArray *keysToRemove; //testing only
+- (void) promiseSetObject:(id)obj forRow:(NSInteger)row column:(NSInteger)column;
 - (id) objectForRow:(NSInteger)row column:(NSInteger)column;
 - (void) promiseRemoveObjectForRow:(NSInteger)row column:(NSInteger)column;
 - (void) fulfillPromises;

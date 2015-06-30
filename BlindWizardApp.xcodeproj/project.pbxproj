@@ -10,6 +10,8 @@
 		7FAB24D207C69E0B81926A2F /* libPods-BlindWizardApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F66DF0723764B2C29A3CB58 /* libPods-BlindWizardApp.a */; };
 		C34EFBFD1B4239810079B6DC /* GridStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = C34EFBFC1B4239810079B6DC /* GridStorage.m */; };
 		C34EFC001B4267980079B6DC /* GameFactorySpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C34EFBFF1B4267980079B6DC /* GameFactorySpec.m */; };
+		C34EFC021B426EF20079B6DC /* GridStorageSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C34EFC011B426EF20079B6DC /* GridStorageSpec.m */; };
+		C34EFC051B4272D80079B6DC /* GridStorageKeyGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = C34EFC041B4272D80079B6DC /* GridStorageKeyGenerator.m */; };
 		C34F7F621B3C991200D07881 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = C34F7F611B3C991200D07881 /* Game.m */; };
 		C34F7F641B3CA29E00D07881 /* GameSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C34F7F631B3CA29E00D07881 /* GameSpec.m */; };
 		C34F7F671B3CD28A00D07881 /* BoardViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C34F7F661B3CD28A00D07881 /* BoardViewModel.m */; };
@@ -57,6 +59,9 @@
 		C34EFBFB1B4239810079B6DC /* GridStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridStorage.h; sourceTree = "<group>"; };
 		C34EFBFC1B4239810079B6DC /* GridStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridStorage.m; sourceTree = "<group>"; };
 		C34EFBFF1B4267980079B6DC /* GameFactorySpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameFactorySpec.m; sourceTree = "<group>"; };
+		C34EFC011B426EF20079B6DC /* GridStorageSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridStorageSpec.m; sourceTree = "<group>"; };
+		C34EFC031B4272D80079B6DC /* GridStorageKeyGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridStorageKeyGenerator.h; sourceTree = "<group>"; };
+		C34EFC041B4272D80079B6DC /* GridStorageKeyGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridStorageKeyGenerator.m; sourceTree = "<group>"; };
 		C34F7F601B3C991200D07881 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
 		C34F7F611B3C991200D07881 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
 		C34F7F631B3CA29E00D07881 /* GameSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameSpec.m; sourceTree = "<group>"; };
@@ -199,6 +204,8 @@
 				C3BEFDF71B3E1997002930BA /* GameFactory.m */,
 				C34EFBFB1B4239810079B6DC /* GridStorage.h */,
 				C34EFBFC1B4239810079B6DC /* GridStorage.m */,
+				C34EFC031B4272D80079B6DC /* GridStorageKeyGenerator.h */,
+				C34EFC041B4272D80079B6DC /* GridStorageKeyGenerator.m */,
 			);
 			path = GameObjects;
 			sourceTree = "<group>";
@@ -269,6 +276,7 @@
 				C3F72DA81B3A312B0040909A /* BoardViewControllerSpec.m */,
 				C37B74941B3CF5FF00D22D5E /* BoardViewModelSpec.m */,
 				C34EFBFF1B4267980079B6DC /* GameFactorySpec.m */,
+				C34EFC011B426EF20079B6DC /* GridStorageSpec.m */,
 				C34F7F631B3CA29E00D07881 /* GameSpec.m */,
 				C3F6BDF21B389B860088D924 /* Supporting Files */,
 			);
@@ -495,6 +503,7 @@
 				C3F6BDDE1B389B860088D924 /* AppDelegate.m in Sources */,
 				C3F6BDDB1B389B860088D924 /* main.m in Sources */,
 				C3BEFDF81B3E1997002930BA /* GameFactory.m in Sources */,
+				C34EFC051B4272D80079B6DC /* GridStorageKeyGenerator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -508,6 +517,7 @@
 				C3F6BE071B38F6620088D924 /* TitleViewControllerSpec.m in Sources */,
 				C3F6BE031B389C1B0088D924 /* UIViewController+TestSegue.m in Sources */,
 				C3A3B3291B3BCCBF00ADF11A /* PlayViewModelSpec.m in Sources */,
+				C34EFC021B426EF20079B6DC /* GridStorageSpec.m in Sources */,
 				C34F7F641B3CA29E00D07881 /* GameSpec.m in Sources */,
 				C37B74951B3CF5FF00D22D5E /* BoardViewModelSpec.m in Sources */,
 				C3F72DA71B3A2C800040909A /* PlayViewControllerSpec.m in Sources */,
