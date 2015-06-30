@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EnemyView : UIView
+@class EnemyViewModel;
 
+@interface EnemyView : UIView
+@property (nonatomic, strong) EnemyViewModel *viewModel; //inject
 @end

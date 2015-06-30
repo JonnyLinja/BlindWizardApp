@@ -10,7 +10,8 @@
 #import <CoreGraphics/CoreGraphics.h>
 
 @interface EnemyViewModel : NSObject
-@property (nonatomic, readonly) NSInteger enemyType;
+@property (nonatomic, assign) NSInteger enemyType;
+@property (nonatomic, assign) CGRect frame;
 - (void) runCreateAnimation;
 - (void) animateMoveToCGPoint:(CGPoint)point;
 - (void) animateMoveToCGPoint:(CGPoint)movePoint thenSnapToCGPoint:(CGPoint)snapPoint;

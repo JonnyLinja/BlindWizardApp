@@ -9,22 +9,18 @@
 
 SpecBegin(GameFactory)
 
-//TODO: Figure out how to TDD factories
+//went with classicist style tests, mini integration
+//wasn't sure how to do this with pure mocking as it isn't dependencies
+//it's tightly coupled to the objects it creates
 
-/*
 describe(@"GameFactory", ^{
     __block GameFactory *sut;
     __block id gridCalculatorMock;
-    __block id viewMock;
-    __block id enemyViewModelMock;
-    __block id enemyViewMock;
     
     beforeEach(^{
         sut = [[GameFactory alloc] init];
         gridCalculatorMock = OCMClassMock([GridCalculator class]);
-        viewMock = OCMClassMock([UIView class]);
-        enemyViewModelMock = OCMClassMock([EnemyViewModel class]);
-        enemyViewMock = OCMClassMock([EnemyView class]);
+        sut.gridCalculator = gridCalculatorMock;
     });
     
     context(@"when creating an enemy", ^{
@@ -32,24 +28,25 @@ describe(@"GameFactory", ^{
             //context
             NSInteger row = 2;
             NSInteger column = 3;
-            CGPoint point = CGPointZero;
+            NSInteger type = 1;
+            CGPoint point = CGPointMake(2, 3);
             CGFloat squareWidth = 10;
             CGFloat squareHeight = 12;
-            CGRect frame = CGRectMake(point.x, point.y, squareWidth, squareHeight);
+            UIView *view = [UIView new];
+            sut.view = view;
+            OCMStub([gridCalculatorMock calculatePointForRow:row column:column]).andReturn(point);
+            OCMStub([gridCalculatorMock squareWidth]).andReturn(squareWidth);
+            OCMStub([gridCalculatorMock squareHeight]).andReturn(squareHeight);
             
             //because
-            id enemyViewModelMock = OCMPartialMock([sut createEnemyWithType:1 atRow:row column:column]);
-            
+            EnemyViewModel *evm = [sut createEnemyWithType:type atRow:row column:column];
+            EnemyView *ev = [view.subviews objectAtIndex:0];
+
             //expect
-            OCMVerify([enemyViewMock setViewModel:enemyViewModelMock]);
-            OCMVerify([gridCalculatorMock calculatePointForRow:row column:column]);
-            OCMVerify([gridCalculatorMock squareWidth]);
-            OCMVerify([gridCalculatorMock squareHeight]);
-            OCMVerify([enemyViewModelMock setFrame:frame]);
-            expect(enemyViewMock.superview).to.equal(sut.view);
-            
-            //cleanup
-            [enemyViewMock stopMocking];
+            expect(evm.enemyType).to.equal(type);
+            expect(evm.frame).to.equal(CGRectMake(point.x, point.y, squareWidth, squareHeight));
+            expect(ev).toNot.beNil();
+            expect(ev.viewModel).to.equal(evm);
         });
     });
     
@@ -57,5 +54,5 @@ describe(@"GameFactory", ^{
         [gridCalculatorMock stopMocking];
     });
 });
-*/
+
 SpecEnd

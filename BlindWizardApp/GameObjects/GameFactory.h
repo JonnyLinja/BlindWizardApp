@@ -6,10 +6,13 @@
 //  Copyright (c) 2015 Adronitis. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @class EnemyViewModel;
+@class GridCalculator;
 
 @interface GameFactory : NSObject
+@property (nonatomic, strong) GridCalculator *gridCalculator; //inject
+@property (nonatomic, weak) UIView *view; //inject
 - (EnemyViewModel *) createEnemyWithType:(NSInteger)type atRow:(NSInteger)row column:(NSInteger)column;
 @end
