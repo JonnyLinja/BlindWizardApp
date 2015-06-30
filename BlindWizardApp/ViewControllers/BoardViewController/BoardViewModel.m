@@ -86,6 +86,23 @@
     [sprite animateMoveToCGPoint:snapPoint removeAfter:YES];
 }
 
+- (void) moveToRowTail:(NSNotification *)notification {
+    NSInteger row = [[notification.userInfo objectForKey:@"row"] integerValue];
+    NSInteger column = [[notification.userInfo objectForKey:@"column"] integerValue];
+    NSInteger toColumn = column-1;
+    NSInteger lastColumn = self.gridCalculator.numColumns-1;
+    
+    EnemyViewModel *evm = [self.gridStorage objectForRow:row column:column];
+    CGPoint newPoint = [self.gridCalculator calculatePointForRow:row column:toColumn];
+    CGPoint snapPoint = [self.gridCalculator calculatePointForRow:row column:lastColumn];
+    
+    [evm animateMoveToCGPoint:newPoint thenSnapToCGPoint:snapPoint];
+    [self.gridStorage promiseSetObject:evm forRow:row column:lastColumn];
+    
+    EnemyViewModel *sprite = [self.gameFactory createEnemyWithType:evm.enemyType atRow:row column:lastColumn+1];
+    [sprite animateMoveToCGPoint:snapPoint removeAfter:YES];
+}
+
 - (void) danger:(NSNotification *)notification {
     
 }

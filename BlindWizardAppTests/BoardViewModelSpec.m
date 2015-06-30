@@ -206,6 +206,7 @@ describe(@"BoardViewModel", ^{
                 NSNotification *notification = [NSNotification notificationWithName:[Game MoveToRowHeadNotificationName] object:sut.game userInfo:userInfo];
                 OCMStub([modelMock enemyType]).andReturn(type);
                 OCMStub([gridCalculatorMock calculatePointForRow:row column:toColumn]).andReturn(toPoint);
+                OCMStub([gridCalculatorMock calculatePointForRow:row column:beginColumn]).andReturn(snapPoint);
                 OCMStub([gridStorageMock objectForRow:row column:fromColumn]).andReturn(modelMock);
                 OCMStub([gameFactoryMock createEnemyWithType:type atRow:row column:offscreenColumn]).andReturn(tempMock);
                 
@@ -213,8 +214,9 @@ describe(@"BoardViewModel", ^{
                 [sut moveToRowHead:notification];
                 
                 //expect
-                OCMVerify([gridCalculatorMock calculatePointForRow:row column:toColumn]);
                 OCMVerify([gridStorageMock objectForRow:row column:fromColumn]);
+                OCMVerify([gridCalculatorMock calculatePointForRow:row column:toColumn]);
+                OCMVerify([gridCalculatorMock calculatePointForRow:row column:beginColumn]);
                 OCMVerify([modelMock animateMoveToCGPoint:toPoint thenSnapToCGPoint:snapPoint]);
                 OCMVerify([gridStorageMock promiseSetObject:modelMock forRow:row column:beginColumn]);
                 OCMVerify([modelMock enemyType]);
@@ -228,10 +230,44 @@ describe(@"BoardViewModel", ^{
         });
         
         context(@"when there is an enemy to be set to the end of the row", ^{
-            //TODO: this is complicated, may want to expand on it
-            it(@"should move and animate the enemy off screen to the left, then place the enemy at the end of the row", ^{
-            });
-            it(@"should create an animate a sprite from off screen to the right, and animate it to the end of the row, then remove it", ^{
+            it(@"should animate move the enemy to the left, along with a duplicate from offscreen to the right, and store the enemy", ^{
+                //context
+                NSInteger type = 1;
+                NSInteger row = 5;
+                NSInteger fromColumn = 0;
+                NSInteger toColumn = fromColumn-1;
+                NSInteger endColumn = 4;
+                NSInteger offscreenColumn = endColumn+1;
+                CGPoint toPoint = CGPointZero;
+                CGPoint snapPoint = CGPointMake(10, 10);
+                id modelMock = OCMClassMock([EnemyViewModel class]);
+                id tempMock = OCMClassMock([EnemyViewModel class]);
+                NSDictionary *userInfo = @{@"row" : @(row), @"column" : @(fromColumn)};
+                NSNotification *notification = [NSNotification notificationWithName:[Game MoveToRowTailNotificationName] object:sut.game userInfo:userInfo];
+                OCMStub([modelMock enemyType]).andReturn(type);
+                OCMStub([gridCalculatorMock numColumns]).andReturn(endColumn+1);
+                OCMStub([gridCalculatorMock calculatePointForRow:row column:toColumn]).andReturn(toPoint);
+                OCMStub([gridCalculatorMock calculatePointForRow:row column:endColumn]).andReturn(snapPoint);
+                OCMStub([gridStorageMock objectForRow:row column:fromColumn]).andReturn(modelMock);
+                OCMStub([gameFactoryMock createEnemyWithType:type atRow:row column:offscreenColumn]).andReturn(tempMock);
+                
+                //because
+                [sut moveToRowTail:notification];
+                
+                //expect
+                OCMVerify([gridCalculatorMock numColumns]);
+                OCMVerify([gridStorageMock objectForRow:row column:fromColumn]);
+                OCMVerify([gridCalculatorMock calculatePointForRow:row column:toColumn]);
+                OCMVerify([gridCalculatorMock calculatePointForRow:row column:endColumn]);
+                OCMVerify([modelMock animateMoveToCGPoint:toPoint thenSnapToCGPoint:snapPoint]);
+                OCMVerify([gridStorageMock promiseSetObject:modelMock forRow:row column:endColumn]);
+                OCMVerify([modelMock enemyType]);
+                OCMVerify([gameFactoryMock createEnemyWithType:type atRow:row column:offscreenColumn]);
+                OCMVerify([tempMock animateMoveToCGPoint:snapPoint removeAfter:YES]);
+                
+                //cleanup
+                [modelMock stopMocking];
+                [tempMock stopMocking];
             });
         });
         

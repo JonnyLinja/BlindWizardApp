@@ -10,6 +10,7 @@
 #import <CoreGraphics/CoreGraphics.h>
 
 @interface GridCalculator : NSObject
+@property (nonatomic, readonly) NSInteger numColumns;
 - (NSInteger) calculateRowForYPos:(CGFloat)yPos;
 - (CGPoint) calculatePointForRow:(NSInteger)row column:(NSInteger)column;
 @end

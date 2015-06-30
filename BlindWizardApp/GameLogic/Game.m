@@ -26,6 +26,10 @@
     return @"GameMoveToRowHeadNotificationName";
 }
 
++ (NSString *) MoveToRowTailNotificationName {
+    return @"GameMoveToRowTailNotificationName";
+}
+
 + (NSString *) DangerNotificationName {
     return @"GameDangerNotificationName";
 }
