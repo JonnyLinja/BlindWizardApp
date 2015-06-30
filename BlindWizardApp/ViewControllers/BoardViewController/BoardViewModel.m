@@ -28,6 +28,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moveToRowTail:) name:[Game MoveToRowTailNotificationName] object:self.game];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(drop:) name:[Game DropNotificationName] object:self.game];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(danger:) name:[Game DangerNotificationName] object:self.game];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pacify:) name:[Game PacifyNotificationName] object:self.game];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(destroy:) name:[Game DestroyNotificationName] object:self.game];
 }
 
@@ -167,6 +168,18 @@
     
     //animate
     [evm runDangerAnimation];
+}
+
+- (void) pacify:(NSNotification *)notification {
+    //parse values
+    NSInteger row = [[notification.userInfo objectForKey:@"row"] integerValue];
+    NSInteger column = [[notification.userInfo objectForKey:@"column"] integerValue];
+    
+    //get
+    EnemyViewModel *evm = [self.gridStorage objectForRow:row column:column];
+    
+    //animate
+    [evm stopDangerAnimation];
 }
 
 - (void) destroy:(NSNotification *)notification {

@@ -18,6 +18,10 @@
     
 }
 
+- (void) stopDangerAnimation {
+    
+}
+
 - (void) animateMoveToCGPoint:(CGPoint)point {
     
 }

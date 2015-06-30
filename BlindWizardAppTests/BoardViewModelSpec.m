@@ -278,6 +278,28 @@ describe(@"BoardViewModel", ^{
             });
         });
         
+        context(@"when there are enemies marked as pacified", ^{
+            it(@"should stop danger animation for those enemies", ^{
+                //context
+                NSInteger row = 2;
+                NSInteger column = 2;
+                id modelMock = OCMClassMock([EnemyViewModel class]);
+                NSDictionary *userInfo = @{@"row" : @(row), @"column" : @(column)};
+                NSNotification *notification = [NSNotification notificationWithName:[Game PacifyNotificationName] object:sut.game userInfo:userInfo];
+                OCMStub([gridStorageMock objectForRow:row column:column]).andReturn(modelMock);
+                
+                //because
+                [sut pacify:notification];
+                
+                //expect
+                OCMVerify([gridStorageMock objectForRow:row column:column]);
+                OCMVerify([modelMock stopDangerAnimation]);
+                
+                //cleanup
+                [modelMock stopMocking];
+            });
+        });
+        
         context(@"when there is an enemy to be destroyed", ^{
             it(@"should destroy the enemy, animate it, and remove it from the stores", ^{
                 

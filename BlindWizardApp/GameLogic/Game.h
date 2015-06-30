@@ -18,6 +18,7 @@
 + (NSString *) MoveToRowTailNotificationName;
 + (NSString *) DropNotificationName;
 + (NSString *) DangerNotificationName;
++ (NSString *) PacifyNotificationName;
 + (NSString *) DestroyNotificationName;
 - (void) startGame;
 - (void) callNextWave;

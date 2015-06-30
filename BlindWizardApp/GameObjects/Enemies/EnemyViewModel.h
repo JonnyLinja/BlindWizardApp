@@ -13,6 +13,7 @@
 @property (nonatomic, readonly) NSInteger enemyType;
 - (void) runCreateAnimation;
 - (void) runDangerAnimation;
+- (void) stopDangerAnimation;
 - (void) animateMoveToCGPoint:(CGPoint)point;
 - (void) animateMoveToCGPoint:(CGPoint)movePoint thenSnapToCGPoint:(CGPoint)snapPoint;
 - (void) animateMoveToCGPoint:(CGPoint)point removeAfter:(BOOL)remove;

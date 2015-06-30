@@ -38,6 +38,10 @@
     return @"GameDangerNotificationName";
 }
 
++ (NSString *) PacifyNotificationName {
+    return @"GamePacifyNotificationName";
+}
+
 + (NSString *) DestroyNotificationName {
     return @"DestroyNotificationName";
 }
