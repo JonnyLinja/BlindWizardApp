@@ -31,4 +31,5 @@
 - (void) executeShiftRightOnRow:(NSInteger)row;
 - (void) executeDrop;
 - (void) executeCreate;
+- (void) executeDestroy;
 @end

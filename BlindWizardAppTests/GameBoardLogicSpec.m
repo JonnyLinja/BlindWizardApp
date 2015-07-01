@@ -9,9 +9,11 @@ SpecBegin(GameBoardLogic)
 
 describe(@"GameBoardLogic", ^{
     __block GameBoardLogic *sut;
+    __block id notificationMock;
     
     beforeEach(^{
         sut = [[GameBoardLogic alloc] init];
+        notificationMock = OCMObserverMock();
     });
     
     context(@"when executing a swipe left", ^{
@@ -23,7 +25,6 @@ describe(@"GameBoardLogic", ^{
             sut.numRows = 2;
             sut.numColumns = [startData count] / sut.numRows;
             sut.data = startData;
-            id notificationMock = OCMObserverMock();
             [[NSNotificationCenter defaultCenter] addMockObserver:notificationMock name:[GameBoardLogic ShiftLeftNotificationName] object:sut];
             [[NSNotificationCenter defaultCenter] addMockObserver:notificationMock name:[GameBoardLogic MoveToRowTailNotificationName] object:sut];
             [[notificationMock expect] notificationWithName:[GameBoardLogic ShiftLeftNotificationName]
@@ -54,9 +55,6 @@ describe(@"GameBoardLogic", ^{
             //expect
             expect(sut.data).to.equal(endData);
             OCMVerifyAll(notificationMock);
-            
-            //cleanup
-            [[NSNotificationCenter defaultCenter] removeObserver:notificationMock];
         });
     });
     
@@ -100,9 +98,6 @@ describe(@"GameBoardLogic", ^{
             //expect
             expect(sut.data).to.equal(endData);
             OCMVerifyAll(notificationMock);
-            
-            //cleanup
-            [[NSNotificationCenter defaultCenter] removeObserver:notificationMock];
         });
     });
     
@@ -148,9 +143,6 @@ describe(@"GameBoardLogic", ^{
             //expect
             expect(sut.data).to.equal(endData);
             OCMVerifyAll(notificationMock);
-            
-            //cleanup
-            [[NSNotificationCenter defaultCenter] removeObserver:notificationMock];
         });
     });
     
@@ -164,9 +156,9 @@ describe(@"GameBoardLogic", ^{
             NSMutableArray *startData = [@[@3, @1, @1, @0, @2, @0, @0, @0, @0, @0] mutableCopy];
             NSMutableArray *endData = [@[@3, @1, @1, @1, @2, @0, @1, @0, @0, @0] mutableCopy];
             sut.data = startData;
-            id notificationMock = OCMObserverMock();
             OCMStub([randomGeneratorMock generateRandomType]).andReturn(1);
-            [[NSNotificationCenter defaultCenter] addMockObserver:notificationMock name:[GameBoardLogic DropNotificationName] object:sut];
+            id notificationMock = OCMObserverMock();
+            [[NSNotificationCenter defaultCenter] addMockObserver:notificationMock name:[GameBoardLogic CreateNotificationName] object:sut];
             [[notificationMock expect] notificationWithName:[GameBoardLogic CreateNotificationName]
                                                      object:sut
                                                    userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
@@ -187,17 +179,123 @@ describe(@"GameBoardLogic", ^{
             
             //expect
             expect(sut.data).to.equal(endData);
-            OCMVerify(notificationMock);
-            
-            //cleanup
-            [[NSNotificationCenter defaultCenter] removeObserver:notificationMock];
+            OCMVerifyAll(notificationMock);
         });
     });
     
-    //TODO:
-    context(@"when executing a destroy", ^{
-        it(@"should destroy all objects that are in rows or columns of 3+", ^{
+    pending(@"when executing a destroy", ^{
+        it(@"should destroy all objects of similar type that are in rows or columns of 3+", ^{
+            //context
+            sut.numRows = 5;
+            sut.numColumns = 5;
+            NSMutableArray *startData = [@[@1, @0, @2, @0, @0, @1, @2, @2, @3, @0, @1, @3, @3, @3, @3, @2, @2, @2, @3, @0, @1, @1, @0, @3, @1] mutableCopy];
+            NSMutableArray *endData = [@[@0, @0, @2, @0, @0, @0, @2, @2, @0, @0, @0, @0, @0, @0, @0, @0, @0, @0, @0, @0, @1, @1, @0, @0, @1] mutableCopy];
+            sut.data = startData;
+            id notificationMock = OCMObserverMock();
+            [[NSNotificationCenter defaultCenter] addMockObserver:notificationMock name:[GameBoardLogic DestroyNotificationName] object:sut];
+            [[notificationMock expect] notificationWithName:[GameBoardLogic DestroyNotificationName]
+                                                     object:sut
+                                                   userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
+                expect([userInfo objectForKey:@"row"]).to.equal(@2);
+                expect([userInfo objectForKey:@"column"]).to.equal(@1);
+                return YES;
+            }]];
+            [[notificationMock expect] notificationWithName:[GameBoardLogic DestroyNotificationName]
+                                                     object:sut
+                                                   userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
+                expect([userInfo objectForKey:@"row"]).to.equal(@2);
+                expect([userInfo objectForKey:@"column"]).to.equal(@2);
+                return YES;
+            }]];
+            [[notificationMock expect] notificationWithName:[GameBoardLogic DestroyNotificationName]
+                                                     object:sut
+                                                   userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
+                expect([userInfo objectForKey:@"row"]).to.equal(@2);
+                expect([userInfo objectForKey:@"column"]).to.equal(@3);
+                return YES;
+            }]];
+            [[notificationMock expect] notificationWithName:[GameBoardLogic DestroyNotificationName]
+                                                     object:sut
+                                                   userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
+                expect([userInfo objectForKey:@"row"]).to.equal(@2);
+                expect([userInfo objectForKey:@"column"]).to.equal(@4);
+                return YES;
+            }]];
+            [[notificationMock expect] notificationWithName:[GameBoardLogic DestroyNotificationName]
+                                                     object:sut
+                                                   userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
+                expect([userInfo objectForKey:@"row"]).to.equal(@3);
+                expect([userInfo objectForKey:@"column"]).to.equal(@1);
+                return YES;
+            }]];
+            [[notificationMock expect] notificationWithName:[GameBoardLogic DestroyNotificationName]
+                                                     object:sut
+                                                   userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
+                expect([userInfo objectForKey:@"row"]).to.equal(@3);
+                expect([userInfo objectForKey:@"column"]).to.equal(@2);
+                return YES;
+            }]];
+            [[notificationMock expect] notificationWithName:[GameBoardLogic DestroyNotificationName]
+                                                     object:sut
+                                                   userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
+                expect([userInfo objectForKey:@"row"]).to.equal(@3);
+                expect([userInfo objectForKey:@"column"]).to.equal(@3);
+                return YES;
+            }]];
+            [[notificationMock expect] notificationWithName:[GameBoardLogic DestroyNotificationName]
+                                                     object:sut
+                                                   userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
+                expect([userInfo objectForKey:@"row"]).to.equal(@0);
+                expect([userInfo objectForKey:@"column"]).to.equal(@0);
+                return YES;
+            }]];
+            [[notificationMock expect] notificationWithName:[GameBoardLogic DestroyNotificationName]
+                                                     object:sut
+                                                   userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
+                expect([userInfo objectForKey:@"row"]).to.equal(@1);
+                expect([userInfo objectForKey:@"column"]).to.equal(@0);
+                return YES;
+            }]];
+            [[notificationMock expect] notificationWithName:[GameBoardLogic DestroyNotificationName]
+                                                     object:sut
+                                                   userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
+                expect([userInfo objectForKey:@"row"]).to.equal(@2);
+                expect([userInfo objectForKey:@"column"]).to.equal(@0);
+                return YES;
+            }]];
+            [[notificationMock expect] notificationWithName:[GameBoardLogic DestroyNotificationName]
+                                                     object:sut
+                                                   userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
+                expect([userInfo objectForKey:@"row"]).to.equal(@1);
+                expect([userInfo objectForKey:@"column"]).to.equal(@3);
+                return YES;
+            }]];
+            [[notificationMock expect] notificationWithName:[GameBoardLogic DestroyNotificationName]
+                                                     object:sut
+                                                   userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
+                expect([userInfo objectForKey:@"row"]).to.equal(@3);
+                expect([userInfo objectForKey:@"column"]).to.equal(@3);
+                return YES;
+            }]];
+            [[notificationMock expect] notificationWithName:[GameBoardLogic DestroyNotificationName]
+                                                     object:sut
+                                                   userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
+                expect([userInfo objectForKey:@"row"]).to.equal(@4);
+                expect([userInfo objectForKey:@"column"]).to.equal(@3);
+                return YES;
+            }]];
+
+            //because
+            [sut executeDestroy];
+            
+            //expect
+            expect(sut.data).to.equal(endData);
+            OCMVerifyAll(notificationMock);
         });
+    });
+    
+    afterEach(^{
+        [[NSNotificationCenter defaultCenter] removeObserver:notificationMock];
     });
     
     //TODO: danger
