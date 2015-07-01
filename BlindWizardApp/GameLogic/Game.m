@@ -48,7 +48,7 @@
 }
 
 + (NSString *) GameActionCompleteNotificationName {
-    return [GameBoardLogic GameActionCompleteNotificationName];
+    return @"GameActionCompleteNotificationName";
 }
 
 - (void) startGame {

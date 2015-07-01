@@ -23,8 +23,8 @@
 + (NSString *) DangerNotificationName;
 + (NSString *) PacifyNotificationName;
 + (NSString *) DestroyNotificationName;
-+ (NSString *) GameActionCompleteNotificationName;
 
 - (void) executeShiftLeftOnRow:(NSInteger)row;
+- (void) executeShiftRightOnRow:(NSInteger)row;
 
 @end

@@ -46,10 +46,6 @@
     return @"DestroyNotificationName";
 }
 
-+ (NSString *) GameActionCompleteNotificationName {
-    return @"GameActionCompleteNotificationName";
-}
-
 - (void) executeShiftLeftOnRow:(NSInteger)row {
     NSNumber *castedRow = @(row);
     NSInteger index = row*self.numColumns;
@@ -85,6 +81,45 @@
                                                           userInfo:@{
                                                                      @"row" : castedRow,
                                                                      @"column" : @0
+                                                                     }];
+    }
+}
+
+- (void) executeShiftRightOnRow:(NSInteger)row {
+    NSNumber *castedRow = @(row);
+    NSInteger index = ((row+1)*self.numColumns)-1;
+    NSNumber *tail = [_data objectAtIndex:index];
+    index--;
+    
+    //shift right
+    for(NSInteger column=self.numColumns-2; column>=0; column--,index--) {
+        //data
+        NSNumber *n = [self.data objectAtIndex:index];
+
+        //save
+        [self.data setObject:n atIndexedSubscript:index+1];
+        
+        //notify
+        if([n integerValue] != 0) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:[GameBoardLogic ShiftRightNotificationName]
+                                                                object:self
+                                                              userInfo:@{
+                                                                         @"row" : castedRow,
+                                                                         @"column" : @(column)
+                                                                         }];
+        }
+    }
+    
+    //move to head
+    [self.data setObject:tail atIndexedSubscript:index+1];
+    
+    //notify
+    if([tail integerValue] != 0) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:[GameBoardLogic MoveToRowHeadNotificationName]
+                                                            object:self
+                                                          userInfo:@{
+                                                                     @"row" : castedRow,
+                                                                     @"column" : @(self.numColumns-1)
                                                                      }];
     }
 }

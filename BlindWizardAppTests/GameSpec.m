@@ -23,7 +23,7 @@ describe(@"Game", ^{
             [sut startGame];
         });
         
-        it(@"should set the game to the starting state", ^{
+        pending(@"should set the game to the starting state", ^{
             //because
             [sut startGame];
             
@@ -57,7 +57,14 @@ describe(@"Game", ^{
     });
     
     //when there is a command in the queue, it should process it?
-    //when a command is successfully processed, it should wait the appropriate amount of time?
+    //when a command is successfully processed, it should notify game action completion?
+    //when a command is successfully processed, it should process the next command after a possible delay?
+    
+    //who should have the delay check? Game.h or the processor itself?!?!?! INTERESTING
+    //is it possible to have the delay be a behavior of the processor?
+    //i don't think so...the command order object thingy should really only have the next one up
+    //but it could maybe wrapped by the timer itself?
+    //nah that sounds dumb
 });
 
 SpecEnd
