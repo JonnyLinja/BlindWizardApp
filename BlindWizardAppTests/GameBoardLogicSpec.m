@@ -180,7 +180,7 @@ describe(@"GameBoardLogic", ^{
         });
     });
     
-    pending(@"when executing a destroy", ^{
+    context(@"when executing a destroy", ^{
         it(@"should destroy all objects of similar type that are in rows or columns of 3+", ^{
             //context
             sut.numRows = 5;
@@ -221,6 +221,13 @@ describe(@"GameBoardLogic", ^{
                                                      object:sut
                                                    userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
                 expect([userInfo objectForKey:@"row"]).to.equal(@3);
+                expect([userInfo objectForKey:@"column"]).to.equal(@0);
+                return YES;
+            }]];
+            [[notificationMock expect] notificationWithName:[GameBoardLogic DestroyNotificationName]
+                                                     object:sut
+                                                   userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
+                expect([userInfo objectForKey:@"row"]).to.equal(@3);
                 expect([userInfo objectForKey:@"column"]).to.equal(@1);
                 return YES;
             }]];
@@ -229,13 +236,6 @@ describe(@"GameBoardLogic", ^{
                                                    userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
                 expect([userInfo objectForKey:@"row"]).to.equal(@3);
                 expect([userInfo objectForKey:@"column"]).to.equal(@2);
-                return YES;
-            }]];
-            [[notificationMock expect] notificationWithName:[GameBoardLogic DestroyNotificationName]
-                                                     object:sut
-                                                   userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
-                expect([userInfo objectForKey:@"row"]).to.equal(@3);
-                expect([userInfo objectForKey:@"column"]).to.equal(@3);
                 return YES;
             }]];
             [[notificationMock expect] notificationWithName:[GameBoardLogic DestroyNotificationName]
