@@ -189,7 +189,7 @@
                 //found a free spot
                 
                 //add
-                NSNumber *newNumber = @([self.randomGenerator generateRandomType]);
+                NSNumber *newNumber = @([self.randomGenerator generate]);
                 [self.data setObject:newNumber atIndexedSubscript:index];
                 
                 //notify
@@ -208,6 +208,7 @@
     }
 }
 
+//TODO: consider refactoring this massive function into parts, like scan rows, scan columns, remove and notify
 - (void) executeDestroy {
     NSMutableArray *rowsToDestroy = [NSMutableArray new];
     NSMutableArray *columnsToDestroy = [NSMutableArray new];

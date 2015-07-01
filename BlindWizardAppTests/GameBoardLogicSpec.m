@@ -154,7 +154,7 @@ describe(@"GameBoardLogic", ^{
             NSMutableArray *startData = [@[@3, @1, @1, @0, @2, @0, @0, @0, @0, @0] mutableCopy];
             NSMutableArray *endData = [@[@3, @1, @1, @1, @2, @0, @1, @0, @0, @0] mutableCopy];
             sut.data = startData;
-            OCMStub([randomGeneratorMock generateRandomType]).andReturn(1);
+            OCMStub([randomGeneratorMock generate]).andReturn(1);
             [[NSNotificationCenter defaultCenter] addMockObserver:notificationMock name:[GameBoardLogic CreateNotificationName] object:sut];
             [[notificationMock expect] notificationWithName:[GameBoardLogic CreateNotificationName]
                                                      object:sut

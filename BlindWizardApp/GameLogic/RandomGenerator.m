@@ -10,8 +10,9 @@
 
 @implementation RandomGenerator
 
-- (NSInteger) generateRandomType {
-    return -1;
+- (NSInteger) generate {
+    uint32_t difference = (uint32_t)(self.maximum-self.minimum);
+    return arc4random_uniform(difference)+self.minimum;
 }
 
 @end

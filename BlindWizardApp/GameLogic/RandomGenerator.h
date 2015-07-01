@@ -9,5 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface RandomGenerator : NSObject
-- (NSInteger) generateRandomType;
+@property (nonatomic, assign) NSInteger minimum;
+@property (nonatomic, assign) NSInteger maximum;
+- (NSInteger) generate;
 @end
