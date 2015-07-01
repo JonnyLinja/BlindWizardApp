@@ -67,7 +67,6 @@ describe(@"GameBoardLogic", ^{
             sut.numRows = 2;
             sut.numColumns = [startData count] / sut.numRows;
             sut.data = startData;
-            id notificationMock = OCMObserverMock();
             [[NSNotificationCenter defaultCenter] addMockObserver:notificationMock name:[GameBoardLogic ShiftRightNotificationName] object:sut];
             [[NSNotificationCenter defaultCenter] addMockObserver:notificationMock name:[GameBoardLogic MoveToRowHeadNotificationName] object:sut];
             [[notificationMock expect] notificationWithName:[GameBoardLogic ShiftRightNotificationName]
@@ -110,7 +109,6 @@ describe(@"GameBoardLogic", ^{
             sut.numRows = 5;
             sut.numColumns = 2;
             sut.data = startData;
-            id notificationMock = OCMObserverMock();
             [[NSNotificationCenter defaultCenter] addMockObserver:notificationMock name:[GameBoardLogic DropNotificationName] object:sut];
             [[notificationMock expect] notificationWithName:[GameBoardLogic DropNotificationName]
                                                      object:sut
@@ -157,7 +155,6 @@ describe(@"GameBoardLogic", ^{
             NSMutableArray *endData = [@[@3, @1, @1, @1, @2, @0, @1, @0, @0, @0] mutableCopy];
             sut.data = startData;
             OCMStub([randomGeneratorMock generateRandomType]).andReturn(1);
-            id notificationMock = OCMObserverMock();
             [[NSNotificationCenter defaultCenter] addMockObserver:notificationMock name:[GameBoardLogic CreateNotificationName] object:sut];
             [[notificationMock expect] notificationWithName:[GameBoardLogic CreateNotificationName]
                                                      object:sut
@@ -191,7 +188,6 @@ describe(@"GameBoardLogic", ^{
             NSMutableArray *startData = [@[@1, @0, @2, @0, @0, @1, @2, @2, @3, @0, @1, @3, @3, @3, @3, @2, @2, @2, @3, @0, @1, @1, @0, @3, @1] mutableCopy];
             NSMutableArray *endData = [@[@0, @0, @2, @0, @0, @0, @2, @2, @0, @0, @0, @0, @0, @0, @0, @0, @0, @0, @0, @0, @1, @1, @0, @0, @1] mutableCopy];
             sut.data = startData;
-            id notificationMock = OCMObserverMock();
             [[NSNotificationCenter defaultCenter] addMockObserver:notificationMock name:[GameBoardLogic DestroyNotificationName] object:sut];
             [[notificationMock expect] notificationWithName:[GameBoardLogic DestroyNotificationName]
                                                      object:sut
