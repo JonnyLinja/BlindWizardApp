@@ -124,4 +124,51 @@
     }
 }
 
+- (void) executeDrop {
+    //loop through columns
+    for(NSInteger column=0; column < self.numColumns; column++) {
+        NSInteger replaceIndex = -1;
+        NSInteger toRow = -1;
+        
+        //loop through rows of that column
+        for(NSInteger row=0; row < self.numRows; row++) {
+            //current
+            NSInteger index = (row * self.numColumns) + column;
+            NSNumber *n = [self.data objectAtIndex:index];
+            
+            if(replaceIndex == -1) {
+                //nothing to replace yet
+                
+                if([n integerValue] == 0) {
+                    //it's 0, need to replace it
+                    replaceIndex = index;
+                    toRow = row;
+                }
+            }else {
+                //searching to replace
+                
+                if([n integerValue] != 0) {
+                    //found something
+                    
+                    //replace
+                    [self.data setObject:n atIndexedSubscript:replaceIndex];
+                    [self.data setObject:@0 atIndexedSubscript:index];
+                    
+                    //notify
+                    [[NSNotificationCenter defaultCenter] postNotificationName:[GameBoardLogic DropNotificationName]
+                                                                        object:self
+                                                                      userInfo:@{
+                                                                                 @"column" : @(column),
+                                                                                 @"fromRow" : @(row),
+                                                                                 @"toRow" : @(toRow)
+                                                                                 }];
+                    //update vars
+                    replaceIndex = index;
+                    toRow = row;
+                }
+            }
+        }
+    }
+}
+
 @end

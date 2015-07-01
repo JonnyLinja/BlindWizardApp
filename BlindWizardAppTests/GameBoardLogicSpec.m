@@ -19,14 +19,14 @@ describe(@"GameBoardLogic", ^{
         });
     });
     
-    context(@"when executing a swipe left with an object at the head", ^{
+    context(@"when executing a swipe left", ^{
         it(@"should shift the items on row left, set the head of the row to the tail, and notify changes for actual objects", ^{
             //context
-            NSInteger row = 0;
-            NSMutableArray *startData = [@[@1, @2, @0, @4] mutableCopy];
-            NSMutableArray *endData = [@[@2, @0, @4, @1] mutableCopy];
-            sut.numRows = 1;
-            sut.numColumns = [startData count];
+            NSInteger row = 1;
+            NSMutableArray *startData = [@[@0, @0, @0, @0, @1, @2, @0, @4] mutableCopy];
+            NSMutableArray *endData = [@[@0, @0, @0, @0, @2, @0, @4, @1] mutableCopy];
+            sut.numRows = 2;
+            sut.numColumns = [startData count] / sut.numRows;
             sut.data = startData;
             id notificationMock = OCMObserverMock();
             [[NSNotificationCenter defaultCenter] addMockObserver:notificationMock name:[GameBoardLogic ShiftLeftNotificationName] object:sut];
@@ -65,53 +65,14 @@ describe(@"GameBoardLogic", ^{
         });
     });
     
-    context(@"when executing a swipe left without an object at the head", ^{
-        it(@"should shift the items on row left, set the head of the row to the tail, and notify the changes for actual objects", ^{
-            //context
-            NSInteger row = 0;
-            NSMutableArray *startData = [@[@0, @2, @0, @4] mutableCopy];
-            NSMutableArray *endData = [@[@2, @0, @4, @0] mutableCopy];
-            sut.numRows = 1;
-            sut.numColumns = [startData count];
-            sut.data = startData;
-            id notificationMock = OCMObserverMock();
-            [[NSNotificationCenter defaultCenter] addMockObserver:notificationMock name:[GameBoardLogic ShiftLeftNotificationName] object:sut];
-            [[NSNotificationCenter defaultCenter] addMockObserver:notificationMock name:[GameBoardLogic MoveToRowTailNotificationName] object:sut];
-            [[notificationMock expect] notificationWithName:[GameBoardLogic ShiftLeftNotificationName]
-                                                     object:sut
-                                                   userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
-                expect([userInfo objectForKey:@"row"]).to.equal(@(row));
-                expect([userInfo objectForKey:@"column"]).to.equal(@1);
-                return YES;
-            }]];
-            [[notificationMock expect] notificationWithName:[GameBoardLogic ShiftLeftNotificationName]
-                                                     object:sut
-                                                   userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
-                expect([userInfo objectForKey:@"row"]).to.equal(@(row));
-                expect([userInfo objectForKey:@"column"]).to.equal(@3);
-                return YES;
-            }]];
-            
-            //because
-            [sut executeShiftLeftOnRow:row];
-            
-            //expect
-            expect(sut.data).to.equal(endData);
-            OCMVerifyAll(notificationMock);
-            
-            //cleanup
-            [[NSNotificationCenter defaultCenter] removeObserver:notificationMock];
-        });
-    });
-    
-    context(@"when executing a swipe right with an object at the tail", ^{
+    context(@"when executing a swipe right", ^{
         it(@"should shift the items on row right, set the tail of the row to the head, and notify changes for actual objects", ^{
             //context
-            NSInteger row = 0;
-            NSMutableArray *startData = [@[@1, @0, @2, @4] mutableCopy];
-            NSMutableArray *endData = [@[@4, @1, @0, @2] mutableCopy];
-            sut.numRows = 1;
-            sut.numColumns = [startData count];
+            NSInteger row = 1;
+            NSMutableArray *startData = [@[@0, @0, @0, @0, @1, @0, @2, @4] mutableCopy];
+            NSMutableArray *endData = [@[@0, @0, @0, @0, @4, @1, @0, @2] mutableCopy];
+            sut.numRows = 2;
+            sut.numColumns = [startData count] / sut.numRows;
             sut.data = startData;
             id notificationMock = OCMObserverMock();
             [[NSNotificationCenter defaultCenter] addMockObserver:notificationMock name:[GameBoardLogic ShiftRightNotificationName] object:sut];
@@ -150,35 +111,44 @@ describe(@"GameBoardLogic", ^{
         });
     });
     
-    context(@"when executing a swipe right without an object at the tail", ^{
-        it(@"should shift the items on row right, set the tail of the row to the head, and notify changes for actual objects", ^{
+    context(@"when executing a drop", ^{
+        it(@"should drop everything down so there's no 0s at the bottom of the column and notify changes for actual objects", ^{
             //context
-            NSInteger row = 0;
-            NSMutableArray *startData = [@[@1, @0, @2, @0] mutableCopy];
-            NSMutableArray *endData = [@[@0, @1, @0, @2] mutableCopy];
-            sut.numRows = 1;
-            sut.numColumns = [startData count];
+            NSInteger column = 0;
+            NSMutableArray *startData = [@[@0, @1, @3, @0, @1, @0, @0, @0, @2, @0] mutableCopy];
+            NSMutableArray *endData = [@[@3, @1, @1, @0, @2, @0, @0, @0, @0, @0] mutableCopy];
+            sut.numRows = 5;
+            sut.numColumns = 2;
             sut.data = startData;
             id notificationMock = OCMObserverMock();
-            [[NSNotificationCenter defaultCenter] addMockObserver:notificationMock name:[GameBoardLogic ShiftRightNotificationName] object:sut];
-            [[NSNotificationCenter defaultCenter] addMockObserver:notificationMock name:[GameBoardLogic MoveToRowHeadNotificationName] object:sut];
-            [[notificationMock expect] notificationWithName:[GameBoardLogic ShiftRightNotificationName]
+            [[NSNotificationCenter defaultCenter] addMockObserver:notificationMock name:[GameBoardLogic DropNotificationName] object:sut];
+            [[notificationMock expect] notificationWithName:[GameBoardLogic DropNotificationName]
                                                      object:sut
                                                    userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
-                expect([userInfo objectForKey:@"row"]).to.equal(@(row));
-                expect([userInfo objectForKey:@"column"]).to.equal(@2);
+                expect([userInfo objectForKey:@"column"]).to.equal(@(column));
+                expect([userInfo objectForKey:@"fromRow"]).to.equal(@1);
+                expect([userInfo objectForKey:@"toRow"]).to.equal(@0);
                 return YES;
             }]];
-            [[notificationMock expect] notificationWithName:[GameBoardLogic ShiftRightNotificationName]
+            [[notificationMock expect] notificationWithName:[GameBoardLogic DropNotificationName]
                                                      object:sut
                                                    userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
-                expect([userInfo objectForKey:@"row"]).to.equal(@(row));
-                expect([userInfo objectForKey:@"column"]).to.equal(@0);
+                expect([userInfo objectForKey:@"column"]).to.equal(@(column));
+                expect([userInfo objectForKey:@"fromRow"]).to.equal(@2);
+                expect([userInfo objectForKey:@"toRow"]).to.equal(@1);
+                return YES;
+            }]];
+            [[notificationMock expect] notificationWithName:[GameBoardLogic DropNotificationName]
+                                                     object:sut
+                                                   userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
+                expect([userInfo objectForKey:@"column"]).to.equal(@(column));
+                expect([userInfo objectForKey:@"fromRow"]).to.equal(@4);
+                expect([userInfo objectForKey:@"toRow"]).to.equal(@2);
                 return YES;
             }]];
             
             //because
-            [sut executeShiftRightOnRow:row];
+            [sut executeDrop];
             
             //expect
             expect(sut.data).to.equal(endData);
@@ -188,6 +158,8 @@ describe(@"GameBoardLogic", ^{
             [[NSNotificationCenter defaultCenter] removeObserver:notificationMock];
         });
     });
+    
+    
 });
 
 SpecEnd

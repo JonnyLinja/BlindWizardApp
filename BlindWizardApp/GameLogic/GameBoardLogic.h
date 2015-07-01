@@ -26,5 +26,5 @@
 
 - (void) executeShiftLeftOnRow:(NSInteger)row;
 - (void) executeShiftRightOnRow:(NSInteger)row;
-
+- (void) executeDrop;
 @end
