@@ -17,17 +17,55 @@ describe(@"Game", ^{
         sut.gameBoardLogic = gameBoardLogicMock;
     });
     
-    context(@"when ", ^{
+    context(@"when starting the game", ^{
+        pending(@"should load initial blocks", ^{
+            //because
+            [sut startGame];
+        });
+        
+        it(@"should set the game to the starting state", ^{
+            //because
+            [sut startGame];
+            
+            //expect
+            expect(sut.gameInProgress).to.beTruthy();
+        });
+    });
+    
+    context(@"when calling the next wave", ^{
+        it(@"should add the command to the queue", ^{
+            //should it also attempt to process the next command?
+        });
+    });
+    
+    context(@"when swiping left", ^{
+        it(@"should add the command to the queue", ^{
+            //should it also attempt to process the next command?
+        });
+    });
+    
+    context(@"when swiping right", ^{
+        it(@"should add the command to the queue", ^{
+            //should it also attempt to process the next command?
+        });
+    });
+    
+    context(@"when processing next command", ^{
         it(@"should ", ^{
             
         });
     });
+    
+    //when there is a command in the queue, it should process it?
+    //when a command is successfully processed, it should wait the appropriate amount of time?
 });
 
 SpecEnd
 
-//actual logic of where things should be on a swipe or a drop or a create
 //buffering commands, swipe and next wave specifically
 //ordering commands, like drop -> destroy -> drop -> destroy
-//all the notifications for specific blocks
 //game action notifications
+
+//timing, waiting before processing the next command as necessary
+
+//score

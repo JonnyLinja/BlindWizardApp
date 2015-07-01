@@ -10,10 +10,8 @@
 		7FAB24D207C69E0B81926A2F /* libPods-BlindWizardApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F66DF0723764B2C29A3CB58 /* libPods-BlindWizardApp.a */; };
 		C307727A1B43823D009A85D6 /* GameBoardLogicSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C30772791B43823D009A85D6 /* GameBoardLogicSpec.m */; };
 		C30772801B438309009A85D6 /* GameBoardLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = C307727F1B438309009A85D6 /* GameBoardLogic.m */; };
-		C34EFBFD1B4239810079B6DC /* GridStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = C34EFBFC1B4239810079B6DC /* GridStorage.m */; };
 		C34EFC001B4267980079B6DC /* GameFactorySpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C34EFBFF1B4267980079B6DC /* GameFactorySpec.m */; };
 		C34EFC021B426EF20079B6DC /* GridStorageSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C34EFC011B426EF20079B6DC /* GridStorageSpec.m */; };
-		C34EFC051B4272D80079B6DC /* GridStorageKeyGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = C34EFC041B4272D80079B6DC /* GridStorageKeyGenerator.m */; };
 		C34EFC071B427B350079B6DC /* GridStorageKeyGeneratorSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C34EFC061B427B350079B6DC /* GridStorageKeyGeneratorSpec.m */; };
 		C34F7F621B3C991200D07881 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = C34F7F611B3C991200D07881 /* Game.m */; };
 		C34F7F641B3CA29E00D07881 /* GameSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C34F7F631B3CA29E00D07881 /* GameSpec.m */; };
@@ -28,7 +26,9 @@
 		C3BEFDF81B3E1997002930BA /* GameFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = C3BEFDF71B3E1997002930BA /* GameFactory.m */; };
 		C3BEFDFF1B3E1E0A002930BA /* EnemyViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C3BEFDFE1B3E1E0A002930BA /* EnemyViewModel.m */; };
 		C3BEFE021B3E1E1A002930BA /* EnemyView.m in Sources */ = {isa = PBXBuildFile; fileRef = C3BEFE011B3E1E1A002930BA /* EnemyView.m */; };
-		C3E313811B3E141800ADB0AB /* GridCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E313801B3E141800ADB0AB /* GridCalculator.m */; };
+		C3EA5B841B43A1C000376A5F /* GridCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EA5B7F1B43A1C000376A5F /* GridCalculator.m */; };
+		C3EA5B851B43A1C000376A5F /* GridStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EA5B811B43A1C000376A5F /* GridStorage.m */; };
+		C3EA5B861B43A1C000376A5F /* GridStorageKeyGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EA5B831B43A1C000376A5F /* GridStorageKeyGenerator.m */; };
 		C3F6BDDB1B389B860088D924 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F6BDDA1B389B860088D924 /* main.m */; };
 		C3F6BDDE1B389B860088D924 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F6BDDD1B389B860088D924 /* AppDelegate.m */; };
 		C3F6BDE41B389B860088D924 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3F6BDE21B389B860088D924 /* Main.storyboard */; };
@@ -62,12 +62,8 @@
 		C30772791B43823D009A85D6 /* GameBoardLogicSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameBoardLogicSpec.m; sourceTree = "<group>"; };
 		C307727E1B438309009A85D6 /* GameBoardLogic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameBoardLogic.h; sourceTree = "<group>"; };
 		C307727F1B438309009A85D6 /* GameBoardLogic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameBoardLogic.m; sourceTree = "<group>"; };
-		C34EFBFB1B4239810079B6DC /* GridStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridStorage.h; sourceTree = "<group>"; };
-		C34EFBFC1B4239810079B6DC /* GridStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridStorage.m; sourceTree = "<group>"; };
 		C34EFBFF1B4267980079B6DC /* GameFactorySpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameFactorySpec.m; sourceTree = "<group>"; };
 		C34EFC011B426EF20079B6DC /* GridStorageSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridStorageSpec.m; sourceTree = "<group>"; };
-		C34EFC031B4272D80079B6DC /* GridStorageKeyGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridStorageKeyGenerator.h; sourceTree = "<group>"; };
-		C34EFC041B4272D80079B6DC /* GridStorageKeyGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridStorageKeyGenerator.m; sourceTree = "<group>"; };
 		C34EFC061B427B350079B6DC /* GridStorageKeyGeneratorSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridStorageKeyGeneratorSpec.m; sourceTree = "<group>"; };
 		C34F7F601B3C991200D07881 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
 		C34F7F611B3C991200D07881 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
@@ -92,8 +88,12 @@
 		C3BEFDFE1B3E1E0A002930BA /* EnemyViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnemyViewModel.m; sourceTree = "<group>"; };
 		C3BEFE001B3E1E1A002930BA /* EnemyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnemyView.h; sourceTree = "<group>"; };
 		C3BEFE011B3E1E1A002930BA /* EnemyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnemyView.m; sourceTree = "<group>"; };
-		C3E3137F1B3E141800ADB0AB /* GridCalculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridCalculator.h; sourceTree = "<group>"; };
-		C3E313801B3E141800ADB0AB /* GridCalculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridCalculator.m; sourceTree = "<group>"; };
+		C3EA5B7E1B43A1C000376A5F /* GridCalculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridCalculator.h; sourceTree = "<group>"; };
+		C3EA5B7F1B43A1C000376A5F /* GridCalculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridCalculator.m; sourceTree = "<group>"; };
+		C3EA5B801B43A1C000376A5F /* GridStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridStorage.h; sourceTree = "<group>"; };
+		C3EA5B811B43A1C000376A5F /* GridStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridStorage.m; sourceTree = "<group>"; };
+		C3EA5B821B43A1C000376A5F /* GridStorageKeyGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridStorageKeyGenerator.h; sourceTree = "<group>"; };
+		C3EA5B831B43A1C000376A5F /* GridStorageKeyGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridStorageKeyGenerator.m; sourceTree = "<group>"; };
 		C3F6BDD51B389B860088D924 /* BlindWizardApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlindWizardApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3F6BDD91B389B860088D924 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C3F6BDDA1B389B860088D924 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -158,8 +158,6 @@
 				C34F7F611B3C991200D07881 /* Game.m */,
 				C307727E1B438309009A85D6 /* GameBoardLogic.h */,
 				C307727F1B438309009A85D6 /* GameBoardLogic.m */,
-				C3E3137F1B3E141800ADB0AB /* GridCalculator.h */,
-				C3E313801B3E141800ADB0AB /* GridCalculator.m */,
 			);
 			path = GameLogic;
 			sourceTree = "<group>";
@@ -211,10 +209,6 @@
 				C34EFBFE1B425CCA0079B6DC /* Effects */,
 				C3BEFDF61B3E1997002930BA /* GameFactory.h */,
 				C3BEFDF71B3E1997002930BA /* GameFactory.m */,
-				C34EFBFB1B4239810079B6DC /* GridStorage.h */,
-				C34EFBFC1B4239810079B6DC /* GridStorage.m */,
-				C34EFC031B4272D80079B6DC /* GridStorageKeyGenerator.h */,
-				C34EFC041B4272D80079B6DC /* GridStorageKeyGenerator.m */,
 			);
 			path = GameObjects;
 			sourceTree = "<group>";
@@ -228,6 +222,19 @@
 				C3BEFE011B3E1E1A002930BA /* EnemyView.m */,
 			);
 			path = Enemies;
+			sourceTree = "<group>";
+		};
+		C3EA5B7D1B43A1C000376A5F /* Grid */ = {
+			isa = PBXGroup;
+			children = (
+				C3EA5B7E1B43A1C000376A5F /* GridCalculator.h */,
+				C3EA5B7F1B43A1C000376A5F /* GridCalculator.m */,
+				C3EA5B801B43A1C000376A5F /* GridStorage.h */,
+				C3EA5B811B43A1C000376A5F /* GridStorage.m */,
+				C3EA5B821B43A1C000376A5F /* GridStorageKeyGenerator.h */,
+				C3EA5B831B43A1C000376A5F /* GridStorageKeyGenerator.m */,
+			);
+			path = Grid;
 			sourceTree = "<group>";
 		};
 		C3F6BDCC1B389B860088D924 = {
@@ -256,6 +263,7 @@
 				C3F6BE041B38F6490088D924 /* Assemblies */,
 				C34F7F5F1B3C990000D07881 /* GameLogic */,
 				C3BEFDF51B3E1982002930BA /* GameObjects */,
+				C3EA5B7D1B43A1C000376A5F /* Grid */,
 				C3F6BE051B38F6490088D924 /* ViewControllers */,
 				C3F6BDDC1B389B860088D924 /* AppDelegate.h */,
 				C3F6BDDD1B389B860088D924 /* AppDelegate.m */,
@@ -287,8 +295,8 @@
 				C34EFBFF1B4267980079B6DC /* GameFactorySpec.m */,
 				C34EFC011B426EF20079B6DC /* GridStorageSpec.m */,
 				C34EFC061B427B350079B6DC /* GridStorageKeyGeneratorSpec.m */,
-				C30772791B43823D009A85D6 /* GameBoardLogicSpec.m */,
 				C34F7F631B3CA29E00D07881 /* GameSpec.m */,
+				C30772791B43823D009A85D6 /* GameBoardLogicSpec.m */,
 				C3F6BDF21B389B860088D924 /* Supporting Files */,
 			);
 			path = BlindWizardAppTests;
@@ -504,18 +512,18 @@
 				C34F7F671B3CD28A00D07881 /* BoardViewModel.m in Sources */,
 				C3A9E7B11B38FC1F006D9C68 /* PlayViewController.m in Sources */,
 				C3BEFDFF1B3E1E0A002930BA /* EnemyViewModel.m in Sources */,
-				C34EFBFD1B4239810079B6DC /* GridStorage.m in Sources */,
+				C3EA5B851B43A1C000376A5F /* GridStorage.m in Sources */,
 				C3A9E7B91B38FDC4006D9C68 /* LeaderboardViewController.m in Sources */,
 				C34F7F621B3C991200D07881 /* Game.m in Sources */,
-				C3E313811B3E141800ADB0AB /* GridCalculator.m in Sources */,
 				C3A9E7B51B38FC35006D9C68 /* TitleViewController.m in Sources */,
 				C3A3B32D1B3BD07400ADF11A /* BoardViewController.m in Sources */,
 				C3BEFE021B3E1E1A002930BA /* EnemyView.m in Sources */,
 				C30772801B438309009A85D6 /* GameBoardLogic.m in Sources */,
 				C3F6BDDE1B389B860088D924 /* AppDelegate.m in Sources */,
+				C3EA5B841B43A1C000376A5F /* GridCalculator.m in Sources */,
 				C3F6BDDB1B389B860088D924 /* main.m in Sources */,
 				C3BEFDF81B3E1997002930BA /* GameFactory.m in Sources */,
-				C34EFC051B4272D80079B6DC /* GridStorageKeyGenerator.m in Sources */,
+				C3EA5B861B43A1C000376A5F /* GridStorageKeyGenerator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

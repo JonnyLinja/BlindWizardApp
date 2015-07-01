@@ -108,7 +108,5 @@ describe(@"GameBoardLogic", ^{
 SpecEnd
 
 //actual logic of where things should be on a swipe or a drop or a create
-//buffering commands, swipe and next wave specifically
-//ordering commands, like drop -> destroy -> drop -> destroy
 //all the notifications for specific blocks
-//game action notifications
+//losing
