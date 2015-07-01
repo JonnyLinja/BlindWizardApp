@@ -1,19 +1,17 @@
 //
-//  Game.h
+//  GameBoardLogic.h
 //  BlindWizardApp
 //
-//  Created by N A on 6/25/15.
+//  Created by N A on 6/30/15.
 //  Copyright (c) 2015 Adronitis. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-@class GameBoardLogic;
-
-@interface Game : NSObject
-@property (nonatomic, strong) GameBoardLogic *gameBoardLogic;
-@property (nonatomic, assign, readonly) BOOL gameInProgress;
-@property (nonatomic, assign, readonly) NSInteger score;
+@interface GameBoardLogic : NSObject
+@property (nonatomic, assign) NSInteger numRows;
+@property (nonatomic, assign) NSInteger numColumns;
+@property (nonatomic, strong) NSMutableArray *data;
 
 //notifications
 + (NSString *) CreateNotificationName;
@@ -27,10 +25,6 @@
 + (NSString *) DestroyNotificationName;
 + (NSString *) GameActionCompleteNotificationName;
 
-//public
-- (void) startGame;
-- (void) callNextWave;
-- (void) swipeLeftOnRow:(NSInteger)row;
-- (void) swipeRightOnRow:(NSInteger)row;
+- (void) executeShiftLeftOnRow:(NSInteger)row;
 
 @end

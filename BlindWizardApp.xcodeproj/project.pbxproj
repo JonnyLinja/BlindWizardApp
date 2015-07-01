@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		7FAB24D207C69E0B81926A2F /* libPods-BlindWizardApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F66DF0723764B2C29A3CB58 /* libPods-BlindWizardApp.a */; };
+		C307727A1B43823D009A85D6 /* GameBoardLogicSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C30772791B43823D009A85D6 /* GameBoardLogicSpec.m */; };
+		C30772801B438309009A85D6 /* GameBoardLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = C307727F1B438309009A85D6 /* GameBoardLogic.m */; };
 		C34EFBFD1B4239810079B6DC /* GridStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = C34EFBFC1B4239810079B6DC /* GridStorage.m */; };
 		C34EFC001B4267980079B6DC /* GameFactorySpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C34EFBFF1B4267980079B6DC /* GameFactorySpec.m */; };
 		C34EFC021B426EF20079B6DC /* GridStorageSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C34EFC011B426EF20079B6DC /* GridStorageSpec.m */; };
@@ -57,6 +59,9 @@
 		8F66DF0723764B2C29A3CB58 /* libPods-BlindWizardApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BlindWizardApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4C82791F95AB8508FB957CA /* Pods-BlindWizardApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlindWizardApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BlindWizardApp/Pods-BlindWizardApp.debug.xcconfig"; sourceTree = "<group>"; };
 		C0BC9E0C707035A355E75B87 /* Pods-BlindWizardAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlindWizardAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BlindWizardAppTests/Pods-BlindWizardAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		C30772791B43823D009A85D6 /* GameBoardLogicSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameBoardLogicSpec.m; sourceTree = "<group>"; };
+		C307727E1B438309009A85D6 /* GameBoardLogic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameBoardLogic.h; sourceTree = "<group>"; };
+		C307727F1B438309009A85D6 /* GameBoardLogic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameBoardLogic.m; sourceTree = "<group>"; };
 		C34EFBFB1B4239810079B6DC /* GridStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridStorage.h; sourceTree = "<group>"; };
 		C34EFBFC1B4239810079B6DC /* GridStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridStorage.m; sourceTree = "<group>"; };
 		C34EFBFF1B4267980079B6DC /* GameFactorySpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameFactorySpec.m; sourceTree = "<group>"; };
@@ -151,6 +156,8 @@
 			children = (
 				C34F7F601B3C991200D07881 /* Game.h */,
 				C34F7F611B3C991200D07881 /* Game.m */,
+				C307727E1B438309009A85D6 /* GameBoardLogic.h */,
+				C307727F1B438309009A85D6 /* GameBoardLogic.m */,
 				C3E3137F1B3E141800ADB0AB /* GridCalculator.h */,
 				C3E313801B3E141800ADB0AB /* GridCalculator.m */,
 			);
@@ -280,6 +287,7 @@
 				C34EFBFF1B4267980079B6DC /* GameFactorySpec.m */,
 				C34EFC011B426EF20079B6DC /* GridStorageSpec.m */,
 				C34EFC061B427B350079B6DC /* GridStorageKeyGeneratorSpec.m */,
+				C30772791B43823D009A85D6 /* GameBoardLogicSpec.m */,
 				C34F7F631B3CA29E00D07881 /* GameSpec.m */,
 				C3F6BDF21B389B860088D924 /* Supporting Files */,
 			);
@@ -503,6 +511,7 @@
 				C3A9E7B51B38FC35006D9C68 /* TitleViewController.m in Sources */,
 				C3A3B32D1B3BD07400ADF11A /* BoardViewController.m in Sources */,
 				C3BEFE021B3E1E1A002930BA /* EnemyView.m in Sources */,
+				C30772801B438309009A85D6 /* GameBoardLogic.m in Sources */,
 				C3F6BDDE1B389B860088D924 /* AppDelegate.m in Sources */,
 				C3F6BDDB1B389B860088D924 /* main.m in Sources */,
 				C3BEFDF81B3E1997002930BA /* GameFactory.m in Sources */,
@@ -520,6 +529,7 @@
 				C3F6BE071B38F6620088D924 /* TitleViewControllerSpec.m in Sources */,
 				C3F6BE031B389C1B0088D924 /* UIViewController+TestSegue.m in Sources */,
 				C34EFC071B427B350079B6DC /* GridStorageKeyGeneratorSpec.m in Sources */,
+				C307727A1B43823D009A85D6 /* GameBoardLogicSpec.m in Sources */,
 				C3A3B3291B3BCCBF00ADF11A /* PlayViewModelSpec.m in Sources */,
 				C34EFC021B426EF20079B6DC /* GridStorageSpec.m in Sources */,
 				C34F7F641B3CA29E00D07881 /* GameSpec.m in Sources */,

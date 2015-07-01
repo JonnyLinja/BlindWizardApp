@@ -7,52 +7,49 @@
 //
 
 #import "Game.h"
+#import "GameBoardLogic.h"
 
 @implementation Game
 
-#pragma mark - Test Helpers
-
 + (NSString *) CreateNotificationName {
-    return @"GameCreateNotificationName";
+    return [GameBoardLogic CreateNotificationName];
 }
 
 + (NSString *) ShiftLeftNotificationName {
-    return @"GameShiftLeftNotificationName";
+    return [GameBoardLogic ShiftLeftNotificationName];
 }
 
 + (NSString *) ShiftRightNotificationName {
-    return @"GameShiftRightNotificationName";
+    return [GameBoardLogic ShiftRightNotificationName];
 }
 
 + (NSString *) MoveToRowHeadNotificationName {
-    return @"GameMoveToRowHeadNotificationName";
+    return [GameBoardLogic MoveToRowHeadNotificationName];
 }
 
 + (NSString *) MoveToRowTailNotificationName {
-    return @"GameMoveToRowTailNotificationName";
+    return [GameBoardLogic MoveToRowTailNotificationName];
 }
 
 + (NSString *) DropNotificationName {
-    return @"GameDropNotificationName";
+    return [GameBoardLogic DropNotificationName];
 }
 
 + (NSString *) DangerNotificationName {
-    return @"GameDangerNotificationName";
+    return [GameBoardLogic DangerNotificationName];
 }
 
 + (NSString *) PacifyNotificationName {
-    return @"GamePacifyNotificationName";
+    return [GameBoardLogic PacifyNotificationName];
 }
 
 + (NSString *) DestroyNotificationName {
-    return @"DestroyNotificationName";
+    return [GameBoardLogic DestroyNotificationName];
 }
 
 + (NSString *) GameActionCompleteNotificationName {
-    return @"GameActionCompleteNotificationName";
+    return [GameBoardLogic GameActionCompleteNotificationName];
 }
-
-#pragma mark - Commands
 
 - (void) startGame {
     
@@ -68,47 +65,6 @@
 
 - (void) swipeRightOnRow:(NSInteger)row {
     
-}
-
-#pragma mark - Execute
-
-- (void) executeShiftLeftOnRow:(NSInteger)row {
-    NSNumber *castedRow = @(row);
-    NSInteger index = row*self.numColumns;
-    NSNumber *head = [_data objectAtIndex:index];
-    index++;
-    
-    //shift left
-    for(NSInteger column=1; column<self.numColumns; column++,index++) {
-        //data
-        NSNumber *n = [self.data objectAtIndex:index];
-        
-        //save
-        [self.data setObject:n atIndexedSubscript:index-1];
-        
-        //notify
-        if([n integerValue] != 0) {
-            [[NSNotificationCenter defaultCenter] postNotificationName:[Game ShiftLeftNotificationName]
-                                                                object:self
-                                                              userInfo:@{
-                                                                         @"row" : castedRow,
-                                                                         @"column" : @(column)
-                                                                         }];
-        }
-    }
-    
-    //move to tail
-    [self.data setObject:head atIndexedSubscript:index-1];
-    
-    //notify
-    if([head integerValue] != 0) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:[Game MoveToRowTailNotificationName]
-                                                            object:self
-                                                          userInfo:@{
-                                                                     @"row" : castedRow,
-                                                                     @"column" : @0
-                                                                     }];
-    }
 }
 
 @end
