@@ -3,6 +3,7 @@
 #import <OCMock/OCMock.h>
 
 #import "GameBoardLogic.h"
+#import "RandomGenerator.h"
 
 SpecBegin(GameBoardLogic)
 
@@ -11,12 +12,6 @@ describe(@"GameBoardLogic", ^{
     
     beforeEach(^{
         sut = [[GameBoardLogic alloc] init];
-    });
-    
-    context(@"when ", ^{
-        it(@"should ", ^{
-            
-        });
     });
     
     context(@"when executing a swipe left", ^{
@@ -159,11 +154,55 @@ describe(@"GameBoardLogic", ^{
         });
     });
     
+    context(@"when executing a create", ^{
+        it(@"should create objects at the top most available spot in each column", ^{
+            //context
+            id randomGeneratorMock = OCMClassMock([RandomGenerator class]);
+            sut.randomGenerator = randomGeneratorMock;
+            sut.numRows = 5;
+            sut.numColumns = 2;
+            NSMutableArray *startData = [@[@3, @1, @1, @0, @2, @0, @0, @0, @0, @0] mutableCopy];
+            NSMutableArray *endData = [@[@3, @1, @1, @1, @2, @0, @1, @0, @0, @0] mutableCopy];
+            sut.data = startData;
+            id notificationMock = OCMObserverMock();
+            OCMStub([randomGeneratorMock generateRandomType]).andReturn(1);
+            [[NSNotificationCenter defaultCenter] addMockObserver:notificationMock name:[GameBoardLogic DropNotificationName] object:sut];
+            [[notificationMock expect] notificationWithName:[GameBoardLogic CreateNotificationName]
+                                                     object:sut
+                                                   userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
+                expect([userInfo objectForKey:@"row"]).to.equal(@3);
+                expect([userInfo objectForKey:@"column"]).to.equal(@0);
+                return YES;
+            }]];
+            [[notificationMock expect] notificationWithName:[GameBoardLogic CreateNotificationName]
+                                                     object:sut
+                                                   userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
+                expect([userInfo objectForKey:@"row"]).to.equal(@1);
+                expect([userInfo objectForKey:@"column"]).to.equal(@1);
+                return YES;
+            }]];
+            
+            //because
+            [sut executeCreate];
+            
+            //expect
+            expect(sut.data).to.equal(endData);
+            OCMVerify(notificationMock);
+            
+            //cleanup
+            [[NSNotificationCenter defaultCenter] removeObserver:notificationMock];
+        });
+    });
     
+    //TODO:
+    context(@"when executing a destroy", ^{
+        it(@"should destroy all objects that are in rows or columns of 3+", ^{
+        });
+    });
+    
+    //TODO: danger
+    //TODO: pacify
+    //TODO: losing
 });
 
 SpecEnd
-
-//actual logic of where things should be on a swipe or a drop or a create
-//all the notifications for specific blocks
-//losing

@@ -7,6 +7,7 @@
 //
 
 #import "GameBoardLogic.h"
+#import "RandomGenerator.h"
 
 @implementation GameBoardLogic
 
@@ -126,12 +127,12 @@
 
 - (void) executeDrop {
     //loop through columns
-    for(NSInteger column=0; column < self.numColumns; column++) {
+    for(NSInteger column=0; column<self.numColumns; column++) {
         NSInteger replaceIndex = -1;
         NSInteger toRow = -1;
         
         //loop through rows of that column
-        for(NSInteger row=0; row < self.numRows; row++) {
+        for(NSInteger row=0; row<self.numRows; row++) {
             //current
             NSInteger index = (row * self.numColumns) + column;
             NSNumber *n = [self.data objectAtIndex:index];
@@ -166,6 +167,38 @@
                     replaceIndex = index;
                     toRow = row;
                 }
+            }
+        }
+    }
+}
+
+- (void) executeCreate {
+    //loop through columns
+    for(NSInteger column=0; column<self.numColumns; column++) {
+        //loop through rows of that column
+        for(NSInteger row=0; row<self.numRows; row++) {
+            //current
+            NSInteger index = (row * self.numColumns) + column;
+            NSNumber *n = [self.data objectAtIndex:index];
+            
+            if([n integerValue] == 0) {
+                //found a free spot
+                
+                //add
+                NSNumber *newNumber = @([self.randomGenerator generateRandomType]);
+                [self.data setObject:newNumber atIndexedSubscript:index];
+                
+                //notify
+                [[NSNotificationCenter defaultCenter] postNotificationName:[GameBoardLogic CreateNotificationName]
+                                                                    object:self
+                                                                  userInfo:@{
+                                                                             @"column" : @(column),
+                                                                             @"row" : @(row),
+                                                                             @"type" : newNumber
+                                                                             }];
+                
+                //exit loop
+                break;
             }
         }
     }
