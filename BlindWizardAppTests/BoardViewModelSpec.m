@@ -37,7 +37,7 @@ describe(@"BoardViewModel", ^{
                 
                 //expect
                 OCMVerify([gridCalculatorMock calculateRowForYPos:yPos]);
-                OCMVerify([gameMock swipeLeftOnRow:row]);
+                OCMVerify([gameMock commandSwipeLeftOnRow:row]);
             });
         });
         
@@ -53,7 +53,7 @@ describe(@"BoardViewModel", ^{
                 
                 //expect
                 OCMVerify([gridCalculatorMock calculateRowForYPos:yPos]);
-                OCMVerify([gameMock swipeRightOnRow:row]);
+                OCMVerify([gameMock commandSwipeRightOnRow:row]);
             });
         });
     });

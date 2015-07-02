@@ -35,11 +35,11 @@
 }
 
 - (void) callNextWave {
-    [self.game callNextWave];
+    [self.game commandCallNextWave];
 }
 
 - (void) startGame {
-    [self.game startGame];
+    [self.game commandStartGame];
 }
 
 - (void) dealloc {

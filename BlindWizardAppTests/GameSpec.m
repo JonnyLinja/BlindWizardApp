@@ -20,12 +20,12 @@ describe(@"Game", ^{
     context(@"when starting the game", ^{
         pending(@"should load initial blocks", ^{
             //because
-            [sut startGame];
+            [sut commandStartGame];
         });
         
         pending(@"should set the game to the starting state", ^{
             //because
-            [sut startGame];
+            [sut commandStartGame];
             
             //expect
             expect(sut.gameInProgress).to.beTruthy();

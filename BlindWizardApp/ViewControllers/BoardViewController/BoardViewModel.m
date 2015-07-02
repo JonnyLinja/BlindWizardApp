@@ -35,12 +35,12 @@
 
 - (void) swipeLeftFromPoint:(CGPoint)point {
     NSInteger row = [self.gridCalculator calculateRowForYPos:point.y];
-    [self.game swipeLeftOnRow:row];
+    [self.game commandSwipeLeftOnRow:row];
 }
 
 - (void) swipeRightFromPoint:(CGPoint)point {
     NSInteger row = [self.gridCalculator calculateRowForYPos:point.y];
-    [self.game swipeRightOnRow:row];
+    [self.game commandSwipeRightOnRow:row];
 }
 
 - (void) create:(NSNotification *)notification {

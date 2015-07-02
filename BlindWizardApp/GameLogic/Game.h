@@ -28,9 +28,9 @@
 + (NSString *) GameActionCompleteNotificationName;
 
 //public
-- (void) startGame;
-- (void) callNextWave;
-- (void) swipeLeftOnRow:(NSInteger)row;
-- (void) swipeRightOnRow:(NSInteger)row;
+- (void) commandStartGame;
+- (void) commandCallNextWave;
+- (void) commandSwipeLeftOnRow:(NSInteger)row;
+- (void) commandSwipeRightOnRow:(NSInteger)row;
 
 @end

@@ -51,19 +51,19 @@
     return @"GameActionCompleteNotificationName";
 }
 
-- (void) startGame {
+- (void) commandStartGame {
     
 }
 
-- (void) callNextWave {
+- (void) commandCallNextWave {
     
 }
 
-- (void) swipeLeftOnRow:(NSInteger)row {
+- (void) commandSwipeLeftOnRow:(NSInteger)row {
     
 }
 
-- (void) swipeRightOnRow:(NSInteger)row {
+- (void) commandSwipeRightOnRow:(NSInteger)row {
     
 }
 

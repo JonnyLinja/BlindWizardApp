@@ -25,7 +25,7 @@ describe(@"PlayViewModel", ^{
             [sut startGame];
             
             //expect
-            OCMVerify([gameMock startGame]);
+            OCMVerify([gameMock commandStartGame]);
         });
     });
     
@@ -45,7 +45,7 @@ describe(@"PlayViewModel", ^{
             [sut callNextWave];
             
             //expect
-            OCMVerify([gameMock callNextWave]);
+            OCMVerify([gameMock commandCallNextWave]);
         });
     });
     
