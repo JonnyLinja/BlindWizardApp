@@ -21,17 +21,19 @@
 @property (nonatomic, strong) GameFactory *gameFactory; //inject
 @property (nonatomic, strong) GridStorage *gridStorage; //inject
 
+//commands
 - (void) swipeLeftFromPoint:(CGPoint)point;
 - (void) swipeRightFromPoint:(CGPoint)point;
 
-- (void) create:(NSNotification *)notification;
-- (void) shiftLeft:(NSNotification *)notification;
-- (void) shiftRight:(NSNotification *)notification;
-- (void) moveToRowHead:(NSNotification *)notification;
-- (void) moveToRowTail:(NSNotification *)notification;
-- (void) drop:(NSNotification *)notification;
-- (void) danger:(NSNotification *)notification;
-- (void) pacify:(NSNotification *)notification;
-- (void) destroy:(NSNotification *)notification;
+//game updates
+- (void) executeGameUpdateCreateEnemy:(NSNotification *)notification;
+- (void) executeGameUpdateShiftEnemyLeft:(NSNotification *)notification;
+- (void) executeGameUpdateShiftEnemyRight:(NSNotification *)notification;
+- (void) executeGameUpdateMoveEnemyToRowHead:(NSNotification *)notification;
+- (void) executeGameUpdateMoveEnemyToRowTail:(NSNotification *)notification;
+- (void) executeGameUpdateDropEnemyDown:(NSNotification *)notification;
+- (void) executeGameUpdateMarkEnemyAsDangerous:(NSNotification *)notification;
+- (void) executeGameUpdateMarkEnemyAsPacified:(NSNotification *)notification;
+- (void) executeGameUpdateDestroyEnemy:(NSNotification *)notification;
 - (void) handleGameActionComplete;
 @end

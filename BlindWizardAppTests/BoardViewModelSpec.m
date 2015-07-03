@@ -82,7 +82,7 @@ describe(@"BoardViewModel", ^{
                 OCMStub([gameFactoryMock createEnemyWithType:type atRow:row column:column]).andReturn(modelMock);
 
                 //because
-                [sut create:notification];
+                [sut executeGameUpdateCreateEnemy:notification];
                 
                 //expect
                 OCMVerify([gameFactoryMock createEnemyWithType:type atRow:row column:column]);
@@ -108,7 +108,7 @@ describe(@"BoardViewModel", ^{
                 OCMStub([gridStorageMock objectForRow:row column:fromColumn]).andReturn(modelMock);
 
                 //because
-                [sut shiftLeft:notification];
+                [sut executeGameUpdateShiftEnemyLeft:notification];
                 
                 //expect
                 OCMVerify([gridCalculatorMock calculatePointForRow:row column:toColumn]);
@@ -135,7 +135,7 @@ describe(@"BoardViewModel", ^{
                 OCMStub([gridStorageMock objectForRow:row column:fromColumn]).andReturn(modelMock);
 
                 //because
-                [sut shiftRight:notification];
+                [sut executeGameUpdateShiftEnemyRight:notification];
                 
                 //expect
                 OCMVerify([gridCalculatorMock calculatePointForRow:row column:toColumn]);
@@ -170,7 +170,7 @@ describe(@"BoardViewModel", ^{
                 OCMStub([gameFactoryMock createEnemyWithType:type atRow:row column:offscreenColumn]).andReturn(tempMock);
                 
                 //because
-                [sut moveToRowHead:notification];
+                [sut executeGameUpdateMoveEnemyToRowHead:notification];
                 
                 //expect
                 OCMVerify([gridStorageMock objectForRow:row column:fromColumn]);
@@ -211,7 +211,7 @@ describe(@"BoardViewModel", ^{
                 OCMStub([gameFactoryMock createEnemyWithType:type atRow:row column:offscreenColumn]).andReturn(tempMock);
                 
                 //because
-                [sut moveToRowTail:notification];
+                [sut executeGameUpdateMoveEnemyToRowTail:notification];
                 
                 //expect
                 OCMVerify([gridCalculatorMock numColumns]);
@@ -244,7 +244,7 @@ describe(@"BoardViewModel", ^{
                 OCMStub([gridStorageMock objectForRow:fromRow column:column]).andReturn(modelMock);
                 
                 //because
-                [sut drop:notification];
+                [sut executeGameUpdateDropEnemyDown:notification];
                 
                 //expect
                 OCMVerify([gridCalculatorMock calculatePointForRow:toRow column:column]);
@@ -268,7 +268,7 @@ describe(@"BoardViewModel", ^{
                 OCMStub([gridStorageMock objectForRow:row column:column]).andReturn(modelMock);
                 
                 //because
-                [sut danger:notification];
+                [sut executeGameUpdateMarkEnemyAsDangerous:notification];
                 
                 //expect
                 OCMVerify([gridStorageMock objectForRow:row column:column]);
@@ -290,7 +290,7 @@ describe(@"BoardViewModel", ^{
                 OCMStub([gridStorageMock objectForRow:row column:column]).andReturn(modelMock);
                 
                 //because
-                [sut pacify:notification];
+                [sut executeGameUpdateMarkEnemyAsPacified:notification];
                 
                 //expect
                 OCMVerify([gridStorageMock objectForRow:row column:column]);
@@ -315,7 +315,7 @@ describe(@"BoardViewModel", ^{
                 //OCMStub([gameFactoryMock createExplosionAtRow:row column:column]).andReturn(explosionMock);
                 
                 //because
-                [sut destroy:notification];
+                [sut executeGameUpdateDestroyEnemy:notification];
                 
                 //expect
                 OCMVerify([gridStorageMock objectForRow:row column:column]);

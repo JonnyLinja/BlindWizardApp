@@ -22,15 +22,15 @@
     
     //notifications - not under test but necessary
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(create:) name:GameUpdateCreateEnemy object:self.game];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(shiftLeft:) name:GameUpdateShiftEnemyLeft object:self.game];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(shiftRight:) name:GameUpdateShiftEnemyRight object:self.game];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moveToRowHead:) name:GameUpdateMoveEnemyToRowHead object:self.game];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moveToRowTail:) name:GameUpdateMoveEnemyToRowTail object:self.game];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(drop:) name:GameUpdateDropEnemyDown object:self.game];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(danger:) name:GameUpdateMarkEnemyAsDangerous object:self.game];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pacify:) name:GameUpdateMarkEnemyAsPacified object:self.game];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(destroy:) name:GameUpdateDestroyEnemy object:self.game];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(executeGameUpdateCreateEnemy:) name:GameUpdateCreateEnemy object:self.game];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(executeGameUpdateShiftEnemyLeft:) name:GameUpdateShiftEnemyLeft object:self.game];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(executeGameUpdateShiftEnemyRight:) name:GameUpdateShiftEnemyRight object:self.game];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(executeGameUpdateMoveEnemyToRowHead:) name:GameUpdateMoveEnemyToRowHead object:self.game];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(executeGameUpdateMoveEnemyToRowTail:) name:GameUpdateMoveEnemyToRowTail object:self.game];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(executeGameUpdateDropEnemyDown:) name:GameUpdateDropEnemyDown object:self.game];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(executeGameUpdateMarkEnemyAsDangerous:) name:GameUpdateMarkEnemyAsDangerous object:self.game];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(executeGameUpdateMarkEnemyAsPacified:) name:GameUpdateMarkEnemyAsPacified object:self.game];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(executeGameUpdateDestroyEnemy:) name:GameUpdateDestroyEnemy object:self.game];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleGameActionComplete) name:GameActionComplete object:self.game];
 }
 
@@ -44,7 +44,7 @@
     [self.game commandSwipeRightOnRow:row];
 }
 
-- (void) create:(NSNotification *)notification {
+- (void) executeGameUpdateCreateEnemy:(NSNotification *)notification {
     //parse values
     NSInteger row = [[notification.userInfo objectForKey:@"row"] integerValue];
     NSInteger column = [[notification.userInfo objectForKey:@"column"] integerValue];
@@ -60,7 +60,7 @@
     [self.gridStorage promiseSetObject:evm forRow:row column:column];
 }
 
-- (void) shiftLeft:(NSNotification *)notification {
+- (void) executeGameUpdateShiftEnemyLeft:(NSNotification *)notification {
     //parse values
     NSInteger row = [[notification.userInfo objectForKey:@"row"] integerValue];
     NSInteger column = [[notification.userInfo objectForKey:@"column"] integerValue];
@@ -77,7 +77,7 @@
     [self.gridStorage promiseSetObject:evm forRow:row column:toColumn];
 }
 
-- (void) shiftRight:(NSNotification *)notification {
+- (void) executeGameUpdateShiftEnemyRight:(NSNotification *)notification {
     //parse values
     NSInteger row = [[notification.userInfo objectForKey:@"row"] integerValue];
     NSInteger column = [[notification.userInfo objectForKey:@"column"] integerValue];
@@ -94,7 +94,7 @@
     [self.gridStorage promiseSetObject:evm forRow:row column:toColumn];
 }
 
-- (void) moveToRowHead:(NSNotification *)notification {
+- (void) executeGameUpdateMoveEnemyToRowHead:(NSNotification *)notification {
     //parse values
     NSInteger row = [[notification.userInfo objectForKey:@"row"] integerValue];
     NSInteger column = [[notification.userInfo objectForKey:@"column"] integerValue];
@@ -118,7 +118,7 @@
     [duplicate animateMoveToCGPoint:snapPoint removeAfter:YES];
 }
 
-- (void) moveToRowTail:(NSNotification *)notification {
+- (void) executeGameUpdateMoveEnemyToRowTail:(NSNotification *)notification {
     //parse values
     NSInteger row = [[notification.userInfo objectForKey:@"row"] integerValue];
     NSInteger column = [[notification.userInfo objectForKey:@"column"] integerValue];
@@ -143,7 +143,7 @@
     [duplicate animateMoveToCGPoint:snapPoint removeAfter:YES];
 }
 
-- (void) drop:(NSNotification *)notification {
+- (void) executeGameUpdateDropEnemyDown:(NSNotification *)notification {
     //parse values
     NSInteger fromRow = [[notification.userInfo objectForKey:@"fromRow"] integerValue];
     NSInteger toRow = [[notification.userInfo objectForKey:@"toRow"] integerValue];
@@ -160,7 +160,7 @@
     [self.gridStorage promiseSetObject:evm forRow:toRow column:column];
 }
 
-- (void) danger:(NSNotification *)notification {
+- (void) executeGameUpdateMarkEnemyAsDangerous:(NSNotification *)notification {
     //parse values
     NSInteger row = [[notification.userInfo objectForKey:@"row"] integerValue];
     NSInteger column = [[notification.userInfo objectForKey:@"column"] integerValue];
@@ -172,7 +172,7 @@
     [evm runDangerAnimation];
 }
 
-- (void) pacify:(NSNotification *)notification {
+- (void) executeGameUpdateMarkEnemyAsPacified:(NSNotification *)notification {
     //parse values
     NSInteger row = [[notification.userInfo objectForKey:@"row"] integerValue];
     NSInteger column = [[notification.userInfo objectForKey:@"column"] integerValue];
@@ -184,7 +184,7 @@
     [evm stopDangerAnimation];
 }
 
-- (void) destroy:(NSNotification *)notification {
+- (void) executeGameUpdateDestroyEnemy:(NSNotification *)notification {
     //parse values
     NSInteger row = [[notification.userInfo objectForKey:@"row"] integerValue];
     NSInteger column = [[notification.userInfo objectForKey:@"column"] integerValue];
