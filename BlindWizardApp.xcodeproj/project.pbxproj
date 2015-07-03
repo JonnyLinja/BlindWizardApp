@@ -173,14 +173,14 @@
 				C33EA34C1B45F657001D7218 /* GameConstants.h */,
 				C34F7F601B3C991200D07881 /* Game.h */,
 				C34F7F611B3C991200D07881 /* Game.m */,
-				C307727E1B438309009A85D6 /* GameBoardLogic.h */,
-				C307727F1B438309009A85D6 /* GameBoardLogic.m */,
-				C31F2E3C1B43D8320003232E /* RandomGenerator.h */,
-				C31F2E3D1B43D8320003232E /* RandomGenerator.m */,
 				C3FE19E21B44BC2F00F26152 /* GameActionFlow.h */,
 				C3FE19E31B44BC2F00F26152 /* GameActionFlow.m */,
 				C33EA3471B45E0C9001D7218 /* GameActionQueue.h */,
 				C33EA3481B45E0C9001D7218 /* GameActionQueue.m */,
+				C307727E1B438309009A85D6 /* GameBoardLogic.h */,
+				C307727F1B438309009A85D6 /* GameBoardLogic.m */,
+				C31F2E3C1B43D8320003232E /* RandomGenerator.h */,
+				C31F2E3D1B43D8320003232E /* RandomGenerator.m */,
 			);
 			path = GameLogic;
 			sourceTree = "<group>";

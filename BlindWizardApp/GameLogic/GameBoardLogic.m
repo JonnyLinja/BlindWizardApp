@@ -16,7 +16,7 @@
     return (row * self.numColumns) + column;
 }
 
-- (void) executeShiftLeftOnRow:(NSInteger)row {
+- (void) executeGameActionShiftLeftOnRow:(NSInteger)row {
     NSNumber *castedRow = @(row);
     NSInteger index = row*self.numColumns;
     NSNumber *head = [_data objectAtIndex:index];
@@ -55,7 +55,7 @@
     }
 }
 
-- (void) executeShiftRightOnRow:(NSInteger)row {
+- (void) executeGameActionShiftRightOnRow:(NSInteger)row {
     NSNumber *castedRow = @(row);
     NSInteger index = ((row+1)*self.numColumns)-1;
     NSNumber *tail = [_data objectAtIndex:index];
@@ -94,7 +94,7 @@
     }
 }
 
-- (void) executeDrop {
+- (void) executeGameActionDropEnemiesDown {
     //loop through columns
     for(NSInteger column=0; column<self.numColumns; column++) {
         NSInteger replaceIndex = -1;
@@ -141,7 +141,7 @@
     }
 }
 
-- (void) executeCreate {
+- (void) executeGameActionCallNextWave {
     //loop through columns
     for(NSInteger column=0; column<self.numColumns; column++) {
         //loop through rows of that column
@@ -174,7 +174,7 @@
 }
 
 //TODO: consider refactoring this massive function into parts, like scan rows, scan columns, remove and notify
-- (void) executeDestroy {
+- (void) executeGameActionDestroyEnemyGroups {
     NSMutableArray *rowsToDestroy = [NSMutableArray new];
     NSMutableArray *columnsToDestroy = [NSMutableArray new];
     NSMutableArray *indicesToDestroy = [NSMutableArray new];

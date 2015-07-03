@@ -51,7 +51,7 @@ describe(@"GameBoardLogic", ^{
             }]];
             
             //because
-            [sut executeShiftLeftOnRow:row];
+            [sut executeGameActionShiftLeftOnRow:row];
             
             //expect
             expect(sut.data).to.equal(endData);
@@ -93,7 +93,7 @@ describe(@"GameBoardLogic", ^{
             }]];
             
             //because
-            [sut executeShiftRightOnRow:row];
+            [sut executeGameActionShiftRightOnRow:row];
             
             //expect
             expect(sut.data).to.equal(endData);
@@ -137,7 +137,7 @@ describe(@"GameBoardLogic", ^{
             }]];
             
             //because
-            [sut executeDrop];
+            [sut executeGameActionDropEnemiesDown];
             
             //expect
             expect(sut.data).to.equal(endData);
@@ -173,7 +173,7 @@ describe(@"GameBoardLogic", ^{
             }]];
             
             //because
-            [sut executeCreate];
+            [sut executeGameActionCallNextWave];
             
             //expect
             expect(sut.data).to.equal(endData);
@@ -283,7 +283,7 @@ describe(@"GameBoardLogic", ^{
             }]];
 
             //because
-            [sut executeDestroy];
+            [sut executeGameActionDestroyEnemyGroups];
             
             //expect
             expect(sut.data).to.equal(endData);

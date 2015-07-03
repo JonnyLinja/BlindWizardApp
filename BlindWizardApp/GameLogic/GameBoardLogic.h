@@ -16,9 +16,9 @@
 @property (nonatomic, assign) NSInteger numColumns;
 @property (nonatomic, strong) NSMutableArray *data;
 
-- (void) executeShiftLeftOnRow:(NSInteger)row;
-- (void) executeShiftRightOnRow:(NSInteger)row;
-- (void) executeDrop;
-- (void) executeCreate;
-- (void) executeDestroy;
+- (void) executeGameActionShiftLeftOnRow:(NSInteger)row;
+- (void) executeGameActionShiftRightOnRow:(NSInteger)row;
+- (void) executeGameActionDropEnemiesDown;
+- (void) executeGameActionCallNextWave;
+- (void) executeGameActionDestroyEnemyGroups;
 @end
