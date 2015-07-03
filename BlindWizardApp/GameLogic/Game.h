@@ -15,18 +15,6 @@
 @property (nonatomic, assign, readonly) BOOL gameInProgress;
 @property (nonatomic, assign, readonly) NSInteger score;
 
-//notifications
-+ (NSString *) CreateNotificationName;
-+ (NSString *) ShiftLeftNotificationName;
-+ (NSString *) ShiftRightNotificationName;
-+ (NSString *) MoveToRowHeadNotificationName;
-+ (NSString *) MoveToRowTailNotificationName;
-+ (NSString *) DropNotificationName;
-+ (NSString *) DangerNotificationName;
-+ (NSString *) PacifyNotificationName;
-+ (NSString *) DestroyNotificationName;
-+ (NSString *) GameActionCompleteNotificationName;
-
 //public
 - (void) commandStartGame;
 - (void) commandCallNextWave;

@@ -16,17 +16,6 @@
 @property (nonatomic, assign) NSInteger numColumns;
 @property (nonatomic, strong) NSMutableArray *data;
 
-//notifications
-+ (NSString *) CreateNotificationName;
-+ (NSString *) ShiftLeftNotificationName;
-+ (NSString *) ShiftRightNotificationName;
-+ (NSString *) MoveToRowHeadNotificationName;
-+ (NSString *) MoveToRowTailNotificationName;
-+ (NSString *) DropNotificationName;
-+ (NSString *) DangerNotificationName;
-+ (NSString *) PacifyNotificationName;
-+ (NSString *) DestroyNotificationName;
-
 - (void) executeShiftLeftOnRow:(NSInteger)row;
 - (void) executeShiftRightOnRow:(NSInteger)row;
 - (void) executeDrop;

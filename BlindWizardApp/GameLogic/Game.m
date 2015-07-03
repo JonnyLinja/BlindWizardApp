@@ -11,46 +11,6 @@
 
 @implementation Game
 
-+ (NSString *) CreateNotificationName {
-    return [GameBoardLogic CreateNotificationName];
-}
-
-+ (NSString *) ShiftLeftNotificationName {
-    return [GameBoardLogic ShiftLeftNotificationName];
-}
-
-+ (NSString *) ShiftRightNotificationName {
-    return [GameBoardLogic ShiftRightNotificationName];
-}
-
-+ (NSString *) MoveToRowHeadNotificationName {
-    return [GameBoardLogic MoveToRowHeadNotificationName];
-}
-
-+ (NSString *) MoveToRowTailNotificationName {
-    return [GameBoardLogic MoveToRowTailNotificationName];
-}
-
-+ (NSString *) DropNotificationName {
-    return [GameBoardLogic DropNotificationName];
-}
-
-+ (NSString *) DangerNotificationName {
-    return [GameBoardLogic DangerNotificationName];
-}
-
-+ (NSString *) PacifyNotificationName {
-    return [GameBoardLogic PacifyNotificationName];
-}
-
-+ (NSString *) DestroyNotificationName {
-    return [GameBoardLogic DestroyNotificationName];
-}
-
-+ (NSString *) GameActionCompleteNotificationName {
-    return @"GameActionCompleteNotificationName";
-}
-
 - (void) commandStartGame {
     
 }

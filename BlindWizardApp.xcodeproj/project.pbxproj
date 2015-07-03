@@ -74,6 +74,7 @@
 		C33EA3471B45E0C9001D7218 /* GameActionQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameActionQueue.h; sourceTree = "<group>"; };
 		C33EA3481B45E0C9001D7218 /* GameActionQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameActionQueue.m; sourceTree = "<group>"; };
 		C33EA34A1B45E0E0001D7218 /* GameActionQueueSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameActionQueueSpec.m; sourceTree = "<group>"; };
+		C33EA34C1B45F657001D7218 /* GameConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameConstants.h; sourceTree = "<group>"; };
 		C34EFBFF1B4267980079B6DC /* GameFactorySpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameFactorySpec.m; sourceTree = "<group>"; };
 		C34EFC011B426EF20079B6DC /* GridStorageSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridStorageSpec.m; sourceTree = "<group>"; };
 		C34EFC061B427B350079B6DC /* GridStorageKeyGeneratorSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridStorageKeyGeneratorSpec.m; sourceTree = "<group>"; };
@@ -169,6 +170,7 @@
 		C34F7F5F1B3C990000D07881 /* GameLogic */ = {
 			isa = PBXGroup;
 			children = (
+				C33EA34C1B45F657001D7218 /* GameConstants.h */,
 				C34F7F601B3C991200D07881 /* Game.h */,
 				C34F7F611B3C991200D07881 /* Game.m */,
 				C307727E1B438309009A85D6 /* GameBoardLogic.h */,

@@ -2,6 +2,7 @@
 #import "Expecta.h"
 #import <OCMock/OCMock.h>
 
+#import "GameConstants.h"
 #import "GameBoardLogic.h"
 #import "RandomGenerator.h"
 
@@ -25,23 +26,23 @@ describe(@"GameBoardLogic", ^{
             sut.numRows = 2;
             sut.numColumns = [startData count] / sut.numRows;
             sut.data = startData;
-            [[NSNotificationCenter defaultCenter] addMockObserver:notificationMock name:[GameBoardLogic ShiftLeftNotificationName] object:sut];
-            [[NSNotificationCenter defaultCenter] addMockObserver:notificationMock name:[GameBoardLogic MoveToRowTailNotificationName] object:sut];
-            [[notificationMock expect] notificationWithName:[GameBoardLogic ShiftLeftNotificationName]
+            [[NSNotificationCenter defaultCenter] addMockObserver:notificationMock name:GameUpdateShiftEnemyLeft object:sut];
+            [[NSNotificationCenter defaultCenter] addMockObserver:notificationMock name:GameUpdateMoveEnemyToRowTail object:sut];
+            [[notificationMock expect] notificationWithName:GameUpdateShiftEnemyLeft
                                                      object:sut
                                                    userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
                 expect([userInfo objectForKey:@"row"]).to.equal(@(row));
                 expect([userInfo objectForKey:@"column"]).to.equal(@1);
                 return YES;
             }]];
-            [[notificationMock expect] notificationWithName:[GameBoardLogic ShiftLeftNotificationName]
+            [[notificationMock expect] notificationWithName:GameUpdateShiftEnemyLeft
                                                      object:sut
                                                    userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
                 expect([userInfo objectForKey:@"row"]).to.equal(@(row));
                 expect([userInfo objectForKey:@"column"]).to.equal(@3);
                 return YES;
             }]];
-            [[notificationMock expect] notificationWithName:[GameBoardLogic MoveToRowTailNotificationName]
+            [[notificationMock expect] notificationWithName:GameUpdateMoveEnemyToRowTail
                                                      object:sut
                                                    userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
                 expect([userInfo objectForKey:@"row"]).to.equal(@(row));
@@ -67,23 +68,23 @@ describe(@"GameBoardLogic", ^{
             sut.numRows = 2;
             sut.numColumns = [startData count] / sut.numRows;
             sut.data = startData;
-            [[NSNotificationCenter defaultCenter] addMockObserver:notificationMock name:[GameBoardLogic ShiftRightNotificationName] object:sut];
-            [[NSNotificationCenter defaultCenter] addMockObserver:notificationMock name:[GameBoardLogic MoveToRowHeadNotificationName] object:sut];
-            [[notificationMock expect] notificationWithName:[GameBoardLogic ShiftRightNotificationName]
+            [[NSNotificationCenter defaultCenter] addMockObserver:notificationMock name:GameUpdateShiftEnemyRight object:sut];
+            [[NSNotificationCenter defaultCenter] addMockObserver:notificationMock name:GameUpdateMoveEnemyToRowHead object:sut];
+            [[notificationMock expect] notificationWithName:GameUpdateShiftEnemyRight
                                                      object:sut
                                                    userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
                 expect([userInfo objectForKey:@"row"]).to.equal(@(row));
                 expect([userInfo objectForKey:@"column"]).to.equal(@2);
                 return YES;
             }]];
-            [[notificationMock expect] notificationWithName:[GameBoardLogic ShiftRightNotificationName]
+            [[notificationMock expect] notificationWithName:GameUpdateShiftEnemyRight
                                                      object:sut
                                                    userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
                 expect([userInfo objectForKey:@"row"]).to.equal(@(row));
                 expect([userInfo objectForKey:@"column"]).to.equal(@0);
                 return YES;
             }]];
-            [[notificationMock expect] notificationWithName:[GameBoardLogic MoveToRowHeadNotificationName]
+            [[notificationMock expect] notificationWithName:GameUpdateMoveEnemyToRowHead
                                                      object:sut
                                                    userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
                 expect([userInfo objectForKey:@"row"]).to.equal(@(row));
@@ -109,8 +110,8 @@ describe(@"GameBoardLogic", ^{
             sut.numRows = 5;
             sut.numColumns = 2;
             sut.data = startData;
-            [[NSNotificationCenter defaultCenter] addMockObserver:notificationMock name:[GameBoardLogic DropNotificationName] object:sut];
-            [[notificationMock expect] notificationWithName:[GameBoardLogic DropNotificationName]
+            [[NSNotificationCenter defaultCenter] addMockObserver:notificationMock name:GameUpdateDropEnemyDown object:sut];
+            [[notificationMock expect] notificationWithName:GameUpdateDropEnemyDown
                                                      object:sut
                                                    userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
                 expect([userInfo objectForKey:@"column"]).to.equal(@(column));
@@ -118,7 +119,7 @@ describe(@"GameBoardLogic", ^{
                 expect([userInfo objectForKey:@"toRow"]).to.equal(@0);
                 return YES;
             }]];
-            [[notificationMock expect] notificationWithName:[GameBoardLogic DropNotificationName]
+            [[notificationMock expect] notificationWithName:GameUpdateDropEnemyDown
                                                      object:sut
                                                    userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
                 expect([userInfo objectForKey:@"column"]).to.equal(@(column));
@@ -126,7 +127,7 @@ describe(@"GameBoardLogic", ^{
                 expect([userInfo objectForKey:@"toRow"]).to.equal(@1);
                 return YES;
             }]];
-            [[notificationMock expect] notificationWithName:[GameBoardLogic DropNotificationName]
+            [[notificationMock expect] notificationWithName:GameUpdateDropEnemyDown
                                                      object:sut
                                                    userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
                 expect([userInfo objectForKey:@"column"]).to.equal(@(column));
@@ -155,15 +156,15 @@ describe(@"GameBoardLogic", ^{
             NSMutableArray *endData = [@[@3, @1, @1, @1, @2, @0, @1, @0, @0, @0] mutableCopy];
             sut.data = startData;
             OCMStub([randomGeneratorMock generate]).andReturn(1);
-            [[NSNotificationCenter defaultCenter] addMockObserver:notificationMock name:[GameBoardLogic CreateNotificationName] object:sut];
-            [[notificationMock expect] notificationWithName:[GameBoardLogic CreateNotificationName]
+            [[NSNotificationCenter defaultCenter] addMockObserver:notificationMock name:GameUpdateCreateEnemy object:sut];
+            [[notificationMock expect] notificationWithName:GameUpdateCreateEnemy
                                                      object:sut
                                                    userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
                 expect([userInfo objectForKey:@"row"]).to.equal(@3);
                 expect([userInfo objectForKey:@"column"]).to.equal(@0);
                 return YES;
             }]];
-            [[notificationMock expect] notificationWithName:[GameBoardLogic CreateNotificationName]
+            [[notificationMock expect] notificationWithName:GameUpdateCreateEnemy
                                                      object:sut
                                                    userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
                 expect([userInfo objectForKey:@"row"]).to.equal(@1);
@@ -188,92 +189,92 @@ describe(@"GameBoardLogic", ^{
             NSMutableArray *startData = [@[@1, @0, @2, @0, @0, @1, @2, @2, @3, @0, @1, @3, @3, @3, @3, @2, @2, @2, @3, @0, @1, @1, @0, @3, @1] mutableCopy];
             NSMutableArray *endData = [@[@0, @0, @2, @0, @0, @0, @2, @2, @0, @0, @0, @0, @0, @0, @0, @0, @0, @0, @0, @0, @1, @1, @0, @0, @1] mutableCopy];
             sut.data = startData;
-            [[NSNotificationCenter defaultCenter] addMockObserver:notificationMock name:[GameBoardLogic DestroyNotificationName] object:sut];
-            [[notificationMock expect] notificationWithName:[GameBoardLogic DestroyNotificationName]
+            [[NSNotificationCenter defaultCenter] addMockObserver:notificationMock name:GameUpdateDestroyEnemy object:sut];
+            [[notificationMock expect] notificationWithName:GameUpdateDestroyEnemy
                                                      object:sut
                                                    userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
                 expect([userInfo objectForKey:@"row"]).to.equal(@2);
                 expect([userInfo objectForKey:@"column"]).to.equal(@1);
                 return YES;
             }]];
-            [[notificationMock expect] notificationWithName:[GameBoardLogic DestroyNotificationName]
+            [[notificationMock expect] notificationWithName:GameUpdateDestroyEnemy
                                                      object:sut
                                                    userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
                 expect([userInfo objectForKey:@"row"]).to.equal(@2);
                 expect([userInfo objectForKey:@"column"]).to.equal(@2);
                 return YES;
             }]];
-            [[notificationMock expect] notificationWithName:[GameBoardLogic DestroyNotificationName]
+            [[notificationMock expect] notificationWithName:GameUpdateDestroyEnemy
                                                      object:sut
                                                    userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
                 expect([userInfo objectForKey:@"row"]).to.equal(@2);
                 expect([userInfo objectForKey:@"column"]).to.equal(@3);
                 return YES;
             }]];
-            [[notificationMock expect] notificationWithName:[GameBoardLogic DestroyNotificationName]
+            [[notificationMock expect] notificationWithName:GameUpdateDestroyEnemy
                                                      object:sut
                                                    userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
                 expect([userInfo objectForKey:@"row"]).to.equal(@2);
                 expect([userInfo objectForKey:@"column"]).to.equal(@4);
                 return YES;
             }]];
-            [[notificationMock expect] notificationWithName:[GameBoardLogic DestroyNotificationName]
+            [[notificationMock expect] notificationWithName:GameUpdateDestroyEnemy
                                                      object:sut
                                                    userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
                 expect([userInfo objectForKey:@"row"]).to.equal(@3);
                 expect([userInfo objectForKey:@"column"]).to.equal(@0);
                 return YES;
             }]];
-            [[notificationMock expect] notificationWithName:[GameBoardLogic DestroyNotificationName]
+            [[notificationMock expect] notificationWithName:GameUpdateDestroyEnemy
                                                      object:sut
                                                    userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
                 expect([userInfo objectForKey:@"row"]).to.equal(@3);
                 expect([userInfo objectForKey:@"column"]).to.equal(@1);
                 return YES;
             }]];
-            [[notificationMock expect] notificationWithName:[GameBoardLogic DestroyNotificationName]
+            [[notificationMock expect] notificationWithName:GameUpdateDestroyEnemy
                                                      object:sut
                                                    userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
                 expect([userInfo objectForKey:@"row"]).to.equal(@3);
                 expect([userInfo objectForKey:@"column"]).to.equal(@2);
                 return YES;
             }]];
-            [[notificationMock expect] notificationWithName:[GameBoardLogic DestroyNotificationName]
+            [[notificationMock expect] notificationWithName:GameUpdateDestroyEnemy
                                                      object:sut
                                                    userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
                 expect([userInfo objectForKey:@"row"]).to.equal(@0);
                 expect([userInfo objectForKey:@"column"]).to.equal(@0);
                 return YES;
             }]];
-            [[notificationMock expect] notificationWithName:[GameBoardLogic DestroyNotificationName]
+            [[notificationMock expect] notificationWithName:GameUpdateDestroyEnemy
                                                      object:sut
                                                    userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
                 expect([userInfo objectForKey:@"row"]).to.equal(@1);
                 expect([userInfo objectForKey:@"column"]).to.equal(@0);
                 return YES;
             }]];
-            [[notificationMock expect] notificationWithName:[GameBoardLogic DestroyNotificationName]
+            [[notificationMock expect] notificationWithName:GameUpdateDestroyEnemy
                                                      object:sut
                                                    userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
                 expect([userInfo objectForKey:@"row"]).to.equal(@2);
                 expect([userInfo objectForKey:@"column"]).to.equal(@0);
                 return YES;
             }]];
-            [[notificationMock expect] notificationWithName:[GameBoardLogic DestroyNotificationName]
+            [[notificationMock expect] notificationWithName:GameUpdateDestroyEnemy
                                                      object:sut
                                                    userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
                 expect([userInfo objectForKey:@"row"]).to.equal(@1);
                 expect([userInfo objectForKey:@"column"]).to.equal(@3);
                 return YES;
             }]];
-            [[notificationMock expect] notificationWithName:[GameBoardLogic DestroyNotificationName]
+            [[notificationMock expect] notificationWithName:GameUpdateDestroyEnemy
                                                      object:sut
                                                    userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
                 expect([userInfo objectForKey:@"row"]).to.equal(@3);
                 expect([userInfo objectForKey:@"column"]).to.equal(@3);
                 return YES;
             }]];
-            [[notificationMock expect] notificationWithName:[GameBoardLogic DestroyNotificationName]
+            [[notificationMock expect] notificationWithName:GameUpdateDestroyEnemy
                                                      object:sut
                                                    userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
                 expect([userInfo objectForKey:@"row"]).to.equal(@4);

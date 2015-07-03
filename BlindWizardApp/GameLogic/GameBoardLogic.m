@@ -8,44 +8,9 @@
 
 #import "GameBoardLogic.h"
 #import "RandomGenerator.h"
+#import "GameConstants.h"
 
 @implementation GameBoardLogic
-
-+ (NSString *) CreateNotificationName {
-    return @"GameCreateNotificationName";
-}
-
-+ (NSString *) ShiftLeftNotificationName {
-    return @"GameShiftLeftNotificationName";
-}
-
-+ (NSString *) ShiftRightNotificationName {
-    return @"GameShiftRightNotificationName";
-}
-
-+ (NSString *) MoveToRowHeadNotificationName {
-    return @"GameMoveToRowHeadNotificationName";
-}
-
-+ (NSString *) MoveToRowTailNotificationName {
-    return @"GameMoveToRowTailNotificationName";
-}
-
-+ (NSString *) DropNotificationName {
-    return @"GameDropNotificationName";
-}
-
-+ (NSString *) DangerNotificationName {
-    return @"GameDangerNotificationName";
-}
-
-+ (NSString *) PacifyNotificationName {
-    return @"GamePacifyNotificationName";
-}
-
-+ (NSString *) DestroyNotificationName {
-    return @"DestroyNotificationName";
-}
 
 - (NSInteger) indexFromRow:(NSInteger)row column:(NSInteger)column {
     return (row * self.numColumns) + column;
@@ -67,7 +32,7 @@
         
         //notify
         if([n integerValue] != 0) {
-            [[NSNotificationCenter defaultCenter] postNotificationName:[GameBoardLogic ShiftLeftNotificationName]
+            [[NSNotificationCenter defaultCenter] postNotificationName:GameUpdateShiftEnemyLeft
                                                                 object:self
                                                               userInfo:@{
                                                                          @"row" : castedRow,
@@ -81,7 +46,7 @@
     
     //notify
     if([head integerValue] != 0) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:[GameBoardLogic MoveToRowTailNotificationName]
+        [[NSNotificationCenter defaultCenter] postNotificationName:GameUpdateMoveEnemyToRowTail
                                                             object:self
                                                           userInfo:@{
                                                                      @"row" : castedRow,
@@ -106,7 +71,7 @@
         
         //notify
         if([n integerValue] != 0) {
-            [[NSNotificationCenter defaultCenter] postNotificationName:[GameBoardLogic ShiftRightNotificationName]
+            [[NSNotificationCenter defaultCenter] postNotificationName:GameUpdateShiftEnemyRight
                                                                 object:self
                                                               userInfo:@{
                                                                          @"row" : castedRow,
@@ -120,7 +85,7 @@
     
     //notify
     if([tail integerValue] != 0) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:[GameBoardLogic MoveToRowHeadNotificationName]
+        [[NSNotificationCenter defaultCenter] postNotificationName:GameUpdateMoveEnemyToRowHead
                                                             object:self
                                                           userInfo:@{
                                                                      @"row" : castedRow,
@@ -160,7 +125,7 @@
                     [self.data setObject:@0 atIndexedSubscript:index];
                     
                     //notify
-                    [[NSNotificationCenter defaultCenter] postNotificationName:[GameBoardLogic DropNotificationName]
+                    [[NSNotificationCenter defaultCenter] postNotificationName:GameUpdateDropEnemyDown
                                                                         object:self
                                                                       userInfo:@{
                                                                                  @"column" : @(column),
@@ -193,7 +158,7 @@
                 [self.data setObject:newNumber atIndexedSubscript:index];
                 
                 //notify
-                [[NSNotificationCenter defaultCenter] postNotificationName:[GameBoardLogic CreateNotificationName]
+                [[NSNotificationCenter defaultCenter] postNotificationName:GameUpdateCreateEnemy
                                                                     object:self
                                                                   userInfo:@{
                                                                              @"column" : @(column),
@@ -326,7 +291,7 @@
         [self.data setObject:@0 atIndexedSubscript:index];
         
         //notify
-        [[NSNotificationCenter defaultCenter] postNotificationName:[GameBoardLogic DestroyNotificationName]
+        [[NSNotificationCenter defaultCenter] postNotificationName:GameUpdateDestroyEnemy
                                                             object:self
                                                           userInfo:@{
                                                                      @"row" : [rowsToDestroy objectAtIndex:i],
