@@ -16,7 +16,7 @@
     return (row * self.numColumns) + column;
 }
 
-- (void) executeGameActionShiftLeftOnRow:(NSInteger)row {
+- (void) executeGameActionShiftEnemiesLeftOnRow:(NSInteger)row {
     NSNumber *castedRow = @(row);
     NSInteger index = row*self.numColumns;
     NSNumber *head = [_data objectAtIndex:index];
@@ -55,7 +55,7 @@
     }
 }
 
-- (void) executeGameActionShiftRightOnRow:(NSInteger)row {
+- (void) executeGameActionShiftEnemiesRightOnRow:(NSInteger)row {
     NSNumber *castedRow = @(row);
     NSInteger index = ((row+1)*self.numColumns)-1;
     NSNumber *tail = [_data objectAtIndex:index];

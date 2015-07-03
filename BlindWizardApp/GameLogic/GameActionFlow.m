@@ -10,4 +10,16 @@
 
 @implementation GameActionFlow
 
+- (void) commandCallNextWave {
+    
+}
+
+- (void) commandSwipeLeftOnRow:(NSInteger)row {
+    
+}
+
+- (void) commandSwipeRightOnRow:(NSInteger)row {
+    
+}
+
 @end

@@ -10,4 +10,9 @@
 
 @interface GameActionFlow : NSObject
 
+//commands
+- (void) commandCallNextWave;
+- (void) commandSwipeLeftOnRow:(NSInteger)row;
+- (void) commandSwipeRightOnRow:(NSInteger)row;
+
 @end

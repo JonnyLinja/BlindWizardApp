@@ -60,4 +60,6 @@ describe(@"GameActionFlow", ^{
     });
 });
 
+//TODO: start game, initial game action
+
 SpecEnd

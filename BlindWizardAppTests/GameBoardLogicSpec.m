@@ -51,7 +51,7 @@ describe(@"GameBoardLogic", ^{
             }]];
             
             //because
-            [sut executeGameActionShiftLeftOnRow:row];
+            [sut executeGameActionShiftEnemiesLeftOnRow:row];
             
             //expect
             expect(sut.data).to.equal(endData);
@@ -93,7 +93,7 @@ describe(@"GameBoardLogic", ^{
             }]];
             
             //because
-            [sut executeGameActionShiftRightOnRow:row];
+            [sut executeGameActionShiftEnemiesRightOnRow:row];
             
             //expect
             expect(sut.data).to.equal(endData);
@@ -298,6 +298,9 @@ describe(@"GameBoardLogic", ^{
     //TODO: danger
     //TODO: pacify
     //TODO: losing
+    //TODO: initial enemies? like, GameUpdateCreateInitialEnemy so there's no animation?
+    //TODO: possibly move data to Game, as the scanner will need access to the data as well
+    //TODO: possibly move scanning code for destroy to the scanner
 });
 
 SpecEnd

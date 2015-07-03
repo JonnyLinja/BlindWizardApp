@@ -15,4 +15,10 @@
 #define GameUpdateMarkEnemyAsDangerous  @"GameUpdateMarkEnemyAsDangerous"
 #define GameUpdateMarkEnemyAsPacified   @"GameUpdateMarkEnemyAsPacified"
 #define GameUpdateDestroyEnemy          @"GameUpdateDestroyEnemy"
+
+#define GameActionShiftEnemiesLeft      @"GameActionShiftEnemiesLeft"
+#define GameActionShiftEnemiesRight     @"GameActionShiftEnemiesRight"
+#define GameActionCallNextWave          @"GameActionCallNextWave"
+#define GameActionDropEnemiesDown       @"GameActionDropEnemiesDown"
+#define GameActionDestroyEnemyGroups    @"GameActionDestroyEnemyGroups"
 #define GameActionComplete              @"GameActionComplete"

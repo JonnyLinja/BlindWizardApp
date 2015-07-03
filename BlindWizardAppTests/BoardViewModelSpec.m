@@ -78,7 +78,7 @@ describe(@"BoardViewModel", ^{
                 NSInteger type = 1;
                 id modelMock = OCMClassMock([EnemyViewModel class]);
                 NSDictionary *userInfo = @{@"row" : @(row), @"column" : @(column), @"type" : @(type)};
-                NSNotification *notification = [NSNotification notificationWithName:GameUpdateCreateEnemy object:sut.game userInfo:userInfo];
+                NSNotification *notification = [NSNotification notificationWithName:GameUpdateCreateEnemy object:nil userInfo:userInfo];
                 OCMStub([gameFactoryMock createEnemyWithType:type atRow:row column:column]).andReturn(modelMock);
 
                 //because
@@ -103,7 +103,7 @@ describe(@"BoardViewModel", ^{
                 CGPoint toPoint = CGPointZero;
                 id modelMock = OCMClassMock([EnemyViewModel class]);
                 NSDictionary *userInfo = @{@"row" : @(row), @"column" : @(fromColumn)};
-                NSNotification *notification = [NSNotification notificationWithName:GameUpdateShiftEnemyLeft object:sut.game userInfo:userInfo];
+                NSNotification *notification = [NSNotification notificationWithName:GameUpdateShiftEnemyLeft object:nil userInfo:userInfo];
                 OCMStub([gridCalculatorMock calculatePointForRow:row column:toColumn]).andReturn(toPoint);
                 OCMStub([gridStorageMock objectForRow:row column:fromColumn]).andReturn(modelMock);
 
@@ -130,7 +130,7 @@ describe(@"BoardViewModel", ^{
                 CGPoint toPoint = CGPointZero;
                 id modelMock = OCMClassMock([EnemyViewModel class]);
                 NSDictionary *userInfo = @{@"row" : @(row), @"column" : @(fromColumn)};
-                NSNotification *notification = [NSNotification notificationWithName:GameUpdateShiftEnemyRight object:sut.game userInfo:userInfo];
+                NSNotification *notification = [NSNotification notificationWithName:GameUpdateShiftEnemyRight object:nil userInfo:userInfo];
                 OCMStub([gridCalculatorMock calculatePointForRow:row column:toColumn]).andReturn(toPoint);
                 OCMStub([gridStorageMock objectForRow:row column:fromColumn]).andReturn(modelMock);
 
@@ -162,7 +162,7 @@ describe(@"BoardViewModel", ^{
                 id modelMock = OCMClassMock([EnemyViewModel class]);
                 id tempMock = OCMClassMock([EnemyViewModel class]);
                 NSDictionary *userInfo = @{@"row" : @(row), @"column" : @(fromColumn)};
-                NSNotification *notification = [NSNotification notificationWithName:GameUpdateMoveEnemyToRowHead object:sut.game userInfo:userInfo];
+                NSNotification *notification = [NSNotification notificationWithName:GameUpdateMoveEnemyToRowHead object:nil userInfo:userInfo];
                 OCMStub([modelMock enemyType]).andReturn(type);
                 OCMStub([gridCalculatorMock calculatePointForRow:row column:toColumn]).andReturn(toPoint);
                 OCMStub([gridCalculatorMock calculatePointForRow:row column:beginColumn]).andReturn(snapPoint);
@@ -202,7 +202,7 @@ describe(@"BoardViewModel", ^{
                 id modelMock = OCMClassMock([EnemyViewModel class]);
                 id tempMock = OCMClassMock([EnemyViewModel class]);
                 NSDictionary *userInfo = @{@"row" : @(row), @"column" : @(fromColumn)};
-                NSNotification *notification = [NSNotification notificationWithName:GameUpdateMoveEnemyToRowTail object:sut.game userInfo:userInfo];
+                NSNotification *notification = [NSNotification notificationWithName:GameUpdateMoveEnemyToRowTail object:nil userInfo:userInfo];
                 OCMStub([modelMock enemyType]).andReturn(type);
                 OCMStub([gridCalculatorMock numColumns]).andReturn(endColumn+1);
                 OCMStub([gridCalculatorMock calculatePointForRow:row column:toColumn]).andReturn(toPoint);
@@ -239,7 +239,7 @@ describe(@"BoardViewModel", ^{
                 CGPoint toPoint = CGPointZero;
                 id modelMock = OCMClassMock([EnemyViewModel class]);
                 NSDictionary *userInfo = @{@"fromRow" : @(fromRow), @"toRow" : @(toRow), @"column" : @(column)};
-                NSNotification *notification = [NSNotification notificationWithName:GameUpdateDropEnemyDown object:sut.game userInfo:userInfo];
+                NSNotification *notification = [NSNotification notificationWithName:GameUpdateDropEnemyDown object:nil userInfo:userInfo];
                 OCMStub([gridCalculatorMock calculatePointForRow:toRow column:column]).andReturn(toPoint);
                 OCMStub([gridStorageMock objectForRow:fromRow column:column]).andReturn(modelMock);
                 
@@ -264,7 +264,7 @@ describe(@"BoardViewModel", ^{
                 NSInteger column = 2;
                 id modelMock = OCMClassMock([EnemyViewModel class]);
                 NSDictionary *userInfo = @{@"row" : @(row), @"column" : @(column)};
-                NSNotification *notification = [NSNotification notificationWithName:GameUpdateMarkEnemyAsDangerous object:sut.game userInfo:userInfo];
+                NSNotification *notification = [NSNotification notificationWithName:GameUpdateMarkEnemyAsDangerous object:nil userInfo:userInfo];
                 OCMStub([gridStorageMock objectForRow:row column:column]).andReturn(modelMock);
                 
                 //because
@@ -286,7 +286,7 @@ describe(@"BoardViewModel", ^{
                 NSInteger column = 2;
                 id modelMock = OCMClassMock([EnemyViewModel class]);
                 NSDictionary *userInfo = @{@"row" : @(row), @"column" : @(column)};
-                NSNotification *notification = [NSNotification notificationWithName:GameUpdateMarkEnemyAsPacified object:sut.game userInfo:userInfo];
+                NSNotification *notification = [NSNotification notificationWithName:GameUpdateMarkEnemyAsPacified object:nil userInfo:userInfo];
                 OCMStub([gridStorageMock objectForRow:row column:column]).andReturn(modelMock);
                 
                 //because
@@ -310,7 +310,7 @@ describe(@"BoardViewModel", ^{
                 id modelMock = OCMClassMock([EnemyViewModel class]);
                 //id explosionMock = OCMClassMock([Explosion class]);
                 NSDictionary *userInfo = @{@"row" : @(row), @"column" : @(column)};
-                NSNotification *notification = [NSNotification notificationWithName:GameUpdateDestroyEnemy object:sut.game userInfo:userInfo];
+                NSNotification *notification = [NSNotification notificationWithName:GameUpdateDestroyEnemy object:nil userInfo:userInfo];
                 OCMStub([gridStorageMock objectForRow:row column:column]).andReturn(modelMock);
                 //OCMStub([gameFactoryMock createExplosionAtRow:row column:column]).andReturn(explosionMock);
                 

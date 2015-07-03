@@ -16,22 +16,24 @@
 
 @implementation BoardViewModel
 
-- (void) setGame:(Game *)game {
-    //save
-    _game = game;
+- (id) init {
+    self = [super init];
+    if(!self) return nil;
     
     //notifications - not under test but necessary
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(executeGameUpdateCreateEnemy:) name:GameUpdateCreateEnemy object:self.game];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(executeGameUpdateShiftEnemyLeft:) name:GameUpdateShiftEnemyLeft object:self.game];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(executeGameUpdateShiftEnemyRight:) name:GameUpdateShiftEnemyRight object:self.game];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(executeGameUpdateMoveEnemyToRowHead:) name:GameUpdateMoveEnemyToRowHead object:self.game];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(executeGameUpdateMoveEnemyToRowTail:) name:GameUpdateMoveEnemyToRowTail object:self.game];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(executeGameUpdateDropEnemyDown:) name:GameUpdateDropEnemyDown object:self.game];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(executeGameUpdateMarkEnemyAsDangerous:) name:GameUpdateMarkEnemyAsDangerous object:self.game];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(executeGameUpdateMarkEnemyAsPacified:) name:GameUpdateMarkEnemyAsPacified object:self.game];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(executeGameUpdateDestroyEnemy:) name:GameUpdateDestroyEnemy object:self.game];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleGameActionComplete) name:GameActionComplete object:self.game];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(executeGameUpdateCreateEnemy:) name:GameUpdateCreateEnemy object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(executeGameUpdateShiftEnemyLeft:) name:GameUpdateShiftEnemyLeft object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(executeGameUpdateShiftEnemyRight:) name:GameUpdateShiftEnemyRight object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(executeGameUpdateMoveEnemyToRowHead:) name:GameUpdateMoveEnemyToRowHead object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(executeGameUpdateMoveEnemyToRowTail:) name:GameUpdateMoveEnemyToRowTail object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(executeGameUpdateDropEnemyDown:) name:GameUpdateDropEnemyDown object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(executeGameUpdateMarkEnemyAsDangerous:) name:GameUpdateMarkEnemyAsDangerous object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(executeGameUpdateMarkEnemyAsPacified:) name:GameUpdateMarkEnemyAsPacified object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(executeGameUpdateDestroyEnemy:) name:GameUpdateDestroyEnemy object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleGameActionComplete) name:GameActionComplete object:nil];
+
+    return self;
 }
 
 - (void) swipeLeftFromPoint:(CGPoint)point {
