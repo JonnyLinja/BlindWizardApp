@@ -336,13 +336,6 @@ describe(@"BoardViewModel", ^{
         });
     });
     
-    //TODO:
-    pending(@"when animations are run", ^{
-        it(@"should pause the game until they are complete", ^{
-            
-        });
-    });
-    
     afterEach(^{
         [gameMock stopMocking];
         [gridCalculatorMock stopMocking];
