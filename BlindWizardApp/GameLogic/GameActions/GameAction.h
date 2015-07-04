@@ -9,7 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <CoreGraphics/CoreGraphics.h>
 
-@interface GameAction : NSObject
+@protocol GameAction <NSObject>
 @property (nonatomic, assign, readonly) CGFloat duration;
-- (void) notifyCompleted;
+- (void) execute;
+- (BOOL) isValid;
+- (id<GameAction>) generateNextGameAction;
 @end

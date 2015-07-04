@@ -10,4 +10,16 @@
 
 @implementation ShiftEnemiesRightGameAction
 
+- (void) execute {
+    
+}
+
+- (BOOL) isValid {
+    return NO;
+}
+
+- (id<GameAction>) generateNextGameAction {
+    return nil;
+}
+
 @end

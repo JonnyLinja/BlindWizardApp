@@ -10,4 +10,16 @@
 
 @implementation CallNextWaveGameAction
 
+- (void) execute {
+    
+}
+
+- (BOOL) isValid {
+    return NO;
+}
+
+- (id<GameAction>) generateNextGameAction {
+    return nil;
+}
+
 @end

@@ -47,17 +47,17 @@
 }
 
 - (void) commandCallNextWave {
-    GameAction *action = [self.factory createCallNextWaveGameActionWithBoard:self.board];
+    id<GameAction> action = [self.factory createCallNextWaveGameActionWithBoard:self.board];
     [self.flow addGameAction:action];
 }
 
 - (void) commandSwipeLeftOnRow:(NSInteger)row {
-    GameAction *action = [self.factory createShiftEnemiesLeftGameActionWithBoard:self.board row:row];
+    id<GameAction> action = [self.factory createShiftEnemiesLeftGameActionWithBoard:self.board row:row];
     [self.flow addGameAction:action];
 }
 
 - (void) commandSwipeRightOnRow:(NSInteger)row {
-    GameAction *action = [self.factory createShiftEnemiesRightGameActionWithBoard:self.board row:row];
+    id<GameAction> action = [self.factory createShiftEnemiesRightGameActionWithBoard:self.board row:row];
     [self.flow addGameAction:action];
 }
 

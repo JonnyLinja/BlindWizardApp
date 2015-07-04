@@ -6,12 +6,13 @@
 //  Copyright (c) 2015 Adronitis. All rights reserved.
 //
 
+#import "GameAction.h"
+
 @class GameBoard;
-@class GameAction;
 
 @protocol GameDependencyFactory <NSObject>
 - (GameBoard *) createGameBoardWithRows:(NSInteger)rows columns:(NSInteger)columns;
-- (GameAction *) createCallNextWaveGameActionWithBoard:(GameBoard *)board;
-- (GameAction *) createShiftEnemiesLeftGameActionWithBoard:(GameBoard *)board row:(NSInteger)row;
-- (GameAction *) createShiftEnemiesRightGameActionWithBoard:(GameBoard *)board row:(NSInteger)row;
+- (id<GameAction>) createCallNextWaveGameActionWithBoard:(GameBoard *)board;
+- (id<GameAction>) createShiftEnemiesLeftGameActionWithBoard:(GameBoard *)board row:(NSInteger)row;
+- (id<GameAction>) createShiftEnemiesRightGameActionWithBoard:(GameBoard *)board row:(NSInteger)row;
 @end

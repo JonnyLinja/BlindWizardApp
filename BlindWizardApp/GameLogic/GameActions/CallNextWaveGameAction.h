@@ -8,6 +8,9 @@
 
 #import "GameAction.h"
 
-@interface CallNextWaveGameAction : GameAction
-
+@interface CallNextWaveGameAction : NSObject <GameAction>
+@property (nonatomic, assign, readonly) CGFloat duration;
+- (void) execute;
+- (BOOL) isValid;
+- (id<GameAction>) generateNextGameAction;
 @end

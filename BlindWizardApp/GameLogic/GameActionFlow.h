@@ -7,24 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "GameAction.h"
 
-@class GameAction;
-@class GameActionQueue;
-@class GameActionValidator;
+@class Queue;
 
 @interface GameActionFlow : NSObject
-@property (nonatomic, assign, readonly) BOOL isReady;
-- (void) addGameAction:(GameAction *)gameAction;
-
-
-
-
-@property (nonatomic, strong) GameActionQueue *gameActionQueue; //inject
-@property (nonatomic, strong) GameActionValidator *gameActionValidator; //inject
-
-//commands
-- (void) commandCallNextWave;
-- (void) commandSwipeLeftOnRow:(NSInteger)row;
-- (void) commandSwipeRightOnRow:(NSInteger)row;
-
+@property (nonatomic, strong) Queue *queue; //inject
+- (void) addGameAction:(id<GameAction>)gameAction;
 @end

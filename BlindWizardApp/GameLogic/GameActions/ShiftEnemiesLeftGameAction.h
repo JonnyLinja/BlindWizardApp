@@ -8,6 +8,9 @@
 
 #import "GameAction.h"
 
-@interface ShiftEnemiesLeftGameAction : GameAction
-
+@interface ShiftEnemiesLeftGameAction : NSObject <GameAction>
+@property (nonatomic, assign, readonly) CGFloat duration;
+- (void) execute;
+- (BOOL) isValid;
+- (id<GameAction>) generateNextGameAction;
 @end
