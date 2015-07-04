@@ -20,6 +20,7 @@
 		C35C2E751B484E1C00FF7944 /* ShiftEnemiesLeftGameActionSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C35C2E741B484E1C00FF7944 /* ShiftEnemiesLeftGameActionSpec.m */; };
 		C35C2E781B4857AA00FF7944 /* DropEnemiesDownGameAction.m in Sources */ = {isa = PBXBuildFile; fileRef = C35C2E771B4857AA00FF7944 /* DropEnemiesDownGameAction.m */; };
 		C35C2E7A1B48625500FF7944 /* ShiftEnemiesRightGameActionSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C35C2E791B48625500FF7944 /* ShiftEnemiesRightGameActionSpec.m */; };
+		C35C2E7C1B4863ED00FF7944 /* DropEnemiesDownGameActionSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C35C2E7B1B4863ED00FF7944 /* DropEnemiesDownGameActionSpec.m */; };
 		C37B74951B3CF5FF00D22D5E /* BoardViewModelSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C37B74941B3CF5FF00D22D5E /* BoardViewModelSpec.m */; };
 		C3A3B3291B3BCCBF00ADF11A /* PlayViewModelSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A3B3281B3BCCBF00ADF11A /* PlayViewModelSpec.m */; };
 		C3A3B32D1B3BD07400ADF11A /* BoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A3B32C1B3BD07400ADF11A /* BoardViewController.m */; };
@@ -90,6 +91,7 @@
 		C35C2E761B4857A900FF7944 /* DropEnemiesDownGameAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropEnemiesDownGameAction.h; sourceTree = "<group>"; };
 		C35C2E771B4857AA00FF7944 /* DropEnemiesDownGameAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropEnemiesDownGameAction.m; sourceTree = "<group>"; };
 		C35C2E791B48625500FF7944 /* ShiftEnemiesRightGameActionSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShiftEnemiesRightGameActionSpec.m; sourceTree = "<group>"; };
+		C35C2E7B1B4863ED00FF7944 /* DropEnemiesDownGameActionSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropEnemiesDownGameActionSpec.m; sourceTree = "<group>"; };
 		C37B74941B3CF5FF00D22D5E /* BoardViewModelSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardViewModelSpec.m; sourceTree = "<group>"; };
 		C3A3B3281B3BCCBF00ADF11A /* PlayViewModelSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayViewModelSpec.m; sourceTree = "<group>"; };
 		C3A3B32B1B3BD07400ADF11A /* BoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardViewController.h; sourceTree = "<group>"; };
@@ -348,6 +350,7 @@
 				C30A9CC71B449BAD00EBBD94 /* RandomGeneratorSpec.m */,
 				C35C2E741B484E1C00FF7944 /* ShiftEnemiesLeftGameActionSpec.m */,
 				C35C2E791B48625500FF7944 /* ShiftEnemiesRightGameActionSpec.m */,
+				C35C2E7B1B4863ED00FF7944 /* DropEnemiesDownGameActionSpec.m */,
 				C3F8B8201B47C577006A2619 /* delete these */,
 				C3F6BDF21B389B860088D924 /* Supporting Files */,
 			);
@@ -653,6 +656,7 @@
 				C37B74951B3CF5FF00D22D5E /* BoardViewModelSpec.m in Sources */,
 				C30A9CC81B449BAD00EBBD94 /* RandomGeneratorSpec.m in Sources */,
 				C3F72DA71B3A2C800040909A /* PlayViewControllerSpec.m in Sources */,
+				C35C2E7C1B4863ED00FF7944 /* DropEnemiesDownGameActionSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
