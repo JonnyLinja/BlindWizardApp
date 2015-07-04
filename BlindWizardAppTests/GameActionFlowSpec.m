@@ -25,7 +25,17 @@ describe(@"GameActionFlow", ^{
     
     context(@"when adding a game action", ^{
         it(@"should add it to the end of the array", ^{
+            //context
+            id gameActionMock = OCMProtocolMock(@protocol(GameAction));
             
+            //because
+            [sut addGameAction:gameActionMock];
+            
+            //expect
+            OCMVerify([queueMock add:gameActionMock]);
+            
+            //cleanup
+            [gameActionMock stopMocking];
         });
     });
     
@@ -63,6 +73,9 @@ describe(@"GameActionFlow", ^{
                     done();
                 });
             });
+            
+            //cleanup
+            [gameActionMock stopMocking];
         });
     });
     
@@ -100,6 +113,9 @@ describe(@"GameActionFlow", ^{
                     done();
                 });
             });
+            
+            //cleanup
+            [gameActionMock stopMocking];
         });
     });
     
@@ -124,6 +140,9 @@ describe(@"GameActionFlow", ^{
             OCMVerify([queueMock hasObject]);
             OCMVerify([queueMock pop]);
             expect(sut.isReady).to.beTruthy();
+            
+            //cleanup
+            [gameActionMock stopMocking];
         });
     });
     
@@ -148,6 +167,9 @@ describe(@"GameActionFlow", ^{
             OCMVerify([queueMock hasObject]);
             OCMVerify([queueMock pop]);
             expect(sut.isReady).to.beTruthy();
+            
+            //cleanup
+            [gameActionMock stopMocking];
         });
     });
     
