@@ -8,13 +8,19 @@
 
 #import <Foundation/Foundation.h>
 
+@class GameAction;
 @class GameActionQueue;
 @class GameActionValidator;
 
 @interface GameActionFlow : NSObject
+@property (nonatomic, assign, readonly) BOOL isReady;
+- (void) addGameAction:(GameAction *)gameAction;
+
+
+
+
 @property (nonatomic, strong) GameActionQueue *gameActionQueue; //inject
 @property (nonatomic, strong) GameActionValidator *gameActionValidator; //inject
-@property (nonatomic, assign, readonly) BOOL isReady;
 
 //commands
 - (void) commandCallNextWave;

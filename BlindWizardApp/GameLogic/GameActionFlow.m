@@ -27,6 +27,10 @@
     return self;
 }
 
+- (void) addGameAction:(GameAction *)gameAction {
+    
+}
+
 - (void) setGameActionQueue:(GameActionQueue *)gameActionQueue {
     //save
     _gameActionQueue = gameActionQueue;

@@ -47,6 +47,8 @@
 }
 
 - (void) commandCallNextWave {
+    GameAction *action = [self.factory createCallNextWaveGameActionWithBoard:self.board];
+    [self.flow addGameAction:action];
 }
 
 - (void) commandSwipeLeftOnRow:(NSInteger)row {

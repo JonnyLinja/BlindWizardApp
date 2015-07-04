@@ -6,6 +6,8 @@
 #import "Game.h"
 #import "GameDependencyFactory.h"
 #import "GameBoard.h"
+#import "GameActionFlow.h"
+#import "CallNextWaveGameAction.h"
 
 @interface Game (Testing)
 @property (nonatomic, strong) GameBoard *board;
@@ -16,12 +18,15 @@ SpecBegin(Game)
 describe(@"Game", ^{
     __block Game *sut;
     __block id factoryMock;
+    __block id flowMock;
     __block id boardMock;
     
     beforeEach(^{
         sut = [[Game alloc] init];
         factoryMock = OCMProtocolMock(@protocol(GameDependencyFactory));
         sut.factory = factoryMock;
+        flowMock = OCMClassMock([GameActionFlow class]);
+        sut.flow = flowMock;
         boardMock = OCMClassMock([GameBoard class]);
         sut.board = boardMock;
     });
@@ -74,17 +79,24 @@ describe(@"Game", ^{
         });
     });
     
-    /*
     context(@"when calling the next wave", ^{
-        it(@"should add the command to the flow", ^{
+        it(@"should add a game action to the flow", ^{
+            //context
+            id gameActionMock = OCMClassMock([CallNextWaveGameAction class]);
+            OCMStub([factoryMock createCallNextWaveGameActionWithBoard:boardMock]).andReturn(gameActionMock);
+            
             //because
             [sut commandCallNextWave];
             
             //expect
-            OCMVerify([gameActionFlowMock commandCallNextWave]);
+            OCMVerify([factoryMock createCallNextWaveGameActionWithBoard:boardMock]);
+            OCMVerify([flowMock addGameAction:gameActionMock]);
+            
+            //cleanup
+            [gameActionMock stopMocking];
         });
     });
-    
+    /*
     context(@"when swiping left", ^{
         it(@"should add the command to the flow", ^{
             //context
@@ -113,6 +125,7 @@ describe(@"Game", ^{
     */
     afterEach(^{
         [factoryMock stopMocking];
+        [flowMock stopMocking];
         [boardMock stopMocking];
     });
 });

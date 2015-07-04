@@ -7,7 +7,9 @@
 //
 
 @class GameBoard;
+@class GameAction;
 
 @protocol GameDependencyFactory <NSObject>
 - (GameBoard *) createGameBoardWithRows:(NSInteger)rows columns:(NSInteger)columns;
+- (GameAction *) createCallNextWaveGameActionWithBoard:(GameBoard *)board;
 @end
