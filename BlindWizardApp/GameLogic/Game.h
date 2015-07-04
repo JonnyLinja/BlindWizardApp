@@ -17,16 +17,9 @@
 @property (nonatomic, assign, readonly) BOOL gameInProgress;
 @property (nonatomic, assign, readonly) NSInteger score;
 
-//commands
 - (void) commandStartGame;
 - (void) commandCallNextWave;
 - (void) commandSwipeLeftOnRow:(NSInteger)row;
 - (void) commandSwipeRightOnRow:(NSInteger)row;
 
-//game actions
-- (void) executeGameActionCallNextWave:(NSNotification *)notification;
-- (void) executeGameActionShiftEnemiesLeft:(NSNotification *)notification;
-- (void) executeGameActionShiftEnemiesRight:(NSNotification *)notification;
-- (void) executeGameActionDestroyEnemyGroups:(NSNotification *)notification;
-- (void) executeGameActionDropEnemiesDown:(NSNotification *)notification;
 @end

@@ -25,15 +25,4 @@
 - (void) swipeLeftFromPoint:(CGPoint)point;
 - (void) swipeRightFromPoint:(CGPoint)point;
 
-//game updates
-- (void) executeGameUpdateCreateEnemy:(NSNotification *)notification;
-- (void) executeGameUpdateShiftEnemyLeft:(NSNotification *)notification;
-- (void) executeGameUpdateShiftEnemyRight:(NSNotification *)notification;
-- (void) executeGameUpdateMoveEnemyToRowHead:(NSNotification *)notification;
-- (void) executeGameUpdateMoveEnemyToRowTail:(NSNotification *)notification;
-- (void) executeGameUpdateDropEnemyDown:(NSNotification *)notification;
-- (void) executeGameUpdateMarkEnemyAsDangerous:(NSNotification *)notification;
-- (void) executeGameUpdateMarkEnemyAsPacified:(NSNotification *)notification;
-- (void) executeGameUpdateDestroyEnemy:(NSNotification *)notification;
-- (void) handleGameActionComplete;
 @end
