@@ -6,7 +6,7 @@
 #import "Game.h"
 #import "GameConstants.h"
 #import "GridCalculator.h"
-#import "GameFactory.h"
+#import "GameObjectFactory.h"
 #import "EnemyViewModel.h"
 #import "GridStorage.h"
 
@@ -64,8 +64,8 @@ describe(@"BoardViewModel", ^{
         __block id gridStorageMock;
         
         beforeEach(^{
-            gameFactoryMock = OCMClassMock([GameFactory class]);
-            sut.gameFactory = gameFactoryMock;
+            gameFactoryMock = OCMClassMock([GameObjectFactory class]);
+            sut.factory = gameFactoryMock;
             gridStorageMock = OCMClassMock([GridStorage class]);
             sut.gridStorage = gridStorageMock;
         });

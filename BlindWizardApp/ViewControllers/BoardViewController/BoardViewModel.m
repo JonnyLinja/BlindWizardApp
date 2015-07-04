@@ -10,7 +10,7 @@
 #import "Game.h"
 #import "GameConstants.h"
 #import "GridCalculator.h"
-#import "GameFactory.h"
+#import "GameObjectFactory.h"
 #import "EnemyViewModel.h"
 #import "GridStorage.h"
 
@@ -51,7 +51,7 @@
     NSInteger type = [[notification.userInfo objectForKey:@"type"] integerValue];
     
     //create
-    EnemyViewModel *evm = [self.gameFactory createEnemyWithType:type atRow:row column:column];
+    EnemyViewModel *evm = [self.factory createEnemyWithType:type atRow:row column:column];
     
     //animate
     [evm runCreateAnimation];
@@ -112,7 +112,7 @@
     [self.gridStorage promiseSetObject:evm forRow:row column:0];
     
     //create duplicate
-    EnemyViewModel *duplicate = [self.gameFactory createEnemyWithType:evm.enemyType atRow:row column:-1];
+    EnemyViewModel *duplicate = [self.factory createEnemyWithType:evm.enemyType atRow:row column:-1];
     
     //animate duplicate
     [duplicate animateMoveToCGPoint:snapPoint removeAfter:YES];
@@ -137,7 +137,7 @@
     [self.gridStorage promiseSetObject:evm forRow:row column:lastColumn];
     
     //create duplicate
-    EnemyViewModel *duplicate = [self.gameFactory createEnemyWithType:evm.enemyType atRow:row column:lastColumn+1];
+    EnemyViewModel *duplicate = [self.factory createEnemyWithType:evm.enemyType atRow:row column:lastColumn+1];
     
     //animate duplicate
     [duplicate animateMoveToCGPoint:snapPoint removeAfter:YES];

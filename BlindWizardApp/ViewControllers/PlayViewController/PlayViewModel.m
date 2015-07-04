@@ -9,6 +9,7 @@
 #import "PlayViewModel.h"
 #import "MTKObserving.h"
 #import "Game.h"
+#import "GridCalculator.h"
 
 @interface PlayViewModel ()
 @property (nonatomic, assign) BOOL gameInProgress;
@@ -38,8 +39,9 @@
     [self.game commandCallNextWave];
 }
 
-- (void) startGame {
-    [self.game commandStartGame];
+- (void) startGameWithSize:(CGSize)size {
+    [self.calculator calculateNumberOfRowsAndColumnsForSize:size];
+    [self.game commandStartGameWithRows:self.calculator.numRows columns:self.calculator.numColumns];
 }
 
 - (void) dealloc {

@@ -7,17 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-
-@class GameActionFlow;
-@class GameBoardLogic;
+#import "GameDependencyFactory.h"
 
 @interface Game : NSObject
-@property (nonatomic, strong) GameActionFlow *gameActionFlow; //inject
-@property (nonatomic, strong) GameBoardLogic *gameBoardLogic; //inject
+@property (nonatomic, strong) id<GameDependencyFactory> factory; //inject
 @property (nonatomic, assign, readonly) BOOL gameInProgress;
 @property (nonatomic, assign, readonly) NSInteger score;
 
-- (void) commandStartGame;
+- (void) commandStartGameWithRows:(NSInteger)rows columns:(NSInteger)columns;
 - (void) commandCallNextWave;
 - (void) commandSwipeLeftOnRow:(NSInteger)row;
 - (void) commandSwipeRightOnRow:(NSInteger)row;

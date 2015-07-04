@@ -10,7 +10,7 @@
 #import "GameActionValidator.h"
 
 SpecBegin(GameActionFlow)
-
+/*
 describe(@"GameActionFlow", ^{
     __block GameActionFlow *sut;
     __block id gameActionQueueMock;
@@ -109,7 +109,7 @@ describe(@"GameActionFlow", ^{
         [gameActionQueueMock stopMocking];
     });
 });
-
+*/
 //TODO: start game, initial game action
 //TODO: complete game action - or do I prefer having the object listen to all the game actions instead?!
 

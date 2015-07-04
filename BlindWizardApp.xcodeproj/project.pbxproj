@@ -14,7 +14,7 @@
 		C31F2E3E1B43D8320003232E /* RandomGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = C31F2E3D1B43D8320003232E /* RandomGenerator.m */; };
 		C33EA3491B45E0C9001D7218 /* GameActionQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = C33EA3481B45E0C9001D7218 /* GameActionQueue.m */; };
 		C33EA34B1B45E0E0001D7218 /* GameActionQueueSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C33EA34A1B45E0E0001D7218 /* GameActionQueueSpec.m */; };
-		C34EFC001B4267980079B6DC /* GameFactorySpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C34EFBFF1B4267980079B6DC /* GameFactorySpec.m */; };
+		C34EFC001B4267980079B6DC /* GameObjectFactorySpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C34EFBFF1B4267980079B6DC /* GameObjectFactorySpec.m */; };
 		C34EFC021B426EF20079B6DC /* GridStorageSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C34EFC011B426EF20079B6DC /* GridStorageSpec.m */; };
 		C34EFC071B427B350079B6DC /* GridStorageKeyGeneratorSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C34EFC061B427B350079B6DC /* GridStorageKeyGeneratorSpec.m */; };
 		C34F7F621B3C991200D07881 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = C34F7F611B3C991200D07881 /* Game.m */; };
@@ -27,7 +27,7 @@
 		C3A9E7B11B38FC1F006D9C68 /* PlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A9E7B01B38FC1F006D9C68 /* PlayViewController.m */; };
 		C3A9E7B51B38FC35006D9C68 /* TitleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A9E7B41B38FC35006D9C68 /* TitleViewController.m */; };
 		C3A9E7B91B38FDC4006D9C68 /* LeaderboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A9E7B81B38FDC4006D9C68 /* LeaderboardViewController.m */; };
-		C3BEFDF81B3E1997002930BA /* GameFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = C3BEFDF71B3E1997002930BA /* GameFactory.m */; };
+		C3BEFDF81B3E1997002930BA /* GameObjectFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = C3BEFDF71B3E1997002930BA /* GameObjectFactory.m */; };
 		C3BEFDFF1B3E1E0A002930BA /* EnemyViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C3BEFDFE1B3E1E0A002930BA /* EnemyViewModel.m */; };
 		C3BEFE021B3E1E1A002930BA /* EnemyView.m in Sources */ = {isa = PBXBuildFile; fileRef = C3BEFE011B3E1E1A002930BA /* EnemyView.m */; };
 		C3EA5B841B43A1C000376A5F /* GridCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EA5B7F1B43A1C000376A5F /* GridCalculator.m */; };
@@ -46,6 +46,7 @@
 		C3F8B79F1B476211006A2619 /* GameActionValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F8B79E1B476211006A2619 /* GameActionValidator.m */; };
 		C3F8B7A31B4762ED006A2619 /* GameAction.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F8B7A21B4762ED006A2619 /* GameAction.m */; };
 		C3F8B7A61B476449006A2619 /* CallNextWaveGameAction.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F8B7A51B476449006A2619 /* CallNextWaveGameAction.m */; };
+		C3F8B7AA1B478723006A2619 /* GameBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F8B7A91B478723006A2619 /* GameBoard.m */; };
 		C3FE19E11B44BC0200F26152 /* GameActionFlowSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C3FE19E01B44BC0200F26152 /* GameActionFlowSpec.m */; };
 		C3FE19E41B44BC2F00F26152 /* GameActionFlow.m in Sources */ = {isa = PBXBuildFile; fileRef = C3FE19E31B44BC2F00F26152 /* GameActionFlow.m */; };
 		DFD95E0BAFD8372FD963D424 /* libPods-BlindWizardAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FE3DB190173D277B949EE8E /* libPods-BlindWizardAppTests.a */; };
@@ -78,7 +79,7 @@
 		C33EA3481B45E0C9001D7218 /* GameActionQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameActionQueue.m; sourceTree = "<group>"; };
 		C33EA34A1B45E0E0001D7218 /* GameActionQueueSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameActionQueueSpec.m; sourceTree = "<group>"; };
 		C33EA34C1B45F657001D7218 /* GameConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameConstants.h; sourceTree = "<group>"; };
-		C34EFBFF1B4267980079B6DC /* GameFactorySpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameFactorySpec.m; sourceTree = "<group>"; };
+		C34EFBFF1B4267980079B6DC /* GameObjectFactorySpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameObjectFactorySpec.m; sourceTree = "<group>"; };
 		C34EFC011B426EF20079B6DC /* GridStorageSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridStorageSpec.m; sourceTree = "<group>"; };
 		C34EFC061B427B350079B6DC /* GridStorageKeyGeneratorSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridStorageKeyGeneratorSpec.m; sourceTree = "<group>"; };
 		C34F7F601B3C991200D07881 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
@@ -98,8 +99,8 @@
 		C3A9E7B41B38FC35006D9C68 /* TitleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleViewController.m; sourceTree = "<group>"; };
 		C3A9E7B71B38FDC4006D9C68 /* LeaderboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeaderboardViewController.h; sourceTree = "<group>"; };
 		C3A9E7B81B38FDC4006D9C68 /* LeaderboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeaderboardViewController.m; sourceTree = "<group>"; };
-		C3BEFDF61B3E1997002930BA /* GameFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameFactory.h; sourceTree = "<group>"; };
-		C3BEFDF71B3E1997002930BA /* GameFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameFactory.m; sourceTree = "<group>"; };
+		C3BEFDF61B3E1997002930BA /* GameObjectFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameObjectFactory.h; sourceTree = "<group>"; };
+		C3BEFDF71B3E1997002930BA /* GameObjectFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameObjectFactory.m; sourceTree = "<group>"; };
 		C3BEFDFD1B3E1E0A002930BA /* EnemyViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnemyViewModel.h; sourceTree = "<group>"; };
 		C3BEFDFE1B3E1E0A002930BA /* EnemyViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnemyViewModel.m; sourceTree = "<group>"; };
 		C3BEFE001B3E1E1A002930BA /* EnemyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnemyView.h; sourceTree = "<group>"; };
@@ -133,6 +134,9 @@
 		C3F8B7A21B4762ED006A2619 /* GameAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameAction.m; sourceTree = "<group>"; };
 		C3F8B7A41B476449006A2619 /* CallNextWaveGameAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CallNextWaveGameAction.h; sourceTree = "<group>"; };
 		C3F8B7A51B476449006A2619 /* CallNextWaveGameAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CallNextWaveGameAction.m; sourceTree = "<group>"; };
+		C3F8B7A71B4785EC006A2619 /* GameDependencyFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameDependencyFactory.h; sourceTree = "<group>"; };
+		C3F8B7A81B478723006A2619 /* GameBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameBoard.h; sourceTree = "<group>"; };
+		C3F8B7A91B478723006A2619 /* GameBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameBoard.m; sourceTree = "<group>"; };
 		C3FE19E01B44BC0200F26152 /* GameActionFlowSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameActionFlowSpec.m; sourceTree = "<group>"; };
 		C3FE19E21B44BC2F00F26152 /* GameActionFlow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameActionFlow.h; sourceTree = "<group>"; };
 		C3FE19E31B44BC2F00F26152 /* GameActionFlow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameActionFlow.m; sourceTree = "<group>"; };
@@ -181,8 +185,11 @@
 			children = (
 				C3F8B7A01B4762E5006A2619 /* GameActions */,
 				C33EA34C1B45F657001D7218 /* GameConstants.h */,
+				C3F8B7A71B4785EC006A2619 /* GameDependencyFactory.h */,
 				C34F7F601B3C991200D07881 /* Game.h */,
 				C34F7F611B3C991200D07881 /* Game.m */,
+				C3F8B7A81B478723006A2619 /* GameBoard.h */,
+				C3F8B7A91B478723006A2619 /* GameBoard.m */,
 				C3FE19E21B44BC2F00F26152 /* GameActionFlow.h */,
 				C3FE19E31B44BC2F00F26152 /* GameActionFlow.m */,
 				C33EA3471B45E0C9001D7218 /* GameActionQueue.h */,
@@ -242,8 +249,8 @@
 			children = (
 				C3BEFDFC1B3E1DFC002930BA /* Enemies */,
 				C34EFBFE1B425CCA0079B6DC /* Effects */,
-				C3BEFDF61B3E1997002930BA /* GameFactory.h */,
-				C3BEFDF71B3E1997002930BA /* GameFactory.m */,
+				C3BEFDF61B3E1997002930BA /* GameObjectFactory.h */,
+				C3BEFDF71B3E1997002930BA /* GameObjectFactory.m */,
 			);
 			path = GameObjects;
 			sourceTree = "<group>";
@@ -327,7 +334,7 @@
 				C3A3B3281B3BCCBF00ADF11A /* PlayViewModelSpec.m */,
 				C3F72DA81B3A312B0040909A /* BoardViewControllerSpec.m */,
 				C37B74941B3CF5FF00D22D5E /* BoardViewModelSpec.m */,
-				C34EFBFF1B4267980079B6DC /* GameFactorySpec.m */,
+				C34EFBFF1B4267980079B6DC /* GameObjectFactorySpec.m */,
 				C34EFC011B426EF20079B6DC /* GridStorageSpec.m */,
 				C34EFC061B427B350079B6DC /* GridStorageKeyGeneratorSpec.m */,
 				C34F7F631B3CA29E00D07881 /* GameSpec.m */,
@@ -567,6 +574,7 @@
 				C34F7F621B3C991200D07881 /* Game.m in Sources */,
 				C33EA3491B45E0C9001D7218 /* GameActionQueue.m in Sources */,
 				C3A9E7B51B38FC35006D9C68 /* TitleViewController.m in Sources */,
+				C3F8B7AA1B478723006A2619 /* GameBoard.m in Sources */,
 				C3A3B32D1B3BD07400ADF11A /* BoardViewController.m in Sources */,
 				C3F8B7A61B476449006A2619 /* CallNextWaveGameAction.m in Sources */,
 				C3F8B79F1B476211006A2619 /* GameActionValidator.m in Sources */,
@@ -576,7 +584,7 @@
 				C3F6BDDE1B389B860088D924 /* AppDelegate.m in Sources */,
 				C3EA5B841B43A1C000376A5F /* GridCalculator.m in Sources */,
 				C3F6BDDB1B389B860088D924 /* main.m in Sources */,
-				C3BEFDF81B3E1997002930BA /* GameFactory.m in Sources */,
+				C3BEFDF81B3E1997002930BA /* GameObjectFactory.m in Sources */,
 				C3EA5B861B43A1C000376A5F /* GridStorageKeyGenerator.m in Sources */,
 				C3FE19E41B44BC2F00F26152 /* GameActionFlow.m in Sources */,
 			);
@@ -586,7 +594,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C34EFC001B4267980079B6DC /* GameFactorySpec.m in Sources */,
+				C34EFC001B4267980079B6DC /* GameObjectFactorySpec.m in Sources */,
 				C3F6BE021B389C1B0088D924 /* NSObject+MTKTest.m in Sources */,
 				C3F72DA91B3A312B0040909A /* BoardViewControllerSpec.m in Sources */,
 				C3F6BE071B38F6620088D924 /* TitleViewControllerSpec.m in Sources */,

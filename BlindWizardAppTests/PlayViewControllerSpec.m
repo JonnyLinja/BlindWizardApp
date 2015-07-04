@@ -58,6 +58,7 @@ describe(@"PlayViewController", ^{
             //expect
             OCMVerify([storyboardMock instantiateViewControllerWithIdentifier:@"BoardViewController"]);
             expect(sut.segueDestinationViewController).to.equal(vc);
+            expect(sut.boardView).toNot.beNil();
             
             //cleanup
             [storyboardMock stopMocking];
@@ -83,7 +84,7 @@ describe(@"PlayViewController", ^{
         
         context(@"when loaded", ^{
             it(@"should start the game", ^{
-                OCMVerify([playViewModelMock startGame]);
+                OCMVerify([playViewModelMock startGameWithSize:sut.boardView.frame.size]);
             });
         });
         
@@ -154,7 +155,7 @@ describe(@"PlayViewController", ^{
             [sut.playAgainButton sendActionsForControlEvents:UIControlEventTouchUpInside];
             
             //expect
-            OCMVerify([playViewModelMock startGame]);
+            OCMVerify([playViewModelMock startGameWithSize:sut.boardView.frame.size]);
             
             //cleanup
             [playViewModelMock stopMocking];

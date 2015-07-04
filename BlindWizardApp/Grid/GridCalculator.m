@@ -10,6 +10,10 @@
 
 @implementation GridCalculator
 
+- (void) calculateNumberOfRowsAndColumnsForSize:(CGSize)size {
+    
+}
+
 - (NSInteger) calculateRowForYPos:(CGFloat)yPos {
     return -1;
 }

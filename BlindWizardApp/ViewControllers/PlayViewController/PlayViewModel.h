@@ -7,13 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreGraphics/CoreGraphics.h>
 
 @class Game;
+@class GridCalculator;
 
 @interface PlayViewModel : NSObject
 @property (nonatomic, strong) Game *game; //inject
+@property (nonatomic, strong) GridCalculator *calculator; //inject
 @property (nonatomic, assign, readonly) BOOL gameInProgress;
 @property (nonatomic, strong, readonly) NSString *score;
 - (void) callNextWave;
-- (void) startGame;
+- (void) startGameWithSize:(CGSize)size;
 @end

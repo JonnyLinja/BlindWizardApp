@@ -4,6 +4,7 @@
 
 #import "PlayViewModel.h"
 #import "Game.h"
+#import "GridCalculator.h"
 
 #import "NSObject+MTKTest.h"
 
@@ -20,12 +21,25 @@ describe(@"PlayViewModel", ^{
     });
     
     context(@"when trying to start the game", ^{
-        it(@"should start the game", ^{
+        it(@"should calculate the number of rows/columns and start the game with it", ^{
+            //context
+            NSInteger rows = 5;
+            NSInteger columns = 5;
+            CGSize size = CGSizeMake(1, 1);
+            id calculatorMock = OCMClassMock([GridCalculator class]);
+            sut.calculator = calculatorMock;
+            OCMStub([calculatorMock numRows]).andReturn(rows);
+            OCMStub([calculatorMock numColumns]).andReturn(columns);
+            
             //because
-            [sut startGame];
+            [sut startGameWithSize:size];
             
             //expect
-            OCMVerify([gameMock commandStartGame]);
+            OCMVerify([calculatorMock calculateNumberOfRowsAndColumnsForSize:size]);
+            OCMVerify([gameMock commandStartGameWithRows:rows columns:columns]);
+            
+            //cleanup
+            [calculatorMock stopMocking];
         });
     });
     

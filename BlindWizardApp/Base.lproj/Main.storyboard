@@ -220,6 +220,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="boardView" destination="fR2-4y-LcI" id="Vjs-cQ-iRh"/>
                         <outlet property="closeButton" destination="p6v-bM-CP8" id="0jt-6A-vlI"/>
                         <outlet property="nextWaveButton" destination="ymG-jD-JIm" id="ZDI-Rs-gDn"/>
                         <outlet property="playAgainButton" destination="Az9-mb-bCG" id="xt2-Qe-ZlG"/>

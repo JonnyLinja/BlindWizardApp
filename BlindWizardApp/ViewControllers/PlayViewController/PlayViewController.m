@@ -25,7 +25,7 @@
     [self map:@keypath(self.viewModel.gameInProgress) to:@keypath(self.playAgainButton.hidden) null:@YES];
     
     //start
-    [self.viewModel startGame];
+    [self.viewModel startGameWithSize:self.boardView.frame.size];
 }
 
 - (IBAction)tappedNextWave:(id)sender {
@@ -33,7 +33,7 @@
 }
 
 - (IBAction)tappedPlayAgain:(id)sender {
-    [self.viewModel startGame];
+    [self.viewModel startGameWithSize:self.boardView.frame.size];
 }
 
 - (void) dealloc {

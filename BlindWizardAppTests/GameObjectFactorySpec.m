@@ -2,23 +2,23 @@
 #import "Expecta.h"
 #import <OCMock/OCMock.h>
 
-#import "GameFactory.h"
+#import "GameObjectFactory.h"
 #import "GridCalculator.h"
 #import "EnemyViewModel.h"
 #import "EnemyView.h"
 
-SpecBegin(GameFactory)
+SpecBegin(GameObjectFactory)
 
 //went with classicist style tests, mini integration
 //wasn't sure how to do this with pure mocking as it isn't dependencies
 //it's tightly coupled to the objects it creates
 
-describe(@"GameFactory", ^{
-    __block GameFactory *sut;
+describe(@"GameObjectFactory", ^{
+    __block GameObjectFactory *sut;
     __block id gridCalculatorMock;
     
     beforeEach(^{
-        sut = [[GameFactory alloc] init];
+        sut = [[GameObjectFactory alloc] init];
         gridCalculatorMock = OCMClassMock([GridCalculator class]);
         sut.gridCalculator = gridCalculatorMock;
     });
