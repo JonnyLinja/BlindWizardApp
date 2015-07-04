@@ -8,27 +8,49 @@
 
 #import "Queue.h"
 
+@interface Queue()
+@property (nonatomic, assign) BOOL hasObject;
+@property (nonatomic, strong) NSMutableArray *array;
+@end
+
 @implementation Queue
 
-- (BOOL) hasObject {
-    return NO;
+- (id) init {
+    self = [super init];
+    if(!self) return nil;
+    
+    self.array = [NSMutableArray new];
+    
+    return self;
+}
+
+- (void) updateHasObject {
+    //because NSMutableArray isn't KVO compliant
+    self.hasObject = self.array.count > 0;
 }
 
 - (id) pop {
-    return nil;
-    /*
-     id<GameAction> gameAction = [self.queue objectAtIndex:0];
-     [self.queue removeObjectAtIndex:0];
-     return gameAction;
-    */
+    //valid check
+    if(!self.hasObject) return nil;
+    
+    id object = [self.array lastObject];
+    [self.array removeLastObject];
+    [self updateHasObject];
+    return object;
 }
 
 - (void) push:(id)object {
-    //nil check
+    if(object) {
+        [self.array addObject:object];
+        [self updateHasObject];
+    }
 }
 
 - (void) add:(id)object {
-    //nil check
+    if(object) {
+        [self.array insertObject:object atIndex:0];
+        [self updateHasObject];
+    }
 }
 
 @end

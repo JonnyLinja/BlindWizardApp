@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface Queue : NSObject
-- (BOOL) hasObject;
+@property (nonatomic, assign, readonly) BOOL hasObject;
 - (id) pop;
 - (void) push:(id)object;
 - (void) add:(id)object;

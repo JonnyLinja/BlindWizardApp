@@ -31,31 +31,29 @@
 }
 
 - (void) runGameAction {
-    @synchronized(self) {
-        //valid check
-        if(!self.isReady || !self.queue.hasObject) return;
+    //valid check
+    if(!self.isReady || !self.queue.hasObject) return;
+    
+    //ready
+    self.isReady = NO;
+    
+    //game action
+    id<GameAction> gameAction = [self.queue pop];
+    
+    if(![gameAction isValid]) {
+        //invalid
+        self.isReady = YES;
+    }else {
+        //valid
         
-        //ready
-        self.isReady = NO;
+        //execute
+        [gameAction execute];
         
-        //game action
-        id<GameAction> gameAction = [self.queue pop];
+        //wait
+        [self setReadyAfter:gameAction.duration];
         
-        if(![gameAction isValid]) {
-            //invalid
-            self.isReady = YES;
-        }else {
-            //valid
-            
-            //execute
-            [gameAction execute];
-            
-            //wait
-            [self setReadyAfter:gameAction.duration];
-            
-            //set next
-            [self.queue push:[gameAction generateNextGameAction]];
-        }
+        //set next
+        [self.queue push:[gameAction generateNextGameAction]];
     }
 }
 
