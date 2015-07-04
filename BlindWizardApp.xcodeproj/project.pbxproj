@@ -47,6 +47,8 @@
 		C3F8B7A31B4762ED006A2619 /* GameAction.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F8B7A21B4762ED006A2619 /* GameAction.m */; };
 		C3F8B7A61B476449006A2619 /* CallNextWaveGameAction.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F8B7A51B476449006A2619 /* CallNextWaveGameAction.m */; };
 		C3F8B7AA1B478723006A2619 /* GameBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F8B7A91B478723006A2619 /* GameBoard.m */; };
+		C3F8B7AD1B47A351006A2619 /* ShiftEnemiesLeftGameAction.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F8B7AC1B47A351006A2619 /* ShiftEnemiesLeftGameAction.m */; };
+		C3F8B7B01B47A3E7006A2619 /* ShiftEnemiesRightGameAction.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F8B7AF1B47A3E7006A2619 /* ShiftEnemiesRightGameAction.m */; };
 		C3FE19E11B44BC0200F26152 /* GameActionFlowSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C3FE19E01B44BC0200F26152 /* GameActionFlowSpec.m */; };
 		C3FE19E41B44BC2F00F26152 /* GameActionFlow.m in Sources */ = {isa = PBXBuildFile; fileRef = C3FE19E31B44BC2F00F26152 /* GameActionFlow.m */; };
 		DFD95E0BAFD8372FD963D424 /* libPods-BlindWizardAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FE3DB190173D277B949EE8E /* libPods-BlindWizardAppTests.a */; };
@@ -137,6 +139,10 @@
 		C3F8B7A71B4785EC006A2619 /* GameDependencyFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameDependencyFactory.h; sourceTree = "<group>"; };
 		C3F8B7A81B478723006A2619 /* GameBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameBoard.h; sourceTree = "<group>"; };
 		C3F8B7A91B478723006A2619 /* GameBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameBoard.m; sourceTree = "<group>"; };
+		C3F8B7AB1B47A351006A2619 /* ShiftEnemiesLeftGameAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShiftEnemiesLeftGameAction.h; sourceTree = "<group>"; };
+		C3F8B7AC1B47A351006A2619 /* ShiftEnemiesLeftGameAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShiftEnemiesLeftGameAction.m; sourceTree = "<group>"; };
+		C3F8B7AE1B47A3E7006A2619 /* ShiftEnemiesRightGameAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShiftEnemiesRightGameAction.h; sourceTree = "<group>"; };
+		C3F8B7AF1B47A3E7006A2619 /* ShiftEnemiesRightGameAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShiftEnemiesRightGameAction.m; sourceTree = "<group>"; };
 		C3FE19E01B44BC0200F26152 /* GameActionFlowSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameActionFlowSpec.m; sourceTree = "<group>"; };
 		C3FE19E21B44BC2F00F26152 /* GameActionFlow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameActionFlow.h; sourceTree = "<group>"; };
 		C3FE19E31B44BC2F00F26152 /* GameActionFlow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameActionFlow.m; sourceTree = "<group>"; };
@@ -384,6 +390,10 @@
 				C3F8B7A21B4762ED006A2619 /* GameAction.m */,
 				C3F8B7A41B476449006A2619 /* CallNextWaveGameAction.h */,
 				C3F8B7A51B476449006A2619 /* CallNextWaveGameAction.m */,
+				C3F8B7AB1B47A351006A2619 /* ShiftEnemiesLeftGameAction.h */,
+				C3F8B7AC1B47A351006A2619 /* ShiftEnemiesLeftGameAction.m */,
+				C3F8B7AE1B47A3E7006A2619 /* ShiftEnemiesRightGameAction.h */,
+				C3F8B7AF1B47A3E7006A2619 /* ShiftEnemiesRightGameAction.m */,
 			);
 			path = GameActions;
 			sourceTree = "<group>";
@@ -569,7 +579,9 @@
 				C3A9E7B11B38FC1F006D9C68 /* PlayViewController.m in Sources */,
 				C3BEFDFF1B3E1E0A002930BA /* EnemyViewModel.m in Sources */,
 				C3F8B7A31B4762ED006A2619 /* GameAction.m in Sources */,
+				C3F8B7B01B47A3E7006A2619 /* ShiftEnemiesRightGameAction.m in Sources */,
 				C3EA5B851B43A1C000376A5F /* GridStorage.m in Sources */,
+				C3F8B7AD1B47A351006A2619 /* ShiftEnemiesLeftGameAction.m in Sources */,
 				C3A9E7B91B38FDC4006D9C68 /* LeaderboardViewController.m in Sources */,
 				C34F7F621B3C991200D07881 /* Game.m in Sources */,
 				C33EA3491B45E0C9001D7218 /* GameActionQueue.m in Sources */,

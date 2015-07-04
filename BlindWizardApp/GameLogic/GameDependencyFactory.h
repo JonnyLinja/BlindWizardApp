@@ -12,4 +12,6 @@
 @protocol GameDependencyFactory <NSObject>
 - (GameBoard *) createGameBoardWithRows:(NSInteger)rows columns:(NSInteger)columns;
 - (GameAction *) createCallNextWaveGameActionWithBoard:(GameBoard *)board;
+- (GameAction *) createShiftEnemiesLeftGameActionWithBoard:(GameBoard *)board row:(NSInteger)row;
+- (GameAction *) createShiftEnemiesRightGameActionWithBoard:(GameBoard *)board row:(NSInteger)row;
 @end

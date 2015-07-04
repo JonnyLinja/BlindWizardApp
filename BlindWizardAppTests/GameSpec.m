@@ -8,6 +8,8 @@
 #import "GameBoard.h"
 #import "GameActionFlow.h"
 #import "CallNextWaveGameAction.h"
+#import "ShiftEnemiesLeftGameAction.h"
+#import "ShiftEnemiesRightGameAction.h"
 
 @interface Game (Testing)
 @property (nonatomic, strong) GameBoard *board;
@@ -96,33 +98,45 @@ describe(@"Game", ^{
             [gameActionMock stopMocking];
         });
     });
-    /*
+    
     context(@"when swiping left", ^{
         it(@"should add the command to the flow", ^{
             //context
-            NSInteger row = 1;
+            NSInteger row = 3;
+            id gameActionMock = OCMClassMock([ShiftEnemiesLeftGameAction class]);
+            OCMStub([factoryMock createShiftEnemiesLeftGameActionWithBoard:boardMock row:row]).andReturn(gameActionMock);
             
             //because
             [sut commandSwipeLeftOnRow:row];
             
             //expect
-            OCMVerify([gameActionFlowMock commandSwipeLeftOnRow:row]);
+            OCMVerify([factoryMock createShiftEnemiesLeftGameActionWithBoard:boardMock row:row]);
+            OCMVerify([flowMock addGameAction:gameActionMock]);
+            
+            //cleanup
+            [gameActionMock stopMocking];
         });
     });
-    
+
     context(@"when swiping right", ^{
         it(@"should add the command to the flow", ^{
             //context
-            NSInteger row = 1;
+            NSInteger row = 3;
+            id gameActionMock = OCMClassMock([ShiftEnemiesRightGameAction class]);
+            OCMStub([factoryMock createShiftEnemiesRightGameActionWithBoard:boardMock row:row]).andReturn(gameActionMock);
             
             //because
             [sut commandSwipeRightOnRow:row];
             
             //expect
-            OCMVerify([gameActionFlowMock commandSwipeRightOnRow:row]);
+            OCMVerify([factoryMock createShiftEnemiesRightGameActionWithBoard:boardMock row:row]);
+            OCMVerify([flowMock addGameAction:gameActionMock]);
+            
+            //cleanup
+            [gameActionMock stopMocking];
         });
     });
-    */
+    
     afterEach(^{
         [factoryMock stopMocking];
         [flowMock stopMocking];

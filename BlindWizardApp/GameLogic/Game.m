@@ -52,9 +52,13 @@
 }
 
 - (void) commandSwipeLeftOnRow:(NSInteger)row {
+    GameAction *action = [self.factory createShiftEnemiesLeftGameActionWithBoard:self.board row:row];
+    [self.flow addGameAction:action];
 }
 
 - (void) commandSwipeRightOnRow:(NSInteger)row {
+    GameAction *action = [self.factory createShiftEnemiesRightGameActionWithBoard:self.board row:row];
+    [self.flow addGameAction:action];
 }
 
 - (void) dealloc {
