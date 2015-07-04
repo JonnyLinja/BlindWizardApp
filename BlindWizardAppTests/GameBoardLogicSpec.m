@@ -21,13 +21,20 @@ describe(@"GameBoardLogic", ^{
         it(@"should shift the items on row left, set the head of the row to the tail, and notify changes for actual objects", ^{
             //context
             NSInteger row = 1;
-            NSMutableArray *startData = [@[@0, @0, @0, @0, @1, @2, @0, @4] mutableCopy];
-            NSMutableArray *endData = [@[@0, @0, @0, @0, @2, @0, @4, @1] mutableCopy];
+            NSMutableArray *startData = [@[@0, @3, @0, @0, @1, @2, @0, @4] mutableCopy];
+            NSMutableArray *endData = [@[@3, @0, @0, @0, @2, @0, @4, @1] mutableCopy];
             sut.numRows = 2;
             sut.numColumns = [startData count] / sut.numRows;
             sut.data = startData;
             [[NSNotificationCenter defaultCenter] addMockObserver:notificationMock name:GameUpdateShiftEnemyLeft object:sut];
             [[NSNotificationCenter defaultCenter] addMockObserver:notificationMock name:GameUpdateMoveEnemyToRowTail object:sut];
+            [[notificationMock expect] notificationWithName:GameUpdateShiftEnemyLeft
+                                                     object:sut
+                                                   userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
+                expect([userInfo objectForKey:@"row"]).to.equal(@(0));
+                expect([userInfo objectForKey:@"column"]).to.equal(@1);
+                return YES;
+            }]];
             [[notificationMock expect] notificationWithName:GameUpdateShiftEnemyLeft
                                                      object:sut
                                                    userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
@@ -51,6 +58,7 @@ describe(@"GameBoardLogic", ^{
             }]];
             
             //because
+            [sut executeGameActionShiftEnemiesLeftOnRow:0];
             [sut executeGameActionShiftEnemiesLeftOnRow:row];
             
             //expect
@@ -63,13 +71,20 @@ describe(@"GameBoardLogic", ^{
         it(@"should shift the items on row right, set the tail of the row to the head, and notify changes for actual objects", ^{
             //context
             NSInteger row = 1;
-            NSMutableArray *startData = [@[@0, @0, @0, @0, @1, @0, @2, @4] mutableCopy];
-            NSMutableArray *endData = [@[@0, @0, @0, @0, @4, @1, @0, @2] mutableCopy];
+            NSMutableArray *startData = [@[@0, @3, @0, @0, @1, @0, @2, @4] mutableCopy];
+            NSMutableArray *endData = [@[@0, @0, @3, @0, @4, @1, @0, @2] mutableCopy];
             sut.numRows = 2;
             sut.numColumns = [startData count] / sut.numRows;
             sut.data = startData;
             [[NSNotificationCenter defaultCenter] addMockObserver:notificationMock name:GameUpdateShiftEnemyRight object:sut];
             [[NSNotificationCenter defaultCenter] addMockObserver:notificationMock name:GameUpdateMoveEnemyToRowHead object:sut];
+            [[notificationMock expect] notificationWithName:GameUpdateShiftEnemyRight
+                                                     object:sut
+                                                   userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
+                expect([userInfo objectForKey:@"row"]).to.equal(@(0));
+                expect([userInfo objectForKey:@"column"]).to.equal(@1);
+                return YES;
+            }]];
             [[notificationMock expect] notificationWithName:GameUpdateShiftEnemyRight
                                                      object:sut
                                                    userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
@@ -93,6 +108,7 @@ describe(@"GameBoardLogic", ^{
             }]];
             
             //because
+            [sut executeGameActionShiftEnemiesRightOnRow:0];
             [sut executeGameActionShiftEnemiesRightOnRow:row];
             
             //expect

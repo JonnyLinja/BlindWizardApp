@@ -7,10 +7,24 @@
 //
 
 #import "Game.h"
+#import "GameConstants.h"
 #import "GameActionFlow.h"
 #import "GameBoardLogic.h"
 
 @implementation Game
+
+- (id) init {
+    self = [super init];
+    if(!self) return nil;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(executeGameActionCallNextWave) name:GameActionCallNextWave object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(executeGameActionShiftEnemiesLeft:) name:GameActionShiftEnemiesLeft object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(executeGameActionShiftEnemiesRight:) name:GameActionShiftEnemiesRight object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(executeGameActionDestroyEnemyGroups:) name:GameActionDestroyEnemyGroups object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(executeGameActionDropEnemiesDown:) name:GameActionDropEnemiesDown object:nil];
+    
+    return self;
+}
 
 #pragma mark - Commands
 

@@ -159,6 +159,7 @@ describe(@"Game", ^{
 
 SpecEnd
 
+//TODO: refactor so it uses a dependency factory, startGame gets passed in rows/cols, as it has to create the dependencies AFTER creation of the view itself so size can be calculated
 //TODO: score
 //TODO: danger
 //TODO: pacify

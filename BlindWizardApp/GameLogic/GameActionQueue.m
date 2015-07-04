@@ -10,4 +10,24 @@
 
 @implementation GameActionQueue
 
+- (BOOL) hasGameAction {
+    return NO;
+}
+
+- (void) pop {
+    
+}
+
+- (void) pushCommandCallNextWave {
+    
+}
+
+- (void) pushCommandSwipeLeftOnRow:(NSInteger)row {
+    
+}
+
+- (void) pushCommandSwipeRightOnRow:(NSInteger)row {
+    
+}
+
 @end

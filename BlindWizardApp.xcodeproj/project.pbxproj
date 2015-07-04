@@ -43,6 +43,9 @@
 		C3F6BE071B38F6620088D924 /* TitleViewControllerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F6BE061B38F6620088D924 /* TitleViewControllerSpec.m */; };
 		C3F72DA71B3A2C800040909A /* PlayViewControllerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F72DA61B3A2C800040909A /* PlayViewControllerSpec.m */; };
 		C3F72DA91B3A312B0040909A /* BoardViewControllerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F72DA81B3A312B0040909A /* BoardViewControllerSpec.m */; };
+		C3F8B79F1B476211006A2619 /* GameActionValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F8B79E1B476211006A2619 /* GameActionValidator.m */; };
+		C3F8B7A31B4762ED006A2619 /* GameAction.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F8B7A21B4762ED006A2619 /* GameAction.m */; };
+		C3F8B7A61B476449006A2619 /* CallNextWaveGameAction.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F8B7A51B476449006A2619 /* CallNextWaveGameAction.m */; };
 		C3FE19E11B44BC0200F26152 /* GameActionFlowSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C3FE19E01B44BC0200F26152 /* GameActionFlowSpec.m */; };
 		C3FE19E41B44BC2F00F26152 /* GameActionFlow.m in Sources */ = {isa = PBXBuildFile; fileRef = C3FE19E31B44BC2F00F26152 /* GameActionFlow.m */; };
 		DFD95E0BAFD8372FD963D424 /* libPods-BlindWizardAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FE3DB190173D277B949EE8E /* libPods-BlindWizardAppTests.a */; };
@@ -124,6 +127,12 @@
 		C3F6BE061B38F6620088D924 /* TitleViewControllerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleViewControllerSpec.m; sourceTree = "<group>"; };
 		C3F72DA61B3A2C800040909A /* PlayViewControllerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayViewControllerSpec.m; sourceTree = "<group>"; };
 		C3F72DA81B3A312B0040909A /* BoardViewControllerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardViewControllerSpec.m; sourceTree = "<group>"; };
+		C3F8B79D1B476211006A2619 /* GameActionValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameActionValidator.h; sourceTree = "<group>"; };
+		C3F8B79E1B476211006A2619 /* GameActionValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameActionValidator.m; sourceTree = "<group>"; };
+		C3F8B7A11B4762ED006A2619 /* GameAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameAction.h; sourceTree = "<group>"; };
+		C3F8B7A21B4762ED006A2619 /* GameAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameAction.m; sourceTree = "<group>"; };
+		C3F8B7A41B476449006A2619 /* CallNextWaveGameAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CallNextWaveGameAction.h; sourceTree = "<group>"; };
+		C3F8B7A51B476449006A2619 /* CallNextWaveGameAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CallNextWaveGameAction.m; sourceTree = "<group>"; };
 		C3FE19E01B44BC0200F26152 /* GameActionFlowSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameActionFlowSpec.m; sourceTree = "<group>"; };
 		C3FE19E21B44BC2F00F26152 /* GameActionFlow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameActionFlow.h; sourceTree = "<group>"; };
 		C3FE19E31B44BC2F00F26152 /* GameActionFlow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameActionFlow.m; sourceTree = "<group>"; };
@@ -170,6 +179,7 @@
 		C34F7F5F1B3C990000D07881 /* GameLogic */ = {
 			isa = PBXGroup;
 			children = (
+				C3F8B7A01B4762E5006A2619 /* GameActions */,
 				C33EA34C1B45F657001D7218 /* GameConstants.h */,
 				C34F7F601B3C991200D07881 /* Game.h */,
 				C34F7F611B3C991200D07881 /* Game.m */,
@@ -177,6 +187,8 @@
 				C3FE19E31B44BC2F00F26152 /* GameActionFlow.m */,
 				C33EA3471B45E0C9001D7218 /* GameActionQueue.h */,
 				C33EA3481B45E0C9001D7218 /* GameActionQueue.m */,
+				C3F8B79D1B476211006A2619 /* GameActionValidator.h */,
+				C3F8B79E1B476211006A2619 /* GameActionValidator.m */,
 				C307727E1B438309009A85D6 /* GameBoardLogic.h */,
 				C307727F1B438309009A85D6 /* GameBoardLogic.m */,
 				C31F2E3C1B43D8320003232E /* RandomGenerator.h */,
@@ -356,6 +368,17 @@
 				C3A9E7B61B38FDB6006D9C68 /* LeaderboardViewController */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		C3F8B7A01B4762E5006A2619 /* GameActions */ = {
+			isa = PBXGroup;
+			children = (
+				C3F8B7A11B4762ED006A2619 /* GameAction.h */,
+				C3F8B7A21B4762ED006A2619 /* GameAction.m */,
+				C3F8B7A41B476449006A2619 /* CallNextWaveGameAction.h */,
+				C3F8B7A51B476449006A2619 /* CallNextWaveGameAction.m */,
+			);
+			path = GameActions;
 			sourceTree = "<group>";
 		};
 		CE5D98A7B0FE3CFC1A2D09FE /* Frameworks */ = {
@@ -538,12 +561,15 @@
 				C34F7F671B3CD28A00D07881 /* BoardViewModel.m in Sources */,
 				C3A9E7B11B38FC1F006D9C68 /* PlayViewController.m in Sources */,
 				C3BEFDFF1B3E1E0A002930BA /* EnemyViewModel.m in Sources */,
+				C3F8B7A31B4762ED006A2619 /* GameAction.m in Sources */,
 				C3EA5B851B43A1C000376A5F /* GridStorage.m in Sources */,
 				C3A9E7B91B38FDC4006D9C68 /* LeaderboardViewController.m in Sources */,
 				C34F7F621B3C991200D07881 /* Game.m in Sources */,
 				C33EA3491B45E0C9001D7218 /* GameActionQueue.m in Sources */,
 				C3A9E7B51B38FC35006D9C68 /* TitleViewController.m in Sources */,
 				C3A3B32D1B3BD07400ADF11A /* BoardViewController.m in Sources */,
+				C3F8B7A61B476449006A2619 /* CallNextWaveGameAction.m in Sources */,
+				C3F8B79F1B476211006A2619 /* GameActionValidator.m in Sources */,
 				C3BEFE021B3E1E1A002930BA /* EnemyView.m in Sources */,
 				C30772801B438309009A85D6 /* GameBoardLogic.m in Sources */,
 				C31F2E3E1B43D8320003232E /* RandomGenerator.m in Sources */,
