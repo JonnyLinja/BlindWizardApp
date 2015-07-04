@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		7FAB24D207C69E0B81926A2F /* libPods-BlindWizardApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F66DF0723764B2C29A3CB58 /* libPods-BlindWizardApp.a */; };
-		C307727A1B43823D009A85D6 /* GameBoardLogicSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C30772791B43823D009A85D6 /* GameBoardLogicSpec.m */; };
-		C30772801B438309009A85D6 /* GameBoardLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = C307727F1B438309009A85D6 /* GameBoardLogic.m */; };
 		C30A9CC81B449BAD00EBBD94 /* RandomGeneratorSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C30A9CC71B449BAD00EBBD94 /* RandomGeneratorSpec.m */; };
 		C34EFC001B4267980079B6DC /* GameObjectFactorySpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C34EFBFF1B4267980079B6DC /* GameObjectFactorySpec.m */; };
 		C34EFC021B426EF20079B6DC /* GridStorageSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C34EFC011B426EF20079B6DC /* GridStorageSpec.m */; };
@@ -77,9 +75,6 @@
 		8F66DF0723764B2C29A3CB58 /* libPods-BlindWizardApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BlindWizardApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4C82791F95AB8508FB957CA /* Pods-BlindWizardApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlindWizardApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BlindWizardApp/Pods-BlindWizardApp.debug.xcconfig"; sourceTree = "<group>"; };
 		C0BC9E0C707035A355E75B87 /* Pods-BlindWizardAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlindWizardAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BlindWizardAppTests/Pods-BlindWizardAppTests.release.xcconfig"; sourceTree = "<group>"; };
-		C30772791B43823D009A85D6 /* GameBoardLogicSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameBoardLogicSpec.m; sourceTree = "<group>"; };
-		C307727E1B438309009A85D6 /* GameBoardLogic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameBoardLogic.h; sourceTree = "<group>"; };
-		C307727F1B438309009A85D6 /* GameBoardLogic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameBoardLogic.m; sourceTree = "<group>"; };
 		C30A9CC71B449BAD00EBBD94 /* RandomGeneratorSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RandomGeneratorSpec.m; sourceTree = "<group>"; };
 		C33EA34C1B45F657001D7218 /* GameConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameConstants.h; sourceTree = "<group>"; };
 		C34EFBFF1B4267980079B6DC /* GameObjectFactorySpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameObjectFactorySpec.m; sourceTree = "<group>"; };
@@ -211,7 +206,6 @@
 				C3F8B7A91B478723006A2619 /* GameBoard.m */,
 				C3FE19E21B44BC2F00F26152 /* GameFlow.h */,
 				C3FE19E31B44BC2F00F26152 /* GameFlow.m */,
-				C3F8B81F1B47B7E0006A2619 /* delete these */,
 			);
 			path = GameLogic;
 			sourceTree = "<group>";
@@ -360,7 +354,6 @@
 				C35C2E791B48625500FF7944 /* ShiftEnemiesRightGameActionSpec.m */,
 				C35C2E7B1B4863ED00FF7944 /* DropEnemiesDownGameActionSpec.m */,
 				C35C2E7D1B488E0C00FF7944 /* DestroyEnemyGroupsGameActionSpec.m */,
-				C3F8B8201B47C577006A2619 /* delete these */,
 				C3F6BDF21B389B860088D924 /* Supporting Files */,
 			);
 			path = BlindWizardAppTests;
@@ -423,23 +416,6 @@
 				C3F8B81D1B47B7DA006A2619 /* RandomGenerator.m */,
 			);
 			path = Utils;
-			sourceTree = "<group>";
-		};
-		C3F8B81F1B47B7E0006A2619 /* delete these */ = {
-			isa = PBXGroup;
-			children = (
-				C307727E1B438309009A85D6 /* GameBoardLogic.h */,
-				C307727F1B438309009A85D6 /* GameBoardLogic.m */,
-			);
-			name = "delete these";
-			sourceTree = "<group>";
-		};
-		C3F8B8201B47C577006A2619 /* delete these */ = {
-			isa = PBXGroup;
-			children = (
-				C30772791B43823D009A85D6 /* GameBoardLogicSpec.m */,
-			);
-			name = "delete these";
 			sourceTree = "<group>";
 		};
 		CE5D98A7B0FE3CFC1A2D09FE /* Frameworks */ = {
@@ -634,7 +610,6 @@
 				C3A3B32D1B3BD07400ADF11A /* BoardViewController.m in Sources */,
 				C3F8B7A61B476449006A2619 /* CallNextWaveGameAction.m in Sources */,
 				C3BEFE021B3E1E1A002930BA /* EnemyView.m in Sources */,
-				C30772801B438309009A85D6 /* GameBoardLogic.m in Sources */,
 				C3F6BDDE1B389B860088D924 /* AppDelegate.m in Sources */,
 				C35C2E781B4857AA00FF7944 /* DropEnemiesDownGameAction.m in Sources */,
 				C3EA5B841B43A1C000376A5F /* GridCalculator.m in Sources */,
@@ -661,7 +636,6 @@
 				C35C2E7E1B488E0C00FF7944 /* DestroyEnemyGroupsGameActionSpec.m in Sources */,
 				C34EFC071B427B350079B6DC /* GridStorageKeyGeneratorSpec.m in Sources */,
 				C3F8B8221B47C5EF006A2619 /* QueueSpec.m in Sources */,
-				C307727A1B43823D009A85D6 /* GameBoardLogicSpec.m in Sources */,
 				C3A3B3291B3BCCBF00ADF11A /* PlayViewModelSpec.m in Sources */,
 				C3FE19E11B44BC0200F26152 /* GameFlowSpec.m in Sources */,
 				C34EFC021B426EF20079B6DC /* GridStorageSpec.m in Sources */,

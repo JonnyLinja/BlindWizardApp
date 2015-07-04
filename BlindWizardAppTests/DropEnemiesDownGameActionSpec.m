@@ -71,9 +71,9 @@ describe(@"DropEnemiesDownGameAction", ^{
     context(@"when at least one column has a 0 under a 1+", ^{
         it(@"should be valid", ^{
             //context
+            sut.gameBoard.data = [@[@0, @0, @1, @0] mutableCopy];
             sut.gameBoard.numRows = 2;
             sut.gameBoard.numColumns = 2;
-            sut.gameBoard.data = [@[@0, @0, @1, @0] mutableCopy];
             
             //because
             BOOL valid = [sut isValid];
@@ -86,9 +86,9 @@ describe(@"DropEnemiesDownGameAction", ^{
     context(@"when there are no columns with a 0 under a 1+", ^{
         it(@"should be invalid", ^{
             //context
+            sut.gameBoard.data = [@[@1, @0, @1, @0] mutableCopy];
             sut.gameBoard.numRows = 2;
             sut.gameBoard.numColumns = 2;
-            sut.gameBoard.data = [@[@1, @0, @1, @0] mutableCopy];
 
             //because
             BOOL valid = [sut isValid];

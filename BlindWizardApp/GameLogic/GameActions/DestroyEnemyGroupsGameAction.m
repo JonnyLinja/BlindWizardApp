@@ -139,6 +139,75 @@
 }
 
 - (BOOL) isValid {
+    //scan rows
+    NSInteger index = 0;
+    NSInteger lastValue;
+    NSInteger count;
+    
+    //scan horizontal groups of 3
+    for(NSInteger row=0; row<self.gameBoard.numRows; row++) {
+        //reset
+        lastValue = -1;
+        count = 0;
+        
+        //loop columns
+        for(NSInteger column=0; column<self.gameBoard.numColumns; column++, index++) {
+            //current
+            NSInteger current = [[self.gameBoard.data objectAtIndex:index] integerValue];
+            
+            if(current > 0 && lastValue != current) {
+                //new current value
+                lastValue = current;
+                count = 1;
+            }else if(lastValue > 0 && lastValue == current) {
+                //update count
+                count++;
+            }else if(current <= 0) {
+                //reset
+                lastValue = -1;
+                count = 0;
+            }
+            
+            //valid
+            if(count >= 3) {
+                return YES;
+            }
+        }
+    }
+    
+    //scan vertical groups of 3
+    for(NSInteger column=0; column<self.gameBoard.numColumns; column++) {
+        //reset
+        index = column;
+        lastValue = -1;
+        count = 0;
+        
+        //loop rows
+        for(NSInteger row=0; row<self.gameBoard.numRows; row++, index+=self.gameBoard.numRows) {
+            //current
+            NSInteger current = [[self.gameBoard.data objectAtIndex:index] integerValue];
+            
+            if(current > 0 && lastValue != current) {
+                //new current value
+                lastValue = current;
+                count = 1;
+            }else if(lastValue > 0 && lastValue == current) {
+                //update count
+                count++;
+            }else if(current <= 0) {
+                //reset
+                lastValue = -1;
+                count = 0;
+            }
+            
+            //valid
+            if(count >= 3) {
+                return YES;
+            }
+        }
+    }
+    
+    //invalid
     return NO;
 }
 

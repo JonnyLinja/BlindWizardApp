@@ -134,6 +134,51 @@ describe(@"DestroyEnemyGroupsGameAction", ^{
         });
     });
     
+    context(@"when at least 3 enemies of the same type in a row", ^{
+        it(@"should be valid", ^{
+            //context
+            sut.gameBoard.data = [@[@0, @0, @0, @1, @1, @2, @3, @3, @3] mutableCopy];
+            sut.gameBoard.numRows = 3;
+            sut.gameBoard.numColumns = 3;
+            
+            //because
+            BOOL valid = [sut isValid];
+            
+            //expect
+            expect(valid).to.beTruthy();
+        });
+    });
+    
+    context(@"when at least 3 enemies of the same type in a column", ^{
+        it(@"should be valid", ^{
+            //context
+            sut.gameBoard.data = [@[@0, @1, @3, @0, @1, @3, @0, @2, @3] mutableCopy];
+            sut.gameBoard.numRows = 3;
+            sut.gameBoard.numColumns = 3;
+            
+            //because
+            BOOL valid = [sut isValid];
+            
+            //expect
+            expect(valid).to.beTruthy();
+        });
+    });
+    
+    context(@"when at at most 2 enemies of the same type in a row or column", ^{
+        it(@"should be invalid", ^{
+            //context
+            sut.gameBoard.data = [@[@0, @0, @0, @0, @0, @1, @1, @2, @0, @1, @1, @2, @0, @2, @2, @1] mutableCopy];
+            sut.gameBoard.numRows = 4;
+            sut.gameBoard.numColumns = 4;
+            
+            //because
+            BOOL valid = [sut isValid];
+            
+            //expect
+            expect(valid).to.beFalsy();
+        });
+    });
+    
     context(@"when generating next game action", ^{
         it(@"should create a drop game action", ^{
             //context
@@ -149,3 +194,5 @@ describe(@"DestroyEnemyGroupsGameAction", ^{
 });
 
 SpecEnd
+
+//TODO: score
