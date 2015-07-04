@@ -83,11 +83,8 @@ describe(@"Game", ^{
     context(@"game actions", ^{
         context(@"when there is a call next wave game action", ^{
             it(@"should execute it", ^{
-                //context
-                NSNotification *notification = [NSNotification notificationWithName:GameActionCallNextWave object:nil];
-
                 //because
-                [sut executeGameActionCallNextWave:notification];
+                [[NSNotificationCenter defaultCenter] postNotificationName:GameActionCallNextWave object:nil];
                 
                 //expect
                 OCMVerify([gameBoardLogicMock executeGameActionCallNextWave]);
@@ -99,10 +96,9 @@ describe(@"Game", ^{
                 //context
                 NSInteger row = 1;
                 NSDictionary *userInfo = @{@"row" : @(row)};
-                NSNotification *notification = [NSNotification notificationWithName:GameActionShiftEnemiesLeft object:nil userInfo:userInfo];
 
                 //because
-                [sut executeGameActionShiftEnemiesLeft:notification];
+                [[NSNotificationCenter defaultCenter] postNotificationName:GameActionShiftEnemiesLeft object:nil userInfo:userInfo];
                 
                 //expect
                 OCMVerify([gameBoardLogicMock executeGameActionShiftEnemiesLeftOnRow:row]);
@@ -114,10 +110,9 @@ describe(@"Game", ^{
                 //context
                 NSInteger row = 1;
                 NSDictionary *userInfo = @{@"row" : @(row)};
-                NSNotification *notification = [NSNotification notificationWithName:GameActionShiftEnemiesRight object:nil userInfo:userInfo];
                 
                 //because
-                [sut executeGameActionShiftEnemiesRight:notification];
+                [[NSNotificationCenter defaultCenter] postNotificationName:GameActionShiftEnemiesRight object:nil userInfo:userInfo];
                 
                 //expect
                 OCMVerify([gameBoardLogicMock executeGameActionShiftEnemiesRightOnRow:row]);
@@ -126,11 +121,8 @@ describe(@"Game", ^{
         
         context(@"when there is a destroy enemies game action", ^{
             it(@"should execute it", ^{
-                //context
-                NSNotification *notification = [NSNotification notificationWithName:GameActionDestroyEnemyGroups object:nil];
-                
                 //because
-                [sut executeGameActionDestroyEnemyGroups:notification];
+                [[NSNotificationCenter defaultCenter] postNotificationName:GameActionDestroyEnemyGroups object:nil];
                 
                 //expect
                 OCMVerify([gameBoardLogicMock executeGameActionDestroyEnemyGroups]);
@@ -139,11 +131,8 @@ describe(@"Game", ^{
         
         context(@"when there is a drop enemies game action", ^{
             it(@"should execute it", ^{
-                //context
-                NSNotification *notification = [NSNotification notificationWithName:GameActionDropEnemiesDown object:nil];
-                
                 //because
-                [sut executeGameActionDropEnemiesDown:notification];
+                [[NSNotificationCenter defaultCenter] postNotificationName:GameActionDropEnemiesDown object:nil];
                 
                 //expect
                 OCMVerify([gameBoardLogicMock executeGameActionDropEnemiesDown]);

@@ -17,7 +17,7 @@
     self = [super init];
     if(!self) return nil;
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(executeGameActionCallNextWave) name:GameActionCallNextWave object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(executeGameActionCallNextWave:) name:GameActionCallNextWave object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(executeGameActionShiftEnemiesLeft:) name:GameActionShiftEnemiesLeft object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(executeGameActionShiftEnemiesRight:) name:GameActionShiftEnemiesRight object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(executeGameActionDestroyEnemyGroups:) name:GameActionDestroyEnemyGroups object:nil];
@@ -66,6 +66,12 @@
 
 - (void) executeGameActionDropEnemiesDown:(NSNotification *)notification {
     [self.gameBoardLogic executeGameActionDropEnemiesDown];
+}
+
+#pragma mark - Dealloc
+
+- (void) dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end

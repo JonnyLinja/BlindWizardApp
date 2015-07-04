@@ -20,8 +20,6 @@
     self = [super init];
     if(!self) return nil;
     
-    //notifications - not under test but necessary
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(executeGameUpdateCreateEnemy:) name:GameUpdateCreateEnemy object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(executeGameUpdateShiftEnemyLeft:) name:GameUpdateShiftEnemyLeft object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(executeGameUpdateShiftEnemyRight:) name:GameUpdateShiftEnemyRight object:nil];
@@ -206,7 +204,7 @@
 }
 
 - (void) dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self]; //not under test
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end
