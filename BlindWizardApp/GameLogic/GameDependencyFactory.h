@@ -8,6 +8,7 @@
 
 #import "GameAction.h"
 
+@protocol GameAction;
 @class GameBoard;
 
 @protocol GameDependencyFactory <NSObject>
@@ -15,4 +16,5 @@
 - (id<GameAction>) createCallNextWaveGameActionWithBoard:(GameBoard *)board;
 - (id<GameAction>) createShiftEnemiesLeftGameActionWithBoard:(GameBoard *)board row:(NSInteger)row;
 - (id<GameAction>) createShiftEnemiesRightGameActionWithBoard:(GameBoard *)board row:(NSInteger)row;
+- (id<GameAction>) createDestroyEnemyGroupsGameActionWithBoard:(GameBoard *)board;
 @end
