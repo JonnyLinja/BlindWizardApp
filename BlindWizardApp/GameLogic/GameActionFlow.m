@@ -53,7 +53,7 @@
         [self setReadyAfter:gameAction.duration];
         
         //set next
-        [self.queue push:[gameAction generateNextGameAction]];
+        [self insertGameActions:[gameAction generateNextGameActions]];
     }
 }
 
@@ -61,6 +61,12 @@
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, duration * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
         self.isReady = YES;
     });
+}
+
+- (void) insertGameActions:(NSArray *)array {
+    for(id<GameAction> action in array) {
+        [self.queue push:action];
+    }
 }
 
 - (void) dealloc {

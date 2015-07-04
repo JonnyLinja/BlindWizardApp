@@ -14,5 +14,5 @@
 @property (nonatomic, assign, readonly) CGFloat duration;
 - (void) execute;
 - (BOOL) isValid;
-- (id<GameAction>) generateNextGameAction;
+- (NSArray *) generateNextGameActions;
 @end

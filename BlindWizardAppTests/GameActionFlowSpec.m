@@ -48,7 +48,7 @@ describe(@"GameActionFlow", ^{
             id gameActionMock = OCMProtocolMock(@protocol(GameAction));
             OCMStub([gameActionMock isValid]).andReturn(YES);
             OCMStub([gameActionMock duration]).andReturn(duration);
-            OCMStub([gameActionMock generateNextGameAction]).andReturn(gameActionMock);
+            OCMStub([gameActionMock generateNextGameActions]).andReturn(@[gameActionMock]);
             OCMStub([queueMock pop]).andReturn(gameActionMock);
             OCMStub([queueMock hasObject]).andDo(^(NSInvocation *invocation) {
                 BOOL returnVal = !runOnce;
@@ -64,7 +64,7 @@ describe(@"GameActionFlow", ^{
             OCMVerify([queueMock pop]);
             OCMVerify([gameActionMock execute]);
             OCMVerify([gameActionMock duration]);
-            OCMVerify([gameActionMock generateNextGameAction]);
+            OCMVerify([gameActionMock generateNextGameActions]);
             OCMVerify([queueMock push:gameActionMock]);
             expect(sut.isReady).to.beFalsy();
             waitUntil(^(DoneCallback done) {
@@ -88,7 +88,7 @@ describe(@"GameActionFlow", ^{
             id gameActionMock = OCMProtocolMock(@protocol(GameAction));
             OCMStub([gameActionMock isValid]).andReturn(YES);
             OCMStub([gameActionMock duration]).andReturn(duration);
-            OCMStub([gameActionMock generateNextGameAction]).andReturn(gameActionMock);
+            OCMStub([gameActionMock generateNextGameActions]).andReturn(@[gameActionMock]);
             OCMStub([queueMock pop]).andReturn(gameActionMock);
             OCMStub([queueMock hasObject]).andDo(^(NSInvocation *invocation) {
                 BOOL returnVal = !runOnce;
@@ -104,7 +104,7 @@ describe(@"GameActionFlow", ^{
             OCMVerify([queueMock pop]);
             OCMVerify([gameActionMock execute]);
             OCMVerify([gameActionMock duration]);
-            OCMVerify([gameActionMock generateNextGameAction]);
+            OCMVerify([gameActionMock generateNextGameActions]);
             OCMVerify([queueMock push:gameActionMock]);
             expect(sut.isReady).to.beFalsy();
             waitUntil(^(DoneCallback done) {

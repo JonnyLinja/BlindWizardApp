@@ -18,7 +18,7 @@
     return NO;
 }
 
-- (id<GameAction>) generateNextGameAction {
+- (NSArray *) generateNextGameActions {
     return nil;
 }
 

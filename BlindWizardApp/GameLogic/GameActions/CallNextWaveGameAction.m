@@ -53,8 +53,8 @@
     return YES;
 }
 
-- (id<GameAction>) generateNextGameAction {
-    return [self.factory createDestroyEnemyGroupsGameActionWithBoard:self.gameBoard];
+- (NSArray *) generateNextGameActions {
+    return @[[self.factory createDestroyEnemyGroupsGameActionWithBoard:self.gameBoard]];
 }
 
 @end

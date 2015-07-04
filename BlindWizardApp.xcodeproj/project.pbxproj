@@ -17,6 +17,7 @@
 		C34F7F621B3C991200D07881 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = C34F7F611B3C991200D07881 /* Game.m */; };
 		C34F7F641B3CA29E00D07881 /* GameSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C34F7F631B3CA29E00D07881 /* GameSpec.m */; };
 		C34F7F671B3CD28A00D07881 /* BoardViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C34F7F661B3CD28A00D07881 /* BoardViewModel.m */; };
+		C35C2E751B484E1C00FF7944 /* ShiftEnemiesLeftGameActionSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C35C2E741B484E1C00FF7944 /* ShiftEnemiesLeftGameActionSpec.m */; };
 		C37B74951B3CF5FF00D22D5E /* BoardViewModelSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C37B74941B3CF5FF00D22D5E /* BoardViewModelSpec.m */; };
 		C3A3B3291B3BCCBF00ADF11A /* PlayViewModelSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A3B3281B3BCCBF00ADF11A /* PlayViewModelSpec.m */; };
 		C3A3B32D1B3BD07400ADF11A /* BoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A3B32C1B3BD07400ADF11A /* BoardViewController.m */; };
@@ -83,6 +84,7 @@
 		C34F7F631B3CA29E00D07881 /* GameSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameSpec.m; sourceTree = "<group>"; };
 		C34F7F651B3CD28A00D07881 /* BoardViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardViewModel.h; sourceTree = "<group>"; };
 		C34F7F661B3CD28A00D07881 /* BoardViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardViewModel.m; sourceTree = "<group>"; };
+		C35C2E741B484E1C00FF7944 /* ShiftEnemiesLeftGameActionSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShiftEnemiesLeftGameActionSpec.m; sourceTree = "<group>"; };
 		C37B74941B3CF5FF00D22D5E /* BoardViewModelSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardViewModelSpec.m; sourceTree = "<group>"; };
 		C3A3B3281B3BCCBF00ADF11A /* PlayViewModelSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayViewModelSpec.m; sourceTree = "<group>"; };
 		C3A3B32B1B3BD07400ADF11A /* BoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardViewController.h; sourceTree = "<group>"; };
@@ -339,6 +341,7 @@
 				C3F8B8211B47C5EF006A2619 /* QueueSpec.m */,
 				C3F8B8231B47CFE6006A2619 /* CallNextWaveGameActionSpec.m */,
 				C30A9CC71B449BAD00EBBD94 /* RandomGeneratorSpec.m */,
+				C35C2E741B484E1C00FF7944 /* ShiftEnemiesLeftGameActionSpec.m */,
 				C3F8B8201B47C577006A2619 /* delete these */,
 				C3F6BDF21B389B860088D924 /* Supporting Files */,
 			);
@@ -624,6 +627,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C34EFC001B4267980079B6DC /* GameObjectFactorySpec.m in Sources */,
+				C35C2E751B484E1C00FF7944 /* ShiftEnemiesLeftGameActionSpec.m in Sources */,
 				C3F6BE021B389C1B0088D924 /* NSObject+MTKTest.m in Sources */,
 				C3F8B8241B47CFE6006A2619 /* CallNextWaveGameActionSpec.m in Sources */,
 				C3F72DA91B3A312B0040909A /* BoardViewControllerSpec.m in Sources */,
