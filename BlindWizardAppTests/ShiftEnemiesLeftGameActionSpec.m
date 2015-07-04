@@ -77,13 +77,37 @@ describe(@"ShiftEnemiesLeftGameAction", ^{
         });
     });
     
-    pending(@"when checking isValid", ^{
-        it(@"should return YES", ^{
+    context(@"when the row has at least one enemy", ^{
+        it(@"should be valid", ^{
+            //context
+            NSMutableArray *data = [@[@0, @0, @1, @1] mutableCopy];
+            OCMStub([gameBoardMock numRows]).andReturn(2);
+            OCMStub([gameBoardMock numColumns]).andReturn(2);
+            OCMStub([gameBoardMock data]).andReturn(data);
+            sut.row = 1;
+            
             //because
             BOOL valid = [sut isValid];
             
             //expect
             expect(valid).to.beTruthy();
+        });
+    });
+    
+    context(@"when the row has no enemies", ^{
+        it(@"should be invalid", ^{
+            //context
+            NSMutableArray *data = [@[@0, @0, @1, @1] mutableCopy];
+            OCMStub([gameBoardMock numRows]).andReturn(2);
+            OCMStub([gameBoardMock numColumns]).andReturn(2);
+            OCMStub([gameBoardMock data]).andReturn(data);
+            sut.row = 0;
+
+            //because
+            BOOL valid = [sut isValid];
+            
+            //expect
+            expect(valid).to.beFalsy();
         });
     });
     
@@ -99,7 +123,7 @@ describe(@"ShiftEnemiesLeftGameAction", ^{
     });
     
     context(@"when generating next game action", ^{
-        it(@"should create a destroy game action", ^{
+        it(@"should create a drop and a destroy game action", ^{
             //context
             OCMExpect([factoryMock createDropEnemiesDownGameActionWithBoard:gameBoardMock]).andReturn(sut);
             OCMExpect([factoryMock createDestroyEnemyGroupsGameActionWithBoard:gameBoardMock]).andReturn(sut);

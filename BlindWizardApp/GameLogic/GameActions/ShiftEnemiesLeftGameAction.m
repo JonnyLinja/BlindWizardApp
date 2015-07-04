@@ -52,6 +52,14 @@
 }
 
 - (BOOL) isValid {
+    NSInteger index = self.row*self.gameBoard.numColumns;
+    for(NSInteger column=0; column<self.gameBoard.numColumns; column++,index++) {
+        NSNumber *n = [self.gameBoard.data objectAtIndex:index];
+        if([n integerValue] != 0) {
+            return YES;
+        }
+    }
+    
     return NO;
 }
 
