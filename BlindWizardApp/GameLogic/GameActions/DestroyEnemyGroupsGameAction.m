@@ -7,26 +7,27 @@
 //
 
 #import "DestroyEnemyGroupsGameAction.h"
+#import "GameBoard.h"
+#import "GameConstants.h"
 
 @implementation DestroyEnemyGroupsGameAction
 
 - (void) execute {
-    /*
     NSMutableArray *rowsToDestroy = [NSMutableArray new];
     NSMutableArray *columnsToDestroy = [NSMutableArray new];
     NSMutableArray *indicesToDestroy = [NSMutableArray new];
     
     //scan rows for 3+
-    for(NSInteger row=0; row<self.numRows; row++) {
+    for(NSInteger row=0; row<self.gameBoard.numRows; row++) {
         //reset
         NSInteger lastType = 0;
         NSInteger count = 1;
         
         //scan through columns
-        for(NSInteger column=0; column<self.numColumns; column++) {
+        for(NSInteger column=0; column<self.gameBoard.numColumns; column++) {
             //current
-            NSInteger index = [self indexFromRow:row column:column];
-            NSInteger n = [[self.data objectAtIndex:index] integerValue];
+            NSInteger index = [self.gameBoard indexFromRow:row column:column];
+            NSInteger n = [[self.gameBoard.data objectAtIndex:index] integerValue];
             
             if(n != 0 && lastType == n) {
                 //same type, increment counter
@@ -38,7 +39,7 @@
                 if(count >= 3) {
                     //loop connected objects
                     for(NSInteger c=column-count; c<column; c++) {
-                        NSNumber *indexToDestroy = @([self indexFromRow:row column:c]);
+                        NSNumber *indexToDestroy = @([self.gameBoard indexFromRow:row column:c]);
                         if(![indicesToDestroy containsObject:indexToDestroy]) {
                             //add to be destroyed
                             [indicesToDestroy addObject:indexToDestroy];
@@ -57,8 +58,8 @@
         //end row, set to be destroyed
         if(count >= 3) {
             //loop connected objects
-            for(NSInteger c=self.numColumns-count; c<self.numColumns; c++) {
-                NSNumber *indexToDestroy = @([self indexFromRow:row column:c]);
+            for(NSInteger c=self.gameBoard.numColumns-count; c<self.gameBoard.numColumns; c++) {
+                NSNumber *indexToDestroy = @([self.gameBoard indexFromRow:row column:c]);
                 if(![indicesToDestroy containsObject:indexToDestroy]) {
                     //add to be destroyed
                     [indicesToDestroy addObject:indexToDestroy];
@@ -70,16 +71,16 @@
     }
     
     //scan columns for 3+
-    for(NSInteger column=0; column<self.numColumns; column++) {
+    for(NSInteger column=0; column<self.gameBoard.numColumns; column++) {
         //reset
         NSInteger lastType = 0;
         NSInteger count = 1;
         
         //scan through rows
-        for(NSInteger row=0; row<self.numRows; row++) {
+        for(NSInteger row=0; row<self.gameBoard.numRows; row++) {
             //current
-            NSInteger index = [self indexFromRow:row column:column];
-            NSInteger n = [[self.data objectAtIndex:index] integerValue];
+            NSInteger index = [self.gameBoard indexFromRow:row column:column];
+            NSInteger n = [[self.gameBoard.data objectAtIndex:index] integerValue];
             
             if(n != 0 && lastType == n) {
                 //same type, increment counter
@@ -91,7 +92,7 @@
                 if(count >= 3) {
                     //loop connected objects
                     for(NSInteger r=row-count; r<row; r++) {
-                        NSNumber *indexToDestroy = @([self indexFromRow:r column:column]);
+                        NSNumber *indexToDestroy = @([self.gameBoard indexFromRow:r column:column]);
                         if(![indicesToDestroy containsObject:indexToDestroy]) {
                             //add to be destroyed
                             [indicesToDestroy addObject:indexToDestroy];
@@ -109,8 +110,8 @@
         
         //end column, set to be destroyed
         if(count >= 3) {
-            for(NSInteger r=self.numRows-count; r<self.numRows; r++) {
-                NSNumber *indexToDestroy = @([self indexFromRow:r column:column]);
+            for(NSInteger r=self.gameBoard.numRows-count; r<self.gameBoard.numRows; r++) {
+                NSNumber *indexToDestroy = @([self.gameBoard indexFromRow:r column:column]);
                 if(![indicesToDestroy containsObject:indexToDestroy]) {
                     //add to be destroyed
                     [indicesToDestroy addObject:indexToDestroy];
@@ -125,7 +126,7 @@
     for(int i=0; i<indicesToDestroy.count; i++) {
         //remove from data
         NSInteger index = [[indicesToDestroy objectAtIndex:i] integerValue];
-        [self.data setObject:@0 atIndexedSubscript:index];
+        [self.gameBoard.data setObject:@0 atIndexedSubscript:index];
         
         //notify
         [[NSNotificationCenter defaultCenter] postNotificationName:GameUpdateDestroyEnemy
@@ -135,7 +136,6 @@
                                                                      @"column" : [columnsToDestroy objectAtIndex:i]
                                                                      }];
     }
-    */
 }
 
 - (BOOL) isValid {

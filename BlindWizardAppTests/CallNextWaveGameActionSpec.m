@@ -75,13 +75,13 @@ describe(@"CallNextWaveGameAction", ^{
     context(@"when generating next game action", ^{
         it(@"should create a destroy game action", ^{
             //context
-            OCMStub([factoryMock createDestroyEnemyGroupsGameActionWithBoard:sut.gameBoard]).andReturn(sut);
+            OCMExpect([factoryMock createDestroyEnemyGroupsGameActionWithBoard:sut.gameBoard]).andReturn(sut);
             
             //because
             [sut generateNextGameActions];
             
             //expect
-            OCMVerify([factoryMock createDestroyEnemyGroupsGameActionWithBoard:sut.gameBoard]);
+            OCMVerifyAll(factoryMock);
         });
     });
     

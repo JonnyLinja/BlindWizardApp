@@ -11,25 +11,23 @@ SpecBegin(DestroyEnemyGroupsGameAction)
 
 describe(@"DestroyEnemyGroupsGameAction", ^{
     __block DestroyEnemyGroupsGameAction *sut;
-    __block id gameBoardMock;
     __block id factoryMock;
     
     beforeEach(^{
         sut = [[DestroyEnemyGroupsGameAction alloc] init];
-        gameBoardMock = OCMClassMock([GameBoard class]);
-        sut.gameBoard = gameBoardMock;
+        sut.gameBoard = [[GameBoard alloc] init];
         factoryMock = OCMProtocolMock(@protocol(GameDependencyFactory));
         sut.factory = factoryMock;
     });
     
-    pending(@"when executing", ^{
+    context(@"when executing", ^{
         it(@"should destroy all objects of similar type that are in rows or columns of 3+", ^{
             //context
             NSMutableArray *startData = [@[@1, @0, @2, @0, @0, @1, @2, @2, @3, @0, @1, @3, @3, @3, @3, @2, @2, @2, @3, @0, @1, @1, @0, @3, @1] mutableCopy];
             NSMutableArray *endData = [@[@0, @0, @2, @0, @0, @0, @2, @2, @0, @0, @0, @0, @0, @0, @0, @0, @0, @0, @0, @0, @1, @1, @0, @0, @1] mutableCopy];
-            OCMStub([gameBoardMock numRows]).andReturn(5);
-            OCMStub([gameBoardMock numColumns]).andReturn(5);
-            OCMStub([gameBoardMock data]).andReturn(startData);
+            sut.gameBoard.numRows = 5;
+            sut.gameBoard.numColumns = 5;
+            sut.gameBoard.data = startData;
             id notificationMock = OCMObserverMock();
             [[NSNotificationCenter defaultCenter] addMockObserver:notificationMock name:GameUpdateDestroyEnemy object:sut];
             [[notificationMock expect] notificationWithName:GameUpdateDestroyEnemy
@@ -139,7 +137,7 @@ describe(@"DestroyEnemyGroupsGameAction", ^{
     context(@"when generating next game action", ^{
         it(@"should create a drop game action", ^{
             //context
-            OCMExpect([factoryMock createDropEnemiesDownGameActionWithBoard:gameBoardMock]).andReturn(sut);
+            OCMExpect([factoryMock createDropEnemiesDownGameActionWithBoard:sut.gameBoard]).andReturn(sut);
             
             //because
             [sut generateNextGameActions];
@@ -147,10 +145,6 @@ describe(@"DestroyEnemyGroupsGameAction", ^{
             //expect
             OCMVerifyAll(factoryMock);
         });
-    });
-    
-    afterEach(^{
-        [gameBoardMock stopMocking];
     });
 });
 
