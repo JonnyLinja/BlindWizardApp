@@ -14,8 +14,8 @@
     return NO;
 }
 
-- (void) pop {
-    
+- (GameAction *) pop {
+    return nil;
 }
 
 - (void) pushCommandCallNextWave {

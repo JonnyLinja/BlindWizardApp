@@ -10,4 +10,8 @@
 
 @implementation GameAction
 
+- (void) notifyCompleted {
+    
+}
+
 @end

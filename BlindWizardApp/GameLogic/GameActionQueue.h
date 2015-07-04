@@ -8,9 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+@class GameAction;
+
 @interface GameActionQueue : NSObject
 - (BOOL) hasGameAction;
-- (void) pop;
+- (GameAction *) pop;
 - (void) pushCommandCallNextWave;
 - (void) pushCommandSwipeLeftOnRow:(NSInteger)row;
 - (void) pushCommandSwipeRightOnRow:(NSInteger)row;

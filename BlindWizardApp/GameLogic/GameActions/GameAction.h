@@ -11,4 +11,5 @@
 
 @interface GameAction : NSObject
 @property (nonatomic, readonly) CGFloat duration;
+- (void) notifyCompleted;
 @end

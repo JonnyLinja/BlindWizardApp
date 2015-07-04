@@ -69,22 +69,15 @@ describe(@"GameActionFlow", ^{
     });
     
     context(@"game actions", ^{
-        //TODO: how do I test the duration aspect? i have it mocked but...
-        //the async specta stuff assumes completion blocks it seems, and im supposed to pass DONE to the because line
-        //but I want to use dispatch_after! there is no because block for me to use
-        //I have no friggin clue how to test it sigh
-        pending(@"when there is a new valid game action and the sut is ready", ^{
+        context(@"when there is a new valid game action and the sut is ready", ^{
             it(@"should set not ready for the duration of the game action and notify", ^{
                 //context
                 CGFloat duration = 0.1;
-                id gameActionMock = OCMClassMock([CallNextWaveGameAction class]);
+                id gameActionMock = OCMClassMock([GameAction class]);
                 OCMStub([gameActionMock duration]).andReturn(duration);
                 OCMStub([gameActionQueueMock hasGameAction]).andReturn(YES);
                 OCMStub([gameActionQueueMock pop]).andReturn(gameActionMock);
                 OCMStub([gameActionValidatorMock isGameActionValid:gameActionMock]).andReturn(YES);
-                id notificationMock = OCMObserverMock();
-                [[NSNotificationCenter defaultCenter] addMockObserver:notificationMock name:GameActionCallNextWave object:sut];
-                [[notificationMock expect] notificationWithName:GameActionCallNextWave object:sut];
                 
                 //because
                 [sut notifyKeyPath:@"gameActionQueue.hasGameAction" setTo:@YES];
@@ -92,6 +85,12 @@ describe(@"GameActionFlow", ^{
                 //expect
                 expect(sut.isReady).to.beFalsy();
                 OCMVerifyAll(notificationMock);
+                waitUntil(^(DoneCallback done) {
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, duration * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+                        expect(sut.isReady).to.beTruthy();
+                        done();
+                    });
+                });
                 
                 //cleanup
                 [gameActionMock stopMocking];
