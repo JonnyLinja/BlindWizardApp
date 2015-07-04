@@ -11,7 +11,6 @@
 		C307727A1B43823D009A85D6 /* GameBoardLogicSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C30772791B43823D009A85D6 /* GameBoardLogicSpec.m */; };
 		C30772801B438309009A85D6 /* GameBoardLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = C307727F1B438309009A85D6 /* GameBoardLogic.m */; };
 		C30A9CC81B449BAD00EBBD94 /* RandomGeneratorSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C30A9CC71B449BAD00EBBD94 /* RandomGeneratorSpec.m */; };
-		C33EA3491B45E0C9001D7218 /* GameActionQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = C33EA3481B45E0C9001D7218 /* GameActionQueue.m */; };
 		C33EA34B1B45E0E0001D7218 /* GameActionQueueSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C33EA34A1B45E0E0001D7218 /* GameActionQueueSpec.m */; };
 		C34EFC001B4267980079B6DC /* GameObjectFactorySpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C34EFBFF1B4267980079B6DC /* GameObjectFactorySpec.m */; };
 		C34EFC021B426EF20079B6DC /* GridStorageSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C34EFC011B426EF20079B6DC /* GridStorageSpec.m */; };
@@ -75,8 +74,6 @@
 		C307727E1B438309009A85D6 /* GameBoardLogic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameBoardLogic.h; sourceTree = "<group>"; };
 		C307727F1B438309009A85D6 /* GameBoardLogic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameBoardLogic.m; sourceTree = "<group>"; };
 		C30A9CC71B449BAD00EBBD94 /* RandomGeneratorSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RandomGeneratorSpec.m; sourceTree = "<group>"; };
-		C33EA3471B45E0C9001D7218 /* GameActionQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameActionQueue.h; sourceTree = "<group>"; };
-		C33EA3481B45E0C9001D7218 /* GameActionQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameActionQueue.m; sourceTree = "<group>"; };
 		C33EA34A1B45E0E0001D7218 /* GameActionQueueSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameActionQueueSpec.m; sourceTree = "<group>"; };
 		C33EA34C1B45F657001D7218 /* GameConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameConstants.h; sourceTree = "<group>"; };
 		C34EFBFF1B4267980079B6DC /* GameObjectFactorySpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameObjectFactorySpec.m; sourceTree = "<group>"; };
@@ -340,9 +337,8 @@
 				C34EFC061B427B350079B6DC /* GridStorageKeyGeneratorSpec.m */,
 				C34F7F631B3CA29E00D07881 /* GameSpec.m */,
 				C3FE19E01B44BC0200F26152 /* GameActionFlowSpec.m */,
-				C33EA34A1B45E0E0001D7218 /* GameActionQueueSpec.m */,
-				C30772791B43823D009A85D6 /* GameBoardLogicSpec.m */,
 				C30A9CC71B449BAD00EBBD94 /* RandomGeneratorSpec.m */,
+				C3F8B8201B47C577006A2619 /* delete these */,
 				C3F6BDF21B389B860088D924 /* Supporting Files */,
 			);
 			path = BlindWizardAppTests;
@@ -406,12 +402,19 @@
 		C3F8B81F1B47B7E0006A2619 /* delete these */ = {
 			isa = PBXGroup;
 			children = (
-				C33EA3471B45E0C9001D7218 /* GameActionQueue.h */,
-				C33EA3481B45E0C9001D7218 /* GameActionQueue.m */,
 				C3F8B79D1B476211006A2619 /* GameActionValidator.h */,
 				C3F8B79E1B476211006A2619 /* GameActionValidator.m */,
 				C307727E1B438309009A85D6 /* GameBoardLogic.h */,
 				C307727F1B438309009A85D6 /* GameBoardLogic.m */,
+			);
+			name = "delete these";
+			sourceTree = "<group>";
+		};
+		C3F8B8201B47C577006A2619 /* delete these */ = {
+			isa = PBXGroup;
+			children = (
+				C33EA34A1B45E0E0001D7218 /* GameActionQueueSpec.m */,
+				C30772791B43823D009A85D6 /* GameBoardLogicSpec.m */,
 			);
 			name = "delete these";
 			sourceTree = "<group>";
@@ -602,7 +605,6 @@
 				C3A9E7B91B38FDC4006D9C68 /* LeaderboardViewController.m in Sources */,
 				C34F7F621B3C991200D07881 /* Game.m in Sources */,
 				C3F8B81E1B47B7DA006A2619 /* RandomGenerator.m in Sources */,
-				C33EA3491B45E0C9001D7218 /* GameActionQueue.m in Sources */,
 				C3A9E7B51B38FC35006D9C68 /* TitleViewController.m in Sources */,
 				C3F8B7AA1B478723006A2619 /* GameBoard.m in Sources */,
 				C3A3B32D1B3BD07400ADF11A /* BoardViewController.m in Sources */,
