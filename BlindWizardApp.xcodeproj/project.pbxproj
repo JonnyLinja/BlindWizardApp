@@ -21,6 +21,8 @@
 		C35C2E781B4857AA00FF7944 /* DropEnemiesDownGameAction.m in Sources */ = {isa = PBXBuildFile; fileRef = C35C2E771B4857AA00FF7944 /* DropEnemiesDownGameAction.m */; };
 		C35C2E7A1B48625500FF7944 /* ShiftEnemiesRightGameActionSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C35C2E791B48625500FF7944 /* ShiftEnemiesRightGameActionSpec.m */; };
 		C35C2E7C1B4863ED00FF7944 /* DropEnemiesDownGameActionSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C35C2E7B1B4863ED00FF7944 /* DropEnemiesDownGameActionSpec.m */; };
+		C35C2E7E1B488E0C00FF7944 /* DestroyEnemyGroupsGameActionSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C35C2E7D1B488E0C00FF7944 /* DestroyEnemyGroupsGameActionSpec.m */; };
+		C35C2E811B488EDD00FF7944 /* DestroyEnemyGroupsGameAction.m in Sources */ = {isa = PBXBuildFile; fileRef = C35C2E801B488EDD00FF7944 /* DestroyEnemyGroupsGameAction.m */; };
 		C37B74951B3CF5FF00D22D5E /* BoardViewModelSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C37B74941B3CF5FF00D22D5E /* BoardViewModelSpec.m */; };
 		C3A3B3291B3BCCBF00ADF11A /* PlayViewModelSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A3B3281B3BCCBF00ADF11A /* PlayViewModelSpec.m */; };
 		C3A3B32D1B3BD07400ADF11A /* BoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A3B32C1B3BD07400ADF11A /* BoardViewController.m */; };
@@ -92,6 +94,9 @@
 		C35C2E771B4857AA00FF7944 /* DropEnemiesDownGameAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropEnemiesDownGameAction.m; sourceTree = "<group>"; };
 		C35C2E791B48625500FF7944 /* ShiftEnemiesRightGameActionSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShiftEnemiesRightGameActionSpec.m; sourceTree = "<group>"; };
 		C35C2E7B1B4863ED00FF7944 /* DropEnemiesDownGameActionSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropEnemiesDownGameActionSpec.m; sourceTree = "<group>"; };
+		C35C2E7D1B488E0C00FF7944 /* DestroyEnemyGroupsGameActionSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DestroyEnemyGroupsGameActionSpec.m; sourceTree = "<group>"; };
+		C35C2E7F1B488EDD00FF7944 /* DestroyEnemyGroupsGameAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DestroyEnemyGroupsGameAction.h; sourceTree = "<group>"; };
+		C35C2E801B488EDD00FF7944 /* DestroyEnemyGroupsGameAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DestroyEnemyGroupsGameAction.m; sourceTree = "<group>"; };
 		C37B74941B3CF5FF00D22D5E /* BoardViewModelSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardViewModelSpec.m; sourceTree = "<group>"; };
 		C3A3B3281B3BCCBF00ADF11A /* PlayViewModelSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayViewModelSpec.m; sourceTree = "<group>"; };
 		C3A3B32B1B3BD07400ADF11A /* BoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardViewController.h; sourceTree = "<group>"; };
@@ -351,6 +356,7 @@
 				C35C2E741B484E1C00FF7944 /* ShiftEnemiesLeftGameActionSpec.m */,
 				C35C2E791B48625500FF7944 /* ShiftEnemiesRightGameActionSpec.m */,
 				C35C2E7B1B4863ED00FF7944 /* DropEnemiesDownGameActionSpec.m */,
+				C35C2E7D1B488E0C00FF7944 /* DestroyEnemyGroupsGameActionSpec.m */,
 				C3F8B8201B47C577006A2619 /* delete these */,
 				C3F6BDF21B389B860088D924 /* Supporting Files */,
 			);
@@ -399,6 +405,8 @@
 				C3F8B7AF1B47A3E7006A2619 /* ShiftEnemiesRightGameAction.m */,
 				C35C2E761B4857A900FF7944 /* DropEnemiesDownGameAction.h */,
 				C35C2E771B4857AA00FF7944 /* DropEnemiesDownGameAction.m */,
+				C35C2E7F1B488EDD00FF7944 /* DestroyEnemyGroupsGameAction.h */,
+				C35C2E801B488EDD00FF7944 /* DestroyEnemyGroupsGameAction.m */,
 			);
 			path = GameActions;
 			sourceTree = "<group>";
@@ -612,6 +620,7 @@
 				C3A9E7B11B38FC1F006D9C68 /* PlayViewController.m in Sources */,
 				C3BEFDFF1B3E1E0A002930BA /* EnemyViewModel.m in Sources */,
 				C3F8B7B01B47A3E7006A2619 /* ShiftEnemiesRightGameAction.m in Sources */,
+				C35C2E811B488EDD00FF7944 /* DestroyEnemyGroupsGameAction.m in Sources */,
 				C3EA5B851B43A1C000376A5F /* GridStorage.m in Sources */,
 				C3F8B7AD1B47A351006A2619 /* ShiftEnemiesLeftGameAction.m in Sources */,
 				C3A9E7B91B38FDC4006D9C68 /* LeaderboardViewController.m in Sources */,
@@ -646,6 +655,7 @@
 				C3F72DA91B3A312B0040909A /* BoardViewControllerSpec.m in Sources */,
 				C3F6BE071B38F6620088D924 /* TitleViewControllerSpec.m in Sources */,
 				C3F6BE031B389C1B0088D924 /* UIViewController+TestSegue.m in Sources */,
+				C35C2E7E1B488E0C00FF7944 /* DestroyEnemyGroupsGameActionSpec.m in Sources */,
 				C34EFC071B427B350079B6DC /* GridStorageKeyGeneratorSpec.m in Sources */,
 				C3F8B8221B47C5EF006A2619 /* QueueSpec.m in Sources */,
 				C307727A1B43823D009A85D6 /* GameBoardLogicSpec.m in Sources */,

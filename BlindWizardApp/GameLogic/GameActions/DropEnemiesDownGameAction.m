@@ -78,12 +78,13 @@
                 //found at least one empty
                 atLeastOneEmpty = YES;
             }else if(atLeastOneEmpty && n != 0) {
-                //found something to drop
+                //valid
                 return YES;
             }
         }
     }
     
+    //invalid
     return NO;
 }
 

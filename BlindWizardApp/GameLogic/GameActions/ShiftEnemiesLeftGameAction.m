@@ -52,14 +52,21 @@
 }
 
 - (BOOL) isValid {
+    //start index
     NSInteger index = self.row*self.gameBoard.numColumns;
+    
+    //scan columns of row
     for(NSInteger column=0; column<self.gameBoard.numColumns; column++,index++) {
+        //current
         NSNumber *n = [self.gameBoard.data objectAtIndex:index];
+        
+        //check valid
         if([n integerValue] != 0) {
             return YES;
         }
     }
     
+    //invalid
     return NO;
 }
 
