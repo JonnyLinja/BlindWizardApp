@@ -18,20 +18,6 @@
 @end
 
 @implementation Game
-/*
-- (id) init {
-    self = [super init];
-    if(!self) return nil;
-    
-    [self map:@keypath(self.board.score) to:@keypath(self.score) null:@0];
-    [self map:@keypath(self.board.isActive) to:@keypath(self.gameInProgress) null:@NO];
-    
-    return self;
-}
-*/
-//TODO: confirm if board needs to be set before the map is called
-//if it doesn't, use init
-//if it does, use the board override
 
 - (void) setBoard:(GameBoard *)board {
     [self removeAllObservations];
