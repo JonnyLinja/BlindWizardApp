@@ -22,13 +22,13 @@ describe(@"ShiftEnemiesLeftGameAction", ^{
         sut.factory = factoryMock;
     });
     
-    pending(@"when executing", ^{
-        it(@"should create objects at the top most available spot in each column", ^{
+    context(@"when executing", ^{
+        it(@"should shift the items on row left, set the head of the row to the tail, and notify changes for actual objects", ^{
             //context
             NSMutableArray *startData = [@[@0, @3, @0, @0, @1, @2, @0, @4] mutableCopy];
             NSMutableArray *endData = [@[@3, @0, @0, @0, @2, @0, @4, @1] mutableCopy];
-            OCMStub([gameBoardMock numRows]).andReturn(5);
-            OCMStub([gameBoardMock numColumns]).andReturn(2);
+            OCMStub([gameBoardMock numRows]).andReturn(2);
+            OCMStub([gameBoardMock numColumns]).andReturn(4);
             OCMStub([gameBoardMock data]).andReturn(startData);
             id notificationMock = OCMObserverMock();
             [[NSNotificationCenter defaultCenter] addMockObserver:notificationMock name:GameUpdateShiftEnemyLeft object:sut];
