@@ -18,8 +18,15 @@
     return NO;
 }
 
+- (CGFloat) duration {
+    return 1;
+}
+
 - (NSArray *) generateNextGameActions {
-    return nil;
+    return @[
+             [self.factory createDropEnemiesDownGameActionWithBoard:self.gameBoard],
+             [self.factory createDestroyEnemyGroupsGameActionWithBoard:self.gameBoard]
+             ];
 }
 
 @end

@@ -17,4 +17,5 @@
 - (id<GameAction>) createShiftEnemiesLeftGameActionWithBoard:(GameBoard *)board row:(NSInteger)row;
 - (id<GameAction>) createShiftEnemiesRightGameActionWithBoard:(GameBoard *)board row:(NSInteger)row;
 - (id<GameAction>) createDestroyEnemyGroupsGameActionWithBoard:(GameBoard *)board;
+- (id<GameAction>) createDropEnemiesDownGameActionWithBoard:(GameBoard *)board;
 @end

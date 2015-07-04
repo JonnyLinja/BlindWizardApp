@@ -40,32 +40,36 @@ describe(@"GameActionFlow", ^{
     });
     
     context(@"when there is a valid game action and the sut is ready", ^{
-        it(@"should set not ready for the duration of the game action, execute the game action, and insert a game action at the head of the queue", ^{
+        it(@"should set not ready for the duration of the game action, execute the game action, and insert the next game actions at the head of the queue", ^{
             //context
             CGFloat duration = 0.1;
             sut.isReady = YES;
             __block BOOL runOnce = NO;
+            NSObject *obj1 = [NSObject new];
+            NSObject *obj2 = [NSObject new];
+            NSArray* array = @[obj1, obj2];
             id gameActionMock = OCMProtocolMock(@protocol(GameAction));
             OCMStub([gameActionMock isValid]).andReturn(YES);
             OCMStub([gameActionMock duration]).andReturn(duration);
-            OCMStub([gameActionMock generateNextGameActions]).andReturn(@[gameActionMock]);
-            OCMStub([queueMock pop]).andReturn(gameActionMock);
-            OCMStub([queueMock hasObject]).andDo(^(NSInvocation *invocation) {
+            OCMStub([gameActionMock generateNextGameActions]).andReturn(array);
+            OCMExpect([queueMock hasObject]).andDo(^(NSInvocation *invocation) {
                 BOOL returnVal = !runOnce;
                 runOnce = YES;
                [invocation setReturnValue:&returnVal];
             });
+            OCMExpect([queueMock pop]).andReturn(gameActionMock);
+            OCMExpect([queueMock push:obj2]);
+            OCMExpect([queueMock push:obj1]);
+            [queueMock setExpectationOrderMatters:YES];
 
             //because
             [sut notifyKeyPath:@"queue.hasObject" setTo:@YES];
             
             //expect
-            OCMVerify([queueMock hasObject]);
-            OCMVerify([queueMock pop]);
             OCMVerify([gameActionMock execute]);
             OCMVerify([gameActionMock duration]);
             OCMVerify([gameActionMock generateNextGameActions]);
-            OCMVerify([queueMock push:gameActionMock]);
+            OCMVerifyAll(queueMock);
             expect(sut.isReady).to.beFalsy();
             waitUntil(^(DoneCallback done) {
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, duration * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
@@ -80,7 +84,7 @@ describe(@"GameActionFlow", ^{
     });
     
     context(@"when the sut becomes ready and there is a valid game action", ^{
-        it(@"should set not ready for the duration of the game action, execute the game action, and insert a game action at the head of the queue", ^{
+        it(@"should set not ready for the duration of the game action, execute the game action, and insert the next game actions at the head of the queue", ^{
             //context
             CGFloat duration = 0.1;
             sut.isReady = YES;

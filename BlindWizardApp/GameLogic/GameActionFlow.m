@@ -64,7 +64,8 @@
 }
 
 - (void) insertGameActions:(NSArray *)array {
-    for(id<GameAction> action in array) {
+    NSEnumerator* enumerator = [array reverseObjectEnumerator];
+    for(id<GameAction> action in enumerator) {
         [self.queue push:action];
     }
 }
