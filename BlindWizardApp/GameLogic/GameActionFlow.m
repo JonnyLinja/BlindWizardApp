@@ -31,36 +31,37 @@
 }
 
 - (void) runGameAction {
-    //valid check
-    if(!self.isReady || !self.queue.hasObject) return;
-    
-    //ready
-    self.isReady = NO;
-    
-    //game action
-    id<GameAction> gameAction = [self.queue pop];
-    
-    if(![gameAction isValid]) {
-        //invalid
-        self.isReady = YES;
-    }else {
-        //valid
+    @synchronized(self) {
+        //valid check
+        if(!self.isReady || !self.queue.hasObject) return;
         
-        //execute
-        [gameAction execute];
+        //ready
+        self.isReady = NO;
         
-        //wait
-        [self setReadyAfter:gameAction.duration];
+        //game action
+        id<GameAction> gameAction = [self.queue pop];
         
-        //set next
-        [self.queue push:[gameAction generateNextGameAction]];
+        if(![gameAction isValid]) {
+            //invalid
+            self.isReady = YES;
+        }else {
+            //valid
+            
+            //execute
+            [gameAction execute];
+            
+            //wait
+            [self setReadyAfter:gameAction.duration];
+            
+            //set next
+            [self.queue push:[gameAction generateNextGameAction]];
+        }
     }
 }
 
 - (void) setReadyAfter:(CGFloat)duration {
-    __weak typeof(self) weakSelf = self;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, duration * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-        weakSelf.isReady = YES;
+        self.isReady = YES;
     });
 }
 
