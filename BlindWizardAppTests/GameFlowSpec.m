@@ -4,21 +4,21 @@
 #import "NSObject+MTKTest.h"
 
 #import "GameAction.h"
-#import "GameActionFlow.h"
+#import "GameFlow.h"
 #import "Queue.h"
 
-@interface GameActionFlow (Test)
+@interface GameFlow (Test)
 @property (nonatomic, assign) BOOL isReady;
 @end
 
-SpecBegin(GameActionFlow)
+SpecBegin(GameFlow)
 
-describe(@"GameActionFlow", ^{
-    __block GameActionFlow *sut;
+describe(@"GameFlow", ^{
+    __block GameFlow *sut;
     __block id queueMock;
     
     beforeEach(^{
-        sut = [[GameActionFlow alloc] init];
+        sut = [[GameFlow alloc] init];
         queueMock = OCMClassMock([Queue class]);
         sut.queue = queueMock;
     });

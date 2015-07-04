@@ -6,7 +6,7 @@
 #import "Game.h"
 #import "GameDependencyFactory.h"
 #import "GameBoard.h"
-#import "GameActionFlow.h"
+#import "GameFlow.h"
 #import "CallNextWaveGameAction.h"
 #import "ShiftEnemiesLeftGameAction.h"
 #import "ShiftEnemiesRightGameAction.h"
@@ -27,7 +27,7 @@ describe(@"Game", ^{
         sut = [[Game alloc] init];
         factoryMock = OCMProtocolMock(@protocol(GameDependencyFactory));
         sut.factory = factoryMock;
-        flowMock = OCMClassMock([GameActionFlow class]);
+        flowMock = OCMClassMock([GameFlow class]);
         sut.flow = flowMock;
         boardMock = OCMClassMock([GameBoard class]);
         sut.board = boardMock;

@@ -1,20 +1,20 @@
 //
-//  GameActionFlow.m
+//  GameFlow.m
 //  BlindWizardApp
 //
 //  Created by N A on 7/1/15.
 //  Copyright (c) 2015 Adronitis. All rights reserved.
 //
 
-#import "GameActionFlow.h"
+#import "GameFlow.h"
 #import "Queue.h"
 #import "MTKObserving.h"
 
-@interface GameActionFlow ()
+@interface GameFlow ()
 @property (nonatomic, assign) BOOL isReady;
 @end
 
-@implementation GameActionFlow
+@implementation GameFlow
 
 - (id) init {
     self = [super init];

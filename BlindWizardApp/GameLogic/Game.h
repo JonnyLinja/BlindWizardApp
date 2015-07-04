@@ -9,11 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "GameDependencyFactory.h"
 
-@class GameActionFlow;
+@class GameFlow;
 
 @interface Game : NSObject
 @property (nonatomic, strong) id<GameDependencyFactory> factory; //inject
-@property (nonatomic, strong) GameActionFlow *flow; //inject
+@property (nonatomic, strong) GameFlow *flow; //inject
 @property (nonatomic, assign, readonly) BOOL gameInProgress;
 @property (nonatomic, assign, readonly) NSInteger score;
 

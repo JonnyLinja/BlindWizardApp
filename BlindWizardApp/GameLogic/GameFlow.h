@@ -1,5 +1,5 @@
 //
-//  GameActionFlow.h
+//  GameFlow.h
 //  BlindWizardApp
 //
 //  Created by N A on 7/1/15.
@@ -11,7 +11,7 @@
 
 @class Queue;
 
-@interface GameActionFlow : NSObject
+@interface GameFlow : NSObject
 @property (nonatomic, strong) Queue *queue; //inject
 - (void) addGameAction:(id<GameAction>)gameAction;
 @end

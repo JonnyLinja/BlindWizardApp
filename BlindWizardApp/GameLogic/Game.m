@@ -8,7 +8,7 @@
 
 #import "Game.h"
 #import "GameBoard.h"
-#import "GameActionFlow.h"
+#import "GameFlow.h"
 #import "MTKObserving.h"
 
 @interface Game ()
