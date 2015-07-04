@@ -10,10 +10,10 @@
 #import <CoreGraphics/CoreGraphics.h>
 
 @interface GridCalculator : NSObject
-@property (nonatomic, readonly) NSInteger numRows;
-@property (nonatomic, readonly) NSInteger numColumns;
-@property (nonatomic, readonly) CGFloat squareWidth;
-@property (nonatomic, readonly) CGFloat squareHeight;
+@property (nonatomic, assign, readonly) NSInteger numRows;
+@property (nonatomic, assign, readonly) NSInteger numColumns;
+@property (nonatomic, assign, readonly) CGFloat squareWidth;
+@property (nonatomic, assign, readonly) CGFloat squareHeight;
 - (void) calculateNumberOfRowsAndColumnsForSize:(CGSize)size;
 - (NSInteger) calculateRowForYPos:(CGFloat)yPos;
 - (CGPoint) calculatePointForRow:(NSInteger)row column:(NSInteger)column;

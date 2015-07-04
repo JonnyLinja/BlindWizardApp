@@ -14,7 +14,7 @@
 @interface GameActionFlow : NSObject
 @property (nonatomic, strong) GameActionQueue *gameActionQueue; //inject
 @property (nonatomic, strong) GameActionValidator *gameActionValidator; //inject
-@property (nonatomic, readonly) BOOL isReady;
+@property (nonatomic, assign, readonly) BOOL isReady;
 
 //commands
 - (void) commandCallNextWave;

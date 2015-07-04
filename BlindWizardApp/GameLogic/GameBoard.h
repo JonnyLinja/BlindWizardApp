@@ -9,5 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface GameBoard : NSObject
-
+@property (nonatomic, assign, readonly) NSInteger score;
+@property (nonatomic, assign, readonly) BOOL isActive;
 @end

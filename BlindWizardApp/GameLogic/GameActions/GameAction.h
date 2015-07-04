@@ -10,6 +10,6 @@
 #import <CoreGraphics/CoreGraphics.h>
 
 @interface GameAction : NSObject
-@property (nonatomic, readonly) CGFloat duration;
+@property (nonatomic, assign, readonly) CGFloat duration;
 - (void) notifyCompleted;
 @end
