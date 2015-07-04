@@ -12,14 +12,12 @@ SpecBegin(CallNextWaveGameAction)
 
 describe(@"CallNextWaveGameAction", ^{
     __block CallNextWaveGameAction *sut;
-    __block id gameBoardMock;
     __block id randomGeneratorMock;
     __block id factoryMock;
     
     beforeEach(^{
         sut = [[CallNextWaveGameAction alloc] init];
-        gameBoardMock = OCMClassMock([GameBoard class]);
-        sut.gameBoard = gameBoardMock;
+        sut.gameBoard = [GameBoard new];
         randomGeneratorMock = OCMClassMock([RandomGenerator class]);
         sut.randomGenerator = randomGeneratorMock;
         factoryMock = OCMProtocolMock(@protocol(GameDependencyFactory));
@@ -31,9 +29,9 @@ describe(@"CallNextWaveGameAction", ^{
             //context
             NSMutableArray *startData = [@[@3, @1, @1, @0, @2, @0, @0, @0, @0, @0] mutableCopy];
             NSMutableArray *endData = [@[@3, @1, @1, @1, @2, @0, @1, @0, @0, @0] mutableCopy];
-            OCMStub([gameBoardMock numRows]).andReturn(5);
-            OCMStub([gameBoardMock numColumns]).andReturn(2);
-            OCMStub([gameBoardMock data]).andReturn(startData);
+            sut.gameBoard.numRows = 5;
+            sut.gameBoard.numColumns = 2;
+            sut.gameBoard.data = startData;
             OCMStub([randomGeneratorMock generate]).andReturn(1);
             id notificationMock = OCMObserverMock();
             [[NSNotificationCenter defaultCenter] addMockObserver:notificationMock name:GameUpdateCreateEnemy object:sut];
@@ -77,18 +75,17 @@ describe(@"CallNextWaveGameAction", ^{
     context(@"when generating next game action", ^{
         it(@"should create a destroy game action", ^{
             //context
-            OCMStub([factoryMock createDestroyEnemyGroupsGameActionWithBoard:gameBoardMock]).andReturn(sut);
+            OCMStub([factoryMock createDestroyEnemyGroupsGameActionWithBoard:sut.gameBoard]).andReturn(sut);
             
             //because
             [sut generateNextGameActions];
             
             //expect
-            OCMVerify([factoryMock createDestroyEnemyGroupsGameActionWithBoard:gameBoardMock]);
+            OCMVerify([factoryMock createDestroyEnemyGroupsGameActionWithBoard:sut.gameBoard]);
         });
     });
     
     afterEach(^{
-        [gameBoardMock stopMocking];
         [randomGeneratorMock stopMocking];
     });
 });

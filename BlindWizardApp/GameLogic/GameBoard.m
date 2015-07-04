@@ -10,4 +10,8 @@
 
 @implementation GameBoard
 
+- (NSInteger) indexFromRow:(NSInteger)row column:(NSInteger)column {
+    return (row * self.numColumns) + column;
+}
+
 @end

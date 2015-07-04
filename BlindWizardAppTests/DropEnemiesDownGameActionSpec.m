@@ -11,13 +11,11 @@ SpecBegin(DropEnemiesDownGameAction)
 
 describe(@"DropEnemiesDownGameAction", ^{
     __block DropEnemiesDownGameAction *sut;
-    __block id gameBoardMock;
     __block id factoryMock;
     
     beforeEach(^{
         sut = [[DropEnemiesDownGameAction alloc] init];
-        gameBoardMock = OCMClassMock([GameBoard class]);
-        sut.gameBoard = gameBoardMock;
+        sut.gameBoard = [[GameBoard alloc] init];
         factoryMock = OCMProtocolMock(@protocol(GameDependencyFactory));
         sut.factory = factoryMock;
     });
@@ -28,9 +26,9 @@ describe(@"DropEnemiesDownGameAction", ^{
             NSInteger column = 0;
             NSMutableArray *startData = [@[@0, @1, @3, @0, @1, @0, @0, @0, @2, @0] mutableCopy];
             NSMutableArray *endData = [@[@3, @1, @1, @0, @2, @0, @0, @0, @0, @0] mutableCopy];
-            OCMStub([gameBoardMock numRows]).andReturn(5);
-            OCMStub([gameBoardMock numColumns]).andReturn(2);
-            OCMStub([gameBoardMock data]).andReturn(startData);
+            sut.gameBoard.numRows = 5;
+            sut.gameBoard.numColumns = 2;
+            sut.gameBoard.data = startData;
             id notificationMock = OCMObserverMock();
             [[NSNotificationCenter defaultCenter] addMockObserver:notificationMock name:GameUpdateDropEnemyDown object:sut];
             [[notificationMock expect] notificationWithName:GameUpdateDropEnemyDown
@@ -73,10 +71,9 @@ describe(@"DropEnemiesDownGameAction", ^{
     context(@"when at least one column has a 0 under a 1+", ^{
         it(@"should be valid", ^{
             //context
-            NSMutableArray *data = [@[@0, @0, @1, @0] mutableCopy];
-            OCMStub([gameBoardMock numRows]).andReturn(2);
-            OCMStub([gameBoardMock numColumns]).andReturn(2);
-            OCMStub([gameBoardMock data]).andReturn(data);
+            sut.gameBoard.numRows = 2;
+            sut.gameBoard.numColumns = 2;
+            sut.gameBoard.data = [@[@0, @0, @1, @0] mutableCopy];
             
             //because
             BOOL valid = [sut isValid];
@@ -89,10 +86,9 @@ describe(@"DropEnemiesDownGameAction", ^{
     context(@"when there are no columns with a 0 under a 1+", ^{
         it(@"should be invalid", ^{
             //context
-            NSMutableArray *data = [@[@1, @0, @1, @0] mutableCopy];
-            OCMStub([gameBoardMock numRows]).andReturn(2);
-            OCMStub([gameBoardMock numColumns]).andReturn(2);
-            OCMStub([gameBoardMock data]).andReturn(data);
+            sut.gameBoard.numRows = 2;
+            sut.gameBoard.numColumns = 2;
+            sut.gameBoard.data = [@[@1, @0, @1, @0] mutableCopy];
 
             //because
             BOOL valid = [sut isValid];
@@ -116,18 +112,14 @@ describe(@"DropEnemiesDownGameAction", ^{
     context(@"when generating next game action", ^{
         it(@"should create a destroy game action", ^{
             //context
-            OCMExpect([factoryMock createDestroyEnemyGroupsGameActionWithBoard:gameBoardMock]).andReturn(sut);
+            OCMStub([factoryMock createDestroyEnemyGroupsGameActionWithBoard:sut.gameBoard]).andReturn(sut);
             
             //because
             [sut generateNextGameActions];
             
             //expect
-            OCMVerifyAll(factoryMock);
+            OCMVerify([factoryMock createDestroyEnemyGroupsGameActionWithBoard:sut.gameBoard]);
         });
-    });
-    
-    afterEach(^{
-        [gameBoardMock stopMocking];
     });
 });
 

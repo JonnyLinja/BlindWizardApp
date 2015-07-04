@@ -12,10 +12,6 @@
 
 @implementation DropEnemiesDownGameAction
 
-- (NSInteger) indexFromRow:(NSInteger)row column:(NSInteger)column {
-    return (row * self.gameBoard.numColumns) + column;
-}
-
 - (void) execute {
     //loop through columns
     for(NSInteger column=0; column<self.gameBoard.numColumns; column++) {
@@ -25,7 +21,7 @@
         //loop through rows of that column
         for(NSInteger row=0; row<self.gameBoard.numRows; row++) {
             //current
-            NSInteger index = [self indexFromRow:row column:column];
+            NSInteger index = [self.gameBoard indexFromRow:row column:column];
             NSNumber *n = [self.gameBoard.data objectAtIndex:index];
             
             if(replaceIndex == -1) {
@@ -71,7 +67,7 @@
         //scan rows
         for(NSInteger row=0; row<self.gameBoard.numRows; row++) {
             //current
-            NSInteger index = [self indexFromRow:row column:column];
+            NSInteger index = [self.gameBoard indexFromRow:row column:column];
             NSInteger n = [[self.gameBoard.data objectAtIndex:index] integerValue];
             
             if(!atLeastOneEmpty && n == 0) {
