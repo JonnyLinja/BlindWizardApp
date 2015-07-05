@@ -8,10 +8,16 @@
 
 #import "GridCalculator.h"
 
+@interface GridCalculator ()
+@property (nonatomic, assign) NSInteger numRows;
+@property (nonatomic, assign) NSInteger numColumns;
+@end
+
 @implementation GridCalculator
 
 - (void) calculateNumberOfRowsAndColumnsForSize:(CGSize)size {
-    
+    self.numRows = size.width / self.squareWidth;
+    self.numColumns = size.height / self.squareHeight;
 }
 
 - (NSInteger) calculateRowForYPos:(CGFloat)yPos {
