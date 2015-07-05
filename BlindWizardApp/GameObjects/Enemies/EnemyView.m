@@ -7,15 +7,38 @@
 //
 
 #import "EnemyView.h"
+#import "EnemyViewModel.h"
+#import "MTKObserving.h"
 
 @implementation EnemyView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+- (void) setViewModel:(EnemyViewModel *)viewModel {
+    _viewModel = viewModel;
+    
+    [self removeAllObservations];
+    [self observeProperty:@keypath(self.viewModel.animationType) withSelector:@selector(runAnimation)];
 }
-*/
+
+- (void) runAnimation {
+    switch (self.viewModel.animationType) {
+        case CreateAnimation:
+            [self runCreateAnimation];
+            break;
+            
+        default:
+            break;
+    }
+}
+
+- (void) runCreateAnimation {
+    self.alpha = 0;
+    [UIView animateWithDuration:0.1 animations:^{
+        self.alpha = 1;
+    }];
+}
+
+- (void) dealloc {
+    [self removeAllObservations];
+}
 
 @end
