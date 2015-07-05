@@ -10,8 +10,10 @@
 #import "GameAction.h"
 
 @class Queue;
+@class GameBoard;
 
 @interface GameFlow : NSObject
 @property (nonatomic, strong) Queue *queue; //inject
+@property (nonatomic, strong) GameBoard *gameBoard; //inject
 - (void) addGameAction:(id<GameAction>)gameAction;
 @end

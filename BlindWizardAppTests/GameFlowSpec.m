@@ -7,9 +7,11 @@
 #import "GameFlow.h"
 #import "Queue.h"
 #import "GameConstants.h"
+#import "GameBoard.h"
 
 @interface GameFlow (Test)
 @property (nonatomic, assign) BOOL isReady;
+- (BOOL) shouldRunGameAction;
 @end
 
 SpecBegin(GameFlow)
@@ -17,11 +19,14 @@ SpecBegin(GameFlow)
 describe(@"GameFlow", ^{
     __block GameFlow *sut;
     __block id queueMock;
+    __block id gameBoardMock;
     
     beforeEach(^{
         sut = [[GameFlow alloc] init];
         queueMock = OCMClassMock([Queue class]);
         sut.queue = queueMock;
+        gameBoardMock = OCMClassMock([GameBoard class]);
+        sut.gameBoard = gameBoardMock;
     });
     
     context(@"when adding a game action", ^{
@@ -40,6 +45,60 @@ describe(@"GameFlow", ^{
         });
     });
     
+    context(@"when queue does not have object", ^{
+        it(@"should not run game action", ^{
+            //context
+            OCMStub([queueMock hasObject]).andReturn(NO);
+            
+            //because
+            BOOL shouldRun = [sut shouldRunGameAction];
+            
+            //expect
+            expect(shouldRun).to.beFalsy();
+        });
+    });
+    
+    context(@"when sut is not ready", ^{
+        it(@"should not run game action", ^{
+            //context
+            sut.isReady = NO;
+            
+            //because
+            BOOL shouldRun = [sut shouldRunGameAction];
+            
+            //expect
+            expect(shouldRun).to.beFalsy();
+        });
+    });
+    
+    context(@"when board is not active", ^{
+        it(@"should not run game action", ^{
+            //context
+            OCMStub([gameBoardMock isActive]).andReturn(NO);
+            
+            //because
+            BOOL shouldRun = [sut shouldRunGameAction];
+            
+            //expect
+            expect(shouldRun).to.beFalsy();
+        });
+    });
+    
+    context(@"when sut is ready, queue has an object, and the board is active", ^{
+        it(@"should run game action", ^{
+            //context
+            sut.isReady = YES;
+            OCMStub([queueMock hasObject]).andReturn(YES);
+            OCMStub([gameBoardMock isActive]).andReturn(YES);
+
+            //because
+            BOOL shouldRun = [sut shouldRunGameAction];
+            
+            //expect
+            expect(shouldRun).to.beTruthy();
+        });
+    });
+    
     context(@"when there is a valid game action and the sut is ready", ^{
         it(@"should set not ready for the duration of the game action, execute the game action, insert the next game actions at the head of the queue, and notify", ^{
             //context
@@ -49,6 +108,7 @@ describe(@"GameFlow", ^{
             NSObject *obj1 = [NSObject new];
             NSObject *obj2 = [NSObject new];
             NSArray* array = @[obj1, obj2];
+            OCMStub([gameBoardMock isActive]).andReturn(YES);
             id gameActionMock = OCMProtocolMock(@protocol(GameAction));
             OCMStub([gameActionMock isValid]).andReturn(YES);
             OCMStub([gameActionMock duration]).andReturn(duration);
@@ -95,6 +155,7 @@ describe(@"GameFlow", ^{
             CGFloat duration = 0.1;
             sut.isReady = YES;
             __block BOOL runOnce = NO;
+            OCMStub([gameBoardMock isActive]).andReturn(YES);
             id gameActionMock = OCMProtocolMock(@protocol(GameAction));
             OCMStub([gameActionMock isValid]).andReturn(YES);
             OCMStub([gameActionMock duration]).andReturn(duration);
@@ -139,6 +200,7 @@ describe(@"GameFlow", ^{
             //context
             sut.isReady = YES;
             __block BOOL runOnce = NO;
+            OCMStub([gameBoardMock isActive]).andReturn(YES);
             id gameActionMock = OCMProtocolMock(@protocol(GameAction));
             OCMStub([gameActionMock isValid]).andReturn(NO);
             OCMStub([queueMock pop]).andReturn(gameActionMock);
@@ -166,6 +228,7 @@ describe(@"GameFlow", ^{
             //context
             sut.isReady = YES;
             __block BOOL runOnce = NO;
+            OCMStub([gameBoardMock isActive]).andReturn(YES);
             id gameActionMock = OCMProtocolMock(@protocol(GameAction));
             OCMStub([gameActionMock isValid]).andReturn(NO);
             OCMStub([queueMock pop]).andReturn(gameActionMock);
@@ -190,6 +253,7 @@ describe(@"GameFlow", ^{
     
     afterEach(^{
         [queueMock stopMocking];
+        [gameBoardMock stopMocking];
     });
 });
 

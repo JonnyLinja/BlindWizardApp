@@ -10,6 +10,7 @@
 #import "Queue.h"
 #import "MTKObserving.h"
 #import "GameConstants.h"
+#import "GameBoard.h"
 
 @interface GameFlow ()
 @property (nonatomic, assign) BOOL isReady;
@@ -31,11 +32,15 @@
     [self.queue add:gameAction];
 }
 
+- (BOOL) shouldRunGameAction {
+    return self.isReady && self.queue.hasObject && self.gameBoard.isActive;
+}
+
 - (void) runGameAction {
     //valid check
-    if(!self.isReady || !self.queue.hasObject) return;
+    if(![self shouldRunGameAction]) return;
     
-    //ready
+    //not ready
     self.isReady = NO;
     
     //game action
