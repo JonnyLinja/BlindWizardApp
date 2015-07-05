@@ -3,6 +3,7 @@
 #import <OCMock/OCMock.h>
 
 #import "EnemyViewModel.h"
+#import <UIKit/UIKit.h>
 
 SpecBegin(EnemyViewModel)
 
@@ -16,7 +17,14 @@ describe(@"EnemyViewModel", ^{
     //TODO: color
     context(@"when type is set", ^{
         it(@"should set the color", ^{
-
+            //because
+            sut.configuration = @{
+                                  @"Color" : @"#FFFFFF"
+                                  };
+            sut.enemyType = 2;
+            
+            //expect
+            expect(sut.color).to.equal([UIColor colorWithRed:1 green:1 blue:1 alpha:1]);
         });
     });
     

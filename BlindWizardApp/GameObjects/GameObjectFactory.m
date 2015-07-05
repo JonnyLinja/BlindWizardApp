@@ -20,8 +20,8 @@
     NSArray *enemies = [gameConfig objectForKey:@"Enemies"];
     
     EnemyViewModel *evm = [[EnemyViewModel alloc] init];
-    evm.enemyType = type;
     evm.configuration = [enemies objectAtIndex:type-1];
+    evm.enemyType = type;
     
     EnemyView *ev = [[EnemyView alloc] init];
     ev.viewModel = evm;

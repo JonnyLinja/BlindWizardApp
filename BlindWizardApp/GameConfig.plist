@@ -16,23 +16,23 @@
 	<array>
 		<dict>
 			<key>Color</key>
-			<string>UIColor(#FFA500)</string>
+			<string>#FFA500</string>
 		</dict>
 		<dict>
 			<key>Color</key>
-			<string>UIColor(#FF00FF)</string>
+			<string>#FF00FF</string>
 		</dict>
 		<dict>
 			<key>Color</key>
-			<string>UIColor(#00FF00)</string>
+			<string>#00FF00</string>
 		</dict>
 		<dict>
 			<key>Color</key>
-			<string>UIColor(#0000FF)</string>
+			<string>#0000FF</string>
 		</dict>
 		<dict>
 			<key>Color</key>
-			<string>UIColor(#FF0000)</string>
+			<string>#FF0000</string>
 		</dict>
 	</array>
 </dict>

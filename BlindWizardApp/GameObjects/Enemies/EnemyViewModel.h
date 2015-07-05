@@ -27,7 +27,7 @@ typedef enum {
 @property (nonatomic, assign, readonly) CGPoint movePoint;
 @property (nonatomic, assign, readonly) CGPoint snapPoint;
 @property (nonatomic, assign, readonly) CGFloat moveDuration;
-@property (nonatomic, assign, readonly) UIColor *color;
+@property (nonatomic, strong, readonly) UIColor *color;
 - (void) runCreateAnimation;
 - (void) animateMoveToCGPoint:(CGPoint)point;
 - (void) animateMoveToCGPoint:(CGPoint)movePoint thenSnapToCGPoint:(CGPoint)snapPoint;
