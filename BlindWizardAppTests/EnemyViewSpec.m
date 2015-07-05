@@ -52,6 +52,7 @@ describe(@"EnemyView", ^{
                 OCMVerify([viewModelMock setAnimationType:NoAnimation]);
             });
         });
+        
         context(@"when animation becomes move", ^{
             it(@"should animate move to the point, set the bg color, and reset the animation type", ^{
                 //context
@@ -74,6 +75,37 @@ describe(@"EnemyView", ^{
                 waitUntil(^(DoneCallback done) {
                     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, duration * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
                         expect(sut.backgroundColor).to.equal(origColor);
+                        done();
+                    });
+                });
+            });
+        });
+        
+        context(@"when animation becomes move and snap", ^{
+            it(@"should animate move to the point, set the bg color, set new position on completion, and reset the animation type", ^{
+                //context
+                UIColor *origColor = [UIColor clearColor];
+                UIColor *animateColor = [UIColor blackColor];
+                CGFloat duration = 0.1;
+                CGPoint movePoint = CGPointMake(13, 37);
+                CGPoint snapPoint = CGPointMake(20, 12);
+                OCMStub([viewModelMock animationType]).andReturn(MoveAndSnapAnimation);
+                OCMStub([viewModelMock movePoint]).andReturn(movePoint);
+                OCMStub([viewModelMock snapPoint]).andReturn(snapPoint);
+                OCMStub([viewModelMock moveDuration]).andReturn(duration);
+                OCMStub([viewModelMock color]).andReturn(animateColor);
+                sut.backgroundColor = origColor;
+                
+                //because
+                [sut notifyKeyPath:@"viewModel.animationType" setTo:@(MoveAndSnapAnimation)];
+                
+                //expect
+                expect(sut.frame.origin).to.equal(movePoint);
+                expect(sut.backgroundColor).to.equal(animateColor);
+                waitUntil(^(DoneCallback done) {
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, duration * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+                        expect(sut.backgroundColor).to.equal(origColor);
+                        expect(sut.frame.origin).to.equal(snapPoint);
                         done();
                     });
                 });
