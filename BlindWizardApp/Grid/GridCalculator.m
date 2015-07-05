@@ -26,11 +26,11 @@
     self.verticalPadding = size.height - maxHeight;
 }
 
-// roundf
 - (NSInteger) calculateRowForYPos:(CGFloat)yPos {
-    return yPos / self.squareHeight;
+    return self.numRows - ((yPos-self.verticalPadding) / self.squareHeight);
 }
 
+// roundf
 - (CGPoint) calculatePointForRow:(NSInteger)row column:(NSInteger)column {
     return CGPointZero;
 }

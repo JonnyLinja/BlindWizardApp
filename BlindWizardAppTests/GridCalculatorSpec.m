@@ -38,17 +38,18 @@ describe(@"GridCalculator", ^{
         });
     });
     
-    //TODO: fix it, because origin is diff
-    pending(@"when calculating row for y pos", ^{
-        it(@"return a row based on square height and size height", ^{
+    context(@"when calculating row for y pos", ^{
+        it(@"return a row based on square height and size height and verticalPadding", ^{
             //context
+            sut.squareWidth = 30;
             sut.squareHeight = 40;
+            [sut calculateNumberOfRowsAndColumnsForSize:CGSizeMake(303, 604)];
             
             //because
             NSInteger row = [sut calculateRowForYPos:85];
             
             //expect
-            expect(row).to.equal(2);
+            expect(row).to.equal(12);
         });
     });
     
