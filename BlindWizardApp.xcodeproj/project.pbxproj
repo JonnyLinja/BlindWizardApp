@@ -27,6 +27,7 @@
 		C35C2E8A1B48BBE300FF7944 /* GameConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = C35C2E891B48BBE300FF7944 /* GameConfig.plist */; };
 		C35C2E8C1B48E13C00FF7944 /* EnemyViewModelSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C35C2E8B1B48E13C00FF7944 /* EnemyViewModelSpec.m */; };
 		C35C2E8E1B48EF1400FF7944 /* EnemyViewSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C35C2E8D1B48EF1400FF7944 /* EnemyViewSpec.m */; };
+		C35C2E941B490D7600FF7944 /* GridCalculatorSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C35C2E931B490D7600FF7944 /* GridCalculatorSpec.m */; };
 		C37B74951B3CF5FF00D22D5E /* BoardViewModelSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C37B74941B3CF5FF00D22D5E /* BoardViewModelSpec.m */; };
 		C3A3B3291B3BCCBF00ADF11A /* PlayViewModelSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A3B3281B3BCCBF00ADF11A /* PlayViewModelSpec.m */; };
 		C3A3B32D1B3BD07400ADF11A /* BoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A3B32C1B3BD07400ADF11A /* BoardViewController.m */; };
@@ -105,6 +106,7 @@
 		C35C2E891B48BBE300FF7944 /* GameConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = GameConfig.plist; sourceTree = "<group>"; };
 		C35C2E8B1B48E13C00FF7944 /* EnemyViewModelSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnemyViewModelSpec.m; sourceTree = "<group>"; };
 		C35C2E8D1B48EF1400FF7944 /* EnemyViewSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnemyViewSpec.m; sourceTree = "<group>"; };
+		C35C2E931B490D7600FF7944 /* GridCalculatorSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridCalculatorSpec.m; sourceTree = "<group>"; };
 		C37B74941B3CF5FF00D22D5E /* BoardViewModelSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardViewModelSpec.m; sourceTree = "<group>"; };
 		C3A3B3281B3BCCBF00ADF11A /* PlayViewModelSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayViewModelSpec.m; sourceTree = "<group>"; };
 		C3A3B32B1B3BD07400ADF11A /* BoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardViewController.h; sourceTree = "<group>"; };
@@ -369,6 +371,7 @@
 				C35C2E7D1B488E0C00FF7944 /* DestroyEnemyGroupsGameActionSpec.m */,
 				C35C2E8B1B48E13C00FF7944 /* EnemyViewModelSpec.m */,
 				C35C2E8D1B48EF1400FF7944 /* EnemyViewSpec.m */,
+				C35C2E931B490D7600FF7944 /* GridCalculatorSpec.m */,
 				C3F6BDF21B389B860088D924 /* Supporting Files */,
 			);
 			path = BlindWizardAppTests;
@@ -646,6 +649,7 @@
 			files = (
 				C34EFC001B4267980079B6DC /* GameObjectFactorySpec.m in Sources */,
 				C35C2E751B484E1C00FF7944 /* ShiftEnemiesLeftGameActionSpec.m in Sources */,
+				C35C2E941B490D7600FF7944 /* GridCalculatorSpec.m in Sources */,
 				C3F6BE021B389C1B0088D924 /* NSObject+MTKTest.m in Sources */,
 				C35C2E7A1B48625500FF7944 /* ShiftEnemiesRightGameActionSpec.m in Sources */,
 				C3F8B8241B47CFE6006A2619 /* CallNextWaveGameActionSpec.m in Sources */,

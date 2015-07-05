@@ -29,6 +29,7 @@ describe(@"EnemyView", ^{
             //expect
             expect(sut.layer.borderWidth).to.beGreaterThan(1);
             expect(sut.layer.borderColor).to.equal(color.CGColor);
+            expect(sut.layer.anchorPoint).to.equal(CGPointMake(0.5, 0.5));
             expect(sut.backgroundColor).to.equal([UIColor clearColor]);
         });
     });

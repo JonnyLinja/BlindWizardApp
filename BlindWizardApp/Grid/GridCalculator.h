@@ -12,8 +12,8 @@
 @interface GridCalculator : NSObject
 @property (nonatomic, assign, readonly) NSInteger numRows;
 @property (nonatomic, assign, readonly) NSInteger numColumns;
-@property (nonatomic, assign, readonly) CGFloat squareWidth;
-@property (nonatomic, assign, readonly) CGFloat squareHeight;
+@property (nonatomic, assign) CGFloat squareWidth;
+@property (nonatomic, assign) CGFloat squareHeight;
 - (void) calculateNumberOfRowsAndColumnsForSize:(CGSize)size;
 - (NSInteger) calculateRowForYPos:(CGFloat)yPos;
 - (CGPoint) calculatePointForRow:(NSInteger)row column:(NSInteger)column;

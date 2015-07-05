@@ -23,6 +23,7 @@
     self.backgroundColor = [UIColor clearColor];
     self.layer.borderColor = [self.viewModel color].CGColor;
     self.layer.borderWidth = 5;
+    self.layer.anchorPoint = CGPointMake(0.5, 0.5);
 }
 
 - (void) runAnimation {
