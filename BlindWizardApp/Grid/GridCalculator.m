@@ -12,14 +12,18 @@
 @property (nonatomic, assign) NSInteger numRows;
 @property (nonatomic, assign) NSInteger numColumns;
 @property (nonatomic, assign) CGSize size;
+@property (nonatomic, assign) CGFloat verticalPadding;
 @end
 
 @implementation GridCalculator
 
 - (void) calculateNumberOfRowsAndColumnsForSize:(CGSize)size {
-    self.numRows = size.width / self.squareWidth;
-    self.numColumns = size.height / self.squareHeight;
+    self.numRows = size.height / self.squareHeight;
+    self.numColumns = size.width / self.squareWidth;
     self.size = size;
+    
+    CGFloat maxHeight = self.numRows * self.squareHeight;
+    self.verticalPadding = size.height - maxHeight;
 }
 
 // roundf
