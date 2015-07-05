@@ -6,11 +6,6 @@
 //  Copyright (c) 2015 Adronitis. All rights reserved.
 //
 
-//TODO: I am trying for MVVM but EnemyViewModel seems completely worthless
-//Would be much cleaner if it was just EnemyView right now
-//Considering making Enemy a protocol and passing that around to the ViewModels
-//It would be cleaner that way, though not MVVM
-
 #import "EnemyViewModel.h"
 
 @interface EnemyViewModel()
