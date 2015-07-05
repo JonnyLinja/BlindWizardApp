@@ -37,6 +37,9 @@
         case MoveAndSnapAnimation:
             [self runMoveAndSnapAnimation];
             break;
+        case MoveAndRemoveAnimation:
+            [self runMoveAndRemoveAnimation];
+            break;
         default:
             break;
     }
@@ -68,6 +71,16 @@
     }completion:^(BOOL finished) {
         self.backgroundColor = [UIColor clearColor];
         self.frame = CGRectMake(self.viewModel.snapPoint.x, self.viewModel.snapPoint.y, self.bounds.size.width, self.bounds.size.height);
+    }];
+}
+
+- (void) runMoveAndRemoveAnimation {
+    self.backgroundColor = self.viewModel.color;
+    [UIView animateWithDuration:self.viewModel.moveDuration animations:^{
+        self.frame = CGRectMake(self.viewModel.movePoint.x, self.viewModel.movePoint.y, self.bounds.size.width, self.bounds.size.height);
+    }completion:^(BOOL finished) {
+        self.backgroundColor = [UIColor clearColor];
+        [self removeFromSuperview];
     }];
 }
 

@@ -111,6 +111,37 @@ describe(@"EnemyView", ^{
                 });
             });
         });
+        
+        context(@"when animation becomes move and remove", ^{
+            it(@"should animate move to the point, set the bg color, remove from superview on completion, and reset the animation type", ^{
+                //context
+                UIView *superView = [[UIView alloc] init];
+                [superView addSubview:sut];
+                UIColor *origColor = [UIColor clearColor];
+                UIColor *animateColor = [UIColor blackColor];
+                CGFloat duration = 0.1;
+                CGPoint movePoint = CGPointMake(13, 37);
+                OCMStub([viewModelMock animationType]).andReturn(MoveAndRemoveAnimation);
+                OCMStub([viewModelMock movePoint]).andReturn(movePoint);
+                OCMStub([viewModelMock moveDuration]).andReturn(duration);
+                OCMStub([viewModelMock color]).andReturn(animateColor);
+                sut.backgroundColor = origColor;
+                
+                //because
+                [sut notifyKeyPath:@"viewModel.animationType" setTo:@(MoveAndRemoveAnimation)];
+                
+                //expect
+                expect(sut.frame.origin).to.equal(movePoint);
+                expect(sut.backgroundColor).to.equal(animateColor);
+                waitUntil(^(DoneCallback done) {
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, duration * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+                        expect(sut.backgroundColor).to.equal(origColor);
+                        expect(sut.superview).to.beNil();
+                        done();
+                    });
+                });
+            });
+        });
     });
     
     afterEach(^{
