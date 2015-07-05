@@ -6,6 +6,7 @@
 #import "GameAction.h"
 #import "GameFlow.h"
 #import "Queue.h"
+#import "GameConstants.h"
 
 @interface GameFlow (Test)
 @property (nonatomic, assign) BOOL isReady;
@@ -40,7 +41,7 @@ describe(@"GameFlow", ^{
     });
     
     context(@"when there is a valid game action and the sut is ready", ^{
-        it(@"should set not ready for the duration of the game action, execute the game action, and insert the next game actions at the head of the queue", ^{
+        it(@"should set not ready for the duration of the game action, execute the game action, insert the next game actions at the head of the queue, and notify", ^{
             //context
             CGFloat duration = 0.1;
             sut.isReady = YES;
@@ -61,6 +62,9 @@ describe(@"GameFlow", ^{
             OCMExpect([queueMock push:obj2]);
             OCMExpect([queueMock push:obj1]);
             [queueMock setExpectationOrderMatters:YES];
+            id notificationMock = OCMObserverMock();
+            [[NSNotificationCenter defaultCenter] addMockObserver:notificationMock name:GameActionComplete object:nil];
+            [[notificationMock expect] notificationWithName:GameActionComplete object:nil];
 
             //because
             [sut notifyKeyPath:@"queue.hasObject" setTo:@YES];
@@ -77,14 +81,16 @@ describe(@"GameFlow", ^{
                     done();
                 });
             });
+            OCMVerifyAll(notificationMock);
             
             //cleanup
             [gameActionMock stopMocking];
+            [[NSNotificationCenter defaultCenter] removeObserver:notificationMock];
         });
     });
     
     context(@"when the sut becomes ready and there is a valid game action", ^{
-        it(@"should set not ready for the duration of the game action, execute the game action, and insert the next game actions at the head of the queue", ^{
+        it(@"should set not ready for the duration of the game action, execute the game action, insert the next game actions at the head of the queue, and notify", ^{
             //context
             CGFloat duration = 0.1;
             sut.isReady = YES;
@@ -99,7 +105,10 @@ describe(@"GameFlow", ^{
                 runOnce = YES;
                 [invocation setReturnValue:&returnVal];
             });
-            
+            id notificationMock = OCMObserverMock();
+            [[NSNotificationCenter defaultCenter] addMockObserver:notificationMock name:GameActionComplete object:nil];
+            [[notificationMock expect] notificationWithName:GameActionComplete object:nil];
+
             //because
             [sut notifyKeyPath:@"isReady" setTo:@YES];
 
@@ -117,9 +126,11 @@ describe(@"GameFlow", ^{
                     done();
                 });
             });
+            OCMVerifyAll(notificationMock);
             
             //cleanup
             [gameActionMock stopMocking];
+            [[NSNotificationCenter defaultCenter] removeObserver:notificationMock];
         });
     });
     

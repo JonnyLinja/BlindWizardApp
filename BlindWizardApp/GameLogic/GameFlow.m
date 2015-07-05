@@ -9,6 +9,7 @@
 #import "GameFlow.h"
 #import "Queue.h"
 #import "MTKObserving.h"
+#import "GameConstants.h"
 
 @interface GameFlow ()
 @property (nonatomic, assign) BOOL isReady;
@@ -54,6 +55,9 @@
         
         //set next
         [self insertGameActions:[gameAction generateNextGameActions]];
+        
+        //notify
+        [[NSNotificationCenter defaultCenter] postNotificationName:GameActionComplete object:nil];
     }
 }
 
