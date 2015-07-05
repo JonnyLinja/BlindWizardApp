@@ -15,8 +15,14 @@
 - (void) setViewModel:(EnemyViewModel *)viewModel {
     _viewModel = viewModel;
     
+    //bind
     [self removeAllObservations];
     [self observeProperty:@keypath(self.viewModel.animationType) withSelector:@selector(runAnimation)];
+    
+    //view
+    self.backgroundColor = [UIColor clearColor];
+    self.layer.borderColor = [self.viewModel color].CGColor;
+    self.layer.borderWidth = 5;
 }
 
 - (void) runAnimation {
