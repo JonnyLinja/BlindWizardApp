@@ -78,6 +78,7 @@ describe(@"EnemyView", ^{
                         done();
                     });
                 });
+                OCMVerify([viewModelMock setAnimationType:NoAnimation]);
             });
         });
         
@@ -109,6 +110,7 @@ describe(@"EnemyView", ^{
                         done();
                     });
                 });
+                OCMVerify([viewModelMock setAnimationType:NoAnimation]);
             });
         });
         
@@ -140,6 +142,37 @@ describe(@"EnemyView", ^{
                         done();
                     });
                 });
+                OCMVerify([viewModelMock setAnimationType:NoAnimation]);
+            });
+        });
+        
+        context(@"when animation becomes destroy and remove", ^{
+            it(@"should shrink the view, move it to back remove from superview on completion, and reset the animation type", ^{
+                //context
+                CGFloat duration = 0.1; //hardcoded check for dispatch after
+                UIView *superView = [[UIView alloc] init];
+                [superView addSubview:sut];
+                CGAffineTransform transform = CGAffineTransformMakeScale(1, 1);
+                id superViewMock = OCMPartialMock(superView);
+                OCMStub([viewModelMock animationType]).andReturn(DestroyAndRemoveAnimation);
+                sut.transform = transform;
+                
+                //because
+                [sut notifyKeyPath:@"viewModel.animationType" setTo:@(DestroyAndRemoveAnimation)];
+                
+                //expect
+                OCMVerify([superViewMock sendSubviewToBack:sut]);
+                expect(CGAffineTransformEqualToTransform(sut.transform, transform)).to.beFalsy();
+                waitUntil(^(DoneCallback done) {
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, duration * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+                        expect(sut.superview).to.beNil();
+                        done();
+                    });
+                });
+                OCMVerify([viewModelMock setAnimationType:NoAnimation]);
+                
+                //cleanup
+                [superViewMock stopMocking];
             });
         });
     });

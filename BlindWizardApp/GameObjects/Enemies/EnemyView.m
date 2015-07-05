@@ -40,6 +40,9 @@
         case MoveAndRemoveAnimation:
             [self runMoveAndRemoveAnimation];
             break;
+        case DestroyAndRemoveAnimation:
+            [self destroyAndRemoveAnimation];
+            break;
         default:
             break;
     }
@@ -80,6 +83,15 @@
         self.frame = CGRectMake(self.viewModel.movePoint.x, self.viewModel.movePoint.y, self.bounds.size.width, self.bounds.size.height);
     }completion:^(BOOL finished) {
         self.backgroundColor = [UIColor clearColor];
+        [self removeFromSuperview];
+    }];
+}
+
+- (void) destroyAndRemoveAnimation {
+    [self.superview sendSubviewToBack:self];
+    [UIView animateWithDuration:0.1 animations:^{
+        self.transform = CGAffineTransformMakeScale(0.05, 0.05);
+    }completion:^(BOOL finished) {
         [self removeFromSuperview];
     }];
 }
