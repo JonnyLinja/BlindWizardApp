@@ -15,12 +15,16 @@
 
 - (EnemyViewModel *) createEnemyWithType:(NSInteger)type atRow:(NSInteger)row column:(NSInteger)column {
     CGPoint point = [self.gridCalculator calculatePointForRow:row column:column];
+    NSString *configPath = [[NSBundle mainBundle] pathForResource:@"GameConfig" ofType:@"plist"];
+    NSDictionary *gameConfig = [NSDictionary dictionaryWithContentsOfFile:configPath];
+    NSArray *enemies = [gameConfig objectForKey:@"Enemies"];
     
     EnemyViewModel *evm = [[EnemyViewModel alloc] init];
     evm.enemyType = type;
     
     EnemyView *ev = [[EnemyView alloc] init];
     ev.viewModel = evm;
+    ev.configuration = [enemies objectAtIndex:type-1];
     ev.frame = CGRectMake(point.x, point.y, self.gridCalculator.squareWidth, self.gridCalculator.squareHeight);
     [self.view addSubview:ev];
     

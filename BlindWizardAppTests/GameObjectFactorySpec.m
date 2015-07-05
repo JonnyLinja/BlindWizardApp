@@ -24,7 +24,7 @@ describe(@"GameObjectFactory", ^{
     });
     
     context(@"when creating an enemy", ^{
-        it(@"should create an enemy with the type in the appropriate position", ^{
+        it(@"should create an enemy with the type in the appropriate position and config", ^{
             //context
             NSInteger row = 2;
             NSInteger column = 3;
@@ -44,6 +44,7 @@ describe(@"GameObjectFactory", ^{
 
             //expect
             expect(evm.enemyType).to.equal(type);
+            expect(ev.configuration).toNot.beNil(); //no easy tests for actual file
             expect(ev.frame).to.equal(CGRectMake(point.x, point.y, squareWidth, squareHeight));
             expect(ev).toNot.beNil();
             expect(ev.viewModel).to.equal(evm);

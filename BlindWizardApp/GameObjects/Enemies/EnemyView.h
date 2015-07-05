@@ -12,4 +12,5 @@
 
 @interface EnemyView : UIView
 @property (nonatomic, strong) EnemyViewModel *viewModel; //inject
+@property (nonatomic, strong) NSDictionary *configuration; //inject
 @end
