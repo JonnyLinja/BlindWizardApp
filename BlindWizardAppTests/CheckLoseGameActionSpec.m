@@ -74,5 +74,3 @@ describe(@"CheckLoseGameAction", ^{
 });
 
 SpecEnd
-
-//TODO: losing

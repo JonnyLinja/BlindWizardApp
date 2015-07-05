@@ -319,7 +319,6 @@ describe(@"BoardViewModel", ^{
             });
         });
         
-        //TODO: consider doing it for multiple notifs instead of just complete
         context(@"when a game action completes", ^{
            it(@"should update the grid storage", ^{
                //because

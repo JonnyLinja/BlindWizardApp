@@ -111,17 +111,6 @@ describe(@"ShiftEnemiesRightGameAction", ^{
         });
     });
     
-    //TODO: get duration from somewhere, like a config file or a constants file
-    context(@"when checking duration", ^{
-        it(@"should return > 0", ^{
-            //because
-            CGFloat duration = [sut duration];
-            
-            //expect
-            expect(duration).to.beGreaterThan(0);
-        });
-    });
-    
     context(@"when generating next game action", ^{
         it(@"should create a drop and a destroy game action", ^{
             //context

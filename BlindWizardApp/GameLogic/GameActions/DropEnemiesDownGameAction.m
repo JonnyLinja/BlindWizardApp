@@ -84,10 +84,6 @@
     return NO;
 }
 
-- (CGFloat) duration {
-    return 0.3;
-}
-
 - (NSArray *) generateNextGameActions {
     return @[[self.factory createDestroyEnemyGroupsGameActionWithBoard:self.gameBoard]];
 }
