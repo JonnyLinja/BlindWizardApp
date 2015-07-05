@@ -44,7 +44,7 @@ describe(@"GridCalculator", ^{
         beforeEach(^{
             sut.squareWidth = 30;
             sut.squareHeight = 40;
-            [sut calculateNumberOfRowsAndColumnsForSize:CGSizeMake(303, 604)];
+            [sut calculateNumberOfRowsAndColumnsForSize:CGSizeMake(329, 604)];
         });
         
         context(@"when calculating row for y pos", ^{
@@ -57,11 +57,10 @@ describe(@"GridCalculator", ^{
             });
         });
         
-        //TODO: this is a lot harder as needs to be perfectly bottom aligned AND spread out horizontally to hit end screen
         context(@"when calculating point for row and column", ^{
             it(@"return a cgpoint origin of that grid position", ^{
                 //context
-                CGPoint finalPoint = CGPointMake(-1, 444);
+                CGPoint finalPoint = CGPointMake(133, 444);
                 
                 //because
                 CGPoint point = [sut calculatePointForRow:3 column:4];

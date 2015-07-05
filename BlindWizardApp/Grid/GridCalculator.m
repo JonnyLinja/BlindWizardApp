@@ -36,7 +36,6 @@
     return self.numRows - ((yPos-self.verticalPadding) / self.squareHeight);
 }
 
-// round
 - (CGPoint) calculatePointForRow:(NSInteger)row column:(NSInteger)column {
     //x
     CGFloat x;
@@ -48,13 +47,13 @@
         x = self.size.width - self.squareWidth;
     }else {
         //middle
-        x = (column * self.squareWidth);
-        x = -1;
+        x = round(column * (self.squareWidth + self.horizontalPadding));
     }
     
     //y
     CGFloat y = self.size.height - ((row+1) * self.squareHeight);
     
+    //return
     return CGPointMake(x, y);
 }
 
