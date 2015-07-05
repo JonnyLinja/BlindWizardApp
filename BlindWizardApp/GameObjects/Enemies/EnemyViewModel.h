@@ -21,6 +21,7 @@ typedef enum {
 @class UIColor;
 
 @interface EnemyViewModel : NSObject
+@property (nonatomic, strong) NSDictionary *configuration; //inject
 @property (nonatomic, assign) NSInteger enemyType;
 @property (nonatomic, assign) EnemyAnimationType animationType;
 @property (nonatomic, assign, readonly) CGPoint movePoint;

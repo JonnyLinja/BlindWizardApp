@@ -21,10 +21,10 @@
     
     EnemyViewModel *evm = [[EnemyViewModel alloc] init];
     evm.enemyType = type;
+    evm.configuration = [enemies objectAtIndex:type-1];
     
     EnemyView *ev = [[EnemyView alloc] init];
     ev.viewModel = evm;
-    ev.configuration = [enemies objectAtIndex:type-1];
     ev.frame = CGRectMake(point.x, point.y, self.gridCalculator.squareWidth, self.gridCalculator.squareHeight);
     [self.view addSubview:ev];
     

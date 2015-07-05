@@ -44,7 +44,7 @@ describe(@"GameObjectFactory", ^{
 
             //expect
             expect(evm.enemyType).to.equal(type);
-            expect(ev.configuration).toNot.beNil(); //no easy tests for actual file
+            expect(evm.configuration).toNot.beNil(); //no easy tests for actual file
             expect(ev.frame).to.equal(CGRectMake(point.x, point.y, squareWidth, squareHeight));
             expect(ev).toNot.beNil();
             expect(ev.viewModel).to.equal(evm);
