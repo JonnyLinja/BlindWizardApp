@@ -115,7 +115,7 @@
     EnemyViewModel *duplicate = [self.factory createEnemyWithType:evm.enemyType atRow:row column:-1];
     
     //animate duplicate
-    [duplicate animateMoveToCGPoint:snapPoint removeAfter:YES];
+    [duplicate animateMoveAndRemoveToCGPoint:snapPoint];
 }
 
 - (void) executeGameUpdateMoveEnemyToRowTail:(NSNotification *)notification {
@@ -140,7 +140,7 @@
     EnemyViewModel *duplicate = [self.factory createEnemyWithType:evm.enemyType atRow:row column:lastColumn+1];
     
     //animate duplicate
-    [duplicate animateMoveToCGPoint:snapPoint removeAfter:YES];
+    [duplicate animateMoveAndRemoveToCGPoint:snapPoint];
 }
 
 - (void) executeGameUpdateDropEnemyDown:(NSNotification *)notification {

@@ -18,10 +18,10 @@
     
     EnemyViewModel *evm = [[EnemyViewModel alloc] init];
     evm.enemyType = type;
-    evm.frame = CGRectMake(point.x, point.y, self.gridCalculator.squareWidth, self.gridCalculator.squareHeight);
     
     EnemyView *ev = [[EnemyView alloc] init];
     ev.viewModel = evm;
+    ev.frame = CGRectMake(point.x, point.y, self.gridCalculator.squareWidth, self.gridCalculator.squareHeight);
     [self.view addSubview:ev];
     
     return evm;

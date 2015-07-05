@@ -25,6 +25,7 @@
 		C35C2E861B48B02600FF7944 /* CheckLoseGameAction.m in Sources */ = {isa = PBXBuildFile; fileRef = C35C2E851B48B02600FF7944 /* CheckLoseGameAction.m */; };
 		C35C2E881B48B27500FF7944 /* CheckLoseGameActionSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C35C2E871B48B27500FF7944 /* CheckLoseGameActionSpec.m */; };
 		C35C2E8A1B48BBE300FF7944 /* GameConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = C35C2E891B48BBE300FF7944 /* GameConfig.plist */; };
+		C35C2E8C1B48E13C00FF7944 /* EnemyViewModelSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C35C2E8B1B48E13C00FF7944 /* EnemyViewModelSpec.m */; };
 		C37B74951B3CF5FF00D22D5E /* BoardViewModelSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C37B74941B3CF5FF00D22D5E /* BoardViewModelSpec.m */; };
 		C3A3B3291B3BCCBF00ADF11A /* PlayViewModelSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A3B3281B3BCCBF00ADF11A /* PlayViewModelSpec.m */; };
 		C3A3B32D1B3BD07400ADF11A /* BoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A3B32C1B3BD07400ADF11A /* BoardViewController.m */; };
@@ -101,6 +102,7 @@
 		C35C2E851B48B02600FF7944 /* CheckLoseGameAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckLoseGameAction.m; sourceTree = "<group>"; };
 		C35C2E871B48B27500FF7944 /* CheckLoseGameActionSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckLoseGameActionSpec.m; sourceTree = "<group>"; };
 		C35C2E891B48BBE300FF7944 /* GameConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = GameConfig.plist; sourceTree = "<group>"; };
+		C35C2E8B1B48E13C00FF7944 /* EnemyViewModelSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnemyViewModelSpec.m; sourceTree = "<group>"; };
 		C37B74941B3CF5FF00D22D5E /* BoardViewModelSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardViewModelSpec.m; sourceTree = "<group>"; };
 		C3A3B3281B3BCCBF00ADF11A /* PlayViewModelSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayViewModelSpec.m; sourceTree = "<group>"; };
 		C3A3B32B1B3BD07400ADF11A /* BoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardViewController.h; sourceTree = "<group>"; };
@@ -363,6 +365,7 @@
 				C35C2E791B48625500FF7944 /* ShiftEnemiesRightGameActionSpec.m */,
 				C35C2E7B1B4863ED00FF7944 /* DropEnemiesDownGameActionSpec.m */,
 				C35C2E7D1B488E0C00FF7944 /* DestroyEnemyGroupsGameActionSpec.m */,
+				C35C2E8B1B48E13C00FF7944 /* EnemyViewModelSpec.m */,
 				C3F6BDF21B389B860088D924 /* Supporting Files */,
 			);
 			path = BlindWizardAppTests;
@@ -658,6 +661,7 @@
 				C30A9CC81B449BAD00EBBD94 /* RandomGeneratorSpec.m in Sources */,
 				C3F72DA71B3A2C800040909A /* PlayViewControllerSpec.m in Sources */,
 				C35C2E831B4891B400FF7944 /* GameBoardSpec.m in Sources */,
+				C35C2E8C1B48E13C00FF7944 /* EnemyViewModelSpec.m in Sources */,
 				C35C2E7C1B4863ED00FF7944 /* DropEnemiesDownGameActionSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -2,7 +2,38 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>StartingWaveTimer</key>
+	<integer>10</integer>
+	<key>WaveTimerMultiplier</key>
+	<real>0.9</real>
 	<key>MoveAnimationDuration</key>
 	<real>0.3</real>
+	<key>EnemyWidth</key>
+	<integer>0</integer>
+	<key>EnemyHeight</key>
+	<integer>0</integer>
+	<key>Enemies</key>
+	<array>
+		<dict>
+			<key>Color</key>
+			<string>UIColor(#FFA500)</string>
+		</dict>
+		<dict>
+			<key>Color</key>
+			<string>UIColor(#FF00FF)</string>
+		</dict>
+		<dict>
+			<key>Color</key>
+			<string>UIColor(#00FF00)</string>
+		</dict>
+		<dict>
+			<key>Color</key>
+			<string>UIColor(#0000FF)</string>
+		</dict>
+		<dict>
+			<key>Color</key>
+			<string>UIColor(#FF0000)</string>
+		</dict>
+	</array>
 </dict>
 </plist>

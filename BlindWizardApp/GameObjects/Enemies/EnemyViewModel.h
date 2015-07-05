@@ -9,13 +9,24 @@
 #import <Foundation/Foundation.h>
 #import <CoreGraphics/CoreGraphics.h>
 
+typedef enum {
+    NoAnimation,
+    CreateAnimation,
+    DestroyAndRemoveAnimation,
+    MoveAnimation,
+    MoveAndSnapAnimation,
+    MoveAndRemoveAnimation
+} EnemyAnimationType;
+
 @interface EnemyViewModel : NSObject
 @property (nonatomic, assign) NSInteger enemyType;
-@property (nonatomic, assign) CGRect frame;
+@property (nonatomic, assign, readonly) EnemyAnimationType animationType;
+@property (nonatomic, assign, readonly) CGPoint movePoint;
+@property (nonatomic, assign, readonly) CGPoint snapPoint;
 - (void) runCreateAnimation;
 - (void) animateMoveToCGPoint:(CGPoint)point;
 - (void) animateMoveToCGPoint:(CGPoint)movePoint thenSnapToCGPoint:(CGPoint)snapPoint;
-- (void) animateMoveToCGPoint:(CGPoint)point removeAfter:(BOOL)remove;
+- (void) animateMoveAndRemoveToCGPoint:(CGPoint)point;
 - (void) runDangerAnimation;
 - (void) stopDangerAnimation;
 - (void) runDestroyAnimation;

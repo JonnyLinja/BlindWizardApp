@@ -176,7 +176,7 @@ describe(@"BoardViewModel", ^{
                 OCMVerify([gridStorageMock promiseSetObject:modelMock forRow:row column:beginColumn]);
                 OCMVerify([modelMock enemyType]);
                 OCMVerify([gameFactoryMock createEnemyWithType:type atRow:row column:offscreenColumn]);
-                OCMVerify([tempMock animateMoveToCGPoint:snapPoint removeAfter:YES]);
+                OCMVerify([tempMock animateMoveAndRemoveToCGPoint:snapPoint]);
 
                 //cleanup
                 [modelMock stopMocking];
@@ -217,7 +217,7 @@ describe(@"BoardViewModel", ^{
                 OCMVerify([gridStorageMock promiseSetObject:modelMock forRow:row column:endColumn]);
                 OCMVerify([modelMock enemyType]);
                 OCMVerify([gameFactoryMock createEnemyWithType:type atRow:row column:offscreenColumn]);
-                OCMVerify([tempMock animateMoveToCGPoint:snapPoint removeAfter:YES]);
+                OCMVerify([tempMock animateMoveAndRemoveToCGPoint:snapPoint]);
                 
                 //cleanup
                 [modelMock stopMocking];
