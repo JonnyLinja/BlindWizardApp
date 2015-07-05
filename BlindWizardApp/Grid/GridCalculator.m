@@ -21,7 +21,7 @@
 }
 
 - (NSInteger) calculateRowForYPos:(CGFloat)yPos {
-    return -1;
+    return yPos / self.squareHeight;
 }
 
 - (CGPoint) calculatePointForRow:(NSInteger)row column:(NSInteger)column {

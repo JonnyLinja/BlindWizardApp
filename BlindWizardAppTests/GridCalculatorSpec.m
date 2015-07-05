@@ -4,6 +4,11 @@
 
 #import "GridCalculator.h"
 
+@interface GridCalculator (Test)
+@property (nonatomic, assign) NSInteger numRows;
+@property (nonatomic, assign) NSInteger numColumns;
+@end
+
 SpecBegin(GridCalculator)
 
 describe(@"GridCalculator", ^{
@@ -30,8 +35,15 @@ describe(@"GridCalculator", ^{
     });
     
     context(@"when calculating row for y pos", ^{
-        it(@"return a row based on num columns and square height", ^{
+        it(@"return a row based on square height", ^{
+            //context
+            sut.squareHeight = 30;
             
+            //because
+            NSInteger row = [sut calculateRowForYPos:65];
+            
+            //expect
+            expect(row).to.equal(2);
         });
     });
     
