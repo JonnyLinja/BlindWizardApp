@@ -32,7 +32,10 @@
 
 // roundf
 - (CGPoint) calculatePointForRow:(NSInteger)row column:(NSInteger)column {
-    return CGPointZero;
+    //y
+    CGFloat y = self.size.height - ((row+1) * self.squareHeight);
+    
+    return CGPointMake(0, y);
 }
 
 @end

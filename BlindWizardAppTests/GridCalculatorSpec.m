@@ -46,22 +46,21 @@ describe(@"GridCalculator", ^{
             [sut calculateNumberOfRowsAndColumnsForSize:CGSizeMake(303, 604)];
             
             //because
-            NSInteger row = [sut calculateRowForYPos:85];
+            NSInteger row = [sut calculateRowForYPos:83];
             
             //expect
-            expect(row).to.equal(12);
+            expect(row).to.equal(13);
         });
     });
     
     //TODO: this is a lot harder as needs to be perfectly bottom aligned AND spread out horizontally to hit end screen
-    pending(@"when calculating point for row and column", ^{
+    context(@"when calculating point for row and column", ^{
         it(@"return a cgpoint origin of that grid position", ^{
             //context
-            sut.numRows = 10;
-            sut.numColumns = 15;
+            CGPoint finalPoint = CGPointMake(0, 444);
             sut.squareWidth = 30;
             sut.squareHeight = 40;
-            CGPoint finalPoint = CGPointMake(90, 160);
+            [sut calculateNumberOfRowsAndColumnsForSize:CGSizeMake(303, 604)];
             
             //because
             CGPoint point = [sut calculatePointForRow:3 column:4];
