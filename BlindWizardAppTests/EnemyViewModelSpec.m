@@ -13,6 +13,13 @@ describe(@"EnemyViewModel", ^{
         sut = [[EnemyViewModel alloc] init];
     });
     
+    //TODO: color
+    context(@"when type is set", ^{
+        it(@"should set the color", ^{
+
+        });
+    });
+    
     context(@"when running a create animation", ^{
         it(@"should set animation type to create", ^{
             //because

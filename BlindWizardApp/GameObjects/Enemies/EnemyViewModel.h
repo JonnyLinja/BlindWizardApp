@@ -18,12 +18,15 @@ typedef enum {
     MoveAndRemoveAnimation
 } EnemyAnimationType;
 
+@class UIColor;
+
 @interface EnemyViewModel : NSObject
 @property (nonatomic, assign) NSInteger enemyType;
-@property (nonatomic, assign, readonly) EnemyAnimationType animationType;
+@property (nonatomic, assign) EnemyAnimationType animationType;
 @property (nonatomic, assign, readonly) CGPoint movePoint;
 @property (nonatomic, assign, readonly) CGPoint snapPoint;
 @property (nonatomic, assign, readonly) CGFloat moveDuration;
+@property (nonatomic, assign, readonly) UIColor *color;
 - (void) runCreateAnimation;
 - (void) animateMoveToCGPoint:(CGPoint)point;
 - (void) animateMoveToCGPoint:(CGPoint)movePoint thenSnapToCGPoint:(CGPoint)snapPoint;

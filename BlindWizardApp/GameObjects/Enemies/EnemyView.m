@@ -20,20 +20,35 @@
 }
 
 - (void) runAnimation {
+    //run
     switch (self.viewModel.animationType) {
         case CreateAnimation:
             [self runCreateAnimation];
             break;
-            
+        case MoveAnimation:
+            [self runMoveAnimation];
+            break;
         default:
             break;
     }
+    
+    //reset
+    self.viewModel.animationType = NoAnimation;
 }
 
 - (void) runCreateAnimation {
     self.alpha = 0;
     [UIView animateWithDuration:0.1 animations:^{
         self.alpha = 1;
+    }];
+}
+
+- (void) runMoveAnimation {
+    self.backgroundColor = self.viewModel.color;
+    [UIView animateWithDuration:self.viewModel.moveDuration animations:^{
+        self.frame = CGRectMake(self.viewModel.movePoint.x, self.viewModel.movePoint.y, self.bounds.size.width, self.bounds.size.height);
+    }completion:^(BOOL finished) {
+        self.backgroundColor = [UIColor clearColor];
     }];
 }
 

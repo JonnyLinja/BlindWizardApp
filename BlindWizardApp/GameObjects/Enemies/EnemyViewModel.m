@@ -14,7 +14,6 @@
 #import "EnemyViewModel.h"
 
 @interface EnemyViewModel()
-@property (nonatomic, assign) EnemyAnimationType animationType;
 @property (nonatomic, assign) CGPoint movePoint;
 @property (nonatomic, assign) CGPoint snapPoint;
 @end

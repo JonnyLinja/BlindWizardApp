@@ -18,8 +18,15 @@ describe(@"EnemyView", ^{
         sut.viewModel = viewModelMock;
     });
     
+    pending(@"when loaded", ^{
+        it(@"should display a colored bordered rectangle", ^{
+            expect(sut.layer.borderWidth).to.beGreaterThan(1);
+            expect(sut.layer.borderColor).to.equal(5);
+        });
+    });
+    
     context(@"when animation becomes create", ^{
-        it(@"should animate fade in", ^{
+        it(@"should animate fade in and reset the animation type", ^{
             //context
             sut.alpha = 0;
             OCMStub([viewModelMock animationType]).andReturn(CreateAnimation);
@@ -28,7 +35,35 @@ describe(@"EnemyView", ^{
             [sut notifyKeyPath:@"viewModel.animationType" setTo:@(CreateAnimation)];
             
             //expect
-            expect(sut.layer.opacity).to.equal(1);
+            expect(sut.alpha).to.equal(1);
+            OCMVerify([viewModelMock setAnimationType:NoAnimation]);
+        });
+    });
+    context(@"when animation becomes move", ^{
+        it(@"should animate move to the point, set the bg color, and reset the animation type", ^{
+            //context
+            UIColor *origColor = [UIColor clearColor];
+            UIColor *animateColor = [UIColor blackColor];
+            CGFloat duration = 0.1;
+            CGPoint movePoint = CGPointMake(13, 37);
+            OCMStub([viewModelMock animationType]).andReturn(MoveAnimation);
+            OCMStub([viewModelMock movePoint]).andReturn(movePoint);
+            OCMStub([viewModelMock moveDuration]).andReturn(duration);
+            OCMStub([viewModelMock color]).andReturn(animateColor);
+            sut.backgroundColor = origColor;
+
+            //because
+            [sut notifyKeyPath:@"viewModel.animationType" setTo:@(MoveAnimation)];
+
+            //expect
+            expect(sut.frame.origin).to.equal(movePoint);
+            expect(sut.backgroundColor).to.equal(animateColor);
+            waitUntil(^(DoneCallback done) {
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, duration * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+                    expect(sut.backgroundColor).to.equal(origColor);
+                    done();
+                });
+            });
         });
     });
     
