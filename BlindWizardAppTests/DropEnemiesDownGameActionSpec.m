@@ -28,7 +28,7 @@ describe(@"DropEnemiesDownGameAction", ^{
         it(@"should drop everything down so there's no 0s at the bottom of the column and notify changes for actual objects", ^{
             //context
             NSInteger column = 0;
-            NSMutableArray *startData = [@[@0, @0, @0, @1, @3, @0, @1, @0, @0, @0, @2, @0] mutableCopy];
+            NSMutableArray *startData = [@[@0, @1, @0, @0, @3, @0, @1, @0, @0, @0, @2, @0] mutableCopy];
             NSMutableArray *endData = [@[@3, @1, @1, @0, @2, @0, @0, @0, @0, @0, @0, @0] mutableCopy];
             sut.gameBoard.numRows = 6;
             sut.gameBoard.numColumns = 2;

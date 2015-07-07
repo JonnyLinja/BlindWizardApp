@@ -69,8 +69,9 @@
                                                                                  @"toRow" : @(toRow)
                                                                                  }];
                     //update vars
-                    replaceIndex = index;
-                    toRow = row;
+                    row = toRow;
+                    replaceIndex = -1;
+                    toRow = -1;
                 }
             }
         }
