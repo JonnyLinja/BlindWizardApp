@@ -1,17 +1,17 @@
 //
-//  GameObjectAssemby.m
+//  GameObjectAssembly.m
 //  BlindWizardApp
 //
 //  Created by N A on 7/6/15.
 //  Copyright (c) 2015 Adronitis. All rights reserved.
 //
 
-#import "GameObjectAssemby.h"
+#import "GameObjectAssembly.h"
 #import "EnemyView.h"
 #import "EnemyViewModel.h"
 #import "GameObjectFactory.h"
 
-@implementation GameObjectAssemby
+@implementation GameObjectAssembly
 
 - (EnemyView *) enemyViewWithViewModel:(EnemyViewModel *)viewModel {
     return [TyphoonDefinition withClass:[EnemyView class] configuration:^(TyphoonDefinition* definition) {

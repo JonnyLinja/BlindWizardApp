@@ -36,5 +36,12 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>TyphoonInitialAssemblies</key>
+	<array>
+		<string>ViewControllerAssembly</string>
+		<string>GameAssembly</string>
+		<string>GameObjectAssembly</string>
+		<string>GeneralAssembly</string>
+	</array>
 </dict>
 </plist>

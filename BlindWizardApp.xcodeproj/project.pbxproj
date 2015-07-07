@@ -18,7 +18,7 @@
 		C35031F71B4B4DA700A12F8E /* ViewControllerAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = C35031F61B4B4DA700A12F8E /* ViewControllerAssembly.m */; };
 		C35031FA1B4B4EF600A12F8E /* GameAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = C35031F91B4B4EF600A12F8E /* GameAssembly.m */; };
 		C35031FE1B4B500100A12F8E /* GeneralAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = C35031FD1B4B500100A12F8E /* GeneralAssembly.m */; };
-		C35032021B4B5E3A00A12F8E /* GameObjectAssemby.m in Sources */ = {isa = PBXBuildFile; fileRef = C35032011B4B5E3A00A12F8E /* GameObjectAssemby.m */; };
+		C35032021B4B5E3A00A12F8E /* GameObjectAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = C35032011B4B5E3A00A12F8E /* GameObjectAssembly.m */; };
 		C350320B1B4BB1BD00A12F8E /* NSObject+MTKTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C35032081B4BB1BD00A12F8E /* NSObject+MTKTest.m */; };
 		C350320C1B4BB1BD00A12F8E /* UIViewController+TestSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = C350320A1B4BB1BD00A12F8E /* UIViewController+TestSegue.m */; };
 		C35C2E751B484E1C00FF7944 /* ShiftEnemiesLeftGameActionSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C35C2E741B484E1C00FF7944 /* ShiftEnemiesLeftGameActionSpec.m */; };
@@ -102,8 +102,8 @@
 		C35031FB1B4B4F0B00A12F8E /* GameDependencyFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameDependencyFactory.h; sourceTree = "<group>"; };
 		C35031FC1B4B500100A12F8E /* GeneralAssembly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralAssembly.h; sourceTree = "<group>"; };
 		C35031FD1B4B500100A12F8E /* GeneralAssembly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneralAssembly.m; sourceTree = "<group>"; };
-		C35032001B4B5E3A00A12F8E /* GameObjectAssemby.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameObjectAssemby.h; sourceTree = "<group>"; };
-		C35032011B4B5E3A00A12F8E /* GameObjectAssemby.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameObjectAssemby.m; sourceTree = "<group>"; };
+		C35032001B4B5E3A00A12F8E /* GameObjectAssembly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameObjectAssembly.h; sourceTree = "<group>"; };
+		C35032011B4B5E3A00A12F8E /* GameObjectAssembly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameObjectAssembly.m; sourceTree = "<group>"; };
 		C35032031B4B887400A12F8E /* GameObjectDependencyFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameObjectDependencyFactory.h; sourceTree = "<group>"; };
 		C35032041B4B8D1C00A12F8E /* GridCalculatorFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GridCalculatorFactory.h; sourceTree = "<group>"; };
 		C35032051B4BA9FD00A12F8E /* GameObjectFactoryFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameObjectFactoryFactory.h; sourceTree = "<group>"; };
@@ -423,8 +423,8 @@
 				C35031F91B4B4EF600A12F8E /* GameAssembly.m */,
 				C35032031B4B887400A12F8E /* GameObjectDependencyFactory.h */,
 				C35032051B4BA9FD00A12F8E /* GameObjectFactoryFactory.h */,
-				C35032001B4B5E3A00A12F8E /* GameObjectAssemby.h */,
-				C35032011B4B5E3A00A12F8E /* GameObjectAssemby.m */,
+				C35032001B4B5E3A00A12F8E /* GameObjectAssembly.h */,
+				C35032011B4B5E3A00A12F8E /* GameObjectAssembly.m */,
 				C35032041B4B8D1C00A12F8E /* GridCalculatorFactory.h */,
 				C35031FC1B4B500100A12F8E /* GeneralAssembly.h */,
 				C35031FD1B4B500100A12F8E /* GeneralAssembly.m */,
@@ -670,7 +670,7 @@
 				C35C2E861B48B02600FF7944 /* CheckLoseGameAction.m in Sources */,
 				C3F6BDDE1B389B860088D924 /* AppDelegate.m in Sources */,
 				C35031FA1B4B4EF600A12F8E /* GameAssembly.m in Sources */,
-				C35032021B4B5E3A00A12F8E /* GameObjectAssemby.m in Sources */,
+				C35032021B4B5E3A00A12F8E /* GameObjectAssembly.m in Sources */,
 				C35C2E781B4857AA00FF7944 /* DropEnemiesDownGameAction.m in Sources */,
 				C3EA5B841B43A1C000376A5F /* GridCalculator.m in Sources */,
 				C35031F71B4B4DA700A12F8E /* ViewControllerAssembly.m in Sources */,

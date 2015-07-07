@@ -1,5 +1,5 @@
 //
-//  GameObjectAssemby.h
+//  GameObjectAssembly.h
 //  BlindWizardApp
 //
 //  Created by N A on 7/6/15.
@@ -15,7 +15,7 @@
 @class EnemyViewModel;
 @class UIView;
 
-@interface GameObjectAssemby : TyphoonAssembly <GameObjectDependencyFactory, GameObjectFactoryFactory>
+@interface GameObjectAssembly : TyphoonAssembly <GameObjectDependencyFactory, GameObjectFactoryFactory>
 - (EnemyView *) enemyViewWithViewModel:(EnemyViewModel *)viewModel;
 - (EnemyViewModel *) enemyViewModelWithType:(NSInteger)type configuration:(NSDictionary *)config;
 - (GameObjectFactory *) gameObjectFactoryWithView:(UIView *)view gridCalculator:(GridCalculator *)calculator;
