@@ -13,7 +13,7 @@
 
 @interface DropEnemiesDownGameAction : NSObject <GameAction>
 @property (nonatomic, assign, readonly) CGFloat duration;
-- (id) initWithGameBoard:(GameBoard *)board factory:(id<GameDependencyFactory>)factory;
+- (id) initWithGameBoard:(GameBoard *)board factory:(id<GameDependencyFactory>)factory duration:(CGFloat)duration;
 - (void) execute;
 - (BOOL) isValid;
 - (NSArray *) generateNextGameActions;

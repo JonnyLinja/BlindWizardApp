@@ -14,16 +14,18 @@
 @interface DropEnemiesDownGameAction ()
 @property (nonatomic, strong) id<GameDependencyFactory> factory; //inject
 @property (nonatomic, strong) GameBoard *gameBoard; //inject
+@property (nonatomic, assign) CGFloat duration; //inject
 @end
 
 @implementation DropEnemiesDownGameAction
 
-- (id) initWithGameBoard:(GameBoard *)board factory:(id<GameDependencyFactory>)factory {
+- (id) initWithGameBoard:(GameBoard *)board factory:(id<GameDependencyFactory>)factory duration:(CGFloat)duration {
     self = [super init];
     if(!self) return nil;
     
     self.gameBoard = board;
     self.factory = factory;
+    self.duration = duration;
     
     return self;
 }

@@ -13,7 +13,7 @@
 
 @interface ShiftEnemiesRightGameAction : NSObject <GameAction>
 @property (nonatomic, assign, readonly) CGFloat duration;
-- (id) initWithRow:(NSInteger)row gameBoard:(GameBoard *)board factory:(id<GameDependencyFactory>)factory;
+- (id) initWithRow:(NSInteger)row gameBoard:(GameBoard *)board factory:(id<GameDependencyFactory>)factory duration:(CGFloat)duration;
 - (void) execute;
 - (BOOL) isValid;
 - (NSArray *) generateNextGameActions;

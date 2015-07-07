@@ -21,7 +21,7 @@ describe(@"DropEnemiesDownGameAction", ^{
     beforeEach(^{
         GameBoard *board = [[GameBoard alloc] init];
         factoryMock = OCMProtocolMock(@protocol(GameDependencyFactory));
-        sut = [[DropEnemiesDownGameAction alloc] initWithGameBoard:board factory:factoryMock];
+        sut = [[DropEnemiesDownGameAction alloc] initWithGameBoard:board factory:factoryMock duration:0];
     });
     
     context(@"when executing", ^{

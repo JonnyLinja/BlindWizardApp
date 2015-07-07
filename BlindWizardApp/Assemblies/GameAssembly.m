@@ -8,6 +8,8 @@
 
 #import "GameAssembly.h"
 #import "GeneralAssembly.h"
+#import "TyphoonConfigPostProcessor.h"
+#import "TyphoonDefinition+Infrastructure.h"
 
 #import "Game.h"
 #import "GameBoard.h"
@@ -20,6 +22,10 @@
 #import "DestroyEnemyGroupsGameAction.h"
 
 @implementation GameAssembly
+
+- (id)configurer {
+    return [TyphoonDefinition configDefinitionWithName:@"GameConfig.plist"];
+}
 
 - (Game *) game {
     return [TyphoonDefinition withClass:[Game class] configuration:^(TyphoonDefinition* definition) {
@@ -69,20 +75,22 @@
 
 - (ShiftEnemiesLeftGameAction *) shiftEnemiesLeftGameActionWithBoard:(GameBoard *)board row:(NSNumber *)row {
     return [TyphoonDefinition withClass:[ShiftEnemiesLeftGameAction class] configuration:^(TyphoonDefinition* definition) {
-        [definition useInitializer:@selector(initWithRow:gameBoard:factory:) parameters:^(TyphoonMethod *initializer) {
+        [definition useInitializer:@selector(initWithRow:gameBoard:factory:duration:) parameters:^(TyphoonMethod *initializer) {
             [initializer injectParameterWith:row];
             [initializer injectParameterWith:board];
             [initializer injectParameterWith:self];
+            [initializer injectParameterWith:TyphoonConfig(@"MoveAnimationDuration")];
         }];
     }];
 }
 
 - (ShiftEnemiesRightGameAction *) shiftEnemiesRightGameActionWithBoard:(GameBoard *)board row:(NSNumber *)row {
     return [TyphoonDefinition withClass:[ShiftEnemiesRightGameAction class] configuration:^(TyphoonDefinition* definition) {
-        [definition useInitializer:@selector(initWithRow:gameBoard:factory:) parameters:^(TyphoonMethod *initializer) {
+        [definition useInitializer:@selector(initWithRow:gameBoard:factory:duration:) parameters:^(TyphoonMethod *initializer) {
             [initializer injectParameterWith:row];
             [initializer injectParameterWith:board];
             [initializer injectParameterWith:self];
+            [initializer injectParameterWith:TyphoonConfig(@"MoveAnimationDuration")];
         }];
     }];
 }
@@ -98,9 +106,10 @@
 
 - (DropEnemiesDownGameAction *) dropEnemiesDownGameActionWithBoard:(GameBoard *)board {
     return [TyphoonDefinition withClass:[DropEnemiesDownGameAction class] configuration:^(TyphoonDefinition* definition) {
-        [definition useInitializer:@selector(initWithGameBoard:factory:) parameters:^(TyphoonMethod *initializer) {
+        [definition useInitializer:@selector(initWithGameBoard:factory:duration:) parameters:^(TyphoonMethod *initializer) {
             [initializer injectParameterWith:board];
             [initializer injectParameterWith:self];
+            [initializer injectParameterWith:TyphoonConfig(@"MoveAnimationDuration")];
         }];
     }];
 }
