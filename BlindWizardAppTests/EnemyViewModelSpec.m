@@ -64,7 +64,7 @@ describe(@"EnemyViewModel", ^{
             [sut snapToCGPoint:snapPoint thenAnimateMoveToCGPoint:movePoint];
             
             //expect
-            expect(sut.animationType).to.equal(MoveAndSnapAnimation);
+            expect(sut.animationType).to.equal(SnapAndMoveAnimation);
             expect(sut.movePoint).to.equal(movePoint);
             expect(sut.snapPoint).to.equal(snapPoint);
         });
