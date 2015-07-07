@@ -5,6 +5,12 @@
 #import "GridStorage.h"
 #import "GridStorageKeyGenerator.h"
 
+@interface GridStorage (Testing)
+@property (nonatomic, strong, readonly) NSMutableDictionary *objects;
+@property (nonatomic, strong, readonly) NSMutableDictionary *objectsToAdd;
+@property (nonatomic, strong, readonly) NSMutableArray *keysToRemove;
+@end
+
 SpecBegin(GridStorage)
 
 describe(@"GridStorage", ^{
@@ -12,9 +18,8 @@ describe(@"GridStorage", ^{
     __block id gridStorageKeyGeneratorMock;
     
     beforeEach(^{
-        sut = [[GridStorage alloc] init];
         gridStorageKeyGeneratorMock = OCMClassMock([GridStorageKeyGenerator class]);
-        sut.keyGenerator = gridStorageKeyGeneratorMock;
+        sut = [[GridStorage alloc] initWithKeyGenerator:gridStorageKeyGeneratorMock];
     });
     
     context(@"when retrieving an object at a row and column", ^{

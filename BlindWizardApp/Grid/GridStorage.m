@@ -10,6 +10,7 @@
 #import "GridStorageKeyGenerator.h"
 
 @interface GridStorage ()
+@property (nonatomic, strong) GridStorageKeyGenerator *keyGenerator; //inject
 @property (nonatomic, strong) NSMutableDictionary *objects;
 @property (nonatomic, strong) NSMutableDictionary *objectsToAdd;
 @property (nonatomic, strong) NSMutableArray *keysToRemove;
@@ -17,10 +18,11 @@
 
 @implementation GridStorage
 
-- (id) init {
+- (id) initWithKeyGenerator:(GridStorageKeyGenerator *)keyGenerator {
     self = [super init];
     if(!self) return nil;
     
+    self.keyGenerator = keyGenerator;
     self.objects = [NSMutableDictionary new];
     self.objectsToAdd = [NSMutableDictionary new];
     self.keysToRemove = [NSMutableArray new];

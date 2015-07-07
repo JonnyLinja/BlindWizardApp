@@ -11,10 +11,7 @@
 @class GridStorageKeyGenerator;
 
 @interface GridStorage : NSObject
-@property (nonatomic, strong) GridStorageKeyGenerator *keyGenerator; //inject
-@property (nonatomic, strong, readonly) NSMutableDictionary *objects; //testing only
-@property (nonatomic, strong, readonly) NSMutableDictionary *objectsToAdd; //testing only
-@property (nonatomic, strong, readonly) NSMutableArray *keysToRemove; //testing only
+- (id) initWithKeyGenerator:(GridStorageKeyGenerator *)keyGenerator;
 - (id) objectForRow:(NSInteger)row column:(NSInteger)column;
 - (void) promiseSetObject:(id)obj forRow:(NSInteger)row column:(NSInteger)column;
 - (void) promiseRemoveObjectForRow:(NSInteger)row column:(NSInteger)column;
