@@ -11,6 +11,9 @@
 #import "MTKObserving.h"
 #import "GridCalculatorFactory.h"
 
+#import "BoardViewController.h"
+#import "BoardViewModel.h"
+
 @interface PlayViewController ()
 
 @end
@@ -44,6 +47,18 @@
 
 - (IBAction)tappedPlayAgain:(id)sender {
     [self.viewModel startGame];
+}
+
+//this is not under test, not sure how to as it crosses multiple "units" and this is really ugly to boot
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    //super - needed for tests
+    [super prepareForSegue:segue sender:sender];
+    
+    //pass game object
+    if([segue.identifier isEqualToString:@"BoardViewController"]) {
+        BoardViewController *bvc = segue.destinationViewController;
+        bvc.viewModel.game = self.viewModel.game;
+    }
 }
 
 - (void) dealloc {
