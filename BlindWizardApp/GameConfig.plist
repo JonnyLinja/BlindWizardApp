@@ -9,9 +9,9 @@
 	<key>MoveAnimationDuration</key>
 	<integer>2</integer>
 	<key>EnemyWidth</key>
-	<integer>70</integer>
+	<integer>50</integer>
 	<key>EnemyHeight</key>
-	<integer>100</integer>
+	<integer>70</integer>
 	<key>Enemies</key>
 	<array>
 		<dict>

@@ -28,9 +28,9 @@ describe(@"DropEnemiesDownGameAction", ^{
         it(@"should drop everything down so there's no 0s at the bottom of the column and notify changes for actual objects", ^{
             //context
             NSInteger column = 0;
-            NSMutableArray *startData = [@[@0, @1, @3, @0, @1, @0, @0, @0, @2, @0] mutableCopy];
-            NSMutableArray *endData = [@[@3, @1, @1, @0, @2, @0, @0, @0, @0, @0] mutableCopy];
-            sut.gameBoard.numRows = 5;
+            NSMutableArray *startData = [@[@0, @0, @0, @1, @3, @0, @1, @0, @0, @0, @2, @0] mutableCopy];
+            NSMutableArray *endData = [@[@3, @1, @1, @0, @2, @0, @0, @0, @0, @0, @0, @0] mutableCopy];
+            sut.gameBoard.numRows = 6;
             sut.gameBoard.numColumns = 2;
             sut.gameBoard.data = startData;
             id notificationMock = OCMObserverMock();
@@ -39,7 +39,7 @@ describe(@"DropEnemiesDownGameAction", ^{
                                                      object:sut
                                                    userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
                 expect([userInfo objectForKey:@"column"]).to.equal(@(column));
-                expect([userInfo objectForKey:@"fromRow"]).to.equal(@1);
+                expect([userInfo objectForKey:@"fromRow"]).to.equal(@2);
                 expect([userInfo objectForKey:@"toRow"]).to.equal(@0);
                 return YES;
             }]];
@@ -47,7 +47,7 @@ describe(@"DropEnemiesDownGameAction", ^{
                                                      object:sut
                                                    userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
                 expect([userInfo objectForKey:@"column"]).to.equal(@(column));
-                expect([userInfo objectForKey:@"fromRow"]).to.equal(@2);
+                expect([userInfo objectForKey:@"fromRow"]).to.equal(@3);
                 expect([userInfo objectForKey:@"toRow"]).to.equal(@1);
                 return YES;
             }]];
@@ -55,7 +55,7 @@ describe(@"DropEnemiesDownGameAction", ^{
                                                      object:sut
                                                    userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
                 expect([userInfo objectForKey:@"column"]).to.equal(@(column));
-                expect([userInfo objectForKey:@"fromRow"]).to.equal(@4);
+                expect([userInfo objectForKey:@"fromRow"]).to.equal(@5);
                 expect([userInfo objectForKey:@"toRow"]).to.equal(@2);
                 return YES;
             }]];
