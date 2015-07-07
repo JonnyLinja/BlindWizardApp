@@ -7,6 +7,7 @@
 //
 
 #import "BoardViewModel.h"
+#import "MTKObserving.h"
 #import "Game.h"
 #import "GameConstants.h"
 #import "GridCalculator.h"
@@ -32,6 +33,19 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleGameActionComplete) name:GameActionComplete object:nil];
 
     return self;
+}
+
+- (void) setGame:(Game *)game {
+    //save
+    _game = game;
+    
+    //bind
+    [self map:@keypath(self.game.gameInProgress) to:@keypath(self.isActive) null:@NO];
+    [self observeProperty:@keypath(self.game.gameInProgress) withBlock:^(__weak typeof(self) self, NSNumber *oldVal, NSNumber *newVal) {
+        if([newVal boolValue]) {
+            [self.gridStorage removeAllObjects];
+        }
+    }];
 }
 
 - (void) swipeLeftFromPoint:(CGPoint)point {
@@ -204,6 +218,7 @@
 }
 
 - (void) dealloc {
+    [self removeAllObservations];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 

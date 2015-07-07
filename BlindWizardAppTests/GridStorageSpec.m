@@ -112,6 +112,23 @@ describe(@"GridStorage", ^{
         });
     });
     
+    context(@"when removing all objects", ^{
+        it(@"should have empty data", ^{
+            //context
+            [sut.objects setObject:[NSObject new] forKey:@"foobar"];
+            [sut.objectsToAdd setObject:[NSObject new] forKey:@"foobar"];
+            [sut.keysToRemove addObject:[NSObject new]];
+            
+           //because
+            [sut removeAllObjects];
+            
+            //expect
+            expect(sut.objects).to.beEmpty();
+            expect(sut.objectsToAdd).to.beEmpty();
+            expect(sut.keysToRemove).to.beEmpty();
+        });
+    });
+    
     afterEach(^{
         [gridStorageKeyGeneratorMock stopMocking];
     });

@@ -62,4 +62,10 @@
     [self.objectsToAdd removeAllObjects];
 }
 
+- (void) removeAllObjects {
+    [self.objects removeAllObjects];
+    [self.objectsToAdd removeAllObjects];
+    [self.keysToRemove removeAllObjects];
+}
+
 @end

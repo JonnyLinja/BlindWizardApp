@@ -1,6 +1,7 @@
 #import <Specta/Specta.h>
 #import "Expecta.h"
 #import <OCMock/OCMock.h>
+#import "NSObject+MTKTest.h"
 
 #import "BoardViewModel.h"
 #import "Game.h"
@@ -23,6 +24,28 @@ describe(@"BoardViewModel", ^{
         sut.game = gameMock;
         gridCalculatorMock = OCMClassMock([GridCalculator class]);
         sut.gridCalculator = gridCalculatorMock;
+    });
+    
+    context(@"when game starts", ^{
+        it(@"should clear the grid storage", ^{
+            //context
+            id gridStorageMock = OCMClassMock([GridStorage class]);
+            sut.gridStorage = gridStorageMock;
+
+            //because
+            [sut notifyKeyPath:@"game.gameInProgress" setTo:@"YES"];
+            
+            //expect
+            OCMVerify([gridStorageMock removeAllObjects]);
+        });
+        
+        it(@"should set started to yes", ^{
+            //because
+            [sut notifyKeyPath:@"game.gameInProgress" setTo:@"YES"];
+            
+            //expect
+            expect(sut.isActive).to.beTruthy();
+        });
     });
     
     context(@"swiping", ^{

@@ -21,6 +21,8 @@
 @property (nonatomic, strong) GameObjectFactory *factory; //inject
 @property (nonatomic, strong) GridStorage *gridStorage; //inject
 
+@property (nonatomic, assign, readonly) BOOL isActive;
+
 //commands
 - (void) swipeLeftFromPoint:(CGPoint)point;
 - (void) swipeRightFromPoint:(CGPoint)point;

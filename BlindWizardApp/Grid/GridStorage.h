@@ -16,4 +16,5 @@
 - (void) promiseSetObject:(id)obj forRow:(NSInteger)row column:(NSInteger)column;
 - (void) promiseRemoveObjectForRow:(NSInteger)row column:(NSInteger)column;
 - (void) fulfillPromises;
+- (void) removeAllObjects;
 @end
