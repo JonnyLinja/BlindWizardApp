@@ -6,6 +6,8 @@
 #import "BoardViewModel.h"
 #import "GridCalculator.h"
 #import "GridCalculatorFactory.h"
+#import "GameObjectFactory.h"
+#import "GameObjectFactoryFactory.h"
 
 SpecBegin(BoardViewController)
 
@@ -27,22 +29,27 @@ describe(@"BoardViewController", ^{
     
     context(@"when loaded", ^{
         //ugly, but need to have a delayed injection
-        it(@"should load the grid calculator dependency on the view model", ^{
+        it(@"should load the grid calculator and object factory dependency on the view model", ^{
             //context
             id calculatorMock = OCMClassMock([GridCalculator class]);
             id calculatorFactoryMock = OCMProtocolMock(@protocol(GridCalculatorFactory));
             OCMStub([calculatorFactoryMock gridCalculatorWithWidth:[OCMArg any] height:[OCMArg any]]).andReturn(calculatorMock);
             sut.calculatorFactory = calculatorFactoryMock;
+            id gameObjectFactoryMock = OCMClassMock([GameObjectFactory class]);
+            id gameObjectFactoryFactoryMock = OCMProtocolMock(@protocol(GameObjectFactoryFactory));
+            OCMStub([gameObjectFactoryFactoryMock gameObjectFactoryWithView:sut.view gridCalculator:calculatorMock]).andReturn(gameObjectFactoryMock);
+            sut.gameObjectFactoryFactory = gameObjectFactoryFactoryMock;
             
             //because
             [sut viewDidAppear:YES];
             
             //expect
-            OCMVerify([calculatorFactoryMock gridCalculatorWithWidth:[OCMArg any] height:[OCMArg any]]);
             OCMVerify([boardViewModelMock setGridCalculator:calculatorMock]);
-            
+            OCMVerify([boardViewModelMock setFactory:gameObjectFactoryMock]);
+
             //cleanup
             [calculatorMock stopMocking];
+            [gameObjectFactoryMock stopMocking];
         });
         
         //unable to confirm uigesturerecognizers are connected, can really only confirm they exist

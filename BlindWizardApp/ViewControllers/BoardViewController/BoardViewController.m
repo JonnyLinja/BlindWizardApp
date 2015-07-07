@@ -9,6 +9,7 @@
 #import "BoardViewController.h"
 #import "BoardViewModel.h"
 #import "GridCalculatorFactory.h"
+#import "GameObjectFactoryFactory.h"
 
 @interface BoardViewController ()
 
@@ -23,6 +24,10 @@
     NSNumber *height = @(self.view.frame.size.height);
     GridCalculator *calculator = [self.calculatorFactory gridCalculatorWithWidth:width height:height];
     self.viewModel.gridCalculator = calculator;
+    
+    //factory injection
+    GameObjectFactory *factory = [self.gameObjectFactoryFactory gameObjectFactoryWithView:self.view gridCalculator:calculator];
+    self.viewModel.factory = factory;
 }
 
 - (IBAction)swipedLeft:(UISwipeGestureRecognizer *)sender {
