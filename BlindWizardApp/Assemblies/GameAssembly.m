@@ -13,6 +13,7 @@
 #import "GameBoard.h"
 #import "GameFlow.h"
 #import "CallNextWaveGameAction.h"
+#import "CheckLoseGameAction.h"
 
 @implementation GameAssembly
 
@@ -55,8 +56,11 @@
 }
 
 - (id<GameAction>) checkLoseGameActionWithBoard:(GameBoard *)board {
-    return nil;
-}
+    return [TyphoonDefinition withClass:[CheckLoseGameAction class] configuration:^(TyphoonDefinition* definition) {
+        [definition useInitializer:@selector(initWithGameBoard:) parameters:^(TyphoonMethod *initializer) {
+            [initializer injectParameterWith:board];
+        }];
+    }];}
 
 - (id<GameAction>) shiftEnemiesLeftGameActionWithBoard:(GameBoard *)board row:(NSInteger)row {
     return nil;

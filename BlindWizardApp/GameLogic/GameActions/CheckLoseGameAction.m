@@ -9,7 +9,20 @@
 #import "CheckLoseGameAction.h"
 #import "GameBoard.h"
 
+@interface CheckLoseGameAction ()
+@property (nonatomic, strong) GameBoard *gameBoard; //inject
+@end
+
 @implementation CheckLoseGameAction
+
+- (id) initWithGameBoard:(GameBoard *)board {
+    self = [super init];
+    if(!self) return nil;
+    
+    self.gameBoard = board;
+    
+    return self;
+}
 
 - (void) execute {
     //index

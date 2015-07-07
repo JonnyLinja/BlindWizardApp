@@ -11,8 +11,7 @@
 @class GameBoard;
 
 @interface CheckLoseGameAction : NSObject <GameAction>
-@property (nonatomic, strong) id<GameDependencyFactory> factory; //inject
-@property (nonatomic, strong) GameBoard *gameBoard; //inject
+- (id) initWithGameBoard:(GameBoard *)board;
 @property (nonatomic, assign, readonly) CGFloat duration;
 - (void) execute;
 - (BOOL) isValid;

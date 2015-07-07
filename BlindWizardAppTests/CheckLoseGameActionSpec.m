@@ -8,15 +8,19 @@
 #import "GameConstants.h"
 #import "GameDependencyFactory.h"
 
+@interface CheckLoseGameAction (Test)
+@property (nonatomic, strong, readonly) GameBoard *gameBoard; //inject
+@end
+
 SpecBegin(CheckLoseGameAction)
 
 describe(@"CheckLoseGameAction", ^{
     __block CheckLoseGameAction *sut;
     
     beforeEach(^{
-        sut = [[CheckLoseGameAction alloc] init];
-        sut.gameBoard = [[GameBoard alloc] initWithRows:3 columns:2];
-        sut.gameBoard.isActive = YES;
+        GameBoard *board = [[GameBoard alloc] initWithRows:3 columns:2];
+        board.isActive = YES;
+        sut = [[CheckLoseGameAction alloc] initWithGameBoard:board];
     });
     
     context(@"when executing and there is an enemy at the top of a column", ^{
