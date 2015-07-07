@@ -84,7 +84,7 @@ describe(@"PlayViewController", ^{
         
         context(@"when loaded", ^{
             it(@"should start the game", ^{
-                OCMVerify([playViewModelMock startGameWithSize:sut.boardView.frame.size]);
+                OCMVerify([playViewModelMock startGame]);
             });
         });
         
@@ -155,7 +155,7 @@ describe(@"PlayViewController", ^{
             [sut.playAgainButton sendActionsForControlEvents:UIControlEventTouchUpInside];
             
             //expect
-            OCMVerify([playViewModelMock startGameWithSize:sut.boardView.frame.size]);
+            OCMVerify([playViewModelMock startGame]);
             
             //cleanup
             [playViewModelMock stopMocking];

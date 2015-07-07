@@ -39,8 +39,7 @@
     [self.game commandCallNextWave];
 }
 
-- (void) startGameWithSize:(CGSize)size {
-    [self.calculator calculateNumberOfRowsAndColumnsForSize:size];
+- (void) startGame {
     [self.game commandStartGameWithRows:self.calculator.numRows columns:self.calculator.numColumns];
 }
 

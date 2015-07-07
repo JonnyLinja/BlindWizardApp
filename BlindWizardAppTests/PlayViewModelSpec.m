@@ -25,17 +25,15 @@ describe(@"PlayViewModel", ^{
             //context
             NSInteger rows = 5;
             NSInteger columns = 5;
-            CGSize size = CGSizeMake(1, 1);
             id calculatorMock = OCMClassMock([GridCalculator class]);
             sut.calculator = calculatorMock;
             OCMStub([calculatorMock numRows]).andReturn(rows);
             OCMStub([calculatorMock numColumns]).andReturn(columns);
             
             //because
-            [sut startGameWithSize:size];
+            [sut startGame];
             
             //expect
-            OCMVerify([calculatorMock calculateNumberOfRowsAndColumnsForSize:size]);
             OCMVerify([gameMock commandStartGameWithRows:rows columns:columns]);
             
             //cleanup

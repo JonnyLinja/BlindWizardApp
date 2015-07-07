@@ -18,5 +18,5 @@
 @property (nonatomic, assign, readonly) BOOL gameInProgress;
 @property (nonatomic, strong, readonly) NSString *score;
 - (void) callNextWave;
-- (void) startGameWithSize:(CGSize)size;
+- (void) startGame;
 @end

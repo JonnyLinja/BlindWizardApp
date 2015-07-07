@@ -6,8 +6,10 @@
 //  Copyright (c) 2015 Adronitis. All rights reserved.
 //
 
-#ifndef BlindWizardApp_GridCalculatorFactory_h
-#define BlindWizardApp_GridCalculatorFactory_h
+#import <CoreGraphics/CoreGraphics.h>
 
+@class GridCalculator;
 
-#endif
+@protocol GridCalculatorFactory <NSObject>
+- (GridCalculator *) gridCalculatorWithSize:(CGSize)size;
+@end

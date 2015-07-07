@@ -30,13 +30,13 @@ describe(@"GameObjectFactory", ^{
             NSInteger column = 3;
             NSInteger type = 1;
             CGPoint point = CGPointMake(2, 3);
-            CGFloat squareWidth = 10;
-            CGFloat squareHeight = 12;
+            CGFloat elementWidth = 10;
+            CGFloat elementHeight = 12;
             UIView *view = [UIView new];
             sut.view = view;
             OCMStub([gridCalculatorMock calculatePointForRow:row column:column]).andReturn(point);
-            OCMStub([gridCalculatorMock squareWidth]).andReturn(squareWidth);
-            OCMStub([gridCalculatorMock squareHeight]).andReturn(squareHeight);
+            OCMStub([gridCalculatorMock elementWidth]).andReturn(elementWidth);
+            OCMStub([gridCalculatorMock elementHeight]).andReturn(elementHeight);
             
             //because
             EnemyViewModel *evm = [sut createEnemyWithType:type atRow:row column:column];
@@ -45,7 +45,7 @@ describe(@"GameObjectFactory", ^{
             //expect
             expect(evm.enemyType).to.equal(type);
             expect(evm.configuration).toNot.beNil(); //no easy tests for actual file
-            expect(ev.frame).to.equal(CGRectMake(point.x, point.y, squareWidth, squareHeight));
+            expect(ev.frame).to.equal(CGRectMake(point.x, point.y, elementWidth, elementHeight));
             expect(ev).toNot.beNil();
             expect(ev.viewModel).to.equal(evm);
         });

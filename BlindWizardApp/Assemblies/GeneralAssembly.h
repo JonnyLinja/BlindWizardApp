@@ -7,6 +7,7 @@
 //
 
 #import "TyphoonAssembly.h"
+#import "GridCalculatorFactory.h"
 
 @class Queue;
 @class RandomGenerator;
@@ -18,6 +19,8 @@
 
 - (Queue *) queue;
 - (RandomGenerator *) randomGenerator;
+- (GridCalculator *) gridCalculatorWithSize:(CGSize)size;
 - (GridStorage *) gridStorage;
+- (GridStorageKeyGenerator *) gridStoryKeyGenerator;
 
 @end
