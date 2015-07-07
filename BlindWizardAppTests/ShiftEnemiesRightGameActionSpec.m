@@ -8,6 +8,10 @@
 #import "GameConstants.h"
 #import "GameDependencyFactory.h"
 
+@interface ShiftEnemiesRightGameAction (Test)
+@property (nonatomic, assign) NSInteger row;
+@end
+
 SpecBegin(ShiftEnemiesRightGameAction)
 
 describe(@"ShiftEnemiesRightGameAction", ^{
@@ -18,7 +22,7 @@ describe(@"ShiftEnemiesRightGameAction", ^{
     beforeEach(^{
         gameBoardMock = OCMClassMock([GameBoard class]);
         factoryMock = OCMProtocolMock(@protocol(GameDependencyFactory));
-        sut = [[ShiftEnemiesRightGameAction alloc] initWithGameBoard:gameBoardMock factory:factoryMock];
+        sut = [[ShiftEnemiesRightGameAction alloc] initWithRow:-1 gameBoard:gameBoardMock factory:factoryMock];
     });
     
     context(@"when executing", ^{

@@ -12,16 +12,18 @@
 #import "GameConstants.h"
 
 @interface ShiftEnemiesRightGameAction ()
+@property (nonatomic, assign) NSInteger row;
 @property (nonatomic, strong) id<GameDependencyFactory> factory; //inject
 @property (nonatomic, strong) GameBoard *gameBoard; //inject
 @end
 
 @implementation ShiftEnemiesRightGameAction
 
-- (id) initWithGameBoard:(GameBoard *)board factory:(id<GameDependencyFactory>)factory {
+- (id) initWithRow:(NSInteger)row gameBoard:(GameBoard *)board factory:(id<GameDependencyFactory>)factory {
     self = [super init];
     if(!self) return nil;
     
+    self.row = row;
     self.gameBoard = board;
     self.factory = factory;
     

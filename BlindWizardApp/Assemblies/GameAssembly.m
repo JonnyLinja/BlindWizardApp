@@ -69,7 +69,8 @@
 
 - (id<GameAction>) shiftEnemiesLeftGameActionWithBoard:(GameBoard *)board row:(NSInteger)row {
     return [TyphoonDefinition withClass:[ShiftEnemiesLeftGameAction class] configuration:^(TyphoonDefinition* definition) {
-        [definition useInitializer:@selector(initWithGameBoard:factory:) parameters:^(TyphoonMethod *initializer) {
+        [definition useInitializer:@selector(initWithRow:gameBoard:factory:) parameters:^(TyphoonMethod *initializer) {
+            [initializer injectParameterWith:@(row)];
             [initializer injectParameterWith:board];
             [initializer injectParameterWith:self];
         }];
@@ -78,7 +79,8 @@
 
 - (id<GameAction>) shiftEnemiesRightGameActionWithBoard:(GameBoard *)board row:(NSInteger)row {
     return [TyphoonDefinition withClass:[ShiftEnemiesRightGameAction class] configuration:^(TyphoonDefinition* definition) {
-        [definition useInitializer:@selector(initWithGameBoard:factory:) parameters:^(TyphoonMethod *initializer) {
+        [definition useInitializer:@selector(initWithRow:gameBoard:factory:) parameters:^(TyphoonMethod *initializer) {
+            [initializer injectParameterWith:@(row)];
             [initializer injectParameterWith:board];
             [initializer injectParameterWith:self];
         }];
