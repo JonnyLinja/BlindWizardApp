@@ -24,6 +24,7 @@
     self.numRows = numRows;
     self.numColumns = numColumns;
     self.data = [NSMutableArray new];
+    self.isActive = YES;
     
     [self fillData];
     

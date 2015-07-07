@@ -14,6 +14,10 @@ describe(@"GameBoard", ^{
     });
     
     context(@"when loaded", ^{
+        it(@"should be active", ^{
+            expect(sut.isActive).to.equal(YES);
+        });
+        
         it(@"should create an array with the appropriate number of items", ^{
             expect(sut.data.count).to.equal(50);
         });
