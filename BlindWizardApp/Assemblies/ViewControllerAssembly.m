@@ -44,6 +44,8 @@
 - (BoardViewController *) boardViewController {
     return [TyphoonDefinition withClass:[BoardViewController class] configuration:^(TyphoonDefinition* definition) {
         [definition injectProperty:@selector(viewModel) with:[self boardViewModel]];
+        [definition injectProperty:@selector(calculatorFactory) with:self.generalAssembly];
+        [definition injectProperty:@selector(gameObjectFactoryFactory) with:self.gameObjectAssembly];
     }];
 }
 

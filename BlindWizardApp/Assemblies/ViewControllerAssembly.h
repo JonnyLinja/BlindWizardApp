@@ -9,6 +9,7 @@
 #import "TyphoonAssembly.h"
 
 @class GameAssembly;
+@class GameObjectAssembly;
 @class GeneralAssembly;
 
 @class TitleViewController;
@@ -20,6 +21,7 @@
 
 @interface ViewControllerAssembly : TyphoonAssembly
 @property(nonatomic, strong, readonly) GameAssembly *gameAssembly;
+@property(nonatomic, strong, readonly) GameObjectAssembly *gameObjectAssembly;
 @property(nonatomic, strong, readonly) GeneralAssembly *generalAssembly;
 
 - (TitleViewController *) titleViewController;
