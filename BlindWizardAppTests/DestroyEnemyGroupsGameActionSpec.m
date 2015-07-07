@@ -138,6 +138,10 @@ describe(@"DestroyEnemyGroupsGameAction", ^{
         });
     });
     
+    //TODO: is valid checks should NOT have the same row and column count
+    //had a bug where I used numRows instead of numColumns and the tests did not catch it
+    //need more robust test cases
+    
     context(@"when at least 3 enemies of the same type in a row", ^{
         it(@"should be valid", ^{
             //context

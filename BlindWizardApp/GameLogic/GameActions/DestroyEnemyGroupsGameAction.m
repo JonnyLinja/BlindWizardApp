@@ -199,7 +199,7 @@
         count = 0;
         
         //loop rows
-        for(NSInteger row=0; row<self.gameBoard.numRows; row++, index+=self.gameBoard.numRows) {
+        for(NSInteger row=0; row<self.gameBoard.numRows; row++, index+=self.gameBoard.numColumns) {
             //current
             NSInteger current = [[self.gameBoard.data objectAtIndex:index] integerValue];
             
