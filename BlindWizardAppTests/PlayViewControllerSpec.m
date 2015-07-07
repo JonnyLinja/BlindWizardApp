@@ -105,7 +105,6 @@ describe(@"PlayViewController", ^{
                 [sut viewDidAppear:YES];
                 
                 //expect
-                expect(sut.factory).to.equal(calculatorFactoryMock);
                 OCMVerify([calculatorFactoryMock gridCalculatorWithWidth:[OCMArg any] height:[OCMArg any]]);
                 OCMVerify([playViewModelMock setCalculator:calculatorMock]);
                 

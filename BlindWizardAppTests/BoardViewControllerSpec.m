@@ -4,6 +4,8 @@
 
 #import "BoardViewController.h"
 #import "BoardViewModel.h"
+#import "GridCalculator.h"
+#import "GridCalculatorFactory.h"
 
 SpecBegin(BoardViewController)
 
@@ -24,6 +26,25 @@ describe(@"BoardViewController", ^{
     });
     
     context(@"when loaded", ^{
+        //ugly, but need to have a delayed injection
+        it(@"should load the grid calculator dependency on the view model", ^{
+            //context
+            id calculatorMock = OCMClassMock([GridCalculator class]);
+            id calculatorFactoryMock = OCMProtocolMock(@protocol(GridCalculatorFactory));
+            OCMStub([calculatorFactoryMock gridCalculatorWithWidth:[OCMArg any] height:[OCMArg any]]).andReturn(calculatorMock);
+            sut.calculatorFactory = calculatorFactoryMock;
+            
+            //because
+            [sut viewDidAppear:YES];
+            
+            //expect
+            OCMVerify([calculatorFactoryMock gridCalculatorWithWidth:[OCMArg any] height:[OCMArg any]]);
+            OCMVerify([boardViewModelMock setGridCalculator:calculatorMock]);
+            
+            //cleanup
+            [calculatorMock stopMocking];
+        });
+        
         //unable to confirm uigesturerecognizers are connected, can really only confirm they exist
         it(@"should listen for left swipes", ^{
             expect(sut.leftSwipeGestureRecognizer).toNot.beNil();
