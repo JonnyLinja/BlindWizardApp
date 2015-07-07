@@ -10,7 +10,6 @@
 #import <UIKit/UIKit.h>
 
 @interface EnemyViewModel()
-@property (nonatomic, strong) NSDictionary *configuration; //inject
 @property (nonatomic, assign) NSInteger enemyType;
 @property (nonatomic, strong) UIColor *color;
 @property (nonatomic, assign) CGPoint movePoint;
@@ -24,9 +23,8 @@
     if(!self) return nil;
     
     self.enemyType = enemyType;
-    self.configuration = configuration;
     
-    NSString *hexColor = [self.configuration objectForKey:@"Color"];
+    NSString *hexColor = [configuration objectForKey:@"Color"];
     self.color = [self colorFromHexString:hexColor];
     
     return self;
