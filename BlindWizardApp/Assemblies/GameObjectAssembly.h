@@ -17,6 +17,6 @@
 
 @interface GameObjectAssembly : TyphoonAssembly <GameObjectDependencyFactory, GameObjectFactoryFactory>
 - (EnemyView *) enemyViewWithViewModel:(EnemyViewModel *)viewModel;
-- (EnemyViewModel *) enemyViewModelWithType:(NSInteger)type configuration:(NSDictionary *)config;
+- (EnemyViewModel *) enemyViewModelWithType:(NSNumber *)type configuration:(NSDictionary *)config;
 - (GameObjectFactory *) gameObjectFactoryWithView:(UIView *)view gridCalculator:(GridCalculator *)calculator;
 @end

@@ -42,7 +42,7 @@
     NSDictionary *configuration = [enemies objectAtIndex:type-1];
     
     //evm
-    EnemyViewModel *evm = [self.factory enemyViewModelWithType:type configuration:configuration];
+    EnemyViewModel *evm = [self.factory enemyViewModelWithType:@(type) configuration:configuration];
     
     //ev
     EnemyView *ev = [self.factory enemyViewWithViewModel:evm];

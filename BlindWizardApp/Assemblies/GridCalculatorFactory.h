@@ -6,10 +6,8 @@
 //  Copyright (c) 2015 Adronitis. All rights reserved.
 //
 
-#import <CoreGraphics/CoreGraphics.h>
-
 @class GridCalculator;
 
 @protocol GridCalculatorFactory <NSObject>
-- (GridCalculator *) gridCalculatorWithSize:(CGSize)size;
+- (GridCalculator *) gridCalculatorWithWidth:(NSNumber *)width height:(NSNumber *)height;
 @end

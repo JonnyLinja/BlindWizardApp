@@ -25,12 +25,12 @@
 @property(nonatomic, strong, readonly) GeneralAssembly *generalAssembly;
 
 - (Game *) game;
-- (GameBoard *) gameBoardWithRows:(NSInteger)rows columns:(NSInteger)columns;
+- (GameBoard *) gameBoardWithRows:(NSNumber *)rows columns:(NSNumber *)columns;
 - (GameFlow *) gameFlowWithBoard:(GameBoard *)board;
 - (CallNextWaveGameAction *) callNextWaveGameActionWithBoard:(GameBoard *)board;
 - (CheckLoseGameAction *) checkLoseGameActionWithBoard:(GameBoard *)board;
-- (ShiftEnemiesLeftGameAction *) shiftEnemiesLeftGameActionWithBoard:(GameBoard *)board row:(NSInteger)row;
-- (ShiftEnemiesRightGameAction *) shiftEnemiesRightGameActionWithBoard:(GameBoard *)board row:(NSInteger)row;
+- (ShiftEnemiesLeftGameAction *) shiftEnemiesLeftGameActionWithBoard:(GameBoard *)board row:(NSNumber *)row;
+- (ShiftEnemiesRightGameAction *) shiftEnemiesRightGameActionWithBoard:(GameBoard *)board row:(NSNumber *)row;
 - (DestroyEnemyGroupsGameAction *) destroyEnemyGroupsGameActionWithBoard:(GameBoard *)board;
 - (DropEnemiesDownGameAction *) dropEnemiesDownGameActionWithBoard:(GameBoard *)board;
 

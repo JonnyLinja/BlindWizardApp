@@ -19,7 +19,7 @@
 
 - (Queue *) queue;
 - (RandomGenerator *) randomGenerator;
-- (GridCalculator *) gridCalculatorWithSize:(CGSize)size;
+- (GridCalculator *) gridCalculatorWithWidth:(NSNumber *)width height:(NSNumber *)height;
 - (GridStorage *) gridStorage;
 - (GridStorageKeyGenerator *) gridStoryKeyGenerator;
 

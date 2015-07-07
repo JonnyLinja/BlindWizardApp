@@ -28,7 +28,7 @@ describe(@"Game", ^{
         flowMock = OCMClassMock([GameFlow class]);
         boardMock = OCMClassMock([GameBoard class]);
         factoryMock = OCMProtocolMock(@protocol(GameDependencyFactory));
-        OCMStub([factoryMock gameBoardWithRows:5 columns:5]).andReturn(boardMock);
+        OCMStub([factoryMock gameBoardWithRows:@5 columns:@5]).andReturn(boardMock);
         OCMStub([factoryMock gameFlowWithBoard:boardMock]).andReturn(flowMock);
         
         sut = [[Game alloc] initWithDependencyFactory:factoryMock];
@@ -102,13 +102,13 @@ describe(@"Game", ^{
                 //context
                 NSInteger row = 5;
                 id gameActionMock = OCMClassMock([ShiftEnemiesLeftGameAction class]);
-                OCMStub([factoryMock shiftEnemiesLeftGameActionWithBoard:boardMock row:row]).andReturn(gameActionMock);
+                OCMStub([factoryMock shiftEnemiesLeftGameActionWithBoard:boardMock row:@(row)]).andReturn(gameActionMock);
                 
                 //because
                 [sut commandSwipeLeftOnRow:row];
                 
                 //expect
-                OCMVerify([factoryMock shiftEnemiesLeftGameActionWithBoard:boardMock row:row]);
+                OCMVerify([factoryMock shiftEnemiesLeftGameActionWithBoard:boardMock row:@(row)]);
                 OCMVerify([flowMock addGameAction:gameActionMock]);
                 
                 //cleanup
@@ -121,13 +121,13 @@ describe(@"Game", ^{
                 //context
                 NSInteger row = 5;
                 id gameActionMock = OCMClassMock([ShiftEnemiesRightGameAction class]);
-                OCMStub([factoryMock shiftEnemiesRightGameActionWithBoard:boardMock row:row]).andReturn(gameActionMock);
+                OCMStub([factoryMock shiftEnemiesRightGameActionWithBoard:boardMock row:@(row)]).andReturn(gameActionMock);
                 
                 //because
                 [sut commandSwipeRightOnRow:row];
                 
                 //expect
-                OCMVerify([factoryMock shiftEnemiesRightGameActionWithBoard:boardMock row:row]);
+                OCMVerify([factoryMock shiftEnemiesRightGameActionWithBoard:boardMock row:@(row)]);
                 OCMVerify([flowMock addGameAction:gameActionMock]);
                 
                 //cleanup

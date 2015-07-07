@@ -11,5 +11,5 @@
 
 @protocol GameObjectDependencyFactory <NSObject>
 - (EnemyView *) enemyViewWithViewModel:(EnemyViewModel *)viewModel;
-- (EnemyViewModel *) enemyViewModelWithType:(NSInteger)type configuration:(NSDictionary *)config;
+- (EnemyViewModel *) enemyViewModelWithType:(NSNumber *)type configuration:(NSDictionary *)config;
 @end

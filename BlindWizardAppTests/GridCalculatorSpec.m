@@ -21,7 +21,7 @@ describe(@"GridCalculator", ^{
             CGFloat elementHeight = 40;
             
             //because
-            GridCalculator *sut = [[GridCalculator alloc] initWithSize:size elementWidth:elementWidth elementHeight:elementHeight];
+            GridCalculator *sut = [[GridCalculator alloc] initWithWidth:size.width height:size.height elementWidth:elementWidth elementHeight:elementHeight];
             
             //expect
             expect(sut.size).to.equal(size);
@@ -38,7 +38,7 @@ describe(@"GridCalculator", ^{
         __block GridCalculator *sut;
         
         beforeEach(^{
-            sut = [[GridCalculator alloc] initWithSize:CGSizeMake(329, 604) elementWidth:30 elementHeight:40];
+            sut = [[GridCalculator alloc] initWithWidth:329 height:604 elementWidth:30 elementHeight:40];
         });
         
         context(@"when calculating row for y pos", ^{

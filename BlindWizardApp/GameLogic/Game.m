@@ -37,7 +37,7 @@
 - (void) commandStartGameWithRows:(NSInteger)rows columns:(NSInteger)columns {
     [self removeAllObservations];
     
-    self.board = [self.factory gameBoardWithRows:rows columns:columns];
+    self.board = [self.factory gameBoardWithRows:@(rows) columns:@(columns)];
     self.flow = [self.factory gameFlowWithBoard:self.board];
     
     [self map:@keypath(self.board.score) to:@keypath(self.score) null:@0];
@@ -50,12 +50,12 @@
 }
 
 - (void) commandSwipeLeftOnRow:(NSInteger)row {
-    id<GameAction> action = [self.factory shiftEnemiesLeftGameActionWithBoard:self.board row:row];
+    id<GameAction> action = [self.factory shiftEnemiesLeftGameActionWithBoard:self.board row:@(row)];
     [self.flow addGameAction:action];
 }
 
 - (void) commandSwipeRightOnRow:(NSInteger)row {
-    id<GameAction> action = [self.factory shiftEnemiesRightGameActionWithBoard:self.board row:row];
+    id<GameAction> action = [self.factory shiftEnemiesRightGameActionWithBoard:self.board row:@(row)];
     [self.flow addGameAction:action];
 }
 

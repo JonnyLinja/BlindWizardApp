@@ -21,15 +21,15 @@
 
 @implementation GridCalculator
 
-- (id) initWithSize:(CGSize)size elementWidth:(CGFloat)elementWidth elementHeight:(CGFloat)elementHeight {
+- (id) initWithWidth:(CGFloat)width height:(CGFloat)height elementWidth:(CGFloat)elementWidth elementHeight:(CGFloat)elementHeight {
     self = [super init];
     if(!self) return nil;
     
-    self.size = size;
+    self.size = CGSizeMake(width, height);
     self.elementWidth = elementWidth;
     self.elementHeight = elementHeight;
     
-    [self calculateNumberOfRowsAndColumnsForSize:size];
+    [self calculateNumberOfRowsAndColumnsForSize:self.size];
     
     return self;
 }

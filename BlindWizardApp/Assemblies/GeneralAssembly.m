@@ -43,10 +43,11 @@
     }];
 }
 
-- (GridCalculator *) gridCalculatorWithSize:(CGSize)size {
+- (GridCalculator *) gridCalculatorWithWidth:(NSNumber *)width height:(NSNumber *)height {
     return [TyphoonDefinition withClass:[GridCalculator class] configuration:^(TyphoonDefinition* definition) {
-        [definition useInitializer:@selector(initWithSize:elementWidth:elementHeight:) parameters:^(TyphoonMethod *initializer) {
-            [initializer injectParameterWith:[NSValue valueWithCGSize:size]];
+        [definition useInitializer:@selector(initWithWidth:height:elementWidth:elementHeight:) parameters:^(TyphoonMethod *initializer) {
+            [initializer injectParameterWith:width];
+            [initializer injectParameterWith:height];
             [initializer injectParameterWith:TyphoonConfig(@"EnemyWidth")];
             [initializer injectParameterWith:TyphoonConfig(@"EnemyHeight")];
         }];

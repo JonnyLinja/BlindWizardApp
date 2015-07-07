@@ -1,5 +1,5 @@
 target :BlindWizardApp  do
-	pod 'Typhoon', '~> 3.1.8'
+	pod 'Typhoon', '~> 3.2.1'
 	pod 'Block-KVO', :git => 'https://github.com/iMartinKiss/Block-KVO.git'
 end
 

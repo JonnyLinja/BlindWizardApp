@@ -14,7 +14,7 @@
 @property (nonatomic, assign, readonly) NSInteger numColumns;
 @property (nonatomic, assign, readonly) CGFloat elementWidth;
 @property (nonatomic, assign, readonly) CGFloat elementHeight;
-- (id) initWithSize:(CGSize)size elementWidth:(CGFloat)elementWidth elementHeight:(CGFloat)elementHeight;
+- (id) initWithWidth:(CGFloat)width height:(CGFloat)height elementWidth:(CGFloat)elementWidth elementHeight:(CGFloat)elementHeight;
 - (NSInteger) calculateRowForYPos:(CGFloat)yPos;
 - (CGPoint) calculatePointForRow:(NSInteger)row column:(NSInteger)column;
 @end

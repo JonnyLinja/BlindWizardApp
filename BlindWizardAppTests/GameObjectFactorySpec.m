@@ -43,7 +43,7 @@ describe(@"GameObjectFactory", ^{
             //context - created objects
             id enemyViewModelMock = OCMClassMock([EnemyViewModel class]);
             EnemyView *enemyView = [[EnemyView alloc] initWithViewModel:enemyViewModelMock];
-            OCMStub([factoryMock enemyViewModelWithType:type configuration:[OCMArg any]]).andReturn(enemyViewModelMock);
+            OCMStub([factoryMock enemyViewModelWithType:@(type) configuration:[OCMArg any]]).andReturn(enemyViewModelMock);
             OCMStub([factoryMock enemyViewWithViewModel:enemyViewModelMock]).andReturn(enemyView);
 
             //because
@@ -51,7 +51,7 @@ describe(@"GameObjectFactory", ^{
             EnemyView *ev = [view.subviews objectAtIndex:0];
 
             //expect
-            OCMVerify([factoryMock enemyViewModelWithType:type configuration:[OCMArg any]]);
+            OCMVerify([factoryMock enemyViewModelWithType:@(type) configuration:[OCMArg any]]);
             OCMVerify([factoryMock enemyViewWithViewModel:enemyViewModelMock]);
             expect(ev.frame).to.equal(CGRectMake(point.x, point.y, elementWidth, elementHeight));
             expect(ev).to.equal(enemyView);

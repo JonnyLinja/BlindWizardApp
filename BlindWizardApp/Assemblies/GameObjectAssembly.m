@@ -21,10 +21,10 @@
     }];
 }
 
-- (EnemyViewModel *) enemyViewModelWithType:(NSInteger)type configuration:(NSDictionary *)config {
+- (EnemyViewModel *) enemyViewModelWithType:(NSNumber *)type configuration:(NSDictionary *)config {
     return [TyphoonDefinition withClass:[EnemyViewModel class] configuration:^(TyphoonDefinition* definition) {
         [definition useInitializer:@selector(initWithType:configuration:) parameters:^(TyphoonMethod *initializer) {
-            [initializer injectParameterWith:@(type)];
+            [initializer injectParameterWith:type];
             [initializer injectParameterWith:config];
         }];
     }];

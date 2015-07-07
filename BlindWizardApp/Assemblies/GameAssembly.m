@@ -30,11 +30,11 @@
     }];
 }
 
-- (GameBoard *) gameBoardWithRows:(NSInteger)rows columns:(NSInteger)columns {
+- (GameBoard *) gameBoardWithRows:(NSNumber *)rows columns:(NSNumber *)columns {
     return [TyphoonDefinition withClass:[GameBoard class] configuration:^(TyphoonDefinition* definition) {
         [definition useInitializer:@selector(initWithRows:columns:) parameters:^(TyphoonMethod *initializer) {
-            [initializer injectParameterWith:@(rows)];
-            [initializer injectParameterWith:@(columns)];
+            [initializer injectParameterWith:rows];
+            [initializer injectParameterWith:columns];
         }];
     }];
 
@@ -67,20 +67,20 @@
     }];
 }
 
-- (ShiftEnemiesLeftGameAction *) shiftEnemiesLeftGameActionWithBoard:(GameBoard *)board row:(NSInteger)row {
+- (ShiftEnemiesLeftGameAction *) shiftEnemiesLeftGameActionWithBoard:(GameBoard *)board row:(NSNumber *)row {
     return [TyphoonDefinition withClass:[ShiftEnemiesLeftGameAction class] configuration:^(TyphoonDefinition* definition) {
         [definition useInitializer:@selector(initWithRow:gameBoard:factory:) parameters:^(TyphoonMethod *initializer) {
-            [initializer injectParameterWith:@(row)];
+            [initializer injectParameterWith:row];
             [initializer injectParameterWith:board];
             [initializer injectParameterWith:self];
         }];
     }];
 }
 
-- (ShiftEnemiesRightGameAction *) shiftEnemiesRightGameActionWithBoard:(GameBoard *)board row:(NSInteger)row {
+- (ShiftEnemiesRightGameAction *) shiftEnemiesRightGameActionWithBoard:(GameBoard *)board row:(NSNumber *)row {
     return [TyphoonDefinition withClass:[ShiftEnemiesRightGameAction class] configuration:^(TyphoonDefinition* definition) {
         [definition useInitializer:@selector(initWithRow:gameBoard:factory:) parameters:^(TyphoonMethod *initializer) {
-            [initializer injectParameterWith:@(row)];
+            [initializer injectParameterWith:row];
             [initializer injectParameterWith:board];
             [initializer injectParameterWith:self];
         }];
