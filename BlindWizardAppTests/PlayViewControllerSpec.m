@@ -67,12 +67,13 @@ describe(@"PlayViewController", ^{
             [storyboardMock stopMocking];
         });
         
-        it(@"should have a play again button", ^{
+        it(@"should have a hidden play again button", ^{
             //because
             [sut view];
             
             //expect
             expect(sut.playAgainButton).toNot.beNil();
+            expect(sut.playAgainButton.hidden).to.beTruthy();
         });
     });
     
