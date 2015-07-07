@@ -54,14 +54,14 @@ describe(@"EnemyViewModel", ^{
         });
     });
     
-    context(@"when running a move and snap animation", ^{
-        it(@"should set animation type to move and snap AND set movePoint AND set snapPoint", ^{
+    context(@"when running a snap and move animation", ^{
+        it(@"should set animation type to snap and move AND set movePoint AND set snapPoint", ^{
             //context
             CGPoint movePoint = CGPointMake(13, 37);
             CGPoint snapPoint = CGPointMake(20, 12);
             
             //because
-            [sut animateMoveToCGPoint:movePoint thenSnapToCGPoint:snapPoint];
+            [sut snapToCGPoint:snapPoint thenAnimateMoveToCGPoint:movePoint];
             
             //expect
             expect(sut.animationType).to.equal(MoveAndSnapAnimation);

@@ -45,8 +45,8 @@
         case MoveAnimation:
             [self runMoveAnimation];
             break;
-        case MoveAndSnapAnimation:
-            [self runMoveAndSnapAnimation];
+        case SnapAndMoveAnimation:
+            [self runSnapAndMoveAnimation];
             break;
         case MoveAndRemoveAnimation:
             [self runMoveAndRemoveAnimation];
@@ -78,13 +78,13 @@
     }];
 }
 
-- (void) runMoveAndSnapAnimation {
+- (void) runSnapAndMoveAnimation {
     self.backgroundColor = self.viewModel.color;
+    self.frame = CGRectMake(self.viewModel.snapPoint.x, self.viewModel.snapPoint.y, self.bounds.size.width, self.bounds.size.height);
     [UIView animateWithDuration:self.viewModel.moveDuration animations:^{
         self.frame = CGRectMake(self.viewModel.movePoint.x, self.viewModel.movePoint.y, self.bounds.size.width, self.bounds.size.height);
     }completion:^(BOOL finished) {
         self.backgroundColor = [UIColor clearColor];
-        self.frame = CGRectMake(self.viewModel.snapPoint.x, self.viewModel.snapPoint.y, self.bounds.size.width, self.bounds.size.height);
     }];
 }
 

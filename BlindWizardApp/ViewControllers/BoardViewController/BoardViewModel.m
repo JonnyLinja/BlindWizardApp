@@ -98,49 +98,49 @@
     //parse values
     NSInteger row = [[notification.userInfo objectForKey:@"row"] integerValue];
     NSInteger column = [[notification.userInfo objectForKey:@"column"] integerValue];
-    NSInteger toColumn = column+1;
 
     //get
     EnemyViewModel *evm = [self.gridStorage objectForRow:row column:column];
     
     //animate
-    CGPoint newPoint = [self.gridCalculator calculatePointForRow:row column:toColumn];
-    CGPoint snapPoint = [self.gridCalculator calculatePointForRow:row column:0];
-    [evm animateMoveToCGPoint:newPoint thenSnapToCGPoint:snapPoint];
+    CGPoint snapPoint = [self.gridCalculator calculatePointForRow:row column:-1];
+    CGPoint movePoint = [self.gridCalculator calculatePointForRow:row column:0];
+    [evm snapToCGPoint:snapPoint thenAnimateMoveToCGPoint:movePoint];
     
     //store
     [self.gridStorage promiseSetObject:evm forRow:row column:0];
     
-    //create duplicate
-    EnemyViewModel *duplicate = [self.factory createEnemyWithType:evm.enemyType atRow:row column:-1];
+    //create duplicate at original spot
+    EnemyViewModel *duplicate = [self.factory createEnemyWithType:evm.enemyType atRow:row column:column];
     
-    //animate duplicate
-    [duplicate animateMoveAndRemoveToCGPoint:snapPoint];
+    //animate duplicate offscreen to the right
+    CGPoint toPoint = [self.gridCalculator calculatePointForRow:row column:column+1];
+    [duplicate animateMoveAndRemoveToCGPoint:toPoint];
 }
 
 - (void) executeGameUpdateMoveEnemyToRowTail:(NSNotification *)notification {
     //parse values
     NSInteger row = [[notification.userInfo objectForKey:@"row"] integerValue];
     NSInteger column = [[notification.userInfo objectForKey:@"column"] integerValue];
-    NSInteger toColumn = column-1;
-    NSInteger lastColumn = self.gridCalculator.numColumns-1;
+    NSInteger toColumn = self.gridCalculator.numColumns-1;
     
     //get
     EnemyViewModel *evm = [self.gridStorage objectForRow:row column:column];
     
     //animate
+    CGPoint snapPoint = [self.gridCalculator calculatePointForRow:row column:self.gridCalculator.numColumns];
     CGPoint newPoint = [self.gridCalculator calculatePointForRow:row column:toColumn];
-    CGPoint snapPoint = [self.gridCalculator calculatePointForRow:row column:lastColumn];
-    [evm animateMoveToCGPoint:newPoint thenSnapToCGPoint:snapPoint];
+    [evm snapToCGPoint:snapPoint thenAnimateMoveToCGPoint:newPoint];
     
     //store
-    [self.gridStorage promiseSetObject:evm forRow:row column:lastColumn];
+    [self.gridStorage promiseSetObject:evm forRow:row column:toColumn];
     
     //create duplicate
-    EnemyViewModel *duplicate = [self.factory createEnemyWithType:evm.enemyType atRow:row column:lastColumn+1];
+    EnemyViewModel *duplicate = [self.factory createEnemyWithType:evm.enemyType atRow:row column:column];
     
-    //animate duplicate
-    [duplicate animateMoveAndRemoveToCGPoint:snapPoint];
+    //animate duplicate offscreen to the left
+    CGPoint toPoint = [self.gridCalculator calculatePointForRow:row column:-1];
+    [duplicate animateMoveAndRemoveToCGPoint:toPoint];
 }
 
 - (void) executeGameUpdateDropEnemyDown:(NSNotification *)notification {

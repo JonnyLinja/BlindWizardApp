@@ -151,32 +151,35 @@ describe(@"BoardViewModel", ^{
                 NSInteger type = 1;
                 NSInteger row = 5;
                 NSInteger fromColumn = 4;
-                NSInteger toColumn = fromColumn+1;
+                NSInteger offscreenRightColumn = fromColumn+1;
                 NSInteger beginColumn = 0;
-                NSInteger offscreenColumn = beginColumn-1;
-                CGPoint toPoint = CGPointMake(10, 10);
+                NSInteger offscreenLeftColumn = beginColumn-1;
+                CGPoint offscreenRightPoint = CGPointMake(20, 20);
+                CGPoint movePoint = CGPointMake(10, 10);
                 CGPoint snapPoint = CGPointZero;
                 id modelMock = OCMClassMock([EnemyViewModel class]);
                 id tempMock = OCMClassMock([EnemyViewModel class]);
                 NSDictionary *userInfo = @{@"row" : @(row), @"column" : @(fromColumn)};
                 OCMStub([modelMock enemyType]).andReturn(type);
-                OCMStub([gridCalculatorMock calculatePointForRow:row column:toColumn]).andReturn(toPoint);
-                OCMStub([gridCalculatorMock calculatePointForRow:row column:beginColumn]).andReturn(snapPoint);
+                OCMStub([gridCalculatorMock calculatePointForRow:row column:offscreenLeftColumn]).andReturn(snapPoint);
+                OCMStub([gridCalculatorMock calculatePointForRow:row column:offscreenRightColumn]).andReturn(offscreenRightPoint);
+                OCMStub([gridCalculatorMock calculatePointForRow:row column:beginColumn]).andReturn(movePoint);
                 OCMStub([gridStorageMock objectForRow:row column:fromColumn]).andReturn(modelMock);
-                OCMStub([gameFactoryMock createEnemyWithType:type atRow:row column:offscreenColumn]).andReturn(tempMock);
+                OCMStub([gameFactoryMock createEnemyWithType:type atRow:row column:fromColumn]).andReturn(tempMock);
                 
                 //because
                 [[NSNotificationCenter defaultCenter] postNotificationName:GameUpdateMoveEnemyToRowHead object:nil userInfo:userInfo];
                 
-                //expect
-                OCMVerify([gridStorageMock objectForRow:row column:fromColumn]);
-                OCMVerify([gridCalculatorMock calculatePointForRow:row column:toColumn]);
-                OCMVerify([gridCalculatorMock calculatePointForRow:row column:beginColumn]);
-                OCMVerify([modelMock animateMoveToCGPoint:toPoint thenSnapToCGPoint:snapPoint]);
+                //expect - in theory the 3 verifies are sufficient for this test
+                //OCMVerify([gridStorageMock objectForRow:row column:fromColumn]);
+                //OCMVerify([gridCalculatorMock calculatePointForRow:row column:offscreenLeftColumn]);
+                //OCMVerify([gridCalculatorMock calculatePointForRow:row column:offscreenRightColumn]);
+                //OCMVerify([gridCalculatorMock calculatePointForRow:row column:beginColumn]);
+                OCMVerify([modelMock snapToCGPoint:snapPoint thenAnimateMoveToCGPoint:movePoint]);
                 OCMVerify([gridStorageMock promiseSetObject:modelMock forRow:row column:beginColumn]);
-                OCMVerify([modelMock enemyType]);
-                OCMVerify([gameFactoryMock createEnemyWithType:type atRow:row column:offscreenColumn]);
-                OCMVerify([tempMock animateMoveAndRemoveToCGPoint:snapPoint]);
+                //OCMVerify([modelMock enemyType]);
+                //OCMVerify([gameFactoryMock createEnemyWithType:type atRow:row column:fromColumn]);
+                OCMVerify([tempMock animateMoveAndRemoveToCGPoint:offscreenRightPoint]);
 
                 //cleanup
                 [modelMock stopMocking];
@@ -190,34 +193,36 @@ describe(@"BoardViewModel", ^{
                 NSInteger type = 1;
                 NSInteger row = 5;
                 NSInteger fromColumn = 0;
-                NSInteger toColumn = fromColumn-1;
+                NSInteger offscreenLeftColumn = fromColumn-1;
                 NSInteger endColumn = 4;
-                NSInteger offscreenColumn = endColumn+1;
-                CGPoint toPoint = CGPointZero;
+                NSInteger offscreenRightColumn = endColumn+1;
+                CGPoint offscreenLeftPoint = CGPointMake(20, 20);
+                CGPoint movePoint = CGPointZero;
                 CGPoint snapPoint = CGPointMake(10, 10);
                 id modelMock = OCMClassMock([EnemyViewModel class]);
                 id tempMock = OCMClassMock([EnemyViewModel class]);
                 NSDictionary *userInfo = @{@"row" : @(row), @"column" : @(fromColumn)};
                 OCMStub([modelMock enemyType]).andReturn(type);
                 OCMStub([gridCalculatorMock numColumns]).andReturn(endColumn+1);
-                OCMStub([gridCalculatorMock calculatePointForRow:row column:toColumn]).andReturn(toPoint);
-                OCMStub([gridCalculatorMock calculatePointForRow:row column:endColumn]).andReturn(snapPoint);
+                OCMStub([gridCalculatorMock calculatePointForRow:row column:offscreenRightColumn]).andReturn(snapPoint);
+                OCMStub([gridCalculatorMock calculatePointForRow:row column:offscreenLeftColumn]).andReturn(offscreenLeftPoint);
+                OCMStub([gridCalculatorMock calculatePointForRow:row column:endColumn]).andReturn(movePoint);
                 OCMStub([gridStorageMock objectForRow:row column:fromColumn]).andReturn(modelMock);
-                OCMStub([gameFactoryMock createEnemyWithType:type atRow:row column:offscreenColumn]).andReturn(tempMock);
+                OCMStub([gameFactoryMock createEnemyWithType:type atRow:row column:fromColumn]).andReturn(tempMock);
                 
                 //because
                 [[NSNotificationCenter defaultCenter] postNotificationName:GameUpdateMoveEnemyToRowTail object:nil userInfo:userInfo];
                 
-                //expect
-                OCMVerify([gridCalculatorMock numColumns]);
-                OCMVerify([gridStorageMock objectForRow:row column:fromColumn]);
-                OCMVerify([gridCalculatorMock calculatePointForRow:row column:toColumn]);
-                OCMVerify([gridCalculatorMock calculatePointForRow:row column:endColumn]);
-                OCMVerify([modelMock animateMoveToCGPoint:toPoint thenSnapToCGPoint:snapPoint]);
+                //expect - in theory the 3 verifies are sufficient for this test
+                //OCMVerify([gridCalculatorMock numColumns]);
+                //OCMVerify([gridStorageMock objectForRow:row column:fromColumn]);
+                //OCMVerify([gridCalculatorMock calculatePointForRow:row column:toColumn]);
+                //OCMVerify([gridCalculatorMock calculatePointForRow:row column:endColumn]);
+                OCMVerify([modelMock snapToCGPoint:snapPoint thenAnimateMoveToCGPoint:movePoint]);
                 OCMVerify([gridStorageMock promiseSetObject:modelMock forRow:row column:endColumn]);
-                OCMVerify([modelMock enemyType]);
-                OCMVerify([gameFactoryMock createEnemyWithType:type atRow:row column:offscreenColumn]);
-                OCMVerify([tempMock animateMoveAndRemoveToCGPoint:snapPoint]);
+                //OCMVerify([modelMock enemyType]);
+                //OCMVerify([gameFactoryMock createEnemyWithType:type atRow:row column:offscreenColumn]);
+                OCMVerify([tempMock animateMoveAndRemoveToCGPoint:offscreenLeftPoint]);
                 
                 //cleanup
                 [modelMock stopMocking];

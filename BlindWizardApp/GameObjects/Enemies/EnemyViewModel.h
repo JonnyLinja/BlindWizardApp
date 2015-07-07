@@ -14,7 +14,7 @@ typedef enum {
     CreateAnimation,
     DestroyAndRemoveAnimation,
     MoveAnimation,
-    MoveAndSnapAnimation,
+    SnapAndMoveAnimation,
     MoveAndRemoveAnimation
 } EnemyAnimationType;
 
@@ -30,7 +30,7 @@ typedef enum {
 @property (nonatomic, assign) EnemyAnimationType animationType;
 - (void) runCreateAnimation;
 - (void) animateMoveToCGPoint:(CGPoint)point;
-- (void) animateMoveToCGPoint:(CGPoint)movePoint thenSnapToCGPoint:(CGPoint)snapPoint;
+- (void) snapToCGPoint:(CGPoint)snapPoint thenAnimateMoveToCGPoint:(CGPoint)movePoint;
 - (void) animateMoveAndRemoveToCGPoint:(CGPoint)point;
 - (void) runDangerAnimation;
 - (void) stopDangerAnimation;

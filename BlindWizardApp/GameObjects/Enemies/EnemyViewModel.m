@@ -49,10 +49,10 @@
     self.animationType = MoveAnimation;
 }
 
-- (void) animateMoveToCGPoint:(CGPoint)movePoint thenSnapToCGPoint:(CGPoint)snapPoint {
+- (void) snapToCGPoint:(CGPoint)snapPoint thenAnimateMoveToCGPoint:(CGPoint)movePoint {
     self.movePoint = movePoint;
     self.snapPoint = snapPoint;
-    self.animationType = MoveAndSnapAnimation;
+    self.animationType = SnapAndMoveAnimation;
 }
 
 - (void) animateMoveAndRemoveToCGPoint:(CGPoint)point {
