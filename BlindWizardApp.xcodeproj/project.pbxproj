@@ -19,6 +19,8 @@
 		C35031FA1B4B4EF600A12F8E /* GameAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = C35031F91B4B4EF600A12F8E /* GameAssembly.m */; };
 		C35031FE1B4B500100A12F8E /* GeneralAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = C35031FD1B4B500100A12F8E /* GeneralAssembly.m */; };
 		C35032021B4B5E3A00A12F8E /* GameObjectAssemby.m in Sources */ = {isa = PBXBuildFile; fileRef = C35032011B4B5E3A00A12F8E /* GameObjectAssemby.m */; };
+		C350320B1B4BB1BD00A12F8E /* NSObject+MTKTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C35032081B4BB1BD00A12F8E /* NSObject+MTKTest.m */; };
+		C350320C1B4BB1BD00A12F8E /* UIViewController+TestSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = C350320A1B4BB1BD00A12F8E /* UIViewController+TestSegue.m */; };
 		C35C2E751B484E1C00FF7944 /* ShiftEnemiesLeftGameActionSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C35C2E741B484E1C00FF7944 /* ShiftEnemiesLeftGameActionSpec.m */; };
 		C35C2E781B4857AA00FF7944 /* DropEnemiesDownGameAction.m in Sources */ = {isa = PBXBuildFile; fileRef = C35C2E771B4857AA00FF7944 /* DropEnemiesDownGameAction.m */; };
 		C35C2E7A1B48625500FF7944 /* ShiftEnemiesRightGameActionSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C35C2E791B48625500FF7944 /* ShiftEnemiesRightGameActionSpec.m */; };
@@ -50,8 +52,6 @@
 		C3F6BDE41B389B860088D924 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3F6BDE21B389B860088D924 /* Main.storyboard */; };
 		C3F6BDE61B389B860088D924 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3F6BDE51B389B860088D924 /* Images.xcassets */; };
 		C3F6BDE91B389B860088D924 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3F6BDE71B389B860088D924 /* LaunchScreen.xib */; };
-		C3F6BE021B389C1B0088D924 /* NSObject+MTKTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F6BDFF1B389C1B0088D924 /* NSObject+MTKTest.m */; };
-		C3F6BE031B389C1B0088D924 /* UIViewController+TestSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F6BE011B389C1B0088D924 /* UIViewController+TestSegue.m */; };
 		C3F6BE071B38F6620088D924 /* TitleViewControllerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F6BE061B38F6620088D924 /* TitleViewControllerSpec.m */; };
 		C3F72DA71B3A2C800040909A /* PlayViewControllerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F72DA61B3A2C800040909A /* PlayViewControllerSpec.m */; };
 		C3F72DA91B3A312B0040909A /* BoardViewControllerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F72DA81B3A312B0040909A /* BoardViewControllerSpec.m */; };
@@ -107,6 +107,11 @@
 		C35032031B4B887400A12F8E /* GameObjectDependencyFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameObjectDependencyFactory.h; sourceTree = "<group>"; };
 		C35032041B4B8D1C00A12F8E /* GridCalculatorFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GridCalculatorFactory.h; sourceTree = "<group>"; };
 		C35032051B4BA9FD00A12F8E /* GameObjectFactoryFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameObjectFactoryFactory.h; sourceTree = "<group>"; };
+		C35032071B4BB1BD00A12F8E /* NSObject+MTKTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MTKTest.h"; sourceTree = "<group>"; };
+		C35032081B4BB1BD00A12F8E /* NSObject+MTKTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MTKTest.m"; sourceTree = "<group>"; };
+		C35032091B4BB1BD00A12F8E /* UIViewController+TestSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+TestSegue.h"; sourceTree = "<group>"; };
+		C350320A1B4BB1BD00A12F8E /* UIViewController+TestSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+TestSegue.m"; sourceTree = "<group>"; };
+		C350320D1B4BB1E000A12F8E /* GameBoard+Test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GameBoard+Test.h"; sourceTree = "<group>"; };
 		C35C2E741B484E1C00FF7944 /* ShiftEnemiesLeftGameActionSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShiftEnemiesLeftGameActionSpec.m; sourceTree = "<group>"; };
 		C35C2E761B4857A900FF7944 /* DropEnemiesDownGameAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropEnemiesDownGameAction.h; sourceTree = "<group>"; };
 		C35C2E771B4857AA00FF7944 /* DropEnemiesDownGameAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropEnemiesDownGameAction.m; sourceTree = "<group>"; };
@@ -157,10 +162,6 @@
 		C3F6BDE81B389B860088D924 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		C3F6BDEE1B389B860088D924 /* BlindWizardAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlindWizardAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3F6BDF31B389B860088D924 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C3F6BDFE1B389C1B0088D924 /* NSObject+MTKTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MTKTest.h"; sourceTree = "<group>"; };
-		C3F6BDFF1B389C1B0088D924 /* NSObject+MTKTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MTKTest.m"; sourceTree = "<group>"; };
-		C3F6BE001B389C1B0088D924 /* UIViewController+TestSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+TestSegue.h"; sourceTree = "<group>"; };
-		C3F6BE011B389C1B0088D924 /* UIViewController+TestSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+TestSegue.m"; sourceTree = "<group>"; };
 		C3F6BE061B38F6620088D924 /* TitleViewControllerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleViewControllerSpec.m; sourceTree = "<group>"; };
 		C3F72DA61B3A2C800040909A /* PlayViewControllerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayViewControllerSpec.m; sourceTree = "<group>"; };
 		C3F72DA81B3A312B0040909A /* BoardViewControllerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardViewControllerSpec.m; sourceTree = "<group>"; };
@@ -235,6 +236,18 @@
 				C3FE19E31B44BC2F00F26152 /* GameFlow.m */,
 			);
 			path = GameLogic;
+			sourceTree = "<group>";
+		};
+		C35032061B4BB1BD00A12F8E /* TestUtils */ = {
+			isa = PBXGroup;
+			children = (
+				C35032071B4BB1BD00A12F8E /* NSObject+MTKTest.h */,
+				C35032081B4BB1BD00A12F8E /* NSObject+MTKTest.m */,
+				C35032091B4BB1BD00A12F8E /* UIViewController+TestSegue.h */,
+				C350320A1B4BB1BD00A12F8E /* UIViewController+TestSegue.m */,
+				C350320D1B4BB1E000A12F8E /* GameBoard+Test.h */,
+			);
+			path = TestUtils;
 			sourceTree = "<group>";
 		};
 		C3A3B32A1B3BD06C00ADF11A /* BoardViewController */ = {
@@ -364,6 +377,7 @@
 		C3F6BDF11B389B860088D924 /* BlindWizardAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				C35032061B4BB1BD00A12F8E /* TestUtils */,
 				C3F6BE061B38F6620088D924 /* TitleViewControllerSpec.m */,
 				C3F72DA61B3A2C800040909A /* PlayViewControllerSpec.m */,
 				C3A3B3281B3BCCBF00ADF11A /* PlayViewModelSpec.m */,
@@ -394,10 +408,6 @@
 		C3F6BDF21B389B860088D924 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				C3F6BDFE1B389C1B0088D924 /* NSObject+MTKTest.h */,
-				C3F6BDFF1B389C1B0088D924 /* NSObject+MTKTest.m */,
-				C3F6BE001B389C1B0088D924 /* UIViewController+TestSegue.h */,
-				C3F6BE011B389C1B0088D924 /* UIViewController+TestSegue.m */,
 				C3F6BDF31B389B860088D924 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -680,13 +690,12 @@
 				C34EFC001B4267980079B6DC /* GameObjectFactorySpec.m in Sources */,
 				C35C2E751B484E1C00FF7944 /* ShiftEnemiesLeftGameActionSpec.m in Sources */,
 				C35C2E941B490D7600FF7944 /* GridCalculatorSpec.m in Sources */,
-				C3F6BE021B389C1B0088D924 /* NSObject+MTKTest.m in Sources */,
 				C35C2E7A1B48625500FF7944 /* ShiftEnemiesRightGameActionSpec.m in Sources */,
 				C3F8B8241B47CFE6006A2619 /* CallNextWaveGameActionSpec.m in Sources */,
 				C3F72DA91B3A312B0040909A /* BoardViewControllerSpec.m in Sources */,
 				C3F6BE071B38F6620088D924 /* TitleViewControllerSpec.m in Sources */,
-				C3F6BE031B389C1B0088D924 /* UIViewController+TestSegue.m in Sources */,
 				C35C2E7E1B488E0C00FF7944 /* DestroyEnemyGroupsGameActionSpec.m in Sources */,
+				C350320C1B4BB1BD00A12F8E /* UIViewController+TestSegue.m in Sources */,
 				C34EFC071B427B350079B6DC /* GridStorageKeyGeneratorSpec.m in Sources */,
 				C3F8B8221B47C5EF006A2619 /* QueueSpec.m in Sources */,
 				C3A3B3291B3BCCBF00ADF11A /* PlayViewModelSpec.m in Sources */,
@@ -697,6 +706,7 @@
 				C35C2E881B48B27500FF7944 /* CheckLoseGameActionSpec.m in Sources */,
 				C30A9CC81B449BAD00EBBD94 /* RandomGeneratorSpec.m in Sources */,
 				C35C2E8E1B48EF1400FF7944 /* EnemyViewSpec.m in Sources */,
+				C350320B1B4BB1BD00A12F8E /* NSObject+MTKTest.m in Sources */,
 				C3F72DA71B3A2C800040909A /* PlayViewControllerSpec.m in Sources */,
 				C35C2E831B4891B400FF7944 /* GameBoardSpec.m in Sources */,
 				C35C2E8C1B48E13C00FF7944 /* EnemyViewModelSpec.m in Sources */,

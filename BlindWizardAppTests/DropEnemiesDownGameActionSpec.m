@@ -1,6 +1,7 @@
 #import <Specta/Specta.h>
 #import "Expecta.h"
 #import <OCMock/OCMock.h>
+#import "GameBoard+Test.h"
 
 #import "DropEnemiesDownGameAction.h"
 #import "GameBoard.h"

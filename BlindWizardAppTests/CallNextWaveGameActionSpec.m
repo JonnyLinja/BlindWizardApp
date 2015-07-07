@@ -1,6 +1,7 @@
 #import <Specta/Specta.h>
 #import "Expecta.h"
 #import <OCMock/OCMock.h>
+#import "GameBoard+Test.h"
 
 #import "CallNextWaveGameAction.h"
 #import "RandomGenerator.h"
@@ -17,7 +18,7 @@ describe(@"CallNextWaveGameAction", ^{
     
     beforeEach(^{
         sut = [[CallNextWaveGameAction alloc] init];
-        sut.gameBoard = [GameBoard new];
+        sut.gameBoard = [[GameBoard alloc] initWithRows:5 columns:2];
         randomGeneratorMock = OCMClassMock([RandomGenerator class]);
         sut.randomGenerator = randomGeneratorMock;
         factoryMock = OCMProtocolMock(@protocol(GameDependencyFactory));
@@ -29,8 +30,6 @@ describe(@"CallNextWaveGameAction", ^{
             //context
             NSMutableArray *startData = [@[@3, @1, @1, @0, @2, @0, @0, @0, @0, @0] mutableCopy];
             NSMutableArray *endData = [@[@3, @1, @1, @1, @2, @0, @1, @0, @0, @0] mutableCopy];
-            sut.gameBoard.numRows = 5;
-            sut.gameBoard.numColumns = 2;
             sut.gameBoard.data = startData;
             OCMStub([randomGeneratorMock generate]).andReturn(1);
             id notificationMock = OCMObserverMock();

@@ -1,6 +1,7 @@
 #import <Specta/Specta.h>
 #import "Expecta.h"
 #import <OCMock/OCMock.h>
+#import "GameBoard+Test.h"
 
 #import "CheckLoseGameAction.h"
 #import "GameBoard.h"
@@ -11,22 +12,17 @@ SpecBegin(CheckLoseGameAction)
 
 describe(@"CheckLoseGameAction", ^{
     __block CheckLoseGameAction *sut;
-    __block id factoryMock;
     
     beforeEach(^{
         sut = [[CheckLoseGameAction alloc] init];
-        sut.gameBoard = [GameBoard new];
-        factoryMock = OCMProtocolMock(@protocol(GameDependencyFactory));
-        sut.factory = factoryMock;
+        sut.gameBoard = [[GameBoard alloc] initWithRows:3 columns:2];
+        sut.gameBoard.isActive = YES;
     });
     
     context(@"when executing and there is an enemy at the top of a column", ^{
         it(@"should set gameboard to not active", ^{
             //context
-            sut.gameBoard.isActive = YES;
             sut.gameBoard.data = [@[@1, @1, @2, @2, @0, @3] mutableCopy];
-            sut.gameBoard.numRows = 3;
-            sut.gameBoard.numColumns = 2;
             
             //because
             [sut execute];
@@ -39,10 +35,7 @@ describe(@"CheckLoseGameAction", ^{
     context(@"when executing and there is an enemy at the top of a column", ^{
         it(@"should keep gameboard active", ^{
             //context
-            sut.gameBoard.isActive = YES;
             sut.gameBoard.data = [@[@1, @1, @2, @2, @0, @0] mutableCopy];
-            sut.gameBoard.numRows = 3;
-            sut.gameBoard.numColumns = 2;
             
             //because
             [sut execute];
