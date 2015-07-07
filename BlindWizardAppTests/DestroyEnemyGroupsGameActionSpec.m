@@ -8,6 +8,10 @@
 #import "GameConstants.h"
 #import "GameDependencyFactory.h"
 
+@interface DestroyEnemyGroupsGameAction ()
+@property (nonatomic, strong, readonly) GameBoard *gameBoard; //inject
+@end
+
 SpecBegin(DestroyEnemyGroupsGameAction)
 
 describe(@"DestroyEnemyGroupsGameAction", ^{
@@ -15,10 +19,9 @@ describe(@"DestroyEnemyGroupsGameAction", ^{
     __block id factoryMock;
     
     beforeEach(^{
-        sut = [[DestroyEnemyGroupsGameAction alloc] init];
-        sut.gameBoard = [[GameBoard alloc] init];
+        GameBoard *board = [[GameBoard alloc] init];
         factoryMock = OCMProtocolMock(@protocol(GameDependencyFactory));
-        sut.factory = factoryMock;
+        sut = [[DestroyEnemyGroupsGameAction alloc] initWithGameBoard:board factory:factoryMock];
     });
     
     context(@"when executing", ^{

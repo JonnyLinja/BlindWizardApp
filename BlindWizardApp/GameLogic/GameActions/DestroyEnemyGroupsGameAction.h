@@ -12,9 +12,8 @@
 @class GameBoard;
 
 @interface DestroyEnemyGroupsGameAction : NSObject <GameAction>
-@property (nonatomic, strong) id<GameDependencyFactory> factory; //inject
-@property (nonatomic, strong) GameBoard *gameBoard; //inject
 @property (nonatomic, assign, readonly) CGFloat duration;
+- (id) initWithGameBoard:(GameBoard *)board factory:(id<GameDependencyFactory>)factory;
 - (void) execute;
 - (BOOL) isValid;
 - (NSArray *) generateNextGameActions;

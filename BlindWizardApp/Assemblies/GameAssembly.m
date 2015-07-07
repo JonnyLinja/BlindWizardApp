@@ -17,6 +17,7 @@
 #import "ShiftEnemiesLeftGameAction.h"
 #import "ShiftEnemiesRightGameAction.h"
 #import "DropEnemiesDownGameAction.h"
+#import "DestroyEnemyGroupsGameAction.h"
 
 @implementation GameAssembly
 
@@ -85,7 +86,12 @@
 }
 
 - (id<GameAction>) destroyEnemyGroupsGameActionWithBoard:(GameBoard *)board {
-    return nil;
+    return [TyphoonDefinition withClass:[DestroyEnemyGroupsGameAction class] configuration:^(TyphoonDefinition* definition) {
+        [definition useInitializer:@selector(initWithGameBoard:factory:) parameters:^(TyphoonMethod *initializer) {
+            [initializer injectParameterWith:board];
+            [initializer injectParameterWith:self];
+        }];
+    }];
 }
 
 - (id<GameAction>) dropEnemiesDownGameActionWithBoard:(GameBoard *)board {
