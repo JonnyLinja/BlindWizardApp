@@ -11,7 +11,24 @@
 #import "GameBoard.h"
 #import "GameConstants.h"
 
+@interface CallNextWaveGameAction ()
+@property (nonatomic, strong) id<GameDependencyFactory> factory; //inject
+@property (nonatomic, strong) GameBoard *gameBoard; //inject
+@property (nonatomic, strong) RandomGenerator *randomGenerator; //inject
+@end
+
 @implementation CallNextWaveGameAction
+
+- (id) initWithGameBoard:(GameBoard *)board factory:(id<GameDependencyFactory>)factory randomGenerator:(RandomGenerator *)randomGenerator {
+    self = [super init];
+    if(!self) return nil;
+    
+    self.gameBoard = board;
+    self.factory = factory;
+    self.randomGenerator = randomGenerator;
+    
+    return self;
+}
 
 - (void) execute {
     //loop through columns

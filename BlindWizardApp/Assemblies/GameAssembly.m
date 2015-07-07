@@ -12,6 +12,7 @@
 #import "Game.h"
 #import "GameBoard.h"
 #import "GameFlow.h"
+#import "CallNextWaveGameAction.h"
 
 @implementation GameAssembly
 
@@ -44,7 +45,13 @@
 }
 
 - (id<GameAction>) callNextWaveGameActionWithBoard:(GameBoard *)board {
-    return nil;
+    return [TyphoonDefinition withClass:[CallNextWaveGameAction class] configuration:^(TyphoonDefinition* definition) {
+        [definition useInitializer:@selector(initWithGameBoard:factory:randomGenerator:) parameters:^(TyphoonMethod *initializer) {
+            [initializer injectParameterWith:board];
+            [initializer injectParameterWith:self];
+            [initializer injectParameterWith:[self.generalAssembly randomGenerator]];
+        }];
+    }];
 }
 
 - (id<GameAction>) checkLoseGameActionWithBoard:(GameBoard *)board {

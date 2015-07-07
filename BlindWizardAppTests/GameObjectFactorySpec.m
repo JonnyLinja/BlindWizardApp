@@ -7,7 +7,7 @@
 #import "EnemyViewModel.h"
 #import "EnemyView.h"
 
-@interface EnemyView (Testing)
+@interface EnemyView (Test)
 @property (nonatomic, strong, readonly) EnemyViewModel *viewModel;
 @end
 

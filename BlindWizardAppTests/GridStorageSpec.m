@@ -5,7 +5,7 @@
 #import "GridStorage.h"
 #import "GridStorageKeyGenerator.h"
 
-@interface GridStorage (Testing)
+@interface GridStorage (Test)
 @property (nonatomic, strong, readonly) NSMutableDictionary *objects;
 @property (nonatomic, strong, readonly) NSMutableDictionary *objectsToAdd;
 @property (nonatomic, strong, readonly) NSMutableArray *keysToRemove;

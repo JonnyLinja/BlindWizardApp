@@ -14,8 +14,6 @@
 @class GameBoard;
 
 @protocol GameAction <NSObject>
-@property (nonatomic, strong) id<GameDependencyFactory> factory; //inject
-@property (nonatomic, strong) GameBoard *gameBoard; //inject
 @property (nonatomic, assign, readonly) CGFloat duration;
 - (void) execute;
 - (BOOL) isValid;

@@ -9,6 +9,10 @@
 #import "GameConstants.h"
 #import "GameDependencyFactory.h"
 
+@interface CallNextWaveGameAction (Test)
+@property (nonatomic, strong, readonly) GameBoard *gameBoard; //inject
+@end
+
 SpecBegin(CallNextWaveGameAction)
 
 describe(@"CallNextWaveGameAction", ^{
@@ -17,12 +21,10 @@ describe(@"CallNextWaveGameAction", ^{
     __block id factoryMock;
     
     beforeEach(^{
-        sut = [[CallNextWaveGameAction alloc] init];
-        sut.gameBoard = [[GameBoard alloc] initWithRows:5 columns:2];
-        randomGeneratorMock = OCMClassMock([RandomGenerator class]);
-        sut.randomGenerator = randomGeneratorMock;
+        GameBoard *board = [[GameBoard alloc] initWithRows:5 columns:2];
         factoryMock = OCMProtocolMock(@protocol(GameDependencyFactory));
-        sut.factory = factoryMock;
+        randomGeneratorMock = OCMClassMock([RandomGenerator class]);
+        sut = [[CallNextWaveGameAction alloc] initWithGameBoard:board factory:factoryMock randomGenerator:randomGeneratorMock];
     });
     
     context(@"when executing", ^{
