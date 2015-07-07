@@ -11,9 +11,7 @@ describe(@"EnemyViewModel", ^{
     __block EnemyViewModel *sut;
     
     beforeEach(^{
-        sut = [[EnemyViewModel alloc] initWithType:2 configuration:@{
-                                                                     @"Color" : @"#FFFFFF"
-                                                                     }];
+        sut = [[EnemyViewModel alloc] initWithType:2 moveDuration:0 configuration:@{@"Color" : @"#FFFFFF"}];
     });
     
     context(@"when type is set", ^{

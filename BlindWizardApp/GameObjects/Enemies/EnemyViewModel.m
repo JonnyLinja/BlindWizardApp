@@ -14,15 +14,17 @@
 @property (nonatomic, strong) UIColor *color;
 @property (nonatomic, assign) CGPoint movePoint;
 @property (nonatomic, assign) CGPoint snapPoint;
+@property (nonatomic, assign) CGFloat moveDuration;
 @end
 
 @implementation EnemyViewModel
 
-- (id) initWithType:(NSInteger)enemyType configuration:(NSDictionary *)configuration {
+- (id) initWithType:(NSInteger)enemyType moveDuration:(CGFloat)moveDuration configuration:(NSDictionary *)configuration {
     self = [super init];
     if(!self) return nil;
     
     self.enemyType = enemyType;
+    self.moveDuration = moveDuration;
     
     NSString *hexColor = [configuration objectForKey:@"Color"];
     self.color = [self colorFromHexString:hexColor];

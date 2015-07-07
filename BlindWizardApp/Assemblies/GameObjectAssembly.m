@@ -7,11 +7,18 @@
 //
 
 #import "GameObjectAssembly.h"
+#import "TyphoonConfigPostProcessor.h"
+#import "TyphoonDefinition+Infrastructure.h"
+
 #import "EnemyView.h"
 #import "EnemyViewModel.h"
 #import "GameObjectFactory.h"
 
 @implementation GameObjectAssembly
+
+- (id)configurer {
+    return [TyphoonDefinition configDefinitionWithName:@"GameConfig.plist"];
+}
 
 - (EnemyView *) enemyViewWithViewModel:(EnemyViewModel *)viewModel {
     return [TyphoonDefinition withClass:[EnemyView class] configuration:^(TyphoonDefinition* definition) {
@@ -23,8 +30,9 @@
 
 - (EnemyViewModel *) enemyViewModelWithType:(NSNumber *)type configuration:(NSDictionary *)config {
     return [TyphoonDefinition withClass:[EnemyViewModel class] configuration:^(TyphoonDefinition* definition) {
-        [definition useInitializer:@selector(initWithType:configuration:) parameters:^(TyphoonMethod *initializer) {
+        [definition useInitializer:@selector(initWithType:moveDuration:configuration:) parameters:^(TyphoonMethod *initializer) {
             [initializer injectParameterWith:type];
+            [initializer injectParameterWith:TyphoonConfig(@"MoveAnimationDuration")];
             [initializer injectParameterWith:config];
         }];
     }];

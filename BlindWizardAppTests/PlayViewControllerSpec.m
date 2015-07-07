@@ -8,6 +8,7 @@
 #import "PlayViewModel.h"
 #import "GridCalculatorFactory.h"
 #import "GridCalculator.h"
+#import "BoardViewController.h"
 
 SpecBegin(PlayViewController)
 
@@ -51,7 +52,7 @@ describe(@"PlayViewController", ^{
         it(@"should have a loaded board", ^{
             //context
             id storyboardMock = OCMPartialMock(storyboard);
-            UIViewController *vc = [UIViewController new];
+            BoardViewController *vc = [BoardViewController new];
             OCMStub([storyboardMock instantiateViewControllerWithIdentifier:@"BoardViewController"]).andReturn(vc);
             
             //because
