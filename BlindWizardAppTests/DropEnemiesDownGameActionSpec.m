@@ -8,6 +8,10 @@
 #import "GameConstants.h"
 #import "GameDependencyFactory.h"
 
+@interface DropEnemiesDownGameAction ()
+@property (nonatomic, strong, readonly) GameBoard *gameBoard; //inject
+@end
+
 SpecBegin(DropEnemiesDownGameAction)
 
 describe(@"DropEnemiesDownGameAction", ^{
@@ -15,10 +19,9 @@ describe(@"DropEnemiesDownGameAction", ^{
     __block id factoryMock;
     
     beforeEach(^{
-        sut = [[DropEnemiesDownGameAction alloc] init];
-        sut.gameBoard = [[GameBoard alloc] init];
+        GameBoard *board = [[GameBoard alloc] init];
         factoryMock = OCMProtocolMock(@protocol(GameDependencyFactory));
-        sut.factory = factoryMock;
+        sut = [[DropEnemiesDownGameAction alloc] initWithGameBoard:board factory:factoryMock];
     });
     
     context(@"when executing", ^{
