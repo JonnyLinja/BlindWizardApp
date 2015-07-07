@@ -13,7 +13,6 @@
 @class GameBoard;
 
 @interface GameFlow : NSObject
-@property (nonatomic, strong) Queue *queue; //inject
-@property (nonatomic, strong) GameBoard *gameBoard; //inject
+- (id) initWithGameBoard:(GameBoard *)gameBoard queue:(Queue *)queue;
 - (void) addGameAction:(id<GameAction>)gameAction;
 @end

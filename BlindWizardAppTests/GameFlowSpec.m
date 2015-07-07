@@ -22,11 +22,9 @@ describe(@"GameFlow", ^{
     __block id gameBoardMock;
     
     beforeEach(^{
-        sut = [[GameFlow alloc] init];
         queueMock = OCMClassMock([Queue class]);
-        sut.queue = queueMock;
         gameBoardMock = OCMClassMock([GameBoard class]);
-        sut.gameBoard = gameBoardMock;
+        sut = [[GameFlow alloc] initWithGameBoard:gameBoardMock queue:queueMock];
     });
     
     context(@"when adding a game action", ^{

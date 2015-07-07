@@ -12,7 +12,8 @@
 #import "ShiftEnemiesRightGameAction.h"
 
 @interface Game (Testing)
-@property (nonatomic, strong) GameBoard *board;
+@property (nonatomic, strong, readonly) GameBoard *board;
+@property (nonatomic, strong, readonly) GameFlow *flow;
 @end
 
 SpecBegin(Game)
@@ -24,116 +25,114 @@ describe(@"Game", ^{
     __block id boardMock;
     
     beforeEach(^{
-        sut = [[Game alloc] init];
-        factoryMock = OCMProtocolMock(@protocol(GameDependencyFactory));
-        sut.factory = factoryMock;
         flowMock = OCMClassMock([GameFlow class]);
-        sut.flow = flowMock;
         boardMock = OCMClassMock([GameBoard class]);
-        sut.board = boardMock;
+        factoryMock = OCMProtocolMock(@protocol(GameDependencyFactory));
+        OCMStub([factoryMock gameBoardWithRows:5 columns:5]).andReturn(boardMock);
+        OCMStub([factoryMock gameFlowWithBoard:boardMock]).andReturn(flowMock);
+        
+        sut = [[Game alloc] initWithDependencyFactory:factoryMock];
     });
     
     context(@"when starting the game", ^{
         //TODO: figure out how to load initial blocks on the new board
-        it(@"should create a new board and set the game to in progress", ^{
-            //context
-            NSInteger rows = 5;
-            NSInteger columns = 5;
-            id boardMock = OCMClassMock([GameBoard class]);
-            OCMStub([factoryMock createGameBoardWithRows:rows columns:columns]).andReturn(boardMock);
-            
+        it(@"should create a new board, new flow, and set the game to in progress", ^{
             //because
-            [sut commandStartGameWithRows:rows columns:columns];
+            [sut commandStartGameWithRows:5 columns:5];
             [sut notifyKeyPath:@"board.isActive" setTo:@YES];
             
             //expect
-            expect(sut.board).toNot.beNil();
+            expect(sut.board).to.equal(boardMock);
+            expect(sut.flow).to.equal(flowMock);
             expect(sut.gameInProgress).to.beTruthy();
-            
-            //cleanup
-            [boardMock stopMocking];
         });
     });
     
-    context(@"when board score changes", ^{
-        it(@"should update the score", ^{
-            //context
-            NSInteger score = 5;
-            
-            //because
-            [sut notifyKeyPath:@"board.score" setTo:@(score)];
-            
-            //expect
-            expect(sut.score).to.equal(score);
+    context(@"after starting game", ^{
+        beforeEach(^{
+            [sut commandStartGameWithRows:5 columns:5];
         });
-    });
-    
-    context(@"when board active status changes", ^{
-        it(@"should update game in progress", ^{
-            //context
-            BOOL status = YES;
-            
-            //because
-            [sut notifyKeyPath:@"board.isActive" setTo:@(status)];
-            
-            //expect
-            expect(sut.gameInProgress).to.equal(@(status));
+        
+        context(@"when board score changes", ^{
+            it(@"should update the score", ^{
+                //context
+                NSInteger score = 5;
+                
+                //because
+                [sut notifyKeyPath:@"board.score" setTo:@(score)];
+                
+                //expect
+                expect(sut.score).to.equal(score);
+            });
         });
-    });
-    
-    context(@"when calling the next wave", ^{
-        it(@"should add a game action to the flow", ^{
-            //context
-            id gameActionMock = OCMClassMock([CallNextWaveGameAction class]);
-            OCMStub([factoryMock createCallNextWaveGameActionWithBoard:boardMock]).andReturn(gameActionMock);
-            
-            //because
-            [sut commandCallNextWave];
-            
-            //expect
-            OCMVerify([factoryMock createCallNextWaveGameActionWithBoard:boardMock]);
-            OCMVerify([flowMock addGameAction:gameActionMock]);
-            
-            //cleanup
-            [gameActionMock stopMocking];
+        
+        context(@"when board active status changes", ^{
+            it(@"should update game in progress", ^{
+                //context
+                BOOL status = YES;
+                
+                //because
+                [sut notifyKeyPath:@"board.isActive" setTo:@(status)];
+                
+                //expect
+                expect(sut.gameInProgress).to.equal(@(status));
+            });
         });
-    });
-    
-    context(@"when swiping left", ^{
-        it(@"should add the command to the flow", ^{
-            //context
-            NSInteger row = 3;
-            id gameActionMock = OCMClassMock([ShiftEnemiesLeftGameAction class]);
-            OCMStub([factoryMock createShiftEnemiesLeftGameActionWithBoard:boardMock row:row]).andReturn(gameActionMock);
-            
-            //because
-            [sut commandSwipeLeftOnRow:row];
-            
-            //expect
-            OCMVerify([factoryMock createShiftEnemiesLeftGameActionWithBoard:boardMock row:row]);
-            OCMVerify([flowMock addGameAction:gameActionMock]);
-            
-            //cleanup
-            [gameActionMock stopMocking];
+        
+        context(@"when calling the next wave", ^{
+            it(@"should add a game action to the flow", ^{
+                //context
+                id gameActionMock = OCMClassMock([CallNextWaveGameAction class]);
+                OCMStub([factoryMock callNextWaveGameActionWithBoard:boardMock]).andReturn(gameActionMock);
+                
+                //because
+                [sut commandCallNextWave];
+                
+                //expect
+                OCMVerify([factoryMock callNextWaveGameActionWithBoard:boardMock]);
+                OCMVerify([flowMock addGameAction:gameActionMock]);
+                
+                //cleanup
+                [gameActionMock stopMocking];
+            });
         });
-    });
-
-    context(@"when swiping right", ^{
-        it(@"should add the command to the flow", ^{
-            //context
-            NSInteger row = 3;
-            id gameActionMock = OCMClassMock([ShiftEnemiesRightGameAction class]);
-            OCMStub([factoryMock createShiftEnemiesRightGameActionWithBoard:boardMock row:row]).andReturn(gameActionMock);
-            
-            //because
-            [sut commandSwipeRightOnRow:row];
-            
-            //expect
-            OCMVerify([factoryMock createShiftEnemiesRightGameActionWithBoard:boardMock row:row]);
-            OCMVerify([flowMock addGameAction:gameActionMock]);
-            
-            //cleanup
-            [gameActionMock stopMocking];
+        
+        context(@"when swiping left", ^{
+            it(@"should add the command to the flow", ^{
+                //context
+                NSInteger row = 5;
+                id gameActionMock = OCMClassMock([ShiftEnemiesLeftGameAction class]);
+                OCMStub([factoryMock shiftEnemiesLeftGameActionWithBoard:boardMock row:row]).andReturn(gameActionMock);
+                
+                //because
+                [sut commandSwipeLeftOnRow:row];
+                
+                //expect
+                OCMVerify([factoryMock shiftEnemiesLeftGameActionWithBoard:boardMock row:row]);
+                OCMVerify([flowMock addGameAction:gameActionMock]);
+                
+                //cleanup
+                [gameActionMock stopMocking];
+            });
+        });
+        
+        context(@"when swiping right", ^{
+            it(@"should add the command to the flow", ^{
+                //context
+                NSInteger row = 5;
+                id gameActionMock = OCMClassMock([ShiftEnemiesRightGameAction class]);
+                OCMStub([factoryMock shiftEnemiesRightGameActionWithBoard:boardMock row:row]).andReturn(gameActionMock);
+                
+                //because
+                [sut commandSwipeRightOnRow:row];
+                
+                //expect
+                OCMVerify([factoryMock shiftEnemiesRightGameActionWithBoard:boardMock row:row]);
+                OCMVerify([flowMock addGameAction:gameActionMock]);
+                
+                //cleanup
+                [gameActionMock stopMocking];
+            });
         });
     });
     

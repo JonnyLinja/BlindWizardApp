@@ -7,12 +7,6 @@
 SpecBegin(RandomGenerator)
 
 describe(@"RandomGenerator", ^{
-    __block RandomGenerator *sut;
-    
-    beforeEach(^{
-        sut = [[RandomGenerator alloc] init];
-    });
-    
     //TODO: can technically have tests to confirm maximum is > minimum
     //OR can use NSRange
     
@@ -22,8 +16,7 @@ describe(@"RandomGenerator", ^{
             //context
             NSInteger minimum = 1;
             NSInteger maximum = 5;
-            sut.minimum = minimum;
-            sut.maximum = maximum;
+            RandomGenerator *sut = [[RandomGenerator alloc] initWithMinimum:minimum maximum:maximum];
             
             //because
             NSInteger number = [sut generate];

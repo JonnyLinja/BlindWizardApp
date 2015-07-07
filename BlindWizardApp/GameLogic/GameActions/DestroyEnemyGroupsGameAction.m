@@ -212,7 +212,7 @@
 }
 
 - (NSArray *) generateNextGameActions {
-    return @[[self.factory createDropEnemiesDownGameActionWithBoard:self.gameBoard]];
+    return @[[self.factory dropEnemiesDownGameActionWithBoard:self.gameBoard]];
 }
 
 @end

@@ -13,14 +13,19 @@
 #import "GameBoard.h"
 
 @interface GameFlow ()
+@property (nonatomic, strong) Queue *queue; //inject
+@property (nonatomic, strong) GameBoard *gameBoard; //inject
 @property (nonatomic, assign) BOOL isReady;
 @end
 
 @implementation GameFlow
 
-- (id) init {
+- (id) initWithGameBoard:(GameBoard *)gameBoard queue:(Queue *)queue {
     self = [super init];
     if(!self) return nil;
+    
+    self.gameBoard = gameBoard;
+    self.queue = queue;
     
     self.isReady = YES;
     [self observeProperties:@[@keypath(self.isReady), @keypath(self.queue.hasObject)] withSelector:@selector(runGameAction)];

@@ -182,7 +182,7 @@ describe(@"DestroyEnemyGroupsGameAction", ^{
     context(@"when generating next game action", ^{
         it(@"should create a drop game action", ^{
             //context
-            OCMExpect([factoryMock createDropEnemiesDownGameActionWithBoard:sut.gameBoard]).andReturn(sut);
+            OCMExpect([factoryMock dropEnemiesDownGameActionWithBoard:sut.gameBoard]).andReturn(sut);
             
             //because
             [sut generateNextGameActions];

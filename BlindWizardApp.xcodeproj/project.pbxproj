@@ -15,6 +15,10 @@
 		C34F7F621B3C991200D07881 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = C34F7F611B3C991200D07881 /* Game.m */; };
 		C34F7F641B3CA29E00D07881 /* GameSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C34F7F631B3CA29E00D07881 /* GameSpec.m */; };
 		C34F7F671B3CD28A00D07881 /* BoardViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C34F7F661B3CD28A00D07881 /* BoardViewModel.m */; };
+		C35031F71B4B4DA700A12F8E /* ViewControllerAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = C35031F61B4B4DA700A12F8E /* ViewControllerAssembly.m */; };
+		C35031FA1B4B4EF600A12F8E /* GameAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = C35031F91B4B4EF600A12F8E /* GameAssembly.m */; };
+		C35031FE1B4B500100A12F8E /* GeneralAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = C35031FD1B4B500100A12F8E /* GeneralAssembly.m */; };
+		C35032021B4B5E3A00A12F8E /* GameObjectAssemby.m in Sources */ = {isa = PBXBuildFile; fileRef = C35032011B4B5E3A00A12F8E /* GameObjectAssemby.m */; };
 		C35C2E751B484E1C00FF7944 /* ShiftEnemiesLeftGameActionSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C35C2E741B484E1C00FF7944 /* ShiftEnemiesLeftGameActionSpec.m */; };
 		C35C2E781B4857AA00FF7944 /* DropEnemiesDownGameAction.m in Sources */ = {isa = PBXBuildFile; fileRef = C35C2E771B4857AA00FF7944 /* DropEnemiesDownGameAction.m */; };
 		C35C2E7A1B48625500FF7944 /* ShiftEnemiesRightGameActionSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C35C2E791B48625500FF7944 /* ShiftEnemiesRightGameActionSpec.m */; };
@@ -91,6 +95,17 @@
 		C34F7F631B3CA29E00D07881 /* GameSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameSpec.m; sourceTree = "<group>"; };
 		C34F7F651B3CD28A00D07881 /* BoardViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardViewModel.h; sourceTree = "<group>"; };
 		C34F7F661B3CD28A00D07881 /* BoardViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardViewModel.m; sourceTree = "<group>"; };
+		C35031F51B4B4DA700A12F8E /* ViewControllerAssembly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerAssembly.h; sourceTree = "<group>"; };
+		C35031F61B4B4DA700A12F8E /* ViewControllerAssembly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerAssembly.m; sourceTree = "<group>"; };
+		C35031F81B4B4EF600A12F8E /* GameAssembly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameAssembly.h; sourceTree = "<group>"; };
+		C35031F91B4B4EF600A12F8E /* GameAssembly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameAssembly.m; sourceTree = "<group>"; };
+		C35031FB1B4B4F0B00A12F8E /* GameDependencyFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameDependencyFactory.h; sourceTree = "<group>"; };
+		C35031FC1B4B500100A12F8E /* GeneralAssembly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralAssembly.h; sourceTree = "<group>"; };
+		C35031FD1B4B500100A12F8E /* GeneralAssembly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneralAssembly.m; sourceTree = "<group>"; };
+		C35032001B4B5E3A00A12F8E /* GameObjectAssemby.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameObjectAssemby.h; sourceTree = "<group>"; };
+		C35032011B4B5E3A00A12F8E /* GameObjectAssemby.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameObjectAssemby.m; sourceTree = "<group>"; };
+		C35032031B4B887400A12F8E /* GameObjectDependencyFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameObjectDependencyFactory.h; sourceTree = "<group>"; };
+		C35032041B4B8D1C00A12F8E /* GridCalculatorFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GridCalculatorFactory.h; sourceTree = "<group>"; };
 		C35C2E741B484E1C00FF7944 /* ShiftEnemiesLeftGameActionSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShiftEnemiesLeftGameActionSpec.m; sourceTree = "<group>"; };
 		C35C2E761B4857A900FF7944 /* DropEnemiesDownGameAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropEnemiesDownGameAction.h; sourceTree = "<group>"; };
 		C35C2E771B4857AA00FF7944 /* DropEnemiesDownGameAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropEnemiesDownGameAction.m; sourceTree = "<group>"; };
@@ -151,7 +166,6 @@
 		C3F8B7A11B4762ED006A2619 /* GameAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameAction.h; sourceTree = "<group>"; };
 		C3F8B7A41B476449006A2619 /* CallNextWaveGameAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CallNextWaveGameAction.h; sourceTree = "<group>"; };
 		C3F8B7A51B476449006A2619 /* CallNextWaveGameAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CallNextWaveGameAction.m; sourceTree = "<group>"; };
-		C3F8B7A71B4785EC006A2619 /* GameDependencyFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameDependencyFactory.h; sourceTree = "<group>"; };
 		C3F8B7A81B478723006A2619 /* GameBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameBoard.h; sourceTree = "<group>"; };
 		C3F8B7A91B478723006A2619 /* GameBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameBoard.m; sourceTree = "<group>"; };
 		C3F8B7AB1B47A351006A2619 /* ShiftEnemiesLeftGameAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShiftEnemiesLeftGameAction.h; sourceTree = "<group>"; };
@@ -212,7 +226,6 @@
 			children = (
 				C3F8B7A01B4762E5006A2619 /* GameActions */,
 				C33EA34C1B45F657001D7218 /* GameConstants.h */,
-				C3F8B7A71B4785EC006A2619 /* GameDependencyFactory.h */,
 				C34F7F601B3C991200D07881 /* Game.h */,
 				C34F7F611B3C991200D07881 /* Game.m */,
 				C3F8B7A81B478723006A2619 /* GameBoard.h */,
@@ -392,6 +405,17 @@
 		C3F6BE041B38F6490088D924 /* Assemblies */ = {
 			isa = PBXGroup;
 			children = (
+				C35031F51B4B4DA700A12F8E /* ViewControllerAssembly.h */,
+				C35031F61B4B4DA700A12F8E /* ViewControllerAssembly.m */,
+				C35031FB1B4B4F0B00A12F8E /* GameDependencyFactory.h */,
+				C35031F81B4B4EF600A12F8E /* GameAssembly.h */,
+				C35031F91B4B4EF600A12F8E /* GameAssembly.m */,
+				C35032031B4B887400A12F8E /* GameObjectDependencyFactory.h */,
+				C35032001B4B5E3A00A12F8E /* GameObjectAssemby.h */,
+				C35032011B4B5E3A00A12F8E /* GameObjectAssemby.m */,
+				C35032041B4B8D1C00A12F8E /* GridCalculatorFactory.h */,
+				C35031FC1B4B500100A12F8E /* GeneralAssembly.h */,
+				C35031FD1B4B500100A12F8E /* GeneralAssembly.m */,
 			);
 			path = Assemblies;
 			sourceTree = "<group>";
@@ -633,12 +657,16 @@
 				C3BEFE021B3E1E1A002930BA /* EnemyView.m in Sources */,
 				C35C2E861B48B02600FF7944 /* CheckLoseGameAction.m in Sources */,
 				C3F6BDDE1B389B860088D924 /* AppDelegate.m in Sources */,
+				C35031FA1B4B4EF600A12F8E /* GameAssembly.m in Sources */,
+				C35032021B4B5E3A00A12F8E /* GameObjectAssemby.m in Sources */,
 				C35C2E781B4857AA00FF7944 /* DropEnemiesDownGameAction.m in Sources */,
 				C3EA5B841B43A1C000376A5F /* GridCalculator.m in Sources */,
+				C35031F71B4B4DA700A12F8E /* ViewControllerAssembly.m in Sources */,
 				C3F8B81B1B47B7BE006A2619 /* Queue.m in Sources */,
 				C3F6BDDB1B389B860088D924 /* main.m in Sources */,
 				C3BEFDF81B3E1997002930BA /* GameObjectFactory.m in Sources */,
 				C3EA5B861B43A1C000376A5F /* GridStorageKeyGenerator.m in Sources */,
+				C35031FE1B4B500100A12F8E /* GeneralAssembly.m in Sources */,
 				C3FE19E41B44BC2F00F26152 /* GameFlow.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

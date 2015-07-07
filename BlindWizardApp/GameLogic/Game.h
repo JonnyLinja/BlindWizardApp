@@ -12,10 +12,10 @@
 @class GameFlow;
 
 @interface Game : NSObject
-@property (nonatomic, strong) id<GameDependencyFactory> factory; //inject
-@property (nonatomic, strong) GameFlow *flow; //inject
 @property (nonatomic, assign, readonly) BOOL gameInProgress;
 @property (nonatomic, assign, readonly) NSInteger score;
+
+- (id) initWithDependencyFactory:(id<GameDependencyFactory>)factory;
 
 - (void) commandStartGameWithRows:(NSInteger)rows columns:(NSInteger)columns;
 - (void) commandCallNextWave;

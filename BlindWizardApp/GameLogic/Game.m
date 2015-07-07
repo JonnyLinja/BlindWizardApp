@@ -12,6 +12,8 @@
 #import "MTKObserving.h"
 
 @interface Game ()
+@property (nonatomic, strong) id<GameDependencyFactory> factory; //inject
+@property (nonatomic, strong) GameFlow *flow; //inject
 @property (nonatomic, assign) NSInteger score;
 @property (nonatomic, assign) BOOL gameInProgress;
 @property (nonatomic, strong) GameBoard *board;
@@ -19,31 +21,37 @@
 
 @implementation Game
 
-- (void) setBoard:(GameBoard *)board {
-    [self removeAllObservations];
+- (id) initWithDependencyFactory:(id<GameDependencyFactory>)factory {
+    self = [super init];
+    if(!self) return nil;
+    
+    self.factory = factory;
+    
+    return self;
+}
 
-    _board = board;
+- (void) commandStartGameWithRows:(NSInteger)rows columns:(NSInteger)columns {
+    [self removeAllObservations];
+    
+    self.board = [self.factory gameBoardWithRows:rows columns:columns];
+    self.flow = [self.factory gameFlowWithBoard:self.board];
     
     [self map:@keypath(self.board.score) to:@keypath(self.score) null:@0];
     [self map:@keypath(self.board.isActive) to:@keypath(self.gameInProgress) null:@NO];
 }
 
-- (void) commandStartGameWithRows:(NSInteger)rows columns:(NSInteger)columns {
-    self.board = [self.factory createGameBoardWithRows:rows columns:columns];
-}
-
 - (void) commandCallNextWave {
-    id<GameAction> action = [self.factory createCallNextWaveGameActionWithBoard:self.board];
+    id<GameAction> action = [self.factory callNextWaveGameActionWithBoard:self.board];
     [self.flow addGameAction:action];
 }
 
 - (void) commandSwipeLeftOnRow:(NSInteger)row {
-    id<GameAction> action = [self.factory createShiftEnemiesLeftGameActionWithBoard:self.board row:row];
+    id<GameAction> action = [self.factory shiftEnemiesLeftGameActionWithBoard:self.board row:row];
     [self.flow addGameAction:action];
 }
 
 - (void) commandSwipeRightOnRow:(NSInteger)row {
-    id<GameAction> action = [self.factory createShiftEnemiesRightGameActionWithBoard:self.board row:row];
+    id<GameAction> action = [self.factory shiftEnemiesRightGameActionWithBoard:self.board row:row];
     [self.flow addGameAction:action];
 }
 

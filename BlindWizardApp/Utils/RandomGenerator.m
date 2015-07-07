@@ -8,7 +8,22 @@
 
 #import "RandomGenerator.h"
 
+@interface RandomGenerator ()
+@property (nonatomic, assign) NSInteger minimum;
+@property (nonatomic, assign) NSInteger maximum;
+@end
+
 @implementation RandomGenerator
+
+- (id) initWithMinimum:(NSInteger)minimum maximum:(NSInteger)maximum {
+    self = [super init];
+    if(!self) return nil;
+    
+    self.minimum = minimum;
+    self.maximum = maximum;
+    
+    return self;
+}
 
 - (NSInteger) generate {
     uint32_t difference = (uint32_t)(self.maximum-self.minimum);
