@@ -15,7 +15,7 @@
 @class GridStorage;
 @class GridStorageKeyGenerator;
 
-@interface GeneralAssembly : TyphoonAssembly
+@interface GeneralAssembly : TyphoonAssembly <GridCalculatorFactory>
 
 - (Queue *) queue;
 - (RandomGenerator *) randomGenerator;

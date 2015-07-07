@@ -7,14 +7,21 @@
 //
 
 #import "GeneralAssembly.h"
+#import "TyphoonConfigPostProcessor.h"
 #import "TyphoonDefinition+Infrastructure.h"
+#import <UIKit/UIKit.h>
 
 #import "Queue.h"
 #import "RandomGenerator.h"
+#import "GridCalculator.h"
 #import "GridStorage.h"
 #import "GridStorageKeyGenerator.h"
 
 @implementation GeneralAssembly
+
+- (id)configurer {
+    return [TyphoonDefinition configDefinitionWithName:@"GameConfig.plist"];
+}
 
 - (Queue *) queue {
     return [TyphoonDefinition withClass:[Queue class]];
@@ -37,7 +44,13 @@
 }
 
 - (GridCalculator *) gridCalculatorWithSize:(CGSize)size {
-    return nil;
+    return [TyphoonDefinition withClass:[GridCalculator class] configuration:^(TyphoonDefinition* definition) {
+        [definition useInitializer:@selector(initWithSize:elementWidth:elementHeight:) parameters:^(TyphoonMethod *initializer) {
+            [initializer injectParameterWith:[NSValue valueWithCGSize:size]];
+            [initializer injectParameterWith:TyphoonConfig(@"EnemyWidth")];
+            [initializer injectParameterWith:TyphoonConfig(@"EnemyHeight")];
+        }];
+    }];
 }
 
 - (GridStorage *) gridStorage {

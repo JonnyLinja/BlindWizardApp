@@ -5,11 +5,9 @@
 #import "GridCalculator.h"
 
 @interface GridCalculator (Test)
-@property (nonatomic, assign) NSInteger numRows;
-@property (nonatomic, assign) NSInteger numColumns;
-@property (nonatomic, assign) CGSize size;
-@property (nonatomic, assign) CGFloat verticalPadding;
-@property (nonatomic, assign) CGFloat horizontalPadding;
+@property (nonatomic, assign, readonly) CGSize size;
+@property (nonatomic, assign, readonly) CGFloat verticalPadding;
+@property (nonatomic, assign, readonly) CGFloat horizontalPadding;
 @end
 
 SpecBegin(GridCalculator)
