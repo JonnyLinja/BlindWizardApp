@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GameObjectDependencyFactory.h"
 
+@protocol GameObjectDependencyFactory;
 @class EnemyViewModel;
 @class GridCalculator;
 

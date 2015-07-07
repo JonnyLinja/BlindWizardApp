@@ -8,6 +8,9 @@
 
 #import "GameAction.h"
 
+@protocol GameDependencyFactory;
+@class GameBoard;
+
 @interface DestroyEnemyGroupsGameAction : NSObject <GameAction>
 @property (nonatomic, strong) id<GameDependencyFactory> factory; //inject
 @property (nonatomic, strong) GameBoard *gameBoard; //inject

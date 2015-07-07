@@ -16,11 +16,9 @@ describe(@"ShiftEnemiesLeftGameAction", ^{
     __block id factoryMock;
     
     beforeEach(^{
-        sut = [[ShiftEnemiesLeftGameAction alloc] init];
         gameBoardMock = OCMClassMock([GameBoard class]);
-        sut.gameBoard = gameBoardMock;
         factoryMock = OCMProtocolMock(@protocol(GameDependencyFactory));
-        sut.factory = factoryMock;
+        sut = [[ShiftEnemiesLeftGameAction alloc] initWithGameBoard:gameBoardMock factory:factoryMock];
     });
     
     context(@"when executing", ^{

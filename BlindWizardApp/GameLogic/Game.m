@@ -7,6 +7,7 @@
 //
 
 #import "Game.h"
+#import "GameDependencyFactory.h"
 #import "GameBoard.h"
 #import "GameFlow.h"
 #import "MTKObserving.h"

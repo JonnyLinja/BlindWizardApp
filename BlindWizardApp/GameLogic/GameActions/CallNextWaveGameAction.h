@@ -8,6 +8,7 @@
 
 #import "GameAction.h"
 
+@protocol GameDependencyFactory;
 @class RandomGenerator;
 @class GameBoard;
 

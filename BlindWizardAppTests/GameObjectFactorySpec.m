@@ -3,6 +3,7 @@
 #import <OCMock/OCMock.h>
 
 #import "GameObjectFactory.h"
+#import "GameObjectDependencyFactory.h"
 #import "GridCalculator.h"
 #import "EnemyViewModel.h"
 #import "EnemyView.h"

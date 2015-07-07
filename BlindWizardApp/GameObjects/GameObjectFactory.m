@@ -7,6 +7,7 @@
 //
 
 #import "GameObjectFactory.h"
+#import "GameObjectDependencyFactory.h"
 #import "EnemyView.h"
 #import "EnemyViewModel.h"
 #import "GridCalculator.h"

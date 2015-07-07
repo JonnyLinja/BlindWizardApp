@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "GameAction.h"
 
+@protocol GameAction;
 @class Queue;
 @class GameBoard;
 

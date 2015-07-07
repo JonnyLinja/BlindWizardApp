@@ -7,6 +7,7 @@
 //
 
 #import "ShiftEnemiesRightGameAction.h"
+#import "GameDependencyFactory.h"
 #import "GameBoard.h"
 #import "GameConstants.h"
 

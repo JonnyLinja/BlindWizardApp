@@ -8,10 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreGraphics/CoreGraphics.h>
-#import "GameDependencyFactory.h"
-
-@protocol GameDependencyFactory;
-@class GameBoard;
 
 @protocol GameAction <NSObject>
 @property (nonatomic, assign, readonly) CGFloat duration;

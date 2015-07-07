@@ -7,6 +7,7 @@
 //
 
 #import "CallNextWaveGameAction.h"
+#import "GameDependencyFactory.h"
 #import "RandomGenerator.h"
 #import "GameBoard.h"
 #import "GameConstants.h"

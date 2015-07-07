@@ -14,6 +14,7 @@
 #import "GameFlow.h"
 #import "CallNextWaveGameAction.h"
 #import "CheckLoseGameAction.h"
+#import "ShiftEnemiesLeftGameAction.h"
 
 @implementation GameAssembly
 
@@ -60,10 +61,16 @@
         [definition useInitializer:@selector(initWithGameBoard:) parameters:^(TyphoonMethod *initializer) {
             [initializer injectParameterWith:board];
         }];
-    }];}
+    }];
+}
 
 - (id<GameAction>) shiftEnemiesLeftGameActionWithBoard:(GameBoard *)board row:(NSInteger)row {
-    return nil;
+    return [TyphoonDefinition withClass:[ShiftEnemiesLeftGameAction class] configuration:^(TyphoonDefinition* definition) {
+        [definition useInitializer:@selector(initWithGameBoard:factory:) parameters:^(TyphoonMethod *initializer) {
+            [initializer injectParameterWith:board];
+            [initializer injectParameterWith:self];
+        }];
+    }];
 }
 
 - (id<GameAction>) shiftEnemiesRightGameActionWithBoard:(GameBoard *)board row:(NSInteger)row {

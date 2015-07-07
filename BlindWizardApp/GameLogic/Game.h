@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "GameDependencyFactory.h"
 
+@protocol GameDependencyFactory;
 @class GameFlow;
 
 @interface Game : NSObject
