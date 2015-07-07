@@ -47,7 +47,7 @@
 }
 
 - (BoardViewModel *) boardViewModel {
-    return [TyphoonDefinition withClass:[PlayViewModel class] configuration:^(TyphoonDefinition* definition) {
+    return [TyphoonDefinition withClass:[BoardViewModel class] configuration:^(TyphoonDefinition* definition) {
         [definition injectProperty:@selector(game) with:[self.gameAssembly game]];
         [definition injectProperty:@selector(gridStorage) with:[self.generalAssembly gridStorage]];
         //GridCalculator needs to be manually injected by the VC
