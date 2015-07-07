@@ -31,18 +31,24 @@
 }
 
 - (EnemyViewModel *) createEnemyWithType:(NSInteger)type atRow:(NSInteger)row column:(NSInteger)column {
+    //point
     CGPoint point = [self.calculator calculatePointForRow:row column:column];
+    
+    //config
     NSString *configPath = [[NSBundle mainBundle] pathForResource:@"GameConfig" ofType:@"plist"];
     NSDictionary *gameConfig = [NSDictionary dictionaryWithContentsOfFile:configPath];
     NSArray *enemies = [gameConfig objectForKey:@"Enemies"];
     NSDictionary *configuration = [enemies objectAtIndex:type-1];
     
+    //evm
     EnemyViewModel *evm = [self.factory enemyViewModelWithType:type configuration:configuration];
     
+    //ev
     EnemyView *ev = [self.factory enemyViewWithViewModel:evm];
     ev.frame = CGRectMake(point.x, point.y, self.calculator.elementWidth, self.calculator.elementHeight);
     [self.view addSubview:ev];
     
+    //return
     return evm;
 }
 

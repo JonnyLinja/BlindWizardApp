@@ -32,7 +32,7 @@ describe(@"EnemyView", ^{
         });
     });
     
-    context(@"aniimations", ^{
+    context(@"animations", ^{
         __block EnemyView *sut;
 
         beforeEach(^{
