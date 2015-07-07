@@ -8,7 +8,35 @@
 
 #import "GameBoard.h"
 
+@interface GameBoard ()
+@property (nonatomic, assign) NSInteger score;
+@property (nonatomic, assign) NSInteger numRows;
+@property (nonatomic, assign) NSInteger numColumns;
+@property (nonatomic, strong) NSMutableArray *data;
+@end
+
 @implementation GameBoard
+
+- (id) initWithRows:(NSInteger)numRows columns:(NSInteger)numColumns {
+    self = [super init];
+    if(!self) return nil;
+    
+    self.numRows = numRows;
+    self.numColumns = numColumns;
+    self.data = [NSMutableArray new];
+    
+    [self fillData];
+    
+    return self;
+}
+
+- (void) fillData {
+    //fill data
+    NSInteger count = self.numRows * self.numColumns;
+    for(NSInteger i=0; i<count; i++) {
+        [self.data setObject:@0 atIndexedSubscript:i];
+    }
+}
 
 - (NSInteger) indexFromRow:(NSInteger)row column:(NSInteger)column {
     return (row * self.numColumns) + column;

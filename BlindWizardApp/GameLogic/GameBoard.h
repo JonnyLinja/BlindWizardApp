@@ -9,10 +9,11 @@
 #import <Foundation/Foundation.h>
 
 @interface GameBoard : NSObject
-@property (nonatomic, assign) NSInteger score;
+@property (nonatomic, assign, readonly) NSInteger score;
+@property (nonatomic, assign, readonly) NSInteger numRows;
+@property (nonatomic, assign, readonly) NSInteger numColumns;
+@property (nonatomic, strong, readonly) NSMutableArray *data;
 @property (nonatomic, assign) BOOL isActive;
-@property (nonatomic, assign) NSInteger numRows;
-@property (nonatomic, assign) NSInteger numColumns;
-@property (nonatomic, strong) NSMutableArray *data;
+- (id) initWithRows:(NSInteger)numRows columns:(NSInteger)numColumns;
 - (NSInteger) indexFromRow:(NSInteger)row column:(NSInteger)column;
 @end

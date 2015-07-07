@@ -25,7 +25,13 @@
 }
 
 - (GameBoard *) gameBoardWithRows:(NSInteger)rows columns:(NSInteger)columns {
-    return [TyphoonDefinition withClass:[GameBoard class]];
+    return [TyphoonDefinition withClass:[GameBoard class] configuration:^(TyphoonDefinition* definition) {
+        [definition useInitializer:@selector(initWithRows:columns:) parameters:^(TyphoonMethod *initializer) {
+            [initializer injectParameterWith:@(rows)];
+            [initializer injectParameterWith:@(columns)];
+        }];
+    }];
+
 }
 
 - (GameFlow *) gameFlowWithBoard:(GameBoard *)board {
