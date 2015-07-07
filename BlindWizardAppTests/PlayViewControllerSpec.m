@@ -6,6 +6,8 @@
 
 #import "PlayViewController.h"
 #import "PlayViewModel.h"
+#import "GridCalculatorFactory.h"
+#import "GridCalculator.h"
 
 SpecBegin(PlayViewController)
 
@@ -84,7 +86,31 @@ describe(@"PlayViewController", ^{
         
         context(@"when loaded", ^{
             it(@"should start the game", ^{
+                //because
+                [sut viewDidAppear:YES];
+                
+                //expect
                 OCMVerify([playViewModelMock startGame]);
+            });
+            
+            //ugly, but need to have a delayed injection
+            it(@"should load the grid calculator dependency on the view model", ^{
+                //context
+                id calculatorMock = OCMClassMock([GridCalculator class]);
+                id calculatorFactoryMock = OCMProtocolMock(@protocol(GridCalculatorFactory));
+                OCMStub([calculatorFactoryMock gridCalculatorWithWidth:[OCMArg any] height:[OCMArg any]]).andReturn(calculatorMock);
+                sut.factory = calculatorFactoryMock;
+                
+                //because
+                [sut viewDidAppear:YES];
+                
+                //expect
+                expect(sut.factory).to.equal(calculatorFactoryMock);
+                OCMVerify([calculatorFactoryMock gridCalculatorWithWidth:[OCMArg any] height:[OCMArg any]]);
+                OCMVerify([playViewModelMock setCalculator:calculatorMock]);
+                
+                //cleanup
+                [calculatorMock stopMocking];
             });
         });
         

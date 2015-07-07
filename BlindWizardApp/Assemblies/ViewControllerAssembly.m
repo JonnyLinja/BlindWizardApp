@@ -30,6 +30,7 @@
 - (PlayViewController *) playViewController {
     return [TyphoonDefinition withClass:[PlayViewController class] configuration:^(TyphoonDefinition* definition) {
         [definition injectProperty:@selector(viewModel) with:[self playViewModel]];
+        [definition injectProperty:@selector(factory) with:self.generalAssembly];
     }];
 }
 

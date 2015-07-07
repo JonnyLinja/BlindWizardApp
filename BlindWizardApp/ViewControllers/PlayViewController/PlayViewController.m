@@ -9,6 +9,7 @@
 #import "PlayViewController.h"
 #import "PlayViewModel.h"
 #import "MTKObserving.h"
+#import "GridCalculatorFactory.h"
 
 @interface PlayViewController ()
 
@@ -23,6 +24,15 @@
     //bind
     [self map:@keypath(self.viewModel.score) to:@keypath(self.scoreLabel.text) null:@"0 Points"];
     [self map:@keypath(self.viewModel.gameInProgress) to:@keypath(self.playAgainButton.hidden) null:@YES];
+}
+
+//TODO: one time only check
+- (void) viewDidAppear:(BOOL)animated {
+    //calculator injection
+    NSNumber *width = @(self.boardView.frame.size.width);
+    NSNumber *height = @(self.boardView.frame.size.height);
+    GridCalculator *calculator = [self.factory gridCalculatorWithWidth:width height:height];
+    self.viewModel.calculator = calculator;
     
     //start
     [self.viewModel startGame];

@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol GridCalculatorFactory;
 @class PlayViewModel;
 
 @interface PlayViewController : UIViewController
 @property (nonatomic, strong) PlayViewModel *viewModel; //inject
+@property (nonatomic, strong) id<GridCalculatorFactory> factory; //inject
 @property (nonatomic, weak) IBOutlet UIView *boardView;
 @property (nonatomic, weak) IBOutlet UIButton *closeButton;
 @property (nonatomic, weak) IBOutlet UILabel *scoreLabel;
