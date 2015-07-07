@@ -11,6 +11,9 @@
 #import "GameBoard.h"
 #import "GameFlow.h"
 #import "MTKObserving.h"
+#import "CallNextWaveGameAction.h"
+#import "ShiftEnemiesLeftGameAction.h"
+#import "ShiftEnemiesRightGameAction.h"
 
 @interface Game ()
 @property (nonatomic, strong) id<GameDependencyFactory> factory; //inject

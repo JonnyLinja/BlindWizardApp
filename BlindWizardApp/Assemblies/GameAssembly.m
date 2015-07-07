@@ -49,7 +49,7 @@
     }];
 }
 
-- (id<GameAction>) callNextWaveGameActionWithBoard:(GameBoard *)board {
+- (CallNextWaveGameAction *) callNextWaveGameActionWithBoard:(GameBoard *)board {
     return [TyphoonDefinition withClass:[CallNextWaveGameAction class] configuration:^(TyphoonDefinition* definition) {
         [definition useInitializer:@selector(initWithGameBoard:factory:randomGenerator:) parameters:^(TyphoonMethod *initializer) {
             [initializer injectParameterWith:board];
@@ -59,7 +59,7 @@
     }];
 }
 
-- (id<GameAction>) checkLoseGameActionWithBoard:(GameBoard *)board {
+- (CheckLoseGameAction *) checkLoseGameActionWithBoard:(GameBoard *)board {
     return [TyphoonDefinition withClass:[CheckLoseGameAction class] configuration:^(TyphoonDefinition* definition) {
         [definition useInitializer:@selector(initWithGameBoard:) parameters:^(TyphoonMethod *initializer) {
             [initializer injectParameterWith:board];
@@ -67,7 +67,7 @@
     }];
 }
 
-- (id<GameAction>) shiftEnemiesLeftGameActionWithBoard:(GameBoard *)board row:(NSInteger)row {
+- (ShiftEnemiesLeftGameAction *) shiftEnemiesLeftGameActionWithBoard:(GameBoard *)board row:(NSInteger)row {
     return [TyphoonDefinition withClass:[ShiftEnemiesLeftGameAction class] configuration:^(TyphoonDefinition* definition) {
         [definition useInitializer:@selector(initWithRow:gameBoard:factory:) parameters:^(TyphoonMethod *initializer) {
             [initializer injectParameterWith:@(row)];
@@ -77,7 +77,7 @@
     }];
 }
 
-- (id<GameAction>) shiftEnemiesRightGameActionWithBoard:(GameBoard *)board row:(NSInteger)row {
+- (ShiftEnemiesRightGameAction *) shiftEnemiesRightGameActionWithBoard:(GameBoard *)board row:(NSInteger)row {
     return [TyphoonDefinition withClass:[ShiftEnemiesRightGameAction class] configuration:^(TyphoonDefinition* definition) {
         [definition useInitializer:@selector(initWithRow:gameBoard:factory:) parameters:^(TyphoonMethod *initializer) {
             [initializer injectParameterWith:@(row)];
@@ -87,7 +87,7 @@
     }];
 }
 
-- (id<GameAction>) destroyEnemyGroupsGameActionWithBoard:(GameBoard *)board {
+- (DestroyEnemyGroupsGameAction *) destroyEnemyGroupsGameActionWithBoard:(GameBoard *)board {
     return [TyphoonDefinition withClass:[DestroyEnemyGroupsGameAction class] configuration:^(TyphoonDefinition* definition) {
         [definition useInitializer:@selector(initWithGameBoard:factory:) parameters:^(TyphoonMethod *initializer) {
             [initializer injectParameterWith:board];
@@ -96,7 +96,7 @@
     }];
 }
 
-- (id<GameAction>) dropEnemiesDownGameActionWithBoard:(GameBoard *)board {
+- (DropEnemiesDownGameAction *) dropEnemiesDownGameActionWithBoard:(GameBoard *)board {
     return [TyphoonDefinition withClass:[DropEnemiesDownGameAction class] configuration:^(TyphoonDefinition* definition) {
         [definition useInitializer:@selector(initWithGameBoard:factory:) parameters:^(TyphoonMethod *initializer) {
             [initializer injectParameterWith:board];

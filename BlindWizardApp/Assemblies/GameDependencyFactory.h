@@ -8,17 +8,22 @@
 
 #import "GameAction.h"
 
-@protocol GameAction;
 @class GameFlow;
 @class GameBoard;
+@class CallNextWaveGameAction;
+@class CheckLoseGameAction;
+@class ShiftEnemiesLeftGameAction;
+@class ShiftEnemiesRightGameAction;
+@class DestroyEnemyGroupsGameAction;
+@class DropEnemiesDownGameAction;
 
 @protocol GameDependencyFactory <NSObject>
 - (GameBoard *) gameBoardWithRows:(NSInteger)rows columns:(NSInteger)columns;
 - (GameFlow *) gameFlowWithBoard:(GameBoard *)board;
-- (id<GameAction>) callNextWaveGameActionWithBoard:(GameBoard *)board;
-- (id<GameAction>) checkLoseGameActionWithBoard:(GameBoard *)board;
-- (id<GameAction>) shiftEnemiesLeftGameActionWithBoard:(GameBoard *)board row:(NSInteger)row;
-- (id<GameAction>) shiftEnemiesRightGameActionWithBoard:(GameBoard *)board row:(NSInteger)row;
-- (id<GameAction>) destroyEnemyGroupsGameActionWithBoard:(GameBoard *)board;
-- (id<GameAction>) dropEnemiesDownGameActionWithBoard:(GameBoard *)board;
+- (CallNextWaveGameAction *) callNextWaveGameActionWithBoard:(GameBoard *)board;
+- (CheckLoseGameAction *) checkLoseGameActionWithBoard:(GameBoard *)board;
+- (ShiftEnemiesLeftGameAction *) shiftEnemiesLeftGameActionWithBoard:(GameBoard *)board row:(NSInteger)row;
+- (ShiftEnemiesRightGameAction *) shiftEnemiesRightGameActionWithBoard:(GameBoard *)board row:(NSInteger)row;
+- (DestroyEnemyGroupsGameAction *) destroyEnemyGroupsGameActionWithBoard:(GameBoard *)board;
+- (DropEnemiesDownGameAction *) dropEnemiesDownGameActionWithBoard:(GameBoard *)board;
 @end
