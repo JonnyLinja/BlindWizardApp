@@ -15,6 +15,7 @@
 #import "CallNextWaveGameAction.h"
 #import "CheckLoseGameAction.h"
 #import "ShiftEnemiesLeftGameAction.h"
+#import "ShiftEnemiesRightGameAction.h"
 
 @implementation GameAssembly
 
@@ -74,8 +75,12 @@
 }
 
 - (id<GameAction>) shiftEnemiesRightGameActionWithBoard:(GameBoard *)board row:(NSInteger)row {
-    return nil;
-}
+    return [TyphoonDefinition withClass:[ShiftEnemiesRightGameAction class] configuration:^(TyphoonDefinition* definition) {
+        [definition useInitializer:@selector(initWithGameBoard:factory:) parameters:^(TyphoonMethod *initializer) {
+            [initializer injectParameterWith:board];
+            [initializer injectParameterWith:self];
+        }];
+    }];}
 
 - (id<GameAction>) destroyEnemyGroupsGameActionWithBoard:(GameBoard *)board {
     return nil;

@@ -12,10 +12,9 @@
 @class GameBoard;
 
 @interface ShiftEnemiesRightGameAction : NSObject <GameAction>
-@property (nonatomic, strong) id<GameDependencyFactory> factory; //inject
-@property (nonatomic, strong) GameBoard *gameBoard; //inject
 @property (nonatomic, assign, readonly) CGFloat duration;
 @property (nonatomic, assign) NSInteger row;
+- (id) initWithGameBoard:(GameBoard *)board factory:(id<GameDependencyFactory>)factory;
 - (void) execute;
 - (BOOL) isValid;
 - (NSArray *) generateNextGameActions;

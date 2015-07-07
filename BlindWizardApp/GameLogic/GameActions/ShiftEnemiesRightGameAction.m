@@ -11,7 +11,22 @@
 #import "GameBoard.h"
 #import "GameConstants.h"
 
+@interface ShiftEnemiesRightGameAction ()
+@property (nonatomic, strong) id<GameDependencyFactory> factory; //inject
+@property (nonatomic, strong) GameBoard *gameBoard; //inject
+@end
+
 @implementation ShiftEnemiesRightGameAction
+
+- (id) initWithGameBoard:(GameBoard *)board factory:(id<GameDependencyFactory>)factory {
+    self = [super init];
+    if(!self) return nil;
+    
+    self.gameBoard = board;
+    self.factory = factory;
+    
+    return self;
+}
 
 - (void) execute {
     NSNumber *castedRow = @(self.row);
