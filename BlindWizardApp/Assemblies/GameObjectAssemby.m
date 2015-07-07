@@ -13,7 +13,11 @@
 @implementation GameObjectAssemby
 
 - (EnemyView *) enemyViewWithViewModel:(EnemyViewModel *)viewModel {
-    return nil;
+    return [TyphoonDefinition withClass:[EnemyView class] configuration:^(TyphoonDefinition* definition) {
+        [definition useInitializer:@selector(initWithViewModel:) parameters:^(TyphoonMethod *initializer) {
+            [initializer injectParameterWith:viewModel];
+        }];
+    }];
 }
 
 - (EnemyViewModel *) enemyViewModelWithType:(NSInteger)type configuration:(NSDictionary *)config {

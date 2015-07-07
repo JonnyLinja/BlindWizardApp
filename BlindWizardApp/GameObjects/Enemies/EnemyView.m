@@ -10,10 +10,18 @@
 #import "EnemyViewModel.h"
 #import "MTKObserving.h"
 
+@interface EnemyView ()
+@property (nonatomic, strong) EnemyViewModel *viewModel; //inject
+@end
+
 @implementation EnemyView
 
-- (void) setViewModel:(EnemyViewModel *)viewModel {
-    _viewModel = viewModel;
+- (id) initWithViewModel:(EnemyViewModel *)viewModel {
+    self = [super init];
+    if(!self) return nil;
+    
+    //vm
+    self.viewModel = viewModel;
     
     //bind
     [self removeAllObservations];
@@ -24,6 +32,8 @@
     self.layer.borderColor = [self.viewModel color].CGColor;
     self.layer.borderWidth = 5;
     self.layer.anchorPoint = CGPointMake(0.5, 0.5);
+    
+    return self;
 }
 
 - (void) runAnimation {

@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GameObjectDependencyFactory.h"
 
 @class EnemyViewModel;
 @class GridCalculator;
 
 @interface GameObjectFactory : NSObject
-@property (nonatomic, strong) GridCalculator *gridCalculator; //inject
-@property (nonatomic, weak) UIView *view; //inject
+- (id) initWithView:(UIView *)view calculator:(GridCalculator *)calculator dependencyFactory:(id<GameObjectDependencyFactory>)factory;
 - (EnemyViewModel *) createEnemyWithType:(NSInteger)type atRow:(NSInteger)row column:(NSInteger)column;
 @end

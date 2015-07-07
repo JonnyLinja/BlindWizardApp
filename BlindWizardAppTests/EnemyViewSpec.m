@@ -9,11 +9,9 @@
 SpecBegin(EnemyView)
 
 describe(@"EnemyView", ^{
-    __block EnemyView *sut;
     __block id viewModelMock;
     
     beforeEach(^{
-        sut = [[EnemyView alloc] init];
         viewModelMock = OCMClassMock([EnemyViewModel class]);
     });
     
@@ -24,7 +22,7 @@ describe(@"EnemyView", ^{
             OCMStub([viewModelMock color]).andReturn(color);
             
             //because
-            sut.viewModel = viewModelMock;
+            EnemyView *sut = [[EnemyView alloc] initWithViewModel:viewModelMock];
             
             //expect
             expect(sut.layer.borderWidth).to.beGreaterThan(1);
@@ -35,8 +33,10 @@ describe(@"EnemyView", ^{
     });
     
     context(@"aniimations", ^{
+        __block EnemyView *sut;
+
         beforeEach(^{
-            sut.viewModel = viewModelMock;
+            sut = [[EnemyView alloc] initWithViewModel:viewModelMock];
         });
         
         context(@"when animation becomes create", ^{

@@ -11,5 +11,5 @@
 @class EnemyViewModel;
 
 @interface EnemyView : UIView
-@property (nonatomic, strong) EnemyViewModel *viewModel; //inject
+- (id) initWithViewModel:(EnemyViewModel *)viewModel;
 @end
