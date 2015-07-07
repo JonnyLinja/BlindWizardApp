@@ -22,7 +22,12 @@
 }
 
 - (EnemyViewModel *) enemyViewModelWithType:(NSInteger)type configuration:(NSDictionary *)config {
-    return nil;
+    return [TyphoonDefinition withClass:[EnemyViewModel class] configuration:^(TyphoonDefinition* definition) {
+        [definition useInitializer:@selector(initWithType:configuration:) parameters:^(TyphoonMethod *initializer) {
+            [initializer injectParameterWith:@(type)];
+            [initializer injectParameterWith:config];
+        }];
+    }];
 }
 
 - (GameObjectFactory *) gameObjectFactoryWithView:(UIView *)view gridCalculator:(GridCalculator *)calculator {

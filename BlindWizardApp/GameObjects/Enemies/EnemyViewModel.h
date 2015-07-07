@@ -21,13 +21,13 @@ typedef enum {
 @class UIColor;
 
 @interface EnemyViewModel : NSObject
-@property (nonatomic, strong) NSDictionary *configuration; //inject
-@property (nonatomic, assign) NSInteger enemyType;
-@property (nonatomic, assign) EnemyAnimationType animationType;
+- (id) initWithType:(NSInteger)enemyType configuration:(NSDictionary *)configuration;
+@property (nonatomic, assign, readonly) NSInteger enemyType;
 @property (nonatomic, assign, readonly) CGPoint movePoint;
 @property (nonatomic, assign, readonly) CGPoint snapPoint;
 @property (nonatomic, assign, readonly) CGFloat moveDuration;
 @property (nonatomic, strong, readonly) UIColor *color;
+@property (nonatomic, assign) EnemyAnimationType animationType;
 - (void) runCreateAnimation;
 - (void) animateMoveToCGPoint:(CGPoint)point;
 - (void) animateMoveToCGPoint:(CGPoint)movePoint thenSnapToCGPoint:(CGPoint)snapPoint;
