@@ -143,7 +143,7 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fR2-4y-LcI">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <connections>
-                                    <segue destination="h9S-8f-MZc" kind="embed" id="uZM-AO-sTz"/>
+                                    <segue destination="h9S-8f-MZc" kind="embed" identifier="BoardViewController" id="uZM-AO-sTz"/>
                                 </connections>
                             </containerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Az9-mb-bCG">
