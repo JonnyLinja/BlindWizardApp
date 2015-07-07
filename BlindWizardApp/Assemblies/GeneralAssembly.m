@@ -54,7 +54,11 @@
 }
 
 - (GridStorage *) gridStorage {
-    return nil;
+    return [TyphoonDefinition withClass:[GridStorage class] configuration:^(TyphoonDefinition* definition) {
+        [definition useInitializer:@selector(initWithKeyGenerator:) parameters:^(TyphoonMethod *initializer) {
+            [initializer injectParameterWith:[self gridStoryKeyGenerator]];
+        }];
+    }];
 }
 
 - (GridStorageKeyGenerator *) gridStoryKeyGenerator {
