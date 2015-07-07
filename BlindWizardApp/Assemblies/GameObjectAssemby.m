@@ -9,6 +9,7 @@
 #import "GameObjectAssemby.h"
 #import "EnemyView.h"
 #import "EnemyViewModel.h"
+#import "GameObjectFactory.h"
 
 @implementation GameObjectAssemby
 
@@ -24,8 +25,14 @@
     return nil;
 }
 
-- (GameObjectFactory *) gameObjectFactoryWithView:(UIView *)view {
-    return nil;
+- (GameObjectFactory *) gameObjectFactoryWithView:(UIView *)view gridCalculator:(GridCalculator *)calculator {
+    return [TyphoonDefinition withClass:[GameObjectFactory class] configuration:^(TyphoonDefinition* definition) {
+        [definition useInitializer:@selector(initWithView:calculator:dependencyFactory:) parameters:^(TyphoonMethod *initializer) {
+            [initializer injectParameterWith:view];
+            [initializer injectParameterWith:calculator];
+            [initializer injectParameterWith:self];
+        }];
+    }];
 }
 
 @end

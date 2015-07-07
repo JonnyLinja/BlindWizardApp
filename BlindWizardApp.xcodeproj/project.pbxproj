@@ -106,6 +106,7 @@
 		C35032011B4B5E3A00A12F8E /* GameObjectAssemby.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameObjectAssemby.m; sourceTree = "<group>"; };
 		C35032031B4B887400A12F8E /* GameObjectDependencyFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameObjectDependencyFactory.h; sourceTree = "<group>"; };
 		C35032041B4B8D1C00A12F8E /* GridCalculatorFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GridCalculatorFactory.h; sourceTree = "<group>"; };
+		C35032051B4BA9FD00A12F8E /* GameObjectFactoryFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameObjectFactoryFactory.h; sourceTree = "<group>"; };
 		C35C2E741B484E1C00FF7944 /* ShiftEnemiesLeftGameActionSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShiftEnemiesLeftGameActionSpec.m; sourceTree = "<group>"; };
 		C35C2E761B4857A900FF7944 /* DropEnemiesDownGameAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropEnemiesDownGameAction.h; sourceTree = "<group>"; };
 		C35C2E771B4857AA00FF7944 /* DropEnemiesDownGameAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropEnemiesDownGameAction.m; sourceTree = "<group>"; };
@@ -411,6 +412,7 @@
 				C35031F81B4B4EF600A12F8E /* GameAssembly.h */,
 				C35031F91B4B4EF600A12F8E /* GameAssembly.m */,
 				C35032031B4B887400A12F8E /* GameObjectDependencyFactory.h */,
+				C35032051B4BA9FD00A12F8E /* GameObjectFactoryFactory.h */,
 				C35032001B4B5E3A00A12F8E /* GameObjectAssemby.h */,
 				C35032011B4B5E3A00A12F8E /* GameObjectAssemby.m */,
 				C35032041B4B8D1C00A12F8E /* GridCalculatorFactory.h */,

@@ -8,14 +8,15 @@
 
 #import "TyphoonAssembly.h"
 #import "GameObjectDependencyFactory.h"
+#import "GameObjectFactoryFactory.h"
 
 @class GameObjectFactory;
 @class EnemyView;
 @class EnemyViewModel;
 @class UIView;
 
-@interface GameObjectAssemby : TyphoonAssembly <GameObjectDependencyFactory>
+@interface GameObjectAssemby : TyphoonAssembly <GameObjectDependencyFactory, GameObjectFactoryFactory>
 - (EnemyView *) enemyViewWithViewModel:(EnemyViewModel *)viewModel;
 - (EnemyViewModel *) enemyViewModelWithType:(NSInteger)type configuration:(NSDictionary *)config;
-- (GameObjectFactory *) gameObjectFactoryWithView:(UIView *)view;
+- (GameObjectFactory *) gameObjectFactoryWithView:(UIView *)view gridCalculator:(GridCalculator *)calculator;
 @end
