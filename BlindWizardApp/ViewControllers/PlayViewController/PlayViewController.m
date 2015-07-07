@@ -26,7 +26,6 @@
     
     //bind
     [self map:@keypath(self.viewModel.score) to:@keypath(self.scoreLabel.text) null:@"0 Points"];
-    [self map:@keypath(self.viewModel.gameInProgress) to:@keypath(self.playAgainButton.hidden) null:@YES];
 }
 
 //TODO: one time only check
@@ -39,6 +38,9 @@
     
     //start
     [self.viewModel startGame];
+    
+    //map
+    [self map:@keypath(self.viewModel.gameInProgress) to:@keypath(self.playAgainButton.hidden) null:@YES];
 }
 
 - (IBAction)tappedNextWave:(id)sender {

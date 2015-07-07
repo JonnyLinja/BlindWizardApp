@@ -146,7 +146,7 @@
                                     <segue destination="h9S-8f-MZc" kind="embed" identifier="BoardViewController" id="uZM-AO-sTz"/>
                                 </connections>
                             </containerView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Az9-mb-bCG">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Az9-mb-bCG">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Play Again">

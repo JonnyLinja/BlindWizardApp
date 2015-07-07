@@ -139,6 +139,9 @@ describe(@"PlayViewController", ^{
         
         context(@"when game is over", ^{
             it(@"should show the play again button", ^{
+                //context
+                [sut viewDidAppear:YES];
+                
                 //because
                 [sut notifyKeyPath:@"viewModel.gameInProgress" setTo:@NO];
                 
@@ -149,6 +152,9 @@ describe(@"PlayViewController", ^{
         
         context(@"when game is playing", ^{
             it(@"should hide the play again button", ^{
+                //context
+                [sut viewDidAppear:YES];
+
                 //because
                 [sut notifyKeyPath:@"viewModel.gameInProgress" setTo:@YES];
                 
