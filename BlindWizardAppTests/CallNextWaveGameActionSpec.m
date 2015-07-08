@@ -28,7 +28,7 @@ describe(@"CallNextWaveGameAction", ^{
     });
     
     context(@"when executing", ^{
-        it(@"should create objects at the top most available spot in each column", ^{
+        it(@"should create objects at the top most available spot in each column and notify", ^{
             //context
             NSMutableArray *startData = [@[@3, @1, @1, @0, @2, @0, @0, @0, @0, @0] mutableCopy];
             NSMutableArray *endData = [@[@3, @1, @1, @1, @2, @0, @1, @0, @0, @0] mutableCopy];
@@ -50,6 +50,7 @@ describe(@"CallNextWaveGameAction", ^{
                 expect([userInfo objectForKey:@"column"]).to.equal(@1);
                 return YES;
             }]];
+            [[notificationMock expect] notificationWithName:GameActionCallNextWaveComplete object:sut];
             
             //because
             [sut execute];

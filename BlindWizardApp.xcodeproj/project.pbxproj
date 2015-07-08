@@ -44,6 +44,8 @@
 		C3BEFDF81B3E1997002930BA /* GameObjectFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = C3BEFDF71B3E1997002930BA /* GameObjectFactory.m */; };
 		C3BEFDFF1B3E1E0A002930BA /* EnemyViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C3BEFDFE1B3E1E0A002930BA /* EnemyViewModel.m */; };
 		C3BEFE021B3E1E1A002930BA /* EnemyView.m in Sources */ = {isa = PBXBuildFile; fileRef = C3BEFE011B3E1E1A002930BA /* EnemyView.m */; };
+		C3EA14031B4CE1900022CE9E /* WaveControllerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EA14021B4CE1900022CE9E /* WaveControllerSpec.m */; };
+		C3EA14061B4CE1F60022CE9E /* WaveController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EA14051B4CE1F60022CE9E /* WaveController.m */; };
 		C3EA5B841B43A1C000376A5F /* GridCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EA5B7F1B43A1C000376A5F /* GridCalculator.m */; };
 		C3EA5B851B43A1C000376A5F /* GridStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EA5B811B43A1C000376A5F /* GridStorage.m */; };
 		C3EA5B861B43A1C000376A5F /* GridStorageKeyGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EA5B831B43A1C000376A5F /* GridStorageKeyGenerator.m */; };
@@ -146,6 +148,9 @@
 		C3BEFDFE1B3E1E0A002930BA /* EnemyViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnemyViewModel.m; sourceTree = "<group>"; };
 		C3BEFE001B3E1E1A002930BA /* EnemyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnemyView.h; sourceTree = "<group>"; };
 		C3BEFE011B3E1E1A002930BA /* EnemyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnemyView.m; sourceTree = "<group>"; };
+		C3EA14021B4CE1900022CE9E /* WaveControllerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaveControllerSpec.m; sourceTree = "<group>"; };
+		C3EA14041B4CE1F60022CE9E /* WaveController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaveController.h; sourceTree = "<group>"; };
+		C3EA14051B4CE1F60022CE9E /* WaveController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaveController.m; sourceTree = "<group>"; };
 		C3EA5B7E1B43A1C000376A5F /* GridCalculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridCalculator.h; sourceTree = "<group>"; };
 		C3EA5B7F1B43A1C000376A5F /* GridCalculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridCalculator.m; sourceTree = "<group>"; };
 		C3EA5B801B43A1C000376A5F /* GridStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridStorage.h; sourceTree = "<group>"; };
@@ -234,6 +239,8 @@
 				C3F8B7A91B478723006A2619 /* GameBoard.m */,
 				C3FE19E21B44BC2F00F26152 /* GameFlow.h */,
 				C3FE19E31B44BC2F00F26152 /* GameFlow.m */,
+				C3EA14041B4CE1F60022CE9E /* WaveController.h */,
+				C3EA14051B4CE1F60022CE9E /* WaveController.m */,
 			);
 			path = GameLogic;
 			sourceTree = "<group>";
@@ -400,6 +407,7 @@
 				C35C2E8B1B48E13C00FF7944 /* EnemyViewModelSpec.m */,
 				C35C2E8D1B48EF1400FF7944 /* EnemyViewSpec.m */,
 				C35C2E931B490D7600FF7944 /* GridCalculatorSpec.m */,
+				C3EA14021B4CE1900022CE9E /* WaveControllerSpec.m */,
 				C3F6BDF21B389B860088D924 /* Supporting Files */,
 			);
 			path = BlindWizardAppTests;
@@ -679,6 +687,7 @@
 				C3BEFDF81B3E1997002930BA /* GameObjectFactory.m in Sources */,
 				C3EA5B861B43A1C000376A5F /* GridStorageKeyGenerator.m in Sources */,
 				C35031FE1B4B500100A12F8E /* GeneralAssembly.m in Sources */,
+				C3EA14061B4CE1F60022CE9E /* WaveController.m in Sources */,
 				C3FE19E41B44BC2F00F26152 /* GameFlow.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -687,6 +696,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3EA14031B4CE1900022CE9E /* WaveControllerSpec.m in Sources */,
 				C34EFC001B4267980079B6DC /* GameObjectFactorySpec.m in Sources */,
 				C35C2E751B484E1C00FF7944 /* ShiftEnemiesLeftGameActionSpec.m in Sources */,
 				C35C2E941B490D7600FF7944 /* GridCalculatorSpec.m in Sources */,

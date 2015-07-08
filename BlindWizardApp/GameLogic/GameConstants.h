@@ -16,4 +16,5 @@
 #define GameUpdateMarkEnemyAsPacified   @"GameUpdateMarkEnemyAsPacified"
 #define GameUpdateDestroyEnemy          @"GameUpdateDestroyEnemy"
 
+#define GameActionCallNextWaveComplete  @"GameActionCallNextWaveComplete"
 #define GameActionComplete              @"GameActionComplete"

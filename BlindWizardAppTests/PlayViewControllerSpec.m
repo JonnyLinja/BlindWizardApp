@@ -177,13 +177,6 @@ describe(@"PlayViewController", ^{
             });
         });
         
-        //TODO:
-        pending(@"when a certain amount of time has passed", ^{
-            it(@"should call the next wave", ^{
-
-            });
-        });
-        
         afterEach(^{
             [playViewModelMock stopMocking];
         });
