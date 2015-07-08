@@ -73,12 +73,7 @@ describe(@"EnemyView", ^{
                 //expect
                 expect(sut.frame.origin).to.equal(movePoint);
                 expect(sut.backgroundColor).to.equal(animateColor);
-                waitUntil(^(DoneCallback done) {
-                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, duration * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-                        expect(sut.backgroundColor).to.equal(origColor);
-                        done();
-                    });
-                });
+                expect(sut.backgroundColor).after(duration).to.equal(origColor);
                 OCMVerify([viewModelMock setAnimationType:NoAnimation]);
             });
         });
@@ -105,13 +100,8 @@ describe(@"EnemyView", ^{
                 //expect
                 //expect(sut.frame.origin).to.equal(snapPoint);
                 expect(sut.backgroundColor).to.equal(animateColor);
-                waitUntil(^(DoneCallback done) {
-                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, duration * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-                        expect(sut.backgroundColor).to.equal(origColor);
-                        expect(sut.frame.origin).to.equal(movePoint);
-                        done();
-                    });
-                });
+                expect(sut.backgroundColor).after(duration).to.equal(origColor);
+                expect(sut.frame.origin).after(duration).to.equal(movePoint);
                 OCMVerify([viewModelMock setAnimationType:NoAnimation]);
             });
         });
@@ -137,13 +127,8 @@ describe(@"EnemyView", ^{
                 //expect
                 expect(sut.frame.origin).to.equal(movePoint);
                 expect(sut.backgroundColor).to.equal(animateColor);
-                waitUntil(^(DoneCallback done) {
-                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, duration * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-                        expect(sut.backgroundColor).to.equal(origColor);
-                        expect(sut.superview).to.beNil();
-                        done();
-                    });
-                });
+                expect(sut.backgroundColor).after(duration).to.equal(origColor);
+                expect(sut.superview).after(duration).to.beNil();
                 OCMVerify([viewModelMock setAnimationType:NoAnimation]);
             });
         });
@@ -165,12 +150,7 @@ describe(@"EnemyView", ^{
                 //expect
                 OCMVerify([superViewMock sendSubviewToBack:sut]);
                 expect(CGAffineTransformEqualToTransform(sut.transform, transform)).to.beFalsy();
-                waitUntil(^(DoneCallback done) {
-                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, duration * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-                        expect(sut.superview).to.beNil();
-                        done();
-                    });
-                });
+                expect(sut.superview).after(duration).to.beNil();
                 OCMVerify([viewModelMock setAnimationType:NoAnimation]);
                 
                 //cleanup

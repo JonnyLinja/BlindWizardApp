@@ -133,12 +133,7 @@ describe(@"GameFlow", ^{
             OCMVerify([gameActionMock generateNextGameActions]);
             OCMVerifyAll(queueMock);
             expect(sut.isReady).to.beFalsy();
-            waitUntil(^(DoneCallback done) {
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, duration * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-                    expect(sut.isReady).to.beTruthy();
-                    done();
-                });
-            });
+            expect(sut.isReady).after(duration).to.beTruthy();
             OCMVerifyAll(notificationMock);
             
             //cleanup
@@ -179,12 +174,7 @@ describe(@"GameFlow", ^{
             OCMVerify([gameActionMock generateNextGameActions]);
             OCMVerify([queueMock push:gameActionMock]);
             expect(sut.isReady).to.beFalsy();
-            waitUntil(^(DoneCallback done) {
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, duration * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-                    expect(sut.isReady).to.beTruthy();
-                    done();
-                });
-            });
+            expect(sut.isReady).after(duration).to.beTruthy();
             OCMVerifyAll(notificationMock);
             
             //cleanup
