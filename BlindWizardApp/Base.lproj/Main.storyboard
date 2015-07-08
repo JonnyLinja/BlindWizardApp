@@ -163,7 +163,7 @@
                             <constraint firstAttribute="centerX" secondItem="Az9-mb-bCG" secondAttribute="centerX" id="IGz-2g-FsR"/>
                             <constraint firstAttribute="trailing" secondItem="fR2-4y-LcI" secondAttribute="trailing" id="NVz-sB-law"/>
                             <constraint firstItem="p6v-bM-CP8" firstAttribute="top" secondItem="lmn-Sw-n1r" secondAttribute="top" constant="20" id="P1m-gx-egJ"/>
-                            <constraint firstAttribute="centerY" secondItem="Az9-mb-bCG" secondAttribute="centerY" multiplier="1.1" id="TQa-kt-I1g"/>
+                            <constraint firstAttribute="centerY" secondItem="Az9-mb-bCG" secondAttribute="centerY" id="TQa-kt-I1g"/>
                             <constraint firstAttribute="trailing" secondItem="ymG-jD-JIm" secondAttribute="trailing" constant="20" id="ZVG-HN-cuC"/>
                             <constraint firstAttribute="bottom" secondItem="fR2-4y-LcI" secondAttribute="bottom" id="dXb-ZY-gks"/>
                             <constraint firstAttribute="centerX" secondItem="AyM-eZ-Af7" secondAttribute="centerX" id="fD5-al-vdK"/>

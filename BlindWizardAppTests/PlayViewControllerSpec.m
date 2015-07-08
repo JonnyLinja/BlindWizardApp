@@ -164,6 +164,19 @@ describe(@"PlayViewController", ^{
             });
         });
         
+        context(@"when the board visibility changes", ^{
+            it(@"should change the alpha of the view", ^{
+                //context
+                CGFloat alpha = 0.5;
+                
+                //because
+                [sut notifyKeyPath:@"viewModel.boardVisibility" setTo:@(alpha)];
+                
+                //expect
+                expect(sut.boardView.alpha).to.equal(alpha);
+            });
+        });
+        
         //TODO:
         pending(@"when a certain amount of time has passed", ^{
             it(@"should call the next wave", ^{

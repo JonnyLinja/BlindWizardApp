@@ -14,6 +14,7 @@
 @interface PlayViewModel ()
 @property (nonatomic, assign) BOOL gameInProgress;
 @property (nonatomic, strong) NSString *score;
+@property (nonatomic, assign) CGFloat boardVisibility;
 @end
 
 @implementation PlayViewModel
@@ -33,6 +34,14 @@
     
     //in progress
     [self map:@keypath(self.game.gameInProgress) to:@keypath(self.gameInProgress) null:@NO];
+    [self observeProperty:@keypath(self.game.gameInProgress) withBlock:
+     ^(__weak typeof(self) self, NSNumber *old, NSNumber *newVal) {
+         if([newVal boolValue]) {
+             self.boardVisibility = 1;
+         }else {
+             self.boardVisibility = 0.1;
+         }
+     }];
 }
 
 - (void) callNextWave {

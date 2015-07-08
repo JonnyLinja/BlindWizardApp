@@ -69,6 +69,14 @@ describe(@"PlayViewModel", ^{
             //expect
             expect(sut.gameInProgress).to.beFalsy();
         });
+        
+        it(@"should lower board visibility", ^{
+            //because
+            [sut notifyKeyPath:@"game.gameInProgress" setTo:@NO];
+            
+            //expect
+            expect(sut.boardVisibility).to.beLessThan(1);
+        });
     });
     
     context(@"when game is playing", ^{
@@ -78,6 +86,14 @@ describe(@"PlayViewModel", ^{
             
             //expect
             expect(sut.gameInProgress).to.beTruthy();
+        });
+        
+        it(@"should make the board visibile", ^{
+            //because
+            [sut notifyKeyPath:@"game.gameInProgress" setTo:@YES];
+            
+            //expect
+            expect(sut.boardVisibility).to.equal(1);
         });
     });
     

@@ -26,6 +26,7 @@
     
     //bind
     [self map:@keypath(self.viewModel.score) to:@keypath(self.scoreLabel.text) null:@"0 Points"];
+    [self map:@keypath(self.viewModel.boardVisibility) to:@keypath(self.boardView.alpha) null:@1];
 }
 
 //TODO: one time only check
