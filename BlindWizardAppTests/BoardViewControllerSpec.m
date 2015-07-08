@@ -1,6 +1,7 @@
 #import <Specta/Specta.h>
 #import "Expecta.h"
 #import <OCMock/OCMock.h>
+#import "NSObject+MTKTest.h"
 
 #import "BoardViewController.h"
 #import "BoardViewModel.h"
@@ -67,6 +68,19 @@ describe(@"BoardViewController", ^{
         //TODO: not sure how to do this yet, or if it even belongs in the VC, leave for later
         pending(@"should display initial blocks", ^{
             
+        });
+    });
+    
+    context(@"when view model becomes active", ^{
+        it(@"should remove all subviews", ^{
+            //context
+            [sut.view addSubview:[UIView new]];
+            
+            //because
+            [sut notifyKeyPath:@"viewModel.isActive" setTo:@YES];
+            
+            //expect
+            expect(sut.view.subviews).to.beEmpty();
         });
     });
     

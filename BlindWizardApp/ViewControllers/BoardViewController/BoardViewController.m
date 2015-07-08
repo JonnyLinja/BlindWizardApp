@@ -10,12 +10,31 @@
 #import "BoardViewModel.h"
 #import "GridCalculatorFactory.h"
 #import "GameObjectFactoryFactory.h"
+#import "MTKObserving.h"
 
 @interface BoardViewController ()
 
 @end
 
 @implementation BoardViewController
+
+- (void) viewDidLoad {
+    //super
+    [super viewDidLoad];
+    
+    //bind
+    [self observeProperty:@keypath(self.viewModel.isActive) withBlock:^(__weak typeof(self) self, NSNumber *old, NSNumber *newVal) {
+        if([newVal boolValue]) {
+            [self removeAllSubviews];
+        }
+    }];
+}
+
+- (void) removeAllSubviews {
+    for(UIView *v in self.view.subviews) {
+        [v removeFromSuperview];
+    }
+}
 
 //TODO: one time only check
 - (void) viewDidAppear:(BOOL)animated {
@@ -38,6 +57,10 @@
 - (IBAction)swipedRight:(UISwipeGestureRecognizer *)sender {
     CGPoint point = [sender locationInView:self.view];
     [self.viewModel swipeRightFromPoint:point];
+}
+
+- (void) dealloc {
+    [self removeAllObservations];
 }
 
 @end
