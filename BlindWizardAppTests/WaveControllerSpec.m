@@ -66,7 +66,7 @@ describe(@"WaveController", ^{
             expect(sut.timer).to.beNil();
         });
         
-        pending(@"should call the next wave", ^{
+        it(@"should call the next wave", ^{
             //because
             [sut commandCallNextWave];
             
@@ -74,7 +74,7 @@ describe(@"WaveController", ^{
             OCMVerify([gameMock commandCallNextWave]);
         });
         
-        pending(@"should update the count", ^{
+        it(@"should update the count", ^{
             //because
             [sut commandCallNextWave];
             
@@ -82,7 +82,7 @@ describe(@"WaveController", ^{
             expect(sut.count).to.equal(1);
         });
         
-        pending(@"should apply the timer multiplier to the duration", ^{
+        it(@"should apply the timer multiplier to the duration", ^{
             //because
             [sut commandCallNextWave];
             

@@ -46,6 +46,12 @@
 
 - (void) commandCallNextWave {
     [self stopTimer];
+    
+    [self.game commandCallNextWave];
+    
+    self.count++;
+    
+    self.delay *= self.multiplier;
 }
 
 - (void) startTimer {
