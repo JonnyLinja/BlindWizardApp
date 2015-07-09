@@ -61,6 +61,8 @@
             }
         }
     }
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:GameActionCallNextWaveComplete object:self];
 }
 
 - (BOOL) isValid {

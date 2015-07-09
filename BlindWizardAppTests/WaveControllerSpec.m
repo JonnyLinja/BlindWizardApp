@@ -15,7 +15,7 @@
 
 SpecBegin(WaveController)
 
-describe(@"WaveController", ^{
+pending(@"WaveController", ^{
     __block WaveController *sut;
     __block id gameMock;
     __block id timerMock;

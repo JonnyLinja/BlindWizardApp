@@ -36,6 +36,7 @@ describe(@"CallNextWaveGameAction", ^{
             OCMStub([randomGeneratorMock generate]).andReturn(1);
             id notificationMock = OCMObserverMock();
             [[NSNotificationCenter defaultCenter] addMockObserver:notificationMock name:GameUpdateCreateEnemy object:sut];
+            [[NSNotificationCenter defaultCenter] addMockObserver:notificationMock name:GameActionCallNextWaveComplete object:sut];
             [[notificationMock expect] notificationWithName:GameUpdateCreateEnemy
                                                      object:sut
                                                    userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
