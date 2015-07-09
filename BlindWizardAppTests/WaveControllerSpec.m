@@ -53,7 +53,7 @@ describe(@"WaveController", ^{
         });
     });
     
-    pending(@"when manually calling the next wave", ^{
+    context(@"when manually calling the next wave", ^{
         it(@"should invalidate the timer", ^{
             //context
             sut.timer = timerMock;
@@ -63,9 +63,10 @@ describe(@"WaveController", ^{
             
             //expect
             OCMVerify([timerMock invalidate]);
+            expect(sut.timer).to.beNil();
         });
         
-        it(@"should call the next wave", ^{
+        pending(@"should call the next wave", ^{
             //because
             [sut commandCallNextWave];
             
@@ -73,7 +74,7 @@ describe(@"WaveController", ^{
             OCMVerify([gameMock commandCallNextWave]);
         });
         
-        it(@"should update the count", ^{
+        pending(@"should update the count", ^{
             //because
             [sut commandCallNextWave];
             
@@ -81,7 +82,7 @@ describe(@"WaveController", ^{
             expect(sut.count).to.equal(1);
         });
         
-        it(@"should apply the timer multiplier to the duration", ^{
+        pending(@"should apply the timer multiplier to the duration", ^{
             //because
             [sut commandCallNextWave];
             

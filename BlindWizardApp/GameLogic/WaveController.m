@@ -45,7 +45,7 @@
 }
 
 - (void) commandCallNextWave {
-    
+    [self stopTimer];
 }
 
 - (void) startTimer {
