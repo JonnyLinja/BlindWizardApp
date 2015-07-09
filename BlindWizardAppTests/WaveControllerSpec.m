@@ -90,7 +90,7 @@ describe(@"WaveController", ^{
         });
     });
     
-    pending(@"when a wave is created", ^{
+    context(@"when a wave is created", ^{
         it(@"should decrement the number of creates", ^{
             //context
             sut.count = 3;
@@ -113,6 +113,7 @@ describe(@"WaveController", ^{
             [[NSNotificationCenter defaultCenter] postNotificationName:GameActionCallNextWaveComplete object:nil];
 
             //expect
+            expect(sut.count).to.equal(0);
             expect(sut.timer).to.equal(timerMock);
         });
     });

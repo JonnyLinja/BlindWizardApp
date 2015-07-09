@@ -39,7 +39,7 @@
     }];
     
     //notifications
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(startTimer) name:GameActionCallNextWaveComplete object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(waveCreated) name:GameActionCallNextWaveComplete object:nil];
     
     return self;
 }
@@ -59,6 +59,14 @@
 
 - (void) executeCallNextWave {
     [self.game commandCallNextWave];
+}
+
+- (void) waveCreated {
+    self.count--;
+    
+    if(self.count == 0) {
+        [self startTimer];
+    }
 }
 
 - (void) dealloc {
