@@ -117,7 +117,7 @@ describe(@"WaveController", ^{
         });
     });
     
-    pending(@"when the timer fires", ^{
+    context(@"when the timer fires", ^{
         it(@"should manually call the next wave", ^{
             //context
             [sut notifyKeyPath:@"game.gameInProgress" setTo:@YES];

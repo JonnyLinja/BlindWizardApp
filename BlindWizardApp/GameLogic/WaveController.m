@@ -46,6 +46,7 @@
 }
 
 - (void) executeCallNextWave {
+    [self.game commandCallNextWave];
 }
 
 - (void) dealloc {
