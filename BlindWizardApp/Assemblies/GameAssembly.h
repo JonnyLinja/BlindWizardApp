@@ -20,6 +20,7 @@
 @class ShiftEnemiesRightGameAction;
 @class DropEnemiesDownGameAction;
 @class DestroyEnemyGroupsGameAction;
+@class WaveController;
 
 @interface GameAssembly : TyphoonAssembly <GameDependencyFactory>
 @property(nonatomic, strong, readonly) GeneralAssembly *generalAssembly;
@@ -33,5 +34,6 @@
 - (ShiftEnemiesRightGameAction *) shiftEnemiesRightGameActionWithBoard:(GameBoard *)board row:(NSNumber *)row;
 - (DestroyEnemyGroupsGameAction *) destroyEnemyGroupsGameActionWithBoard:(GameBoard *)board;
 - (DropEnemiesDownGameAction *) dropEnemiesDownGameActionWithBoard:(GameBoard *)board;
+- (WaveController *) waveControllerWithGame:(Game *)game;
 
 @end

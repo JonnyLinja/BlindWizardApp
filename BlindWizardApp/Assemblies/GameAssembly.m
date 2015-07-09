@@ -20,6 +20,7 @@
 #import "ShiftEnemiesRightGameAction.h"
 #import "DropEnemiesDownGameAction.h"
 #import "DestroyEnemyGroupsGameAction.h"
+#import "WaveController.h"
 
 @implementation GameAssembly
 
@@ -110,6 +111,16 @@
             [initializer injectParameterWith:board];
             [initializer injectParameterWith:self];
             [initializer injectParameterWith:TyphoonConfig(@"MoveAnimationDuration")];
+        }];
+    }];
+}
+
+- (WaveController *) waveControllerWithGame:(Game *)game {
+    return [TyphoonDefinition withClass:[WaveController class] configuration:^(TyphoonDefinition* definition) {
+        [definition useInitializer:@selector(initWithInitialDelay:multiplier:Game:) parameters:^(TyphoonMethod *initializer) {
+            [initializer injectParameterWith:TyphoonConfig(@"StartingWaveTimer")];
+            [initializer injectParameterWith:TyphoonConfig(@"WaveTimerMultiplier")];
+            [initializer injectParameterWith:game];
         }];
     }];
 }
