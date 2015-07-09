@@ -103,11 +103,11 @@ describe(@"WaveController", ^{
         });
     });
     
-    pending(@"when there are no waves to be called", ^{
+    context(@"when there are no waves to be called", ^{
         it(@"should start the timer with the duration", ^{
             //context
             sut.count = 1;
-            OCMStub(ClassMethod([timerMock scheduledTimerWithTimeInterval:sut.delay target:[OCMArg any] selector:[OCMArg anySelector] userInfo:[OCMArg any] repeats:@NO])).andReturn(timerMock);
+            OCMStub(ClassMethod([timerMock scheduledTimerWithTimeInterval:sut.delay target:[OCMArg any] selector:[OCMArg anySelector] userInfo:[OCMArg any] repeats:NO])).andReturn(timerMock);
 
             //because
             [[NSNotificationCenter defaultCenter] postNotificationName:GameActionCallNextWaveComplete object:nil];

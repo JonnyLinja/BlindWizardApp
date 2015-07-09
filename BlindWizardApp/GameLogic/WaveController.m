@@ -9,6 +9,7 @@
 #import "WaveController.h"
 #import "Game.h"
 #import "MTKObserving.h"
+#import "GameConstants.h"
 
 @interface WaveController ()
 @property (nonatomic, assign) CGFloat delay;
@@ -31,12 +32,14 @@
     //bind
     [self observeProperty:@keypath(self.game.gameInProgress) withBlock:^(__weak typeof(self) self, NSNumber  *old, NSNumber *newVal) {
         if([newVal boolValue]) {
-            self.timer = [NSTimer scheduledTimerWithTimeInterval:self.delay target:self selector:@selector(executeCallNextWave) userInfo:nil repeats:NO];
+            [self startTimer];
         }else {
-            [self.timer invalidate];
-            self.timer = nil;
+            [self stopTimer];
         }
     }];
+    
+    //notifications
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(startTimer) name:GameActionCallNextWaveComplete object:nil];
     
     return self;
 }
@@ -45,12 +48,22 @@
     
 }
 
+- (void) startTimer {
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:self.delay target:self selector:@selector(executeCallNextWave) userInfo:nil repeats:NO];
+}
+
+- (void) stopTimer {
+    [self.timer invalidate];
+    self.timer = nil;
+}
+
 - (void) executeCallNextWave {
     [self.game commandCallNextWave];
 }
 
 - (void) dealloc {
     [self removeAllObservations];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end
