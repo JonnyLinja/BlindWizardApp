@@ -120,6 +120,19 @@ describe(@"WaveController", ^{
     });
     
     context(@"when the timer fires", ^{
+        //note: order matters, count must increment first, just not sure how to force it
+        it(@"should increment count", ^{
+            //context
+            sut.count = 2;
+            [sut notifyKeyPath:@"game.gameInProgress" setTo:@YES];
+            
+            //because
+            [sut.timer fire];
+            
+            //expect
+            expect(sut.count).to.equal(3);
+        });
+
         it(@"should manually call the next wave", ^{
             //context
             [sut notifyKeyPath:@"game.gameInProgress" setTo:@YES];
