@@ -39,7 +39,7 @@ describe(@"WaveController", ^{
         });
     });
     
-    pending(@"when the game ends", ^{
+    context(@"when the game ends", ^{
         it(@"should stop the timer", ^{
             //context
             sut.timer = timerMock;
@@ -49,6 +49,7 @@ describe(@"WaveController", ^{
             
             //expect
             OCMVerify([timerMock invalidate]);
+            expect(sut.timer).to.beNil();
         });
     });
     

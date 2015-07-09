@@ -30,7 +30,12 @@
     
     //bind
     [self observeProperty:@keypath(self.game.gameInProgress) withBlock:^(__weak typeof(self) self, NSNumber  *old, NSNumber *newVal) {
-        self.timer = [NSTimer scheduledTimerWithTimeInterval:self.delay target:self selector:@selector(executeCallNextWave) userInfo:nil repeats:NO];
+        if([newVal boolValue]) {
+            self.timer = [NSTimer scheduledTimerWithTimeInterval:self.delay target:self selector:@selector(executeCallNextWave) userInfo:nil repeats:NO];
+        }else {
+            [self.timer invalidate];
+            self.timer = nil;
+        }
     }];
     
     return self;
@@ -41,6 +46,10 @@
 }
 
 - (void) executeCallNextWave {
+}
+
+- (void) dealloc {
+    [self removeAllObservations];
 }
 
 @end
