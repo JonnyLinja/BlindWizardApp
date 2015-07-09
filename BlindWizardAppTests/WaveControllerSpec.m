@@ -15,7 +15,7 @@
 
 SpecBegin(WaveController)
 
-pending(@"WaveController", ^{
+describe(@"WaveController", ^{
     __block WaveController *sut;
     __block id gameMock;
     __block id timerMock;
@@ -29,7 +29,7 @@ pending(@"WaveController", ^{
     context(@"when the game starts", ^{
         it(@"should start the timer", ^{
             //context
-            OCMStub(ClassMethod([timerMock scheduledTimerWithTimeInterval:10 target:[OCMArg any] selector:[OCMArg anySelector] userInfo:[OCMArg any] repeats:@NO])).andReturn(timerMock);
+            OCMStub(ClassMethod([timerMock scheduledTimerWithTimeInterval:10 target:[OCMArg any] selector:[OCMArg anySelector] userInfo:[OCMArg any] repeats:NO])).andReturn(timerMock);
 
             //because
             [sut notifyKeyPath:@"game.gameInProgress" setTo:@YES];
@@ -39,7 +39,7 @@ pending(@"WaveController", ^{
         });
     });
     
-    context(@"when the game ends", ^{
+    pending(@"when the game ends", ^{
         it(@"should stop the timer", ^{
             //context
             sut.timer = timerMock;
@@ -52,7 +52,7 @@ pending(@"WaveController", ^{
         });
     });
     
-    context(@"when manually calling the next wave", ^{
+    pending(@"when manually calling the next wave", ^{
         it(@"should invalidate the timer", ^{
             //context
             sut.timer = timerMock;
@@ -89,7 +89,7 @@ pending(@"WaveController", ^{
         });
     });
     
-    context(@"when a wave is created", ^{
+    pending(@"when a wave is created", ^{
         it(@"should decrement the number of creates", ^{
             //context
             sut.count = 3;
@@ -102,7 +102,7 @@ pending(@"WaveController", ^{
         });
     });
     
-    context(@"when there are no waves to be called", ^{
+    pending(@"when there are no waves to be called", ^{
         it(@"should start the timer with the duration", ^{
             //context
             sut.count = 1;
@@ -116,7 +116,7 @@ pending(@"WaveController", ^{
         });
     });
     
-    context(@"when the timer fires", ^{
+    pending(@"when the timer fires", ^{
         it(@"should manually call the next wave", ^{
             //context
             [sut notifyKeyPath:@"game.gameInProgress" setTo:@YES];

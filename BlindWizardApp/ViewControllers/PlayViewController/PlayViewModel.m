@@ -27,12 +27,14 @@
     [self removeAllObservations];
     
     //score
+    //TODO: use map and transformation block instead
     [self observeProperty:@keypath(self.game.score) withBlock:
      ^(__weak typeof(self) self, NSNumber *oldScore, NSNumber *newScore) {
          self.score = [NSString stringWithFormat:@"%@ points", [newScore stringValue]];
      }];
     
     //in progress
+    //TODO: use map and transformation block instead
     [self map:@keypath(self.game.gameInProgress) to:@keypath(self.gameInProgress) null:@NO];
     [self observeProperty:@keypath(self.game.gameInProgress) withBlock:
      ^(__weak typeof(self) self, NSNumber *old, NSNumber *newVal) {
