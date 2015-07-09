@@ -10,6 +10,7 @@
 #import "MTKObserving.h"
 #import "Game.h"
 #import "GridCalculator.h"
+#import "WaveController.h"
 
 @interface PlayViewModel ()
 @property (nonatomic, assign) BOOL gameInProgress;
@@ -47,7 +48,7 @@
 }
 
 - (void) callNextWave {
-    [self.game commandCallNextWave];
+    [self.waveController commandCallNextWave];
 }
 
 - (void) startGame {
