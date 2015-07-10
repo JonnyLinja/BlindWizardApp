@@ -6,7 +6,6 @@
 #import "PlayViewModel.h"
 #import "Game.h"
 #import "GridCalculator.h"
-#import "WaveController.h"
 
 SpecBegin(PlayViewModel)
 
@@ -53,15 +52,11 @@ describe(@"PlayViewModel", ^{
     
     context(@"when trying to call the next wave", ^{
         it(@"should call the next wave", ^{
-            //context
-            id waveMock = OCMClassMock([WaveController class]);
-            sut.waveController = waveMock;
-            
             //because
             [sut callNextWave];
             
             //expect
-            OCMVerify([waveMock commandCallNextWave]);
+            OCMVerify([gameMock commandCallNextWave]);
         });
     });
     

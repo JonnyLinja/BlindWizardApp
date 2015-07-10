@@ -115,12 +115,14 @@
     }];
 }
 
-- (WaveController *) waveControllerWithGame:(Game *)game {
+- (WaveController *) waveControllerWithBoard:(GameBoard *)board flow:(GameFlow *)flow {
     return [TyphoonDefinition withClass:[WaveController class] configuration:^(TyphoonDefinition* definition) {
-        [definition useInitializer:@selector(initWithInitialDelay:multiplier:Game:) parameters:^(TyphoonMethod *initializer) {
+        [definition useInitializer:@selector(initWithInitialDelay:multiplier:gameBoard:gameFlow:dependencyFactory:) parameters:^(TyphoonMethod *initializer) {
             [initializer injectParameterWith:TyphoonConfig(@"StartingWaveTimer")];
             [initializer injectParameterWith:TyphoonConfig(@"WaveTimerMultiplier")];
-            [initializer injectParameterWith:game];
+            [initializer injectParameterWith:board];
+            [initializer injectParameterWith:flow];
+            [initializer injectParameterWith:self];
         }];
     }];
 }

@@ -7,13 +7,14 @@
 #import "GameDependencyFactory.h"
 #import "GameBoard.h"
 #import "GameFlow.h"
-#import "CallNextWaveGameAction.h"
+#import "WaveController.h"
 #import "ShiftEnemiesLeftGameAction.h"
 #import "ShiftEnemiesRightGameAction.h"
 
 @interface Game (Testing)
 @property (nonatomic, strong, readonly) GameBoard *board;
 @property (nonatomic, strong, readonly) GameFlow *flow;
+@property (nonatomic, strong, readonly) WaveController *waveController;
 @end
 
 SpecBegin(Game)
@@ -23,20 +24,24 @@ describe(@"Game", ^{
     __block id factoryMock;
     __block id flowMock;
     __block id boardMock;
+    __block id waveMock;
     
     beforeEach(^{
         flowMock = OCMClassMock([GameFlow class]);
         boardMock = OCMClassMock([GameBoard class]);
         factoryMock = OCMProtocolMock(@protocol(GameDependencyFactory));
+        waveMock = OCMClassMock([WaveController class]);
         OCMStub([factoryMock gameBoardWithRows:@5 columns:@5]).andReturn(boardMock);
         OCMStub([factoryMock gameFlowWithBoard:boardMock]).andReturn(flowMock);
+        OCMStub([factoryMock waveControllerWithBoard:boardMock flow:flowMock]).andReturn(waveMock);
+
         
         sut = [[Game alloc] initWithDependencyFactory:factoryMock];
     });
     
     context(@"when starting the game", ^{
         //TODO: figure out how to load initial blocks on the new board
-        it(@"should create a new board, new flow, and set the game to in progress", ^{
+        it(@"should create a new board, new flow, wave controller, and set the game to in progress", ^{
             //because
             [sut commandStartGameWithRows:5 columns:5];
             [sut notifyKeyPath:@"board.isActive" setTo:@YES];
@@ -44,6 +49,7 @@ describe(@"Game", ^{
             //expect
             expect(sut.board).to.equal(boardMock);
             expect(sut.flow).to.equal(flowMock);
+            expect(sut.waveController).to.equal(waveMock);
             expect(sut.gameInProgress).to.beTruthy();
         });
     });
@@ -80,20 +86,14 @@ describe(@"Game", ^{
         });
         
         context(@"when calling the next wave", ^{
-            it(@"should add a game action to the flow", ^{
+            it(@"should forward the call", ^{
                 //context
-                id gameActionMock = OCMClassMock([CallNextWaveGameAction class]);
-                OCMStub([factoryMock callNextWaveGameActionWithBoard:boardMock]).andReturn(gameActionMock);
                 
                 //because
                 [sut commandCallNextWave];
                 
                 //expect
-                OCMVerify([factoryMock callNextWaveGameActionWithBoard:boardMock]);
-                OCMVerify([flowMock addGameAction:gameActionMock]);
-                
-                //cleanup
-                [gameActionMock stopMocking];
+                OCMVerify([waveMock commandCallNextWave]);
             });
         });
         
@@ -140,6 +140,7 @@ describe(@"Game", ^{
         [factoryMock stopMocking];
         [flowMock stopMocking];
         [boardMock stopMocking];
+        [waveMock stopMocking];
     });
 });
 

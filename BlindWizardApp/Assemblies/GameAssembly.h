@@ -34,6 +34,6 @@
 - (ShiftEnemiesRightGameAction *) shiftEnemiesRightGameActionWithBoard:(GameBoard *)board row:(NSNumber *)row;
 - (DestroyEnemyGroupsGameAction *) destroyEnemyGroupsGameActionWithBoard:(GameBoard *)board;
 - (DropEnemiesDownGameAction *) dropEnemiesDownGameActionWithBoard:(GameBoard *)board;
-- (WaveController *) waveControllerWithGame:(Game *)game;
+- (WaveController *) waveControllerWithBoard:(GameBoard *)board flow:(GameFlow *)flow;
 
 @end

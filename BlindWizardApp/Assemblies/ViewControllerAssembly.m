@@ -38,7 +38,6 @@
     return [TyphoonDefinition withClass:[PlayViewModel class] configuration:^(TyphoonDefinition* definition) {
         Game *game = [self.gameAssembly game];
         [definition injectProperty:@selector(game) with:game];
-        [definition injectProperty:@selector(waveController) with:[self.gameAssembly waveControllerWithGame:game]];
         //GridCalculator needs to be manually injected by the VC
     }];
 }

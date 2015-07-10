@@ -16,6 +16,7 @@
 @class ShiftEnemiesRightGameAction;
 @class DestroyEnemyGroupsGameAction;
 @class DropEnemiesDownGameAction;
+@class WaveController;
 
 @protocol GameDependencyFactory <NSObject>
 - (GameBoard *) gameBoardWithRows:(NSNumber *)rows columns:(NSNumber *)columns;
@@ -26,4 +27,5 @@
 - (ShiftEnemiesRightGameAction *) shiftEnemiesRightGameActionWithBoard:(GameBoard *)board row:(NSNumber *)row;
 - (DestroyEnemyGroupsGameAction *) destroyEnemyGroupsGameActionWithBoard:(GameBoard *)board;
 - (DropEnemiesDownGameAction *) dropEnemiesDownGameActionWithBoard:(GameBoard *)board;
+- (WaveController *) waveControllerWithBoard:(GameBoard *)board flow:(GameFlow *)flow;
 @end

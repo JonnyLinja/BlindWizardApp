@@ -4,8 +4,11 @@
 #import "NSObject+MTKTest.h"
 
 #import "WaveController.h"
-#import "Game.h"
+#import "GameDependencyFactory.h"
+#import "GameBoard.h"
+#import "GameFlow.h"
 #import "GameConstants.h"
+#import "CallNextWaveGameAction.h"
 
 @interface WaveController (Test)
 @property (nonatomic, strong) NSTimer *timer;
@@ -17,12 +20,19 @@ SpecBegin(WaveController)
 
 describe(@"WaveController", ^{
     __block WaveController *sut;
-    __block id gameMock;
+    __block id boardMock;
+    __block id flowMock;
+    __block id factoryMock;
     __block id timerMock;
+    __block id actionMock;
     
     beforeEach(^{
-        gameMock = OCMClassMock([Game class]);
-        sut = [[WaveController alloc] initWithInitialDelay:10 multiplier:0.9 Game:gameMock];
+        flowMock = OCMClassMock([GameBoard class]);
+        flowMock = OCMClassMock([GameFlow class]);
+        factoryMock = OCMProtocolMock(@protocol(GameDependencyFactory));
+        actionMock = OCMClassMock([CallNextWaveGameAction class]);
+        OCMStub([factoryMock callNextWaveGameActionWithBoard:boardMock]).andReturn(actionMock);
+        sut = [[WaveController alloc] initWithInitialDelay:10 multiplier:0.9 gameBoard:boardMock gameFlow:flowMock dependencyFactory:factoryMock];
         timerMock = OCMClassMock([NSTimer class]);
     });
     
@@ -32,7 +42,7 @@ describe(@"WaveController", ^{
             OCMStub(ClassMethod([timerMock scheduledTimerWithTimeInterval:10 target:[OCMArg any] selector:[OCMArg anySelector] userInfo:[OCMArg any] repeats:NO])).andReturn(timerMock);
 
             //because
-            [sut notifyKeyPath:@"game.gameInProgress" setTo:@YES];
+            [sut notifyKeyPath:@"board.isActive" setTo:@YES];
             
             //expect
             expect(sut.timer).to.equal(timerMock);
@@ -45,7 +55,7 @@ describe(@"WaveController", ^{
             sut.timer = timerMock;
             
             //because
-            [sut notifyKeyPath:@"game.gameInProgress" setTo:@NO];
+            [sut notifyKeyPath:@"board.isActive" setTo:@NO];
             
             //expect
             OCMVerify([timerMock invalidate]);
@@ -71,7 +81,7 @@ describe(@"WaveController", ^{
             [sut commandCallNextWave];
             
             //expect
-            OCMVerify([gameMock commandCallNextWave]);
+            OCMVerify([flowMock addGameAction:actionMock]);
         });
         
         it(@"should update the count", ^{
@@ -124,7 +134,7 @@ describe(@"WaveController", ^{
         it(@"should increment count", ^{
             //context
             sut.count = 2;
-            [sut notifyKeyPath:@"game.gameInProgress" setTo:@YES];
+            [sut notifyKeyPath:@"board.isActive" setTo:@YES];
             
             //because
             [sut.timer fire];
@@ -135,19 +145,21 @@ describe(@"WaveController", ^{
 
         it(@"should manually call the next wave", ^{
             //context
-            [sut notifyKeyPath:@"game.gameInProgress" setTo:@YES];
+            [sut notifyKeyPath:@"board.isActive" setTo:@YES];
             
             //because
             [sut.timer fire];
             
             //expect
-            OCMVerify([gameMock commandCallNextWave]);
+            OCMVerify([flowMock addGameAction:actionMock]);
         });
     });
     
     afterEach(^{
-        [gameMock stopMocking];
+        [boardMock stopMocking];
+        [flowMock stopMocking];
         [timerMock stopMocking];
+        [actionMock stopMocking];
     });
 });
 

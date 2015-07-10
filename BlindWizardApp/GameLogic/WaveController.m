@@ -7,30 +7,37 @@
 //
 
 #import "WaveController.h"
-#import "Game.h"
 #import "MTKObserving.h"
 #import "GameConstants.h"
+#import "GameBoard.h"
+#import "GameFlow.h"
+#import "GameDependencyFactory.h"
+#import "CallNextWaveGameAction.h"
 
 @interface WaveController ()
 @property (nonatomic, assign) CGFloat delay;
 @property (nonatomic, assign) CGFloat multiplier;
-@property (nonatomic, strong) Game *game;
+@property (nonatomic, strong) GameBoard *board;
+@property (nonatomic, strong) GameFlow *flow;
+@property (nonatomic, strong) id<GameDependencyFactory> factory;
 @property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic, assign) NSInteger count;
 @end
 
 @implementation WaveController
 
-- (id) initWithInitialDelay:(CGFloat)initialDelay multiplier:(CGFloat)multiplier Game:(Game *)game {
+- (id) initWithInitialDelay:(CGFloat)initialDelay multiplier:(CGFloat)multiplier gameBoard:(GameBoard *)board gameFlow:(GameFlow *)flow dependencyFactory:(id<GameDependencyFactory>)factory {
     self = [super init];
     if(!self) return nil;
     
     self.delay = initialDelay;
     self.multiplier = multiplier;
-    self.game = game;
+    self.board = board;
+    self.flow = flow;
+    self.factory = factory;
     
     //bind
-    [self observeProperty:@keypath(self.game.gameInProgress) withBlock:^(__weak typeof(self) self, NSNumber  *old, NSNumber *newVal) {
+    [self observeProperty:@keypath(self.board.isActive) withBlock:^(__weak typeof(self) self, NSNumber  *old, NSNumber *newVal) {
         if([newVal boolValue]) {
             [self startTimer];
         }else {
@@ -46,9 +53,7 @@
 
 - (void) commandCallNextWave {
     [self stopTimer];
-    
     [self executeCallNextWave];
-    
     self.delay *= self.multiplier;
 }
 
@@ -63,7 +68,8 @@
 
 - (void) executeCallNextWave {
     self.count++;
-    [self.game commandCallNextWave];
+    CallNextWaveGameAction *action = [self.factory callNextWaveGameActionWithBoard:self.board];
+    [self.flow addGameAction:action];
 }
 
 - (void) waveCreated {

@@ -14,6 +14,7 @@
 #import "CallNextWaveGameAction.h"
 #import "ShiftEnemiesLeftGameAction.h"
 #import "ShiftEnemiesRightGameAction.h"
+#import "WaveController.h"
 
 @interface Game ()
 @property (nonatomic, strong) id<GameDependencyFactory> factory; //inject
@@ -21,6 +22,7 @@
 @property (nonatomic, assign) NSInteger score;
 @property (nonatomic, assign) BOOL gameInProgress;
 @property (nonatomic, strong) GameBoard *board;
+@property (nonatomic, strong) WaveController *waveController;
 @end
 
 @implementation Game
@@ -39,14 +41,14 @@
     
     self.board = [self.factory gameBoardWithRows:@(rows) columns:@(columns)];
     self.flow = [self.factory gameFlowWithBoard:self.board];
+    self.waveController = [self.factory waveControllerWithBoard:self.board flow:self.flow];
     
     [self map:@keypath(self.board.score) to:@keypath(self.score) null:@0];
     [self map:@keypath(self.board.isActive) to:@keypath(self.gameInProgress) null:@NO];
 }
 
 - (void) commandCallNextWave {
-    id<GameAction> action = [self.factory callNextWaveGameActionWithBoard:self.board];
-    [self.flow addGameAction:action];
+    [self.waveController commandCallNextWave];
 }
 
 - (void) commandSwipeLeftOnRow:(NSInteger)row {

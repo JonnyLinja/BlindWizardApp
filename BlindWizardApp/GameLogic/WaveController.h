@@ -10,8 +10,11 @@
 #import <CoreGraphics/CoreGraphics.h>
 
 @class Game;
+@class GameBoard;
+@class GameFlow;
+@protocol GameDependencyFactory;
 
 @interface WaveController : NSObject
-- (id) initWithInitialDelay:(CGFloat)initialDelay multiplier:(CGFloat)multiplier Game:(Game *)game;
+- (id) initWithInitialDelay:(CGFloat)initialDelay multiplier:(CGFloat)multiplier gameBoard:(GameBoard *)board gameFlow:(GameFlow *)flow dependencyFactory:(id<GameDependencyFactory>)factory;
 - (void) commandCallNextWave;
 @end
