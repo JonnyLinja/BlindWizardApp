@@ -23,7 +23,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="HkQ-4G-IqO" kind="show" id="HmE-rU-wqg"/>
+                                    <segue destination="HkQ-4G-IqO" kind="custom" customClass="SlideLeftSegue" id="HmE-rU-wqg"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O4S-XF-XT6">

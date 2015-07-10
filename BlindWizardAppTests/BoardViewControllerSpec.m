@@ -123,3 +123,5 @@ describe(@"BoardViewController", ^{
 });
 
 SpecEnd
+
+//TODO: run VDA only once test,  can't figure it out. StrictMocks technically work but due to KVO it fails on every map / bind as well, really no seemingly good way to write it

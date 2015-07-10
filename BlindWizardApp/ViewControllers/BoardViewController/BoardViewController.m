@@ -36,17 +36,18 @@
     }
 }
 
-//TODO: one time only check
 - (void) viewDidAppear:(BOOL)animated {
-    //calculator injection
-    NSNumber *width = @(self.view.frame.size.width);
-    NSNumber *height = @(self.view.frame.size.height);
-    GridCalculator *calculator = [self.calculatorFactory gridCalculatorWithWidth:width height:height];
-    self.viewModel.gridCalculator = calculator;
-    
-    //factory injection
-    GameObjectFactory *factory = [self.gameObjectFactoryFactory gameObjectFactoryWithView:self.view gridCalculator:calculator];
-    self.viewModel.factory = factory;
+    if (animated) { //hack prevent segue calling this too early, not under test
+        //calculator injection
+        NSNumber *width = @(self.view.frame.size.width);
+        NSNumber *height = @(self.view.frame.size.height);
+        GridCalculator *calculator = [self.calculatorFactory gridCalculatorWithWidth:width height:height];
+        self.viewModel.gridCalculator = calculator;
+        
+        //factory injection
+        GameObjectFactory *factory = [self.gameObjectFactoryFactory gameObjectFactoryWithView:self.view gridCalculator:calculator];
+        self.viewModel.factory = factory;
+    }
 }
 
 - (IBAction)swipedLeft:(UISwipeGestureRecognizer *)sender {

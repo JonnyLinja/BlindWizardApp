@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7FAB24D207C69E0B81926A2F /* libPods-BlindWizardApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F66DF0723764B2C29A3CB58 /* libPods-BlindWizardApp.a */; };
 		C30A9CC81B449BAD00EBBD94 /* RandomGeneratorSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C30A9CC71B449BAD00EBBD94 /* RandomGeneratorSpec.m */; };
+		C32C54001B50323F004CE82E /* SlideLeftSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = C32C53FF1B50323F004CE82E /* SlideLeftSegue.m */; };
 		C345FF771B4F7018004C249F /* ScoreCalculatorSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C345FF761B4F7018004C249F /* ScoreCalculatorSpec.m */; };
 		C345FF7A1B4F79B2004C249F /* ScoreCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = C345FF791B4F79B2004C249F /* ScoreCalculator.m */; };
 		C345FF7D1B4F95BA004C249F /* LoadInitialEnemiesGameAction.m in Sources */ = {isa = PBXBuildFile; fileRef = C345FF7C1B4F95BA004C249F /* LoadInitialEnemiesGameAction.m */; };
@@ -98,6 +99,8 @@
 		A4C82791F95AB8508FB957CA /* Pods-BlindWizardApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlindWizardApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BlindWizardApp/Pods-BlindWizardApp.debug.xcconfig"; sourceTree = "<group>"; };
 		C0BC9E0C707035A355E75B87 /* Pods-BlindWizardAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlindWizardAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BlindWizardAppTests/Pods-BlindWizardAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		C30A9CC71B449BAD00EBBD94 /* RandomGeneratorSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RandomGeneratorSpec.m; sourceTree = "<group>"; };
+		C32C53FE1B50323F004CE82E /* SlideLeftSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideLeftSegue.h; sourceTree = "<group>"; };
+		C32C53FF1B50323F004CE82E /* SlideLeftSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideLeftSegue.m; sourceTree = "<group>"; };
 		C33EA34C1B45F657001D7218 /* GameConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameConstants.h; sourceTree = "<group>"; };
 		C345FF761B4F7018004C249F /* ScoreCalculatorSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreCalculatorSpec.m; sourceTree = "<group>"; };
 		C345FF781B4F79B2004C249F /* ScoreCalculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreCalculator.h; sourceTree = "<group>"; };
@@ -244,6 +247,15 @@
 				C0BC9E0C707035A355E75B87 /* Pods-BlindWizardAppTests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		C32C53FD1B503220004CE82E /* Segues */ = {
+			isa = PBXGroup;
+			children = (
+				C32C53FE1B50323F004CE82E /* SlideLeftSegue.h */,
+				C32C53FF1B50323F004CE82E /* SlideLeftSegue.m */,
+			);
+			path = Segues;
 			sourceTree = "<group>";
 		};
 		C345FF831B4FAF61004C249F /* Model */ = {
@@ -399,6 +411,7 @@
 				C34F7F5F1B3C990000D07881 /* GameLogic */,
 				C3BEFDF51B3E1982002930BA /* GameObjects */,
 				C3EA5B7D1B43A1C000376A5F /* Grid */,
+				C32C53FD1B503220004CE82E /* Segues */,
 				C3F6BE051B38F6490088D924 /* ViewControllers */,
 				C3F6BDDC1B389B860088D924 /* AppDelegate.h */,
 				C3F6BDDD1B389B860088D924 /* AppDelegate.m */,
@@ -711,6 +724,7 @@
 				C345FF921B4FBD5F004C249F /* LeaderboardViewModel.m in Sources */,
 				C3A3B3301B3BD84700ADF11A /* PlayViewModel.m in Sources */,
 				C34F7F671B3CD28A00D07881 /* BoardViewModel.m in Sources */,
+				C32C54001B50323F004CE82E /* SlideLeftSegue.m in Sources */,
 				C3A9E7B11B38FC1F006D9C68 /* PlayViewController.m in Sources */,
 				C3BEFDFF1B3E1E0A002930BA /* EnemyViewModel.m in Sources */,
 				C3F8B7B01B47A3E7006A2619 /* ShiftEnemiesRightGameAction.m in Sources */,

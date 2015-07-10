@@ -84,7 +84,7 @@ describe(@"PlayViewController", ^{
     
     context(@"after ui elements loaded", ^{
         __block id playViewModelMock;
-
+        
         beforeEach(^{
             playViewModelMock = OCMClassMock([PlayViewModel class]);
             sut.viewModel = playViewModelMock;
@@ -96,10 +96,13 @@ describe(@"PlayViewController", ^{
                 //because
                 [sut viewDidAppear:YES];
                 
-                //expect - delayed since GCD in VDA
+                //expect - hack delayed since GCD in VDA
                 waitUntil(^(DoneCallback done) {
-                    OCMVerify([playViewModelMock startGame]);
-                    done();
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                        OCMVerify([playViewModelMock startGame]);
+                        done();
+                    });
+                    
                 });
             });
             
@@ -221,3 +224,5 @@ describe(@"PlayViewController", ^{
 });
 
 SpecEnd
+
+//TODO: run VDA only once test,  can't figure it out. StrictMocks technically work but due to KVO it fails on every map / bind as well, really no seemingly good way to write it

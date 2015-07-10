@@ -29,15 +29,17 @@
     [self map:@keypath(self.viewModel.boardVisibility) to:@keypath(self.boardView.alpha) null:@1];
 }
 
-//TODO: one time only check
 - (void) viewDidAppear:(BOOL)animated {
-    //inject
-    [self injectDependencies];
-    
-    //guarantee start occurs after boardvc view did appear
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self startGame];
-    });
+    if (animated) { //hack prevent segue calling this too early, not under test
+        //inject
+        [self injectDependencies];
+        
+        //hack guarantee start occurs after boardvc view did appear
+        //TODO: figure out how to avoid hack, or at least test it properly
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self startGame];
+        });
+    }
 }
 
 - (void) injectDependencies {
