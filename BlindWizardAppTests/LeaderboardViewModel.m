@@ -9,6 +9,19 @@
 SpecBegin(LeaderboardViewModel)
 
 describe(@"LeaderboardViewModel", ^{
+    context(@"when getting an empty list of scores", ^{
+        it(@"should return a string of 10 0s", ^{
+            //context
+            LeaderboardViewModel *sut = [[LeaderboardViewModel alloc] init];
+
+            //because
+            [sut notifyKeyPath:@"topScores.scores" setTo:[NSArray new]];
+            NSString *string = [sut listOfTopScores];
+            
+            //expect
+            expect(string).to.equal(@"0\n\n0\n\n0\n\n0\n\n0\n\n0\n\n0\n\n0\n\n0\n\n0");
+        });
+    });
     context(@"when getting the list of top scores", ^{
         it(@"should return a concantenated string of 10 scores, adding 0s if needed", ^{
             //context
@@ -24,6 +37,9 @@ describe(@"LeaderboardViewModel", ^{
             
             //expect
             expect(string).to.equal(@"3\n\n2\n\n1\n\n0\n\n0\n\n0\n\n0\n\n0\n\n0\n\n0");
+            
+            //cleanup
+            [scoreMock stopMocking];
         });
     });
 });
