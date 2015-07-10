@@ -11,4 +11,5 @@
 @interface TitleViewController : UIViewController
 @property (nonatomic, weak) IBOutlet UIButton *playButton;
 @property (nonatomic, weak) IBOutlet UIButton *leaderboardButton;
+- (IBAction)unwindToTitleViewController:(UIStoryboardSegue *)segue;
 @end

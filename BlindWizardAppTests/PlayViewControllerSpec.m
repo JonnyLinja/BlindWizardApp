@@ -115,6 +115,16 @@ describe(@"PlayViewController", ^{
             });
         });
         
+        context(@"when user taps the close button", ^{
+            it(@"should unwind to the title screen", ^{
+                //because
+                [sut.closeButton sendActionsForControlEvents:UIControlEventTouchUpInside];
+                
+                //expect
+                expect(sut.segueIdentifier).to.equal(@"UnwindToTitleViewController");
+            });
+        });
+        
         context(@"when user taps the next wave button", ^{
             it(@"should create the next wave", ^{
                 //because

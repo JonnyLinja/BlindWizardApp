@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface UIViewController (TestSegue)
-@property (nonatomic, strong) UIViewController *segueDestinationViewController;
+@property (nonatomic, strong) UIViewController *segueDestinationViewController; //doesn't work for unwind
+@property (nonatomic, strong) NSString *segueIdentifier; //works for unwind
 @end
