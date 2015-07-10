@@ -13,6 +13,8 @@
 		C345FF7A1B4F79B2004C249F /* ScoreCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = C345FF791B4F79B2004C249F /* ScoreCalculator.m */; };
 		C345FF7D1B4F95BA004C249F /* LoadInitialEnemiesGameAction.m in Sources */ = {isa = PBXBuildFile; fileRef = C345FF7C1B4F95BA004C249F /* LoadInitialEnemiesGameAction.m */; };
 		C345FF821B4F967E004C249F /* LoadInitialEnemiesGameActionSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C345FF811B4F967E004C249F /* LoadInitialEnemiesGameActionSpec.m */; };
+		C345FF861B4FAF75004C249F /* TopScores.m in Sources */ = {isa = PBXBuildFile; fileRef = C345FF851B4FAF75004C249F /* TopScores.m */; };
+		C345FF881B4FAF82004C249F /* TopScoresSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C345FF871B4FAF82004C249F /* TopScoresSpec.m */; };
 		C34EFC001B4267980079B6DC /* GameObjectFactorySpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C34EFBFF1B4267980079B6DC /* GameObjectFactorySpec.m */; };
 		C34EFC021B426EF20079B6DC /* GridStorageSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C34EFC011B426EF20079B6DC /* GridStorageSpec.m */; };
 		C34EFC071B427B350079B6DC /* GridStorageKeyGeneratorSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C34EFC061B427B350079B6DC /* GridStorageKeyGeneratorSpec.m */; };
@@ -99,6 +101,9 @@
 		C345FF7B1B4F95BA004C249F /* LoadInitialEnemiesGameAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadInitialEnemiesGameAction.h; sourceTree = "<group>"; };
 		C345FF7C1B4F95BA004C249F /* LoadInitialEnemiesGameAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadInitialEnemiesGameAction.m; sourceTree = "<group>"; };
 		C345FF811B4F967E004C249F /* LoadInitialEnemiesGameActionSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadInitialEnemiesGameActionSpec.m; sourceTree = "<group>"; };
+		C345FF841B4FAF75004C249F /* TopScores.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopScores.h; sourceTree = "<group>"; };
+		C345FF851B4FAF75004C249F /* TopScores.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopScores.m; sourceTree = "<group>"; };
+		C345FF871B4FAF82004C249F /* TopScoresSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopScoresSpec.m; sourceTree = "<group>"; };
 		C34EFBFF1B4267980079B6DC /* GameObjectFactorySpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameObjectFactorySpec.m; sourceTree = "<group>"; };
 		C34EFC011B426EF20079B6DC /* GridStorageSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridStorageSpec.m; sourceTree = "<group>"; };
 		C34EFC061B427B350079B6DC /* GridStorageKeyGeneratorSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridStorageKeyGeneratorSpec.m; sourceTree = "<group>"; };
@@ -229,6 +234,15 @@
 				C0BC9E0C707035A355E75B87 /* Pods-BlindWizardAppTests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		C345FF831B4FAF61004C249F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C345FF841B4FAF75004C249F /* TopScores.h */,
+				C345FF851B4FAF75004C249F /* TopScores.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		C34EFBFE1B425CCA0079B6DC /* Effects */ = {
@@ -368,6 +382,7 @@
 			isa = PBXGroup;
 			children = (
 				C3F6BE041B38F6490088D924 /* Assemblies */,
+				C345FF831B4FAF61004C249F /* Model */,
 				C3F8B8181B47B799006A2619 /* Utils */,
 				C34F7F5F1B3C990000D07881 /* GameLogic */,
 				C3BEFDF51B3E1982002930BA /* GameObjects */,
@@ -422,6 +437,7 @@
 				C35C2E931B490D7600FF7944 /* GridCalculatorSpec.m */,
 				C3EA14021B4CE1900022CE9E /* WaveControllerSpec.m */,
 				C345FF761B4F7018004C249F /* ScoreCalculatorSpec.m */,
+				C345FF871B4FAF82004C249F /* TopScoresSpec.m */,
 				C3F6BDF21B389B860088D924 /* Supporting Files */,
 			);
 			path = BlindWizardAppTests;
@@ -685,6 +701,7 @@
 				C3EA5B851B43A1C000376A5F /* GridStorage.m in Sources */,
 				C3F8B7AD1B47A351006A2619 /* ShiftEnemiesLeftGameAction.m in Sources */,
 				C3A9E7B91B38FDC4006D9C68 /* LeaderboardViewController.m in Sources */,
+				C345FF861B4FAF75004C249F /* TopScores.m in Sources */,
 				C34F7F621B3C991200D07881 /* Game.m in Sources */,
 				C3F8B81E1B47B7DA006A2619 /* RandomGenerator.m in Sources */,
 				C3A9E7B51B38FC35006D9C68 /* TitleViewController.m in Sources */,
@@ -729,6 +746,7 @@
 				C3F8B8221B47C5EF006A2619 /* QueueSpec.m in Sources */,
 				C3A3B3291B3BCCBF00ADF11A /* PlayViewModelSpec.m in Sources */,
 				C3FE19E11B44BC0200F26152 /* GameFlowSpec.m in Sources */,
+				C345FF881B4FAF82004C249F /* TopScoresSpec.m in Sources */,
 				C34EFC021B426EF20079B6DC /* GridStorageSpec.m in Sources */,
 				C34F7F641B3CA29E00D07881 /* GameSpec.m in Sources */,
 				C37B74951B3CF5FF00D22D5E /* BoardViewModelSpec.m in Sources */,
