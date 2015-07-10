@@ -109,10 +109,12 @@
 
 - (void) runDangerAnimation {
     self.dangerous = YES;
+    [self updateFace];
 }
 
 - (void) stopDangerAnimation {
     self.dangerous = NO;
+    [self updateFace];
 }
 
 - (void) runDestroyAnimation {

@@ -162,6 +162,14 @@ describe(@"EnemyViewModel", ^{
             //expect
             expect(sut.dangerous).to.beTruthy();
         });
+        
+        it(@"should set the face", ^{
+            //context
+            [sut runDangerAnimation];
+            
+            //expect
+            expect(sut.face).to.equal(@"ಠ_ಠ");
+        });
     });
     
     context(@"when stopping a danger animation", ^{
@@ -172,18 +180,13 @@ describe(@"EnemyViewModel", ^{
             //expect
             expect(sut.dangerous).to.beFalsy();
         });
-    });
-    
-    context(@"when running a neutral animation that is dangerous", ^{
+        
         it(@"should set the face", ^{
             //context
-            sut.dangerous = YES;
-            
-            //because
-            [sut runNeutralAnimation];
+            [sut stopDangerAnimation];
             
             //expect
-            expect(sut.face).to.equal(@"ಠ_ಠ");
+            expect(sut.face).to.equal(@"'-'");
         });
     });
 });
