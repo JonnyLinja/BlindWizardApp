@@ -10,7 +10,7 @@ SpecBegin(LeaderboardViewModel)
 
 describe(@"LeaderboardViewModel", ^{
     context(@"when getting the list of top scores", ^{
-        it(@"should return a concantenated string of the scores", ^{
+        it(@"should return a concantenated string of 10 scores, adding 0s if needed", ^{
             //context
             NSArray *scores = @[@3, @2, @1];
             LeaderboardViewModel *sut = [[LeaderboardViewModel alloc] init];
@@ -23,7 +23,7 @@ describe(@"LeaderboardViewModel", ^{
             NSString *string = [sut listOfTopScores];
             
             //expect
-            expect(string).to.equal(@"3\n\n2\n\n1");
+            expect(string).to.equal(@"3\n\n2\n\n1\n\n0\n\n0\n\n0\n\n0\n\n0\n\n0\n\n0");
         });
     });
 });
