@@ -94,7 +94,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="TEK-w5-HMe" kind="unwind" identifier="UnwindToTitleViewController" unwindAction="unwindToTitleViewController:" id="1qb-5D-dCn"/>
+                                    <segue destination="TEK-w5-HMe" kind="unwind" identifier="UnwindFromLeaderboardToTitleViewController" unwindAction="unwindToTitleViewController:" id="1qb-5D-dCn"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Leaderboard" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pZ3-hU-HZr">
@@ -144,6 +144,7 @@
                     </view>
                     <connections>
                         <outlet property="closeButton" destination="MKO-Ye-fed" id="5vc-9d-mRG"/>
+                        <outlet property="displayLabel" destination="pZ3-hU-HZr" id="sh7-5y-gda"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0RX-5R-IKN" userLabel="First Responder" sceneMemberID="firstResponder"/>

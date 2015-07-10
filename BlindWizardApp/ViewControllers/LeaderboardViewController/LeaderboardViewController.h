@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class LeaderboardViewModel;
+
 @interface LeaderboardViewController : UIViewController
+@property (nonatomic, strong) LeaderboardViewModel *viewModel;
 @property (nonatomic, weak) IBOutlet UIButton *closeButton;
 @property (nonatomic, weak) IBOutlet UILabel *displayLabel;
 @end

@@ -15,6 +15,7 @@
 
 @class TitleViewController;
 @class LeaderboardViewController;
+@class LeaderboardViewModel;
 @class PlayViewController;
 @class PlayViewModel;
 @class BoardViewController;
@@ -28,6 +29,7 @@
 
 - (TitleViewController *) titleViewController;
 - (LeaderboardViewController *) leaderboardViewController;
+- (LeaderboardViewModel *) leaderboardViewModel;
 - (PlayViewController *) playViewController;
 - (PlayViewModel *) playViewModel;
 - (BoardViewController *) boardViewController;

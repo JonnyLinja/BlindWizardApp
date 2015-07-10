@@ -13,6 +13,7 @@
 
 #import "TitleViewController.h"
 #import "LeaderboardViewController.h"
+#import "LeaderboardViewModel.h"
 #import "PlayViewController.h"
 #import "PlayViewModel.h"
 #import "BoardViewController.h"
@@ -25,7 +26,13 @@
 }
 
 - (LeaderboardViewController *) leaderboardViewController {
-    return [TyphoonDefinition withClass:[LeaderboardViewController class]];
+    return [TyphoonDefinition withClass:[LeaderboardViewController class] configuration:^(TyphoonDefinition *definition) {
+        [definition injectProperty:@selector(viewModel) with:[self leaderboardViewModel]];
+    }];
+}
+
+- (LeaderboardViewModel *) leaderboardViewModel {
+    return [TyphoonDefinition withClass:[LeaderboardViewModel class]];
 }
 
 - (PlayViewController *) playViewController {
