@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface GameBoard : NSObject
-@property (nonatomic, assign, readonly) NSInteger score;
+@property (nonatomic, assign) NSInteger score;
 @property (nonatomic, assign, readonly) NSInteger numRows;
 @property (nonatomic, assign, readonly) NSInteger numColumns;
 @property (nonatomic, strong, readonly) NSMutableArray *data;

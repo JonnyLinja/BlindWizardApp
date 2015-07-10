@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		7FAB24D207C69E0B81926A2F /* libPods-BlindWizardApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F66DF0723764B2C29A3CB58 /* libPods-BlindWizardApp.a */; };
 		C30A9CC81B449BAD00EBBD94 /* RandomGeneratorSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C30A9CC71B449BAD00EBBD94 /* RandomGeneratorSpec.m */; };
+		C345FF771B4F7018004C249F /* ScoreCalculatorSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C345FF761B4F7018004C249F /* ScoreCalculatorSpec.m */; };
+		C345FF7A1B4F79B2004C249F /* ScoreCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = C345FF791B4F79B2004C249F /* ScoreCalculator.m */; };
 		C34EFC001B4267980079B6DC /* GameObjectFactorySpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C34EFBFF1B4267980079B6DC /* GameObjectFactorySpec.m */; };
 		C34EFC021B426EF20079B6DC /* GridStorageSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C34EFC011B426EF20079B6DC /* GridStorageSpec.m */; };
 		C34EFC071B427B350079B6DC /* GridStorageKeyGeneratorSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C34EFC061B427B350079B6DC /* GridStorageKeyGeneratorSpec.m */; };
@@ -89,6 +91,9 @@
 		C0BC9E0C707035A355E75B87 /* Pods-BlindWizardAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlindWizardAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BlindWizardAppTests/Pods-BlindWizardAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		C30A9CC71B449BAD00EBBD94 /* RandomGeneratorSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RandomGeneratorSpec.m; sourceTree = "<group>"; };
 		C33EA34C1B45F657001D7218 /* GameConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameConstants.h; sourceTree = "<group>"; };
+		C345FF761B4F7018004C249F /* ScoreCalculatorSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreCalculatorSpec.m; sourceTree = "<group>"; };
+		C345FF781B4F79B2004C249F /* ScoreCalculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreCalculator.h; sourceTree = "<group>"; };
+		C345FF791B4F79B2004C249F /* ScoreCalculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreCalculator.m; sourceTree = "<group>"; };
 		C34EFBFF1B4267980079B6DC /* GameObjectFactorySpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameObjectFactorySpec.m; sourceTree = "<group>"; };
 		C34EFC011B426EF20079B6DC /* GridStorageSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridStorageSpec.m; sourceTree = "<group>"; };
 		C34EFC061B427B350079B6DC /* GridStorageKeyGeneratorSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridStorageKeyGeneratorSpec.m; sourceTree = "<group>"; };
@@ -241,6 +246,8 @@
 				C3FE19E31B44BC2F00F26152 /* GameFlow.m */,
 				C3EA14041B4CE1F60022CE9E /* WaveController.h */,
 				C3EA14051B4CE1F60022CE9E /* WaveController.m */,
+				C345FF781B4F79B2004C249F /* ScoreCalculator.h */,
+				C345FF791B4F79B2004C249F /* ScoreCalculator.m */,
 			);
 			path = GameLogic;
 			sourceTree = "<group>";
@@ -408,6 +415,7 @@
 				C35C2E8D1B48EF1400FF7944 /* EnemyViewSpec.m */,
 				C35C2E931B490D7600FF7944 /* GridCalculatorSpec.m */,
 				C3EA14021B4CE1900022CE9E /* WaveControllerSpec.m */,
+				C345FF761B4F7018004C249F /* ScoreCalculatorSpec.m */,
 				C3F6BDF21B389B860088D924 /* Supporting Files */,
 			);
 			path = BlindWizardAppTests;
@@ -659,6 +667,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C345FF7A1B4F79B2004C249F /* ScoreCalculator.m in Sources */,
 				C3A3B3301B3BD84700ADF11A /* PlayViewModel.m in Sources */,
 				C34F7F671B3CD28A00D07881 /* BoardViewModel.m in Sources */,
 				C3A9E7B11B38FC1F006D9C68 /* PlayViewController.m in Sources */,
@@ -719,6 +728,7 @@
 				C350320B1B4BB1BD00A12F8E /* NSObject+MTKTest.m in Sources */,
 				C3F72DA71B3A2C800040909A /* PlayViewControllerSpec.m in Sources */,
 				C35C2E831B4891B400FF7944 /* GameBoardSpec.m in Sources */,
+				C345FF771B4F7018004C249F /* ScoreCalculatorSpec.m in Sources */,
 				C35C2E8C1B48E13C00FF7944 /* EnemyViewModelSpec.m in Sources */,
 				C35C2E7C1B4863ED00FF7944 /* DropEnemiesDownGameActionSpec.m in Sources */,
 			);

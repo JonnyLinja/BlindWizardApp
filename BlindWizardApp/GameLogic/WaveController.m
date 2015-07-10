@@ -17,9 +17,9 @@
 @interface WaveController ()
 @property (nonatomic, assign) CGFloat delay;
 @property (nonatomic, assign) CGFloat multiplier;
-@property (nonatomic, strong) GameBoard *board;
-@property (nonatomic, strong) GameFlow *flow;
-@property (nonatomic, strong) id<GameDependencyFactory> factory;
+@property (nonatomic, strong) GameBoard *board; //inject
+@property (nonatomic, strong) GameFlow *flow; //inject
+@property (nonatomic, strong) id<GameDependencyFactory> factory; //inject
 @property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic, assign) NSInteger count;
 @end

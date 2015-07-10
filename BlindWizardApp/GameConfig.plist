@@ -5,9 +5,9 @@
 	<key>StartingWaveTimer</key>
 	<integer>5</integer>
 	<key>WaveTimerMultiplier</key>
-	<real>0.9</real>
+	<real>0.99</real>
 	<key>MoveAnimationDuration</key>
-	<integer>2</integer>
+	<real>0.2</real>
 	<key>EnemyWidth</key>
 	<integer>50</integer>
 	<key>EnemyHeight</key>

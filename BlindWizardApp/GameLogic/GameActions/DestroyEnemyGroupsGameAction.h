@@ -10,10 +10,11 @@
 
 @protocol GameDependencyFactory;
 @class GameBoard;
+@class ScoreCalculator;
 
 @interface DestroyEnemyGroupsGameAction : NSObject <GameAction>
 @property (nonatomic, assign, readonly) CGFloat duration;
-- (id) initWithGameBoard:(GameBoard *)board factory:(id<GameDependencyFactory>)factory;
+- (id) initWithGameBoard:(GameBoard *)board factory:(id<GameDependencyFactory>)factory scoreCalculator:(ScoreCalculator *)calculator;
 - (void) execute;
 - (BOOL) isValid;
 - (NSArray *) generateNextGameActions;

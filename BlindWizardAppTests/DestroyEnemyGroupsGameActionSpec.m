@@ -7,6 +7,7 @@
 #import "GameBoard.h"
 #import "GameConstants.h"
 #import "GameDependencyFactory.h"
+#import "ScoreCalculator.h"
 
 @interface DestroyEnemyGroupsGameAction ()
 @property (nonatomic, strong, readonly) GameBoard *gameBoard; //inject
@@ -17,11 +18,13 @@ SpecBegin(DestroyEnemyGroupsGameAction)
 describe(@"DestroyEnemyGroupsGameAction", ^{
     __block DestroyEnemyGroupsGameAction *sut;
     __block id factoryMock;
+    __block id calculatorMock;
     
     beforeEach(^{
         GameBoard *board = [[GameBoard alloc] init];
         factoryMock = OCMProtocolMock(@protocol(GameDependencyFactory));
-        sut = [[DestroyEnemyGroupsGameAction alloc] initWithGameBoard:board factory:factoryMock];
+        calculatorMock = OCMClassMock([ScoreCalculator class]);
+        sut = [[DestroyEnemyGroupsGameAction alloc] initWithGameBoard:board factory:factoryMock scoreCalculator:calculatorMock];
     });
     
     context(@"when executing", ^{
@@ -136,6 +139,22 @@ describe(@"DestroyEnemyGroupsGameAction", ^{
             //cleanup
             [[NSNotificationCenter defaultCenter] removeObserver:notificationMock];
         });
+        
+        it(@"should update the score", ^{
+            //context
+            NSMutableArray *startData = [@[@1, @0, @2, @0, @0, @1, @2, @2, @3, @0, @1, @3, @3, @3, @3, @2, @2, @2, @3, @0, @1, @1, @0, @3, @1] mutableCopy];
+            sut.gameBoard.numRows = 5;
+            sut.gameBoard.numColumns = 5;
+            sut.gameBoard.data = startData;
+            sut.gameBoard.score = 10;
+            OCMStub([calculatorMock calculateScoreFromNumberOfEnemiesDestroyed:13]).andReturn(169);
+            
+            //because
+            [sut execute];
+            
+            //expect
+            expect(sut.gameBoard.score).to.equal(179);
+        });
     });
     
     context(@"when at least 3 enemies of the same type in a row", ^{
@@ -194,6 +213,10 @@ describe(@"DestroyEnemyGroupsGameAction", ^{
             //expect
             OCMVerifyAll(factoryMock);
         });
+    });
+    
+    afterEach(^{
+        [calculatorMock stopMocking];
     });
 });
 

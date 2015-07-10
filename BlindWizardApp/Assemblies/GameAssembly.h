@@ -21,6 +21,7 @@
 @class DropEnemiesDownGameAction;
 @class DestroyEnemyGroupsGameAction;
 @class WaveController;
+@class ScoreCalculator;
 
 @interface GameAssembly : TyphoonAssembly <GameDependencyFactory>
 @property(nonatomic, strong, readonly) GeneralAssembly *generalAssembly;
@@ -35,5 +36,6 @@
 - (DestroyEnemyGroupsGameAction *) destroyEnemyGroupsGameActionWithBoard:(GameBoard *)board;
 - (DropEnemiesDownGameAction *) dropEnemiesDownGameActionWithBoard:(GameBoard *)board;
 - (WaveController *) waveControllerWithBoard:(GameBoard *)board flow:(GameFlow *)flow;
+- (ScoreCalculator *) scoreCalculator;
 
 @end

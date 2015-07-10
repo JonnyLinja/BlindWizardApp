@@ -10,20 +10,23 @@
 #import "GameDependencyFactory.h"
 #import "GameBoard.h"
 #import "GameConstants.h"
+#import "ScoreCalculator.h"
 
 @interface DestroyEnemyGroupsGameAction ()
 @property (nonatomic, strong) id<GameDependencyFactory> factory; //inject
 @property (nonatomic, strong) GameBoard *gameBoard; //inject
+@property (nonatomic, strong) ScoreCalculator *calculator; //inject
 @end
 
 @implementation DestroyEnemyGroupsGameAction
 
-- (id) initWithGameBoard:(GameBoard *)board factory:(id<GameDependencyFactory>)factory {
+- (id) initWithGameBoard:(GameBoard *)board factory:(id<GameDependencyFactory>)factory scoreCalculator:(ScoreCalculator *)calculator {
     self = [super init];
     if(!self) return nil;
     
     self.gameBoard = board;
     self.factory = factory;
+    self.calculator = calculator;
     
     return self;
 }
@@ -152,6 +155,9 @@
                                                                      @"column" : [columnsToDestroy objectAtIndex:i]
                                                                      }];
     }
+    
+    //score
+    self.gameBoard.score += [self.calculator calculateScoreFromNumberOfEnemiesDestroyed:indicesToDestroy.count];
 }
 
 - (BOOL) isValid {

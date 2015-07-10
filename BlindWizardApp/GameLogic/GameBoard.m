@@ -9,7 +9,6 @@
 #import "GameBoard.h"
 
 @interface GameBoard ()
-@property (nonatomic, assign) NSInteger score;
 @property (nonatomic, assign) NSInteger numRows;
 @property (nonatomic, assign) NSInteger numColumns;
 @property (nonatomic, strong) NSMutableArray *data;

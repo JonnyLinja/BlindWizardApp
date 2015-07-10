@@ -21,8 +21,8 @@
 @property (nonatomic, strong) GameFlow *flow; //inject
 @property (nonatomic, assign) NSInteger score;
 @property (nonatomic, assign) BOOL gameInProgress;
-@property (nonatomic, strong) GameBoard *board;
-@property (nonatomic, strong) WaveController *waveController;
+@property (nonatomic, strong) GameBoard *board; //inject
+@property (nonatomic, strong) WaveController *waveController; //inject
 @end
 
 @implementation Game

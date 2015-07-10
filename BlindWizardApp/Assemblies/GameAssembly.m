@@ -21,6 +21,7 @@
 #import "DropEnemiesDownGameAction.h"
 #import "DestroyEnemyGroupsGameAction.h"
 #import "WaveController.h"
+#import "ScoreCalculator.h"
 
 @implementation GameAssembly
 
@@ -98,9 +99,10 @@
 
 - (DestroyEnemyGroupsGameAction *) destroyEnemyGroupsGameActionWithBoard:(GameBoard *)board {
     return [TyphoonDefinition withClass:[DestroyEnemyGroupsGameAction class] configuration:^(TyphoonDefinition* definition) {
-        [definition useInitializer:@selector(initWithGameBoard:factory:) parameters:^(TyphoonMethod *initializer) {
+        [definition useInitializer:@selector(initWithGameBoard:factory:scoreCalculator:) parameters:^(TyphoonMethod *initializer) {
             [initializer injectParameterWith:board];
             [initializer injectParameterWith:self];
+            [initializer injectParameterWith:[self scoreCalculator]];
         }];
     }];
 }
@@ -125,6 +127,10 @@
             [initializer injectParameterWith:self];
         }];
     }];
+}
+
+- (ScoreCalculator *) scoreCalculator {
+    return [TyphoonDefinition withClass:[ScoreCalculator class]];
 }
 
 @end
