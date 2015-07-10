@@ -15,6 +15,7 @@
 @property (nonatomic, assign) CGPoint movePoint;
 @property (nonatomic, assign) CGPoint snapPoint;
 @property (nonatomic, assign) CGFloat moveDuration;
+@property (nonatomic, strong) NSString *face;
 @end
 
 @implementation EnemyViewModel
@@ -40,24 +41,57 @@
     return [UIColor colorWithRed:((rgbValue & 0xFF0000) >> 16)/255.0 green:((rgbValue & 0xFF00) >> 8)/255.0 blue:(rgbValue & 0xFF)/255.0 alpha:1.0];
 }
 
+- (void) updateFace {
+    switch (self.animationType) {
+        case NoAnimation:
+        case CreateAnimation:
+            self.face = @"'-'";
+            break;
+        case MoveAnimation:
+        case MoveAndRemoveAnimation:
+        case SnapAndMoveAnimation:
+            self.face = @"ᵔ.ᵔ";
+            break;
+        case DestroyAndRemoveAnimation:
+            self.face = @"*෴*";
+            break;
+        default:
+            break;
+    }
+    
+    //hack since KVO system doesn't fire if setting to save value sadly
+    //dispatch after hack since not sure how to test setting of the type rapidly
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        self.animationType = NoAnimation;
+    });
+}
+
+- (void) runNeutralAnimation {
+    [self updateFace];
+}
+
 - (void) runCreateAnimation {
     self.animationType = CreateAnimation;
+    [self updateFace];
 }
 
 - (void) animateMoveToCGPoint:(CGPoint)point {
     self.movePoint = point;
     self.animationType = MoveAnimation;
+    [self updateFace];
 }
 
 - (void) snapToCGPoint:(CGPoint)snapPoint thenAnimateMoveToCGPoint:(CGPoint)movePoint {
     self.movePoint = movePoint;
     self.snapPoint = snapPoint;
     self.animationType = SnapAndMoveAnimation;
+    [self updateFace];
 }
 
 - (void) animateMoveAndRemoveToCGPoint:(CGPoint)point {
     self.movePoint = point;
     self.animationType = MoveAndRemoveAnimation;
+    [self updateFace];
 }
 
 - (void) runDangerAnimation {
@@ -70,6 +104,7 @@
 
 - (void) runDestroyAnimation {
     self.animationType = DestroyAndRemoveAnimation;
+    [self updateFace];
 }
 
 @end

@@ -10,6 +10,6 @@
 
 @class EnemyViewModel;
 
-@interface EnemyView : UIView
+@interface EnemyView : UILabel
 - (id) initWithViewModel:(EnemyViewModel *)viewModel;
 @end

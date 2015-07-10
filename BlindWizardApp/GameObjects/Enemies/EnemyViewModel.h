@@ -28,6 +28,8 @@ typedef enum {
 @property (nonatomic, assign, readonly) CGFloat moveDuration;
 @property (nonatomic, strong, readonly) UIColor *color;
 @property (nonatomic, assign) EnemyAnimationType animationType;
+@property (nonatomic, strong, readonly) NSString *face;
+- (void) runNeutralAnimation;
 - (void) runCreateAnimation;
 - (void) animateMoveToCGPoint:(CGPoint)point;
 - (void) snapToCGPoint:(CGPoint)snapPoint thenAnimateMoveToCGPoint:(CGPoint)movePoint;

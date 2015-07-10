@@ -12,6 +12,7 @@
 
 @interface EnemyView ()
 @property (nonatomic, strong) EnemyViewModel *viewModel; //inject
+@property (nonatomic, weak) UIView *bg;
 @end
 
 @implementation EnemyView
@@ -26,12 +27,23 @@
     //bind
     [self removeAllObservations];
     [self observeProperty:@keypath(self.viewModel.animationType) withSelector:@selector(runAnimation)];
+    [self map:@keypath(self.viewModel.face) to:@keypath(self.text) null:@""];
+    
+    //background
+    UIView *bg = [[UIView alloc] initWithFrame:self.bounds];
+    bg.backgroundColor = [self.viewModel color];
+    bg.alpha = 0.2;
+    bg.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    [self addSubview:bg];
+    self.bg = bg;
     
     //view
-    self.backgroundColor = [UIColor clearColor];
     self.layer.borderColor = [self.viewModel color].CGColor;
-    self.layer.borderWidth = 5;
+    self.layer.borderWidth = 3;
     self.layer.anchorPoint = CGPointMake(0.5, 0.5);
+    self.textColor = self.viewModel.color;
+    self.font = [UIFont systemFontOfSize:20];
+    self.textAlignment = NSTextAlignmentCenter;
     
     return self;
 }
@@ -57,9 +69,6 @@
         default:
             break;
     }
-    
-    //reset
-    self.viewModel.animationType = NoAnimation;
 }
 
 - (void) runCreateAnimation {
@@ -70,30 +79,26 @@
 }
 
 - (void) runMoveAnimation {
-    self.backgroundColor = self.viewModel.color;
     [UIView animateWithDuration:self.viewModel.moveDuration animations:^{
         self.frame = CGRectMake(self.viewModel.movePoint.x, self.viewModel.movePoint.y, self.bounds.size.width, self.bounds.size.height);
     }completion:^(BOOL finished) {
-        self.backgroundColor = [UIColor clearColor];
+        [self.viewModel runNeutralAnimation];
     }];
 }
 
 - (void) runSnapAndMoveAnimation {
-    self.backgroundColor = self.viewModel.color;
     self.frame = CGRectMake(self.viewModel.snapPoint.x, self.viewModel.snapPoint.y, self.bounds.size.width, self.bounds.size.height);
     [UIView animateWithDuration:self.viewModel.moveDuration animations:^{
         self.frame = CGRectMake(self.viewModel.movePoint.x, self.viewModel.movePoint.y, self.bounds.size.width, self.bounds.size.height);
     }completion:^(BOOL finished) {
-        self.backgroundColor = [UIColor clearColor];
+        [self.viewModel runNeutralAnimation];
     }];
 }
 
 - (void) runMoveAndRemoveAnimation {
-    self.backgroundColor = self.viewModel.color;
     [UIView animateWithDuration:self.viewModel.moveDuration animations:^{
         self.frame = CGRectMake(self.viewModel.movePoint.x, self.viewModel.movePoint.y, self.bounds.size.width, self.bounds.size.height);
     }completion:^(BOOL finished) {
-        self.backgroundColor = [UIColor clearColor];
         [self removeFromSuperview];
     }];
 }

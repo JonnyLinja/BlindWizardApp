@@ -20,6 +20,16 @@ describe(@"EnemyViewModel", ^{
         });
     });
     
+    context(@"when running neutral animation ", ^{
+        it(@"should set the face", ^{
+            //because
+            [sut runNeutralAnimation];
+            
+            //expect
+            expect(sut.face).to.equal(@"'-'");
+        });
+    });
+    
     context(@"when running a create animation", ^{
         it(@"should set animation type to create", ^{
             //because
@@ -28,15 +38,31 @@ describe(@"EnemyViewModel", ^{
             //expect
             expect(sut.animationType).to.equal(CreateAnimation);
         });
+        
+        it(@"should set the face", ^{
+            //because
+            [sut runCreateAnimation];
+            
+            //expect
+            expect(sut.face).to.equal(@"'-'");
+        });
     });
     
     context(@"when running a destroy animation", ^{
-        it(@"should set animation type to destroy", ^{
+        it(@"should set animation type to destroy and set the face", ^{
             //because
             [sut runDestroyAnimation];
             
             //expect
             expect(sut.animationType).to.equal(DestroyAndRemoveAnimation);
+        });
+        
+        it(@"should set the face", ^{
+            //because
+            [sut runDestroyAnimation];
+            
+            //expect
+            expect(sut.face).to.equal(@"*෴*");
         });
     });
 
@@ -51,6 +77,22 @@ describe(@"EnemyViewModel", ^{
             //expect
             expect(sut.animationType).to.equal(MoveAnimation);
             expect(sut.movePoint).to.equal(movePoint);
+        });
+        
+        it(@"should set the face", ^{
+            //because
+            [sut animateMoveToCGPoint:CGPointZero];
+            
+            //expect
+            expect(sut.face).to.equal(@"ᵔ.ᵔ");
+        });
+        
+        it(@"should reset the animation type", ^{
+            //because
+            [sut runNeutralAnimation];
+            
+            //expect
+            expect(sut.animationType).after(0.1).to.equal(NoAnimation);
         });
     });
     
@@ -68,6 +110,22 @@ describe(@"EnemyViewModel", ^{
             expect(sut.movePoint).to.equal(movePoint);
             expect(sut.snapPoint).to.equal(snapPoint);
         });
+        
+        it(@"should set the face", ^{
+            //because
+            [sut snapToCGPoint:CGPointZero thenAnimateMoveToCGPoint:CGPointZero];
+            
+            //expect
+            expect(sut.face).to.equal(@"ᵔ.ᵔ");
+        });
+        
+        it(@"should reset the animation type", ^{
+            //because
+            [sut runNeutralAnimation];
+            
+            //expect
+            expect(sut.animationType).after(0.1).to.equal(NoAnimation);
+        });
     });
     
     context(@"when running a move and remove animation", ^{
@@ -81,6 +139,14 @@ describe(@"EnemyViewModel", ^{
             //expect
             expect(sut.animationType).to.equal(MoveAndRemoveAnimation);
             expect(sut.movePoint).to.equal(movePoint);
+        });
+        
+        it(@"should set the face", ^{
+            //because
+            [sut animateMoveAndRemoveToCGPoint:CGPointZero];
+            
+            //expect
+            expect(sut.face).to.equal(@"ᵔ.ᵔ");
         });
     });
 });
