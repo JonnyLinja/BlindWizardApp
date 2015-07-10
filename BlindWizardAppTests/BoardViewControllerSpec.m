@@ -64,11 +64,6 @@ describe(@"BoardViewController", ^{
             expect(sut.rightSwipeGestureRecognizer).toNot.beNil();
             expect(sut.rightSwipeGestureRecognizer.view).to.equal(sut.view);
         });
-        
-        //TODO: not sure how to do this yet, or if it even belongs in the VC, leave for later
-        pending(@"should display initial blocks", ^{
-            
-        });
     });
     
     context(@"when view model becomes active", ^{

@@ -37,11 +37,14 @@
     GridCalculator *calculator = [self.factory gridCalculatorWithWidth:width height:height];
     self.viewModel.calculator = calculator;
     
-    //start
-    [self.viewModel startGame];
-    
-    //map
-    [self map:@keypath(self.viewModel.gameInProgress) to:@keypath(self.playAgainButton.hidden) null:@YES];
+    //guarantee start occurs after boardvc view did appear
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        //start
+        [self.viewModel startGame];
+        
+        //map
+        [self map:@keypath(self.viewModel.gameInProgress) to:@keypath(self.playAgainButton.hidden) null:@YES];
+    });
 }
 
 - (IBAction)tappedNextWave:(id)sender {

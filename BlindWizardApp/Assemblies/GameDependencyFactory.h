@@ -10,6 +10,7 @@
 
 @class GameFlow;
 @class GameBoard;
+@class LoadInitialEnemiesGameAction;
 @class CallNextWaveGameAction;
 @class CheckLoseGameAction;
 @class ShiftEnemiesLeftGameAction;
@@ -21,6 +22,7 @@
 @protocol GameDependencyFactory <NSObject>
 - (GameBoard *) gameBoardWithRows:(NSNumber *)rows columns:(NSNumber *)columns;
 - (GameFlow *) gameFlowWithBoard:(GameBoard *)board;
+- (LoadInitialEnemiesGameAction *) loadInitialEnemiesGameActionWithBoard:(GameBoard *)board;
 - (CallNextWaveGameAction *) callNextWaveGameActionWithBoard:(GameBoard *)board;
 - (CheckLoseGameAction *) checkLoseGameActionWithBoard:(GameBoard *)board;
 - (ShiftEnemiesLeftGameAction *) shiftEnemiesLeftGameActionWithBoard:(GameBoard *)board row:(NSNumber *)row;

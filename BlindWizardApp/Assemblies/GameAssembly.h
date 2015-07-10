@@ -14,6 +14,7 @@
 @class Game;
 @class GameBoard;
 @class GameFlow;
+@class LoadInitialEnemiesGameAction;
 @class CallNextWaveGameAction;
 @class CheckLoseGameAction;
 @class ShiftEnemiesLeftGameAction;
@@ -29,6 +30,7 @@
 - (Game *) game;
 - (GameBoard *) gameBoardWithRows:(NSNumber *)rows columns:(NSNumber *)columns;
 - (GameFlow *) gameFlowWithBoard:(GameBoard *)board;
+- (LoadInitialEnemiesGameAction *) loadInitialEnemiesGameActionWithBoard:(GameBoard *)board;
 - (CallNextWaveGameAction *) callNextWaveGameActionWithBoard:(GameBoard *)board;
 - (CheckLoseGameAction *) checkLoseGameActionWithBoard:(GameBoard *)board;
 - (ShiftEnemiesLeftGameAction *) shiftEnemiesLeftGameActionWithBoard:(GameBoard *)board row:(NSNumber *)row;

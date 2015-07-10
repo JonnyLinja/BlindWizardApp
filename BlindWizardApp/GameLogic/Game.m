@@ -11,6 +11,7 @@
 #import "GameBoard.h"
 #import "GameFlow.h"
 #import "MTKObserving.h"
+#import "LoadInitialEnemiesGameAction.h"
 #import "CallNextWaveGameAction.h"
 #import "ShiftEnemiesLeftGameAction.h"
 #import "ShiftEnemiesRightGameAction.h"
@@ -37,14 +38,21 @@
 }
 
 - (void) commandStartGameWithRows:(NSInteger)rows columns:(NSInteger)columns {
+    //remove observations
     [self removeAllObservations];
     
+    //create dependencies
     self.board = [self.factory gameBoardWithRows:@(rows) columns:@(columns)];
     self.flow = [self.factory gameFlowWithBoard:self.board];
     self.waveController = [self.factory waveControllerWithBoard:self.board flow:self.flow];
     
+    //map
     [self map:@keypath(self.board.score) to:@keypath(self.score) null:@0];
     [self map:@keypath(self.board.isActive) to:@keypath(self.gameInProgress) null:@NO];
+    
+    //load initial enemies
+    id<GameAction> action = [self.factory loadInitialEnemiesGameActionWithBoard:self.board];
+    [self.flow addGameAction:action];
 }
 
 - (void) commandCallNextWave {

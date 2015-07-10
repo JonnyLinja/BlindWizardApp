@@ -91,8 +91,11 @@ describe(@"PlayViewController", ^{
                 //because
                 [sut viewDidAppear:YES];
                 
-                //expect
-                OCMVerify([playViewModelMock startGame]);
+                //expect - delayed since GCD in VDA
+                waitUntil(^(DoneCallback done) {
+                    OCMVerify([playViewModelMock startGame]);
+                    done();
+                });
             });
             
             //ugly, but need to have a delayed injection
@@ -148,29 +151,33 @@ describe(@"PlayViewController", ^{
             });
         });
         
+        //TODO: fix this test
         context(@"when game is over", ^{
             it(@"should show the play again button", ^{
                 //context
                 [sut viewDidAppear:YES];
+                //OCMStub([playViewModelMock gameInProgress]).andReturn(NO);
                 
                 //because
                 [sut notifyKeyPath:@"viewModel.gameInProgress" setTo:@NO];
                 
                 //expect
-                expect(sut.playAgainButton.hidden).to.beFalsy();
+                expect(sut.playAgainButton.hidden).after(1).to.beFalsy();
             });
         });
         
+        //TODO: fix this test
         context(@"when game is playing", ^{
             it(@"should hide the play again button", ^{
                 //context
                 [sut viewDidAppear:YES];
+                //OCMStub([playViewModelMock gameInProgress]).andReturn(YES);
 
                 //because
                 [sut notifyKeyPath:@"viewModel.gameInProgress" setTo:@YES];
                 
                 //expect
-                expect(sut.playAgainButton.hidden).to.beTruthy();
+                expect(sut.playAgainButton.hidden).after(1).to.beTruthy();
             });
         });
         

@@ -14,6 +14,7 @@
 #import "Game.h"
 #import "GameBoard.h"
 #import "GameFlow.h"
+#import "LoadInitialEnemiesGameAction.h"
 #import "CallNextWaveGameAction.h"
 #import "CheckLoseGameAction.h"
 #import "ShiftEnemiesLeftGameAction.h"
@@ -53,6 +54,16 @@
         [definition useInitializer:@selector(initWithGameBoard:queue:) parameters:^(TyphoonMethod *initializer) {
             [initializer injectParameterWith:board];
             [initializer injectParameterWith:[self.generalAssembly queue]];
+        }];
+    }];
+}
+
+- (LoadInitialEnemiesGameAction *) loadInitialEnemiesGameActionWithBoard:(GameBoard *)board {
+    return [TyphoonDefinition withClass:[LoadInitialEnemiesGameAction class] configuration:^(TyphoonDefinition* definition) {
+        [definition useInitializer:@selector(initWithGameBoard:factory:randomGenerator:) parameters:^(TyphoonMethod *initializer) {
+            [initializer injectParameterWith:board];
+            [initializer injectParameterWith:self];
+            [initializer injectParameterWith:[self.generalAssembly randomGenerator]];
         }];
     }];
 }

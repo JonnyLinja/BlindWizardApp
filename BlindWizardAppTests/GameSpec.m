@@ -8,6 +8,7 @@
 #import "GameBoard.h"
 #import "GameFlow.h"
 #import "WaveController.h"
+#import "LoadInitialEnemiesGameAction.h"
 #import "ShiftEnemiesLeftGameAction.h"
 #import "ShiftEnemiesRightGameAction.h"
 
@@ -40,7 +41,6 @@ describe(@"Game", ^{
     });
     
     context(@"when starting the game", ^{
-        //TODO: figure out how to load initial blocks on the new board
         it(@"should create a new board, new flow, wave controller, and set the game to in progress", ^{
             //because
             [sut commandStartGameWithRows:5 columns:5];
@@ -51,6 +51,21 @@ describe(@"Game", ^{
             expect(sut.flow).to.equal(flowMock);
             expect(sut.waveController).to.equal(waveMock);
             expect(sut.gameInProgress).to.beTruthy();
+        });
+        
+        it(@"should load initial enemies", ^{
+            id gameActionMock = OCMClassMock([LoadInitialEnemiesGameAction class]);
+            OCMStub([factoryMock loadInitialEnemiesGameActionWithBoard:boardMock]).andReturn(gameActionMock);
+            
+            //because
+            [sut commandStartGameWithRows:5 columns:5];
+            [sut notifyKeyPath:@"board.isActive" setTo:@YES];
+            
+            //expect
+            OCMVerify([flowMock addGameAction:gameActionMock]);
+            
+            //cleanup
+            [gameActionMock stopMocking];
         });
     });
     
