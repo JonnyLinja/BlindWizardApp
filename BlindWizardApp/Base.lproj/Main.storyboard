@@ -87,10 +87,67 @@
                     <view key="view" contentMode="scaleToFill" id="Bzc-Ei-wKw">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MKO-Ye-fed">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Close">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="TEK-w5-HMe" kind="unwind" identifier="UnwindToTitleViewController" unwindAction="unwindToTitleViewController:" id="1qb-5D-dCn"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Leaderboard" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pZ3-hU-HZr">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="MKO-Ye-fed" firstAttribute="leading" secondItem="Bzc-Ei-wKw" secondAttribute="leading" constant="20" id="3j7-kj-0am"/>
+                            <constraint firstAttribute="trailing" secondItem="pZ3-hU-HZr" secondAttribute="trailing" id="7Sg-3C-UNA"/>
+                            <constraint firstItem="pZ3-hU-HZr" firstAttribute="top" secondItem="Bzc-Ei-wKw" secondAttribute="top" constant="50" id="Lk3-xD-53A"/>
+                            <constraint firstItem="MKO-Ye-fed" firstAttribute="top" secondItem="Bzc-Ei-wKw" secondAttribute="top" constant="20" id="fMx-Rd-boe"/>
+                            <constraint firstAttribute="bottom" secondItem="pZ3-hU-HZr" secondAttribute="bottom" id="rRU-UF-HGF"/>
+                            <constraint firstItem="pZ3-hU-HZr" firstAttribute="leading" secondItem="Bzc-Ei-wKw" secondAttribute="leading" id="zkl-d7-7Z5"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="MKO-Ye-fed"/>
+                                <exclude reference="pZ3-hU-HZr"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="3j7-kj-0am"/>
+                                <exclude reference="fMx-Rd-boe"/>
+                                <exclude reference="7Sg-3C-UNA"/>
+                                <exclude reference="Lk3-xD-53A"/>
+                                <exclude reference="rRU-UF-HGF"/>
+                                <exclude reference="zkl-d7-7Z5"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="MKO-Ye-fed"/>
+                                <include reference="pZ3-hU-HZr"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="3j7-kj-0am"/>
+                                <include reference="fMx-Rd-boe"/>
+                                <include reference="7Sg-3C-UNA"/>
+                                <include reference="Lk3-xD-53A"/>
+                                <include reference="rRU-UF-HGF"/>
+                                <include reference="zkl-d7-7Z5"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="closeButton" destination="MKO-Ye-fed" id="5vc-9d-mRG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0RX-5R-IKN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="TEK-w5-HMe" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="139.5" y="820.5"/>
         </scene>

@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface LeaderboardViewController : UIViewController
-
+@property (nonatomic, weak) IBOutlet UIButton *closeButton;
+@property (nonatomic, weak) IBOutlet UILabel *displayLabel;
 @end

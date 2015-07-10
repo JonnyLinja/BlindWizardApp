@@ -16,6 +16,7 @@
 		C345FF861B4FAF75004C249F /* TopScores.m in Sources */ = {isa = PBXBuildFile; fileRef = C345FF851B4FAF75004C249F /* TopScores.m */; };
 		C345FF881B4FAF82004C249F /* TopScoresSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C345FF871B4FAF82004C249F /* TopScoresSpec.m */; };
 		C345FF8B1B4FB956004C249F /* ModelAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = C345FF8A1B4FB956004C249F /* ModelAssembly.m */; };
+		C345FF8D1B4FBA77004C249F /* LeaderboardViewControllerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C345FF8C1B4FBA77004C249F /* LeaderboardViewControllerSpec.m */; };
 		C34EFC001B4267980079B6DC /* GameObjectFactorySpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C34EFBFF1B4267980079B6DC /* GameObjectFactorySpec.m */; };
 		C34EFC021B426EF20079B6DC /* GridStorageSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C34EFC011B426EF20079B6DC /* GridStorageSpec.m */; };
 		C34EFC071B427B350079B6DC /* GridStorageKeyGeneratorSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C34EFC061B427B350079B6DC /* GridStorageKeyGeneratorSpec.m */; };
@@ -107,6 +108,7 @@
 		C345FF871B4FAF82004C249F /* TopScoresSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopScoresSpec.m; sourceTree = "<group>"; };
 		C345FF891B4FB956004C249F /* ModelAssembly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelAssembly.h; sourceTree = "<group>"; };
 		C345FF8A1B4FB956004C249F /* ModelAssembly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelAssembly.m; sourceTree = "<group>"; };
+		C345FF8C1B4FBA77004C249F /* LeaderboardViewControllerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeaderboardViewControllerSpec.m; sourceTree = "<group>"; };
 		C34EFBFF1B4267980079B6DC /* GameObjectFactorySpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameObjectFactorySpec.m; sourceTree = "<group>"; };
 		C34EFC011B426EF20079B6DC /* GridStorageSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridStorageSpec.m; sourceTree = "<group>"; };
 		C34EFC061B427B350079B6DC /* GridStorageKeyGeneratorSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridStorageKeyGeneratorSpec.m; sourceTree = "<group>"; };
@@ -441,6 +443,7 @@
 				C3EA14021B4CE1900022CE9E /* WaveControllerSpec.m */,
 				C345FF761B4F7018004C249F /* ScoreCalculatorSpec.m */,
 				C345FF871B4FAF82004C249F /* TopScoresSpec.m */,
+				C345FF8C1B4FBA77004C249F /* LeaderboardViewControllerSpec.m */,
 				C3F6BDF21B389B860088D924 /* Supporting Files */,
 			);
 			path = BlindWizardAppTests;
@@ -755,6 +758,7 @@
 				C345FF881B4FAF82004C249F /* TopScoresSpec.m in Sources */,
 				C34EFC021B426EF20079B6DC /* GridStorageSpec.m in Sources */,
 				C34F7F641B3CA29E00D07881 /* GameSpec.m in Sources */,
+				C345FF8D1B4FBA77004C249F /* LeaderboardViewControllerSpec.m in Sources */,
 				C37B74951B3CF5FF00D22D5E /* BoardViewModelSpec.m in Sources */,
 				C35C2E881B48B27500FF7944 /* CheckLoseGameActionSpec.m in Sources */,
 				C30A9CC81B449BAD00EBBD94 /* RandomGeneratorSpec.m in Sources */,
