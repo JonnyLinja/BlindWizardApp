@@ -93,17 +93,14 @@ describe(@"PlayViewController", ^{
         
         context(@"when loaded", ^{
             it(@"should start the game", ^{
+                //context
+                OCMExpect([playViewModelMock startGame]);
+                
                 //because
                 [sut viewDidAppear:YES];
                 
                 //expect - hack delayed since GCD in VDA
-                waitUntil(^(DoneCallback done) {
-                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                        OCMVerify([playViewModelMock startGame]);
-                        done();
-                    });
-                    
-                });
+                OCMVerifyAllWithDelay(playViewModelMock, 0.1);
             });
             
             //ugly, but need to have a delayed injection
