@@ -153,12 +153,15 @@ describe(@"LoadInitialEnemiesGameAction", ^{
     });
     
     context(@"when generating next game action", ^{
-        it(@"should return NIL", ^{
+        it(@"should create a destroy game action", ^{
+            //context
+            OCMExpect([factoryMock destroyEnemyGroupsGameActionWithBoard:sut.gameBoard]).andReturn(sut);
+            
             //because
-            id value = [sut generateNextGameActions];
+            [sut generateNextGameActions];
             
             //expect
-            expect(value).to.beNil();
+            OCMVerifyAll(factoryMock);
         });
     });
     
