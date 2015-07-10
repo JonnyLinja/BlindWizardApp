@@ -11,7 +11,7 @@
 	<key>EnemyWidth</key>
 	<integer>50</integer>
 	<key>EnemyHeight</key>
-	<integer>70</integer>
+	<integer>77</integer>
 	<key>Enemies</key>
 	<array>
 		<dict>
