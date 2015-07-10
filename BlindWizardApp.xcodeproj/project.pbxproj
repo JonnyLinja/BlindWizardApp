@@ -10,6 +10,7 @@
 		7FAB24D207C69E0B81926A2F /* libPods-BlindWizardApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F66DF0723764B2C29A3CB58 /* libPods-BlindWizardApp.a */; };
 		C30A9CC81B449BAD00EBBD94 /* RandomGeneratorSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C30A9CC71B449BAD00EBBD94 /* RandomGeneratorSpec.m */; };
 		C32C54001B50323F004CE82E /* SlideLeftSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = C32C53FF1B50323F004CE82E /* SlideLeftSegue.m */; };
+		C32C54031B5055EA004CE82E /* SlideRightUnwindSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = C32C54021B5055EA004CE82E /* SlideRightUnwindSegue.m */; };
 		C345FF771B4F7018004C249F /* ScoreCalculatorSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C345FF761B4F7018004C249F /* ScoreCalculatorSpec.m */; };
 		C345FF7A1B4F79B2004C249F /* ScoreCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = C345FF791B4F79B2004C249F /* ScoreCalculator.m */; };
 		C345FF7D1B4F95BA004C249F /* LoadInitialEnemiesGameAction.m in Sources */ = {isa = PBXBuildFile; fileRef = C345FF7C1B4F95BA004C249F /* LoadInitialEnemiesGameAction.m */; };
@@ -101,6 +102,8 @@
 		C30A9CC71B449BAD00EBBD94 /* RandomGeneratorSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RandomGeneratorSpec.m; sourceTree = "<group>"; };
 		C32C53FE1B50323F004CE82E /* SlideLeftSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideLeftSegue.h; sourceTree = "<group>"; };
 		C32C53FF1B50323F004CE82E /* SlideLeftSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideLeftSegue.m; sourceTree = "<group>"; };
+		C32C54011B5055EA004CE82E /* SlideRightUnwindSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideRightUnwindSegue.h; sourceTree = "<group>"; };
+		C32C54021B5055EA004CE82E /* SlideRightUnwindSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideRightUnwindSegue.m; sourceTree = "<group>"; };
 		C33EA34C1B45F657001D7218 /* GameConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameConstants.h; sourceTree = "<group>"; };
 		C345FF761B4F7018004C249F /* ScoreCalculatorSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreCalculatorSpec.m; sourceTree = "<group>"; };
 		C345FF781B4F79B2004C249F /* ScoreCalculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreCalculator.h; sourceTree = "<group>"; };
@@ -254,6 +257,8 @@
 			children = (
 				C32C53FE1B50323F004CE82E /* SlideLeftSegue.h */,
 				C32C53FF1B50323F004CE82E /* SlideLeftSegue.m */,
+				C32C54011B5055EA004CE82E /* SlideRightUnwindSegue.h */,
+				C32C54021B5055EA004CE82E /* SlideRightUnwindSegue.m */,
 			);
 			path = Segues;
 			sourceTree = "<group>";
@@ -750,6 +755,7 @@
 				C345FF7D1B4F95BA004C249F /* LoadInitialEnemiesGameAction.m in Sources */,
 				C3F8B81B1B47B7BE006A2619 /* Queue.m in Sources */,
 				C3F6BDDB1B389B860088D924 /* main.m in Sources */,
+				C32C54031B5055EA004CE82E /* SlideRightUnwindSegue.m in Sources */,
 				C3BEFDF81B3E1997002930BA /* GameObjectFactory.m in Sources */,
 				C3EA5B861B43A1C000376A5F /* GridStorageKeyGenerator.m in Sources */,
 				C35031FE1B4B500100A12F8E /* GeneralAssembly.m in Sources */,

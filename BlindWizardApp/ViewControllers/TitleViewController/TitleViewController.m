@@ -7,6 +7,7 @@
 //
 
 #import "TitleViewController.h"
+#import "SlideRightUnwindSegue.h"
 
 @interface TitleViewController ()
 
@@ -15,6 +16,16 @@
 @implementation TitleViewController
 
 - (IBAction)unwindToTitleViewController:(UIStoryboardSegue *)segue {
+}
+
+//not under test
+- (UIStoryboardSegue *)segueForUnwindingToViewController:(UIViewController *)toViewController fromViewController:(UIViewController *)fromViewController identifier:(NSString *)identifier {
+    if ([identifier isEqualToString:@"UnwindFromPlayToTitleViewController"]) {
+        SlideRightUnwindSegue *segue = [[SlideRightUnwindSegue alloc] initWithIdentifier:identifier source:fromViewController destination:toViewController];
+        return segue;
+    }
+    
+    return [super segueForUnwindingToViewController:toViewController fromViewController:fromViewController identifier:identifier];
 }
 
 @end

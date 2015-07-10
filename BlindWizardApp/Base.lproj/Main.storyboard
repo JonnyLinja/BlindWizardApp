@@ -184,7 +184,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="IVU-3B-RfE" kind="unwind" identifier="UnwindToTitleViewController" unwindAction="unwindToTitleViewController:" id="veX-Rl-hyI"/>
+                                    <segue destination="IVU-3B-RfE" kind="unwind" identifier="UnwindFromPlayToTitleViewController" unwindAction="unwindToTitleViewController:" id="veX-Rl-hyI"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ymG-jD-JIm">

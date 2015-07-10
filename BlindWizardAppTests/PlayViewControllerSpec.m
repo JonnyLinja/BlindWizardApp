@@ -129,7 +129,7 @@ describe(@"PlayViewController", ^{
                 [sut.closeButton sendActionsForControlEvents:UIControlEventTouchUpInside];
                 
                 //expect
-                expect(sut.segueIdentifier).to.equal(@"UnwindToTitleViewController");
+                expect(sut.segueIdentifier).to.equal(@"UnwindFromPlayToTitleViewController");
             });
         });
         
