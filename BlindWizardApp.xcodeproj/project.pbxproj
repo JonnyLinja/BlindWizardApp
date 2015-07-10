@@ -15,6 +15,7 @@
 		C345FF821B4F967E004C249F /* LoadInitialEnemiesGameActionSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C345FF811B4F967E004C249F /* LoadInitialEnemiesGameActionSpec.m */; };
 		C345FF861B4FAF75004C249F /* TopScores.m in Sources */ = {isa = PBXBuildFile; fileRef = C345FF851B4FAF75004C249F /* TopScores.m */; };
 		C345FF881B4FAF82004C249F /* TopScoresSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C345FF871B4FAF82004C249F /* TopScoresSpec.m */; };
+		C345FF8B1B4FB956004C249F /* ModelAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = C345FF8A1B4FB956004C249F /* ModelAssembly.m */; };
 		C34EFC001B4267980079B6DC /* GameObjectFactorySpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C34EFBFF1B4267980079B6DC /* GameObjectFactorySpec.m */; };
 		C34EFC021B426EF20079B6DC /* GridStorageSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C34EFC011B426EF20079B6DC /* GridStorageSpec.m */; };
 		C34EFC071B427B350079B6DC /* GridStorageKeyGeneratorSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C34EFC061B427B350079B6DC /* GridStorageKeyGeneratorSpec.m */; };
@@ -104,6 +105,8 @@
 		C345FF841B4FAF75004C249F /* TopScores.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopScores.h; sourceTree = "<group>"; };
 		C345FF851B4FAF75004C249F /* TopScores.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopScores.m; sourceTree = "<group>"; };
 		C345FF871B4FAF82004C249F /* TopScoresSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopScoresSpec.m; sourceTree = "<group>"; };
+		C345FF891B4FB956004C249F /* ModelAssembly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelAssembly.h; sourceTree = "<group>"; };
+		C345FF8A1B4FB956004C249F /* ModelAssembly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelAssembly.m; sourceTree = "<group>"; };
 		C34EFBFF1B4267980079B6DC /* GameObjectFactorySpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameObjectFactorySpec.m; sourceTree = "<group>"; };
 		C34EFC011B426EF20079B6DC /* GridStorageSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridStorageSpec.m; sourceTree = "<group>"; };
 		C34EFC061B427B350079B6DC /* GridStorageKeyGeneratorSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridStorageKeyGeneratorSpec.m; sourceTree = "<group>"; };
@@ -466,6 +469,8 @@
 				C35032041B4B8D1C00A12F8E /* GridCalculatorFactory.h */,
 				C35031FC1B4B500100A12F8E /* GeneralAssembly.h */,
 				C35031FD1B4B500100A12F8E /* GeneralAssembly.m */,
+				C345FF891B4FB956004C249F /* ModelAssembly.h */,
+				C345FF8A1B4FB956004C249F /* ModelAssembly.m */,
 			);
 			path = Assemblies;
 			sourceTree = "<group>";
@@ -724,6 +729,7 @@
 				C35031FE1B4B500100A12F8E /* GeneralAssembly.m in Sources */,
 				C3EA14061B4CE1F60022CE9E /* WaveController.m in Sources */,
 				C3FE19E41B44BC2F00F26152 /* GameFlow.m in Sources */,
+				C345FF8B1B4FB956004C249F /* ModelAssembly.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

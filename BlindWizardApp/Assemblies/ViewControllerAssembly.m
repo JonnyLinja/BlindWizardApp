@@ -9,6 +9,7 @@
 #import "ViewControllerAssembly.h"
 #import "GameAssembly.h"
 #import "GeneralAssembly.h"
+#import "ModelAssembly.h"
 
 #import "TitleViewController.h"
 #import "LeaderboardViewController.h"
@@ -36,8 +37,8 @@
 
 - (PlayViewModel *) playViewModel {
     return [TyphoonDefinition withClass:[PlayViewModel class] configuration:^(TyphoonDefinition* definition) {
-        Game *game = [self.gameAssembly game];
-        [definition injectProperty:@selector(game) with:game];
+        [definition injectProperty:@selector(game) with:[self.gameAssembly game]];
+        [definition injectProperty:@selector(topScores) with:[self.modelAssembly topScores]];
         //GridCalculator needs to be manually injected by the VC
     }];
 }

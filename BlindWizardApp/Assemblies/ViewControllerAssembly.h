@@ -11,6 +11,7 @@
 @class GameAssembly;
 @class GameObjectAssembly;
 @class GeneralAssembly;
+@class ModelAssembly;
 
 @class TitleViewController;
 @class LeaderboardViewController;
@@ -23,6 +24,7 @@
 @property(nonatomic, strong, readonly) GameAssembly *gameAssembly;
 @property(nonatomic, strong, readonly) GameObjectAssembly *gameObjectAssembly;
 @property(nonatomic, strong, readonly) GeneralAssembly *generalAssembly;
+@property(nonatomic, strong, readonly) ModelAssembly *modelAssembly;
 
 - (TitleViewController *) titleViewController;
 - (LeaderboardViewController *) leaderboardViewController;

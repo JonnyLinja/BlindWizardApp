@@ -6,6 +6,7 @@
 #import "PlayViewModel.h"
 #import "Game.h"
 #import "GridCalculator.h"
+#import "TopScores.h"
 
 SpecBegin(PlayViewModel)
 
@@ -75,6 +76,22 @@ describe(@"PlayViewModel", ^{
             
             //expect
             expect(sut.boardVisibility).to.beLessThan(1);
+        });
+        
+        it(@"should add the score to top scores", ^{
+            //context
+            id scoreMock = OCMClassMock([TopScores class]);
+            sut.topScores = scoreMock;
+            OCMStub([(Game*)gameMock score]).andReturn(5);
+            
+            //because
+            [sut notifyKeyPath:@"game.gameInProgress" setTo:@NO];
+            
+            //expect
+            OCMVerify([scoreMock addScore:5]);
+            
+            //cleanup
+            [scoreMock stopMocking];
         });
     });
     

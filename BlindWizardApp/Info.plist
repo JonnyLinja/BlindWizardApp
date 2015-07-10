@@ -42,6 +42,7 @@
 		<string>GameAssembly</string>
 		<string>GameObjectAssembly</string>
 		<string>GeneralAssembly</string>
+		<string>ModelAssembly</string>
 	</array>
 </dict>
 </plist>

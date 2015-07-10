@@ -10,6 +10,7 @@
 #import "MTKObserving.h"
 #import "Game.h"
 #import "GridCalculator.h"
+#import "TopScores.h"
 
 @interface PlayViewModel ()
 @property (nonatomic, assign) BOOL gameInProgress;
@@ -38,6 +39,11 @@
             return @1;
         }else {
             return @0.1;
+        }
+    }];
+    [self observeProperty:@keypath(self.game.gameInProgress) withBlock:^(__weak typeof(self) self, NSNumber *old, NSNumber *newValue) {
+        if([newValue boolValue] == 0) {
+            [self.topScores addScore:game.score];
         }
     }];
 }

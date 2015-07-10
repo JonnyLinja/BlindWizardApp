@@ -11,10 +11,12 @@
 
 @class Game;
 @class GridCalculator;
+@class TopScores;
 
 @interface PlayViewModel : NSObject
 @property (nonatomic, strong) Game *game; //inject
 @property (nonatomic, strong) GridCalculator *calculator; //inject
+@property (nonatomic, strong) TopScores *topScores; //inject
 @property (nonatomic, assign, readonly) BOOL gameInProgress;
 @property (nonatomic, strong, readonly) NSString *score;
 @property (nonatomic, assign, readonly) CGFloat boardVisibility;
