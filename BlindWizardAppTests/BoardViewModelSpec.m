@@ -300,7 +300,7 @@ describe(@"BoardViewModel", ^{
             });
         });
         
-        context(@"when there are enemies marked as pacified", ^{
+        context(@"when there are enemies marked as harmless", ^{
             it(@"should stop danger animation for those enemies", ^{
                 //context
                 NSInteger row = 2;
@@ -310,7 +310,7 @@ describe(@"BoardViewModel", ^{
                 OCMStub([gridStorageMock objectForRow:row column:column]).andReturn(modelMock);
                 
                 //because
-                [[NSNotificationCenter defaultCenter] postNotificationName:GameUpdateMarkEnemyAsPacified object:nil userInfo:userInfo];
+                [[NSNotificationCenter defaultCenter] postNotificationName:GameUpdateMarkEnemyAsHarmless object:nil userInfo:userInfo];
                 
                 //expect
                 OCMVerify([gridStorageMock objectForRow:row column:column]);

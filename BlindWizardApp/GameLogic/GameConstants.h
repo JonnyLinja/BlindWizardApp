@@ -13,7 +13,7 @@
 #define GameUpdateMoveEnemyToRowTail    @"GameUpdateMoveEnemyToRowTail"
 #define GameUpdateDropEnemyDown         @"GameUpdateDropEnemyDown"
 #define GameUpdateMarkEnemyAsDangerous  @"GameUpdateMarkEnemyAsDangerous"
-#define GameUpdateMarkEnemyAsPacified   @"GameUpdateMarkEnemyAsPacified"
+#define GameUpdateMarkEnemyAsHarmless   @"GameUpdateMarkEnemyAsHarmless"
 #define GameUpdateDestroyEnemy          @"GameUpdateDestroyEnemy"
 
 #define GameActionCallNextWaveComplete  @"GameActionCallNextWaveComplete"

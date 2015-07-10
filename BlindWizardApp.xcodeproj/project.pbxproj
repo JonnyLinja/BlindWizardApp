@@ -13,6 +13,8 @@
 		C32C54031B5055EA004CE82E /* SlideRightUnwindSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = C32C54021B5055EA004CE82E /* SlideRightUnwindSegue.m */; };
 		C32C54061B505907004CE82E /* SlideUpSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = C32C54051B505907004CE82E /* SlideUpSegue.m */; };
 		C32C54091B505977004CE82E /* SlideDownUnwindSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = C32C54081B505977004CE82E /* SlideDownUnwindSegue.m */; };
+		C32C540C1B508744004CE82E /* CheckDangerousGameAction.m in Sources */ = {isa = PBXBuildFile; fileRef = C32C540B1B508744004CE82E /* CheckDangerousGameAction.m */; };
+		C32C540E1B50874F004CE82E /* CheckDangerousGameActionSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C32C540D1B50874F004CE82E /* CheckDangerousGameActionSpec.m */; };
 		C345FF771B4F7018004C249F /* ScoreCalculatorSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C345FF761B4F7018004C249F /* ScoreCalculatorSpec.m */; };
 		C345FF7A1B4F79B2004C249F /* ScoreCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = C345FF791B4F79B2004C249F /* ScoreCalculator.m */; };
 		C345FF7D1B4F95BA004C249F /* LoadInitialEnemiesGameAction.m in Sources */ = {isa = PBXBuildFile; fileRef = C345FF7C1B4F95BA004C249F /* LoadInitialEnemiesGameAction.m */; };
@@ -110,6 +112,9 @@
 		C32C54051B505907004CE82E /* SlideUpSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideUpSegue.m; sourceTree = "<group>"; };
 		C32C54071B505977004CE82E /* SlideDownUnwindSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideDownUnwindSegue.h; sourceTree = "<group>"; };
 		C32C54081B505977004CE82E /* SlideDownUnwindSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideDownUnwindSegue.m; sourceTree = "<group>"; };
+		C32C540A1B508744004CE82E /* CheckDangerousGameAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckDangerousGameAction.h; sourceTree = "<group>"; };
+		C32C540B1B508744004CE82E /* CheckDangerousGameAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckDangerousGameAction.m; sourceTree = "<group>"; };
+		C32C540D1B50874F004CE82E /* CheckDangerousGameActionSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckDangerousGameActionSpec.m; sourceTree = "<group>"; };
 		C33EA34C1B45F657001D7218 /* GameConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameConstants.h; sourceTree = "<group>"; };
 		C345FF761B4F7018004C249F /* ScoreCalculatorSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreCalculatorSpec.m; sourceTree = "<group>"; };
 		C345FF781B4F79B2004C249F /* ScoreCalculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreCalculator.h; sourceTree = "<group>"; };
@@ -472,6 +477,7 @@
 				C35C2E791B48625500FF7944 /* ShiftEnemiesRightGameActionSpec.m */,
 				C35C2E7B1B4863ED00FF7944 /* DropEnemiesDownGameActionSpec.m */,
 				C35C2E7D1B488E0C00FF7944 /* DestroyEnemyGroupsGameActionSpec.m */,
+				C32C540D1B50874F004CE82E /* CheckDangerousGameActionSpec.m */,
 				C35C2E8B1B48E13C00FF7944 /* EnemyViewModelSpec.m */,
 				C35C2E8D1B48EF1400FF7944 /* EnemyViewSpec.m */,
 				C35C2E931B490D7600FF7944 /* GridCalculatorSpec.m */,
@@ -543,6 +549,8 @@
 				C35C2E771B4857AA00FF7944 /* DropEnemiesDownGameAction.m */,
 				C35C2E7F1B488EDD00FF7944 /* DestroyEnemyGroupsGameAction.h */,
 				C35C2E801B488EDD00FF7944 /* DestroyEnemyGroupsGameAction.m */,
+				C32C540A1B508744004CE82E /* CheckDangerousGameAction.h */,
+				C32C540B1B508744004CE82E /* CheckDangerousGameAction.m */,
 			);
 			path = GameActions;
 			sourceTree = "<group>";
@@ -762,6 +770,7 @@
 				C35C2E781B4857AA00FF7944 /* DropEnemiesDownGameAction.m in Sources */,
 				C3EA5B841B43A1C000376A5F /* GridCalculator.m in Sources */,
 				C35031F71B4B4DA700A12F8E /* ViewControllerAssembly.m in Sources */,
+				C32C540C1B508744004CE82E /* CheckDangerousGameAction.m in Sources */,
 				C345FF7D1B4F95BA004C249F /* LoadInitialEnemiesGameAction.m in Sources */,
 				C3F8B81B1B47B7BE006A2619 /* Queue.m in Sources */,
 				C3F6BDDB1B389B860088D924 /* main.m in Sources */,
@@ -781,6 +790,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C32C540E1B50874F004CE82E /* CheckDangerousGameActionSpec.m in Sources */,
 				C345FF821B4F967E004C249F /* LoadInitialEnemiesGameActionSpec.m in Sources */,
 				C3EA14031B4CE1900022CE9E /* WaveControllerSpec.m in Sources */,
 				C34EFC001B4267980079B6DC /* GameObjectFactorySpec.m in Sources */,

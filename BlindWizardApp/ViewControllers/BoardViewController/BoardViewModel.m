@@ -28,7 +28,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(executeGameUpdateMoveEnemyToRowTail:) name:GameUpdateMoveEnemyToRowTail object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(executeGameUpdateDropEnemyDown:) name:GameUpdateDropEnemyDown object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(executeGameUpdateMarkEnemyAsDangerous:) name:GameUpdateMarkEnemyAsDangerous object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(executeGameUpdateMarkEnemyAsPacified:) name:GameUpdateMarkEnemyAsPacified object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(executeGameUpdateMarkEnemyAsHarmless:) name:GameUpdateMarkEnemyAsHarmless object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(executeGameUpdateDestroyEnemy:) name:GameUpdateDestroyEnemy object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleGameActionComplete) name:GameActionComplete object:nil];
 
@@ -186,7 +186,7 @@
     [evm runDangerAnimation];
 }
 
-- (void) executeGameUpdateMarkEnemyAsPacified:(NSNotification *)notification {
+- (void) executeGameUpdateMarkEnemyAsHarmless:(NSNotification *)notification {
     //parse values
     NSInteger row = [[notification.userInfo objectForKey:@"row"] integerValue];
     NSInteger column = [[notification.userInfo objectForKey:@"column"] integerValue];
