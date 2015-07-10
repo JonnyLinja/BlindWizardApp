@@ -10,6 +10,11 @@
 #import "GridCalculator.h"
 #import "BoardViewController.h"
 
+@interface PlayViewController ()
+- (void) injectDependencies;
+- (void) startGame;
+@end
+
 SpecBegin(PlayViewController)
 
 describe(@"PlayViewController", ^{
@@ -151,12 +156,10 @@ describe(@"PlayViewController", ^{
             });
         });
         
-        //TODO: fix this test
         context(@"when game is over", ^{
             it(@"should show the play again button", ^{
                 //context
-                [sut viewDidAppear:YES];
-                //OCMStub([playViewModelMock gameInProgress]).andReturn(NO);
+                [sut startGame];
                 
                 //because
                 [sut notifyKeyPath:@"viewModel.gameInProgress" setTo:@NO];
@@ -166,12 +169,10 @@ describe(@"PlayViewController", ^{
             });
         });
         
-        //TODO: fix this test
         context(@"when game is playing", ^{
             it(@"should hide the play again button", ^{
                 //context
-                [sut viewDidAppear:YES];
-                //OCMStub([playViewModelMock gameInProgress]).andReturn(YES);
+                [sut startGame];
 
                 //because
                 [sut notifyKeyPath:@"viewModel.gameInProgress" setTo:@YES];

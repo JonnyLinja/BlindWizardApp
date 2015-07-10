@@ -31,20 +31,29 @@
 
 //TODO: one time only check
 - (void) viewDidAppear:(BOOL)animated {
+    //inject
+    [self injectDependencies];
+    
+    //guarantee start occurs after boardvc view did appear
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self startGame];
+    });
+}
+
+- (void) injectDependencies {
     //calculator injection
     NSNumber *width = @(self.boardView.frame.size.width);
     NSNumber *height = @(self.boardView.frame.size.height);
     GridCalculator *calculator = [self.factory gridCalculatorWithWidth:width height:height];
     self.viewModel.calculator = calculator;
+}
+
+- (void) startGame {
+    //start
+    [self.viewModel startGame];
     
-    //guarantee start occurs after boardvc view did appear
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        //start
-        [self.viewModel startGame];
-        
-        //map
-        [self map:@keypath(self.viewModel.gameInProgress) to:@keypath(self.playAgainButton.hidden) null:@YES];
-    });
+    //map
+    [self map:@keypath(self.viewModel.gameInProgress) to:@keypath(self.playAgainButton.hidden) null:@YES];
 }
 
 - (IBAction)tappedNextWave:(id)sender {
