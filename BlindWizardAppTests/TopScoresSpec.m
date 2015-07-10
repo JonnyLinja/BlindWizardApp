@@ -43,6 +43,7 @@ describe(@"TopScores", ^{
             
             //expect
             expect(sut.scores).to.equal(endData);
+            OCMVerify([storeMock setObject:endData forKey:@"scores"]);
             OCMVerify([storeMock synchronize]);
             
             //cleanup
@@ -64,6 +65,7 @@ describe(@"TopScores", ^{
             
             //expect
             expect(sut.scores).to.equal(endData);
+            OCMVerify([storeMock setObject:endData forKey:@"scores"]);
             OCMVerify([storeMock synchronize]);
             
             //cleanup

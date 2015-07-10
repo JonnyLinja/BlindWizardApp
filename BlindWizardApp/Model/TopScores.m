@@ -41,6 +41,7 @@
         self.scores = [array copy];
         
         //save it
+        [[NSUserDefaults standardUserDefaults] setObject:self.scores forKey:@"scores"];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }else if(score > [[self.scores lastObject] integerValue]) {
         //create array
@@ -60,6 +61,7 @@
         self.scores = [array copy];
         
         //save it
+        [[NSUserDefaults standardUserDefaults] setObject:self.scores forKey:@"scores"];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
 }
