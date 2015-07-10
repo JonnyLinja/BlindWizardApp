@@ -73,8 +73,10 @@
 
 - (void) runCreateAnimation {
     self.alpha = 0;
-    [UIView animateWithDuration:0.5 animations:^{
+    self.transform = CGAffineTransformMakeScale(1.1, 1.1);
+    [UIView animateWithDuration:0.2 animations:^{
         self.alpha = 1;
+        self.transform = CGAffineTransformIdentity;
     }];
 }
 
@@ -105,7 +107,7 @@
 
 - (void) destroyAndRemoveAnimation {
     [self.superview sendSubviewToBack:self];
-    [UIView animateWithDuration:0.5 animations:^{
+    [UIView animateWithDuration:0.3 animations:^{
         self.transform = CGAffineTransformMakeScale(0.05, 0.05);
     }completion:^(BOOL finished) {
         [self removeFromSuperview];
