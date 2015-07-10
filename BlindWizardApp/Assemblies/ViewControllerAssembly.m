@@ -32,7 +32,9 @@
 }
 
 - (LeaderboardViewModel *) leaderboardViewModel {
-    return [TyphoonDefinition withClass:[LeaderboardViewModel class]];
+    return [TyphoonDefinition withClass:[LeaderboardViewModel class] configuration:^(TyphoonDefinition *definition) {
+        [definition injectProperty:@selector(topScores) with:[self.modelAssembly topScores]];
+    }];
 }
 
 - (PlayViewController *) playViewController {

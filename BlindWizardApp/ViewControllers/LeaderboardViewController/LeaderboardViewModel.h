@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+@class TopScores;
+
 @interface LeaderboardViewModel : NSObject
+@property (nonatomic, strong) TopScores *topScores; //inject
 @property (nonatomic, strong, readonly) NSString *listOfTopScores;
 @end

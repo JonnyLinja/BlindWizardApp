@@ -7,6 +7,8 @@
 //
 
 #import "LeaderboardViewModel.h"
+#import "TopScores.h"
+#import "MTKObserving.h"
 
 @interface LeaderboardViewModel ()
 @property (nonatomic, strong) NSString *listOfTopScores;
@@ -18,9 +20,15 @@
     self = [super init];
     if(!self) return nil;
     
-    self.listOfTopScores = @"foobar";
+    [self map:@keypath(self.topScores.scores) to:@keypath(self.listOfTopScores) transform:^NSString *(NSArray *value) {
+        return [value componentsJoinedByString:@"\n\n"];
+    }];
     
     return self;
+}
+
+- (void) dealloc {
+    [self removeAllObservations];
 }
 
 @end
