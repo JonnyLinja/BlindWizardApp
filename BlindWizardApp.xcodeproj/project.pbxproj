@@ -11,6 +11,8 @@
 		C30A9CC81B449BAD00EBBD94 /* RandomGeneratorSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C30A9CC71B449BAD00EBBD94 /* RandomGeneratorSpec.m */; };
 		C32C54001B50323F004CE82E /* SlideLeftSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = C32C53FF1B50323F004CE82E /* SlideLeftSegue.m */; };
 		C32C54031B5055EA004CE82E /* SlideRightUnwindSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = C32C54021B5055EA004CE82E /* SlideRightUnwindSegue.m */; };
+		C32C54061B505907004CE82E /* SlideUpSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = C32C54051B505907004CE82E /* SlideUpSegue.m */; };
+		C32C54091B505977004CE82E /* SlideDownUnwindSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = C32C54081B505977004CE82E /* SlideDownUnwindSegue.m */; };
 		C345FF771B4F7018004C249F /* ScoreCalculatorSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C345FF761B4F7018004C249F /* ScoreCalculatorSpec.m */; };
 		C345FF7A1B4F79B2004C249F /* ScoreCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = C345FF791B4F79B2004C249F /* ScoreCalculator.m */; };
 		C345FF7D1B4F95BA004C249F /* LoadInitialEnemiesGameAction.m in Sources */ = {isa = PBXBuildFile; fileRef = C345FF7C1B4F95BA004C249F /* LoadInitialEnemiesGameAction.m */; };
@@ -104,6 +106,10 @@
 		C32C53FF1B50323F004CE82E /* SlideLeftSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideLeftSegue.m; sourceTree = "<group>"; };
 		C32C54011B5055EA004CE82E /* SlideRightUnwindSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideRightUnwindSegue.h; sourceTree = "<group>"; };
 		C32C54021B5055EA004CE82E /* SlideRightUnwindSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideRightUnwindSegue.m; sourceTree = "<group>"; };
+		C32C54041B505907004CE82E /* SlideUpSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideUpSegue.h; sourceTree = "<group>"; };
+		C32C54051B505907004CE82E /* SlideUpSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideUpSegue.m; sourceTree = "<group>"; };
+		C32C54071B505977004CE82E /* SlideDownUnwindSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideDownUnwindSegue.h; sourceTree = "<group>"; };
+		C32C54081B505977004CE82E /* SlideDownUnwindSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideDownUnwindSegue.m; sourceTree = "<group>"; };
 		C33EA34C1B45F657001D7218 /* GameConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameConstants.h; sourceTree = "<group>"; };
 		C345FF761B4F7018004C249F /* ScoreCalculatorSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreCalculatorSpec.m; sourceTree = "<group>"; };
 		C345FF781B4F79B2004C249F /* ScoreCalculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreCalculator.h; sourceTree = "<group>"; };
@@ -259,6 +265,10 @@
 				C32C53FF1B50323F004CE82E /* SlideLeftSegue.m */,
 				C32C54011B5055EA004CE82E /* SlideRightUnwindSegue.h */,
 				C32C54021B5055EA004CE82E /* SlideRightUnwindSegue.m */,
+				C32C54041B505907004CE82E /* SlideUpSegue.h */,
+				C32C54051B505907004CE82E /* SlideUpSegue.m */,
+				C32C54071B505977004CE82E /* SlideDownUnwindSegue.h */,
+				C32C54081B505977004CE82E /* SlideDownUnwindSegue.m */,
 			);
 			path = Segues;
 			sourceTree = "<group>";
@@ -759,8 +769,10 @@
 				C3BEFDF81B3E1997002930BA /* GameObjectFactory.m in Sources */,
 				C3EA5B861B43A1C000376A5F /* GridStorageKeyGenerator.m in Sources */,
 				C35031FE1B4B500100A12F8E /* GeneralAssembly.m in Sources */,
+				C32C54061B505907004CE82E /* SlideUpSegue.m in Sources */,
 				C3EA14061B4CE1F60022CE9E /* WaveController.m in Sources */,
 				C3FE19E41B44BC2F00F26152 /* GameFlow.m in Sources */,
+				C32C54091B505977004CE82E /* SlideDownUnwindSegue.m in Sources */,
 				C345FF8B1B4FB956004C249F /* ModelAssembly.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
