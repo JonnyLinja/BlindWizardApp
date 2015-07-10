@@ -28,23 +28,19 @@
     [self removeAllObservations];
     
     //score
-    //TODO: use map and transformation block instead
-    [self observeProperty:@keypath(self.game.score) withBlock:
-     ^(__weak typeof(self) self, NSNumber *oldScore, NSNumber *newScore) {
-         self.score = [NSString stringWithFormat:@"%@ points", [newScore stringValue]];
-     }];
+    [self map:@keypath(self.game.score) to:@keypath(self.score) transform:^NSString *(NSNumber *value) {
+        return [NSString stringWithFormat:@"%@ points", [value stringValue]];
+    }];
     
     //in progress
-    //TODO: use map and transformation block instead
     [self map:@keypath(self.game.gameInProgress) to:@keypath(self.gameInProgress) null:@NO];
-    [self observeProperty:@keypath(self.game.gameInProgress) withBlock:
-     ^(__weak typeof(self) self, NSNumber *old, NSNumber *newVal) {
-         if([newVal boolValue]) {
-             self.boardVisibility = 1;
-         }else {
-             self.boardVisibility = 0.1;
-         }
-     }];
+    [self map:@keypath(self.game.gameInProgress) to:@keypath(self.boardVisibility) transform:^NSNumber *(NSNumber *value) {
+        if([value boolValue]) {
+            return @1;
+        }else {
+            return @0.1;
+        }
+    }];
 }
 
 - (void) callNextWave {
