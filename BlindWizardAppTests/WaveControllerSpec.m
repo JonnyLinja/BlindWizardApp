@@ -76,6 +76,14 @@ describe(@"WaveController", ^{
             expect(sut.timer).to.beNil();
         });
         
+        it(@"should apply the timer multiplier to the delay", ^{
+            //because
+            [sut commandCallNextWave];
+            
+            //expect
+            expect(sut.delay).to.equal(9);
+        });
+        
         it(@"should call the next wave", ^{
             //because
             [sut commandCallNextWave];
@@ -90,14 +98,6 @@ describe(@"WaveController", ^{
             
             //expect
             expect(sut.count).to.equal(1);
-        });
-        
-        it(@"should apply the timer multiplier to the duration", ^{
-            //because
-            [sut commandCallNextWave];
-            
-            //expect
-            expect(sut.delay).to.equal(9);
         });
     });
     
@@ -115,7 +115,7 @@ describe(@"WaveController", ^{
     });
     
     context(@"when there are no waves to be called", ^{
-        it(@"should start the timer with the duration", ^{
+        it(@"should start the timer with the delay", ^{
             //context
             sut.count = 1;
             OCMStub(ClassMethod([timerMock scheduledTimerWithTimeInterval:sut.delay target:[OCMArg any] selector:[OCMArg anySelector] userInfo:[OCMArg any] repeats:NO])).andReturn(timerMock);
@@ -141,6 +141,17 @@ describe(@"WaveController", ^{
             
             //expect
             expect(sut.count).to.equal(3);
+        });
+        
+        it(@"should apply the timer multiplier to the delay", ^{
+            //context
+            [sut notifyKeyPath:@"board.isActive" setTo:@YES];
+
+            //because
+            [sut.timer fire];
+            
+            //expect
+            expect(sut.delay).to.equal(9);
         });
 
         it(@"should manually call the next wave", ^{

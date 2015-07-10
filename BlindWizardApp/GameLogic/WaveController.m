@@ -54,7 +54,6 @@
 - (void) commandCallNextWave {
     [self stopTimer];
     [self executeCallNextWave];
-    self.delay *= self.multiplier;
 }
 
 - (void) startTimer {
@@ -68,6 +67,7 @@
 
 - (void) executeCallNextWave {
     self.count++;
+    self.delay *= self.multiplier;
     CallNextWaveGameAction *action = [self.factory callNextWaveGameActionWithBoard:self.board];
     [self.flow addGameAction:action];
 }

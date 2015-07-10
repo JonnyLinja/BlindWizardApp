@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>StartingWaveTimer</key>
-	<integer>10</integer>
+	<integer>5</integer>
 	<key>WaveTimerMultiplier</key>
 	<real>0.9</real>
 	<key>MoveAnimationDuration</key>
