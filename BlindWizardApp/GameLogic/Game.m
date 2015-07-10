@@ -71,6 +71,7 @@
 
 - (void) dealloc {
     [self removeAllObservations];
+    self.board.isActive = NO;
 }
 
 @end

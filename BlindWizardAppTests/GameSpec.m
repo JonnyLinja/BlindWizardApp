@@ -151,6 +151,20 @@ describe(@"Game", ^{
         });
     });
     
+    //TODO: figure out how to test dealloc, this should work in theory but it isn't
+    pending(@"when deallocating", ^{
+        it(@"should set the board to not active", ^{
+            __weak Game *weakSut;
+            @autoreleasepool {
+                Game *strongSut = [[Game alloc] initWithDependencyFactory:factoryMock];
+                [strongSut commandStartGameWithRows:5 columns:5];
+                weakSut = strongSut;
+                
+                OCMVerify([boardMock setIsActive:NO]);
+            }
+        });
+    });
+    
     afterEach(^{
         [factoryMock stopMocking];
         [flowMock stopMocking];
