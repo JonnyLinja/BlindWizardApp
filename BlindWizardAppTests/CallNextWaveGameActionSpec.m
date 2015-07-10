@@ -42,6 +42,7 @@ describe(@"CallNextWaveGameAction", ^{
                                                    userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
                 expect([userInfo objectForKey:@"row"]).to.equal(@3);
                 expect([userInfo objectForKey:@"column"]).to.equal(@0);
+                expect([userInfo objectForKey:@"type"]).to.beGreaterThan(0);
                 return YES;
             }]];
             [[notificationMock expect] notificationWithName:GameUpdateCreateEnemy
@@ -49,6 +50,7 @@ describe(@"CallNextWaveGameAction", ^{
                                                    userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
                 expect([userInfo objectForKey:@"row"]).to.equal(@1);
                 expect([userInfo objectForKey:@"column"]).to.equal(@1);
+                expect([userInfo objectForKey:@"type"]).to.beGreaterThan(0);
                 return YES;
             }]];
             [[notificationMock expect] notificationWithName:GameActionCallNextWaveComplete object:sut];
