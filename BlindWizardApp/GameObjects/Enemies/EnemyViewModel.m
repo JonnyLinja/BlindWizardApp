@@ -74,6 +74,7 @@
     self.animationType = MoveAnimation;
     [self updateFace];
     
+    //TODO: find a way around this hack
     //hack since KVO system doesn't fire if setting to save value sadly
     //dispatch after hack since not sure how to test setting of the type rapidly
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -87,6 +88,7 @@
     self.animationType = SnapAndMoveAnimation;
     [self updateFace];
     
+    //TODO: find a way around this hack
     //hack since KVO system doesn't fire if setting to save value sadly
     //dispatch after hack since not sure how to test setting of the type rapidly
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
