@@ -58,12 +58,6 @@
         default:
             break;
     }
-    
-    //hack since KVO system doesn't fire if setting to save value sadly
-    //dispatch after hack since not sure how to test setting of the type rapidly
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        self.animationType = NoAnimation;
-    });
 }
 
 - (void) runNeutralAnimation {
@@ -79,6 +73,12 @@
     self.movePoint = point;
     self.animationType = MoveAnimation;
     [self updateFace];
+    
+    //hack since KVO system doesn't fire if setting to save value sadly
+    //dispatch after hack since not sure how to test setting of the type rapidly
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        self.animationType = NoAnimation;
+    });
 }
 
 - (void) snapToCGPoint:(CGPoint)snapPoint thenAnimateMoveToCGPoint:(CGPoint)movePoint {
@@ -86,6 +86,12 @@
     self.snapPoint = snapPoint;
     self.animationType = SnapAndMoveAnimation;
     [self updateFace];
+    
+    //hack since KVO system doesn't fire if setting to save value sadly
+    //dispatch after hack since not sure how to test setting of the type rapidly
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        self.animationType = NoAnimation;
+    });
 }
 
 - (void) animateMoveAndRemoveToCGPoint:(CGPoint)point {

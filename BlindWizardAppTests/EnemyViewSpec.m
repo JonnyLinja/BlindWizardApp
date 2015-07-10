@@ -58,8 +58,9 @@ describe(@"EnemyView", ^{
             });
         });
         
+        //TODO: figure out how to test create stomp animation
         context(@"when animation becomes create", ^{
-            it(@"should animate fade in", ^{
+            it(@"should animate stomp and fade in", ^{
                 //context
                 sut.alpha = 0;
                 OCMStub([viewModelMock animationType]).andReturn(CreateAnimation);
