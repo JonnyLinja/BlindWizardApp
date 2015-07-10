@@ -78,8 +78,9 @@ describe(@"CallNextWaveGameAction", ^{
     });
     
     context(@"when generating next game action", ^{
-        it(@"should create a check lose and a destroy game action", ^{
+        it(@"should create a check dangerous, check lose, and a destroy game action", ^{
             //context
+            OCMExpect([factoryMock checkDangerousGameActionWithBoard:sut.gameBoard]).andReturn(sut);
             OCMExpect([factoryMock checkLoseGameActionWithBoard:sut.gameBoard]).andReturn(sut);
             OCMExpect([factoryMock destroyEnemyGroupsGameActionWithBoard:sut.gameBoard]).andReturn(sut);
             

@@ -21,6 +21,7 @@
 @class ShiftEnemiesRightGameAction;
 @class DropEnemiesDownGameAction;
 @class DestroyEnemyGroupsGameAction;
+@class CheckDangerousGameAction;
 @class WaveController;
 @class ScoreCalculator;
 
@@ -37,6 +38,7 @@
 - (ShiftEnemiesRightGameAction *) shiftEnemiesRightGameActionWithBoard:(GameBoard *)board row:(NSNumber *)row;
 - (DestroyEnemyGroupsGameAction *) destroyEnemyGroupsGameActionWithBoard:(GameBoard *)board;
 - (DropEnemiesDownGameAction *) dropEnemiesDownGameActionWithBoard:(GameBoard *)board;
+- (CheckDangerousGameAction *) checkDangerousGameActionWithBoard:(GameBoard *)board;
 - (WaveController *) waveControllerWithBoard:(GameBoard *)board flow:(GameFlow *)flow;
 - (ScoreCalculator *) scoreCalculator;
 

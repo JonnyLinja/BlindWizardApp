@@ -21,6 +21,7 @@
 #import "ShiftEnemiesRightGameAction.h"
 #import "DropEnemiesDownGameAction.h"
 #import "DestroyEnemyGroupsGameAction.h"
+#import "CheckDangerousGameAction.h"
 #import "WaveController.h"
 #import "ScoreCalculator.h"
 
@@ -124,6 +125,14 @@
             [initializer injectParameterWith:board];
             [initializer injectParameterWith:self];
             [initializer injectParameterWith:TyphoonConfig(@"MoveAnimationDuration")];
+        }];
+    }];
+}
+
+- (CheckDangerousGameAction *) checkDangerousGameActionWithBoard:(GameBoard *)board {
+    return [TyphoonDefinition withClass:[CheckDangerousGameAction class] configuration:^(TyphoonDefinition* definition) {
+        [definition useInitializer:@selector(initWithGameBoard:) parameters:^(TyphoonMethod *initializer) {
+            [initializer injectParameterWith:board];
         }];
     }];
 }
