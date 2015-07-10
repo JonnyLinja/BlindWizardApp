@@ -221,5 +221,3 @@ describe(@"DestroyEnemyGroupsGameAction", ^{
 });
 
 SpecEnd
-
-//TODO: score
