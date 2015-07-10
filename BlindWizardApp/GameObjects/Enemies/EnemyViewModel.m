@@ -9,13 +9,14 @@
 #import "EnemyViewModel.h"
 #import <UIKit/UIKit.h>
 
-@interface EnemyViewModel()
+@interface EnemyViewModel ()
 @property (nonatomic, assign) NSInteger enemyType;
 @property (nonatomic, strong) UIColor *color;
 @property (nonatomic, assign) CGPoint movePoint;
 @property (nonatomic, assign) CGPoint snapPoint;
 @property (nonatomic, assign) CGFloat moveDuration;
 @property (nonatomic, strong) NSString *face;
+@property (nonatomic, assign) BOOL dangerous;
 @end
 
 @implementation EnemyViewModel
@@ -45,7 +46,11 @@
     switch (self.animationType) {
         case NoAnimation:
         case CreateAnimation:
-            self.face = @"'-'";
+            if(self.dangerous) {
+                self.face = @"ಠ_ಠ";
+            }else {
+                self.face = @"'-'";
+            }
             break;
         case MoveAnimation:
         case MoveAndRemoveAnimation:
@@ -103,11 +108,11 @@
 }
 
 - (void) runDangerAnimation {
-    
+    self.dangerous = YES;
 }
 
 - (void) stopDangerAnimation {
-    
+    self.dangerous = NO;
 }
 
 - (void) runDestroyAnimation {

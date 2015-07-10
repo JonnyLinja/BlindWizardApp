@@ -5,6 +5,10 @@
 #import "EnemyViewModel.h"
 #import <UIKit/UIKit.h>
 
+@interface EnemyViewModel (Test)
+@property (nonatomic, assign) BOOL dangerous;
+@end
+
 SpecBegin(EnemyViewModel)
 
 describe(@"EnemyViewModel", ^{
@@ -149,9 +153,39 @@ describe(@"EnemyViewModel", ^{
             expect(sut.face).to.equal(@"ᵔ.ᵔ");
         });
     });
+    
+    context(@"when running a danger animation", ^{
+        it(@"should set to dangerous", ^{
+            //because
+            [sut runDangerAnimation];
+            
+            //expect
+            expect(sut.dangerous).to.beTruthy();
+        });
+    });
+    
+    context(@"when stopping a danger animation", ^{
+        it(@"should set to not dangerous", ^{
+            //because
+            [sut stopDangerAnimation];
+            
+            //expect
+            expect(sut.dangerous).to.beFalsy();
+        });
+    });
+    
+    context(@"when running a neutral animation that is dangerous", ^{
+        it(@"should set the face", ^{
+            //context
+            sut.dangerous = YES;
+            
+            //because
+            [sut runNeutralAnimation];
+            
+            //expect
+            expect(sut.face).to.equal(@"ಠ_ಠ");
+        });
+    });
 });
 
 SpecEnd
-
-//TODO: danger
-//TODO: stop danger
