@@ -60,7 +60,7 @@
             self.face = @"ᵔ.ᵔ";
             break;
         case DestroyAndRemoveAnimation:
-            self.face = [NSString stringWithFormat:@"%li", self.score];
+            self.face = [NSString stringWithFormat:@"%zd", self.score];
             break;
         default:
             break;

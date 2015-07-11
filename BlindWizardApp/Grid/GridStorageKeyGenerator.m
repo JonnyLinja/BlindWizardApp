@@ -11,7 +11,7 @@
 @implementation GridStorageKeyGenerator
 
 - (NSString *) stringKeyForRow:(NSInteger)row column:(NSInteger)column {
-    return [NSString stringWithFormat:@"%li:%li", row, column];
+    return [NSString stringWithFormat:@"%zd:%zd", row, column];
 }
 
 @end
