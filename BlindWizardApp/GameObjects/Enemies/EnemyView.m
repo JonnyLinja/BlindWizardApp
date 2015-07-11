@@ -107,7 +107,7 @@
 
 - (void) destroyAndRemoveAnimation {
     [self.superview sendSubviewToBack:self];
-    [UIView animateWithDuration:0.3 animations:^{
+    [UIView animateWithDuration:0.4 animations:^{
         self.transform = CGAffineTransformMakeScale(0.05, 0.05);
     }completion:^(BOOL finished) {
         [self removeFromSuperview];

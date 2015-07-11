@@ -7,13 +7,26 @@
 SpecBegin(ScoreCalculator)
 
 describe(@"ScoreCalculator", ^{
-    context(@"when passed the number of destroyed enemies", ^{
-        it(@"should return a score", ^{
+    context(@"when calculating the score per each enemy", ^{
+        it(@"should return the count", ^{
             //context
             ScoreCalculator *sut = [[ScoreCalculator alloc] init];
             
             //because
-            NSInteger result = [sut calculateScoreFromNumberOfEnemiesDestroyed:4];
+            NSInteger result = [sut calculateScorePerEnemyAfterDestroying:4];
+            
+            //expect
+            expect(result).to.equal(4);
+        });
+    });
+    
+    context(@"when calculating the total score", ^{
+        it(@"should return the count squared", ^{
+            //context
+            ScoreCalculator *sut = [[ScoreCalculator alloc] init];
+            
+            //because
+            NSInteger result = [sut calculateTotalScoreFromNumberOfEnemiesDestroyed:4];
             
             //expect
             expect(result).to.equal(16);

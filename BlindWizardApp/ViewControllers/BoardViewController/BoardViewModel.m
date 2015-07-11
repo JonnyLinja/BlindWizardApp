@@ -202,12 +202,13 @@
     //parse values
     NSInteger row = [[notification.userInfo objectForKey:@"row"] integerValue];
     NSInteger column = [[notification.userInfo objectForKey:@"column"] integerValue];
+    NSInteger score = [[notification.userInfo objectForKey:@"score"] integerValue];
     
     //get
     EnemyViewModel *evm = [self.gridStorage objectForRow:row column:column];
     
     //animate
-    [evm runDestroyAnimation];
+    [evm runDestroyAnimationWithScore:score];
     
     //store
     [self.gridStorage promiseRemoveObjectForRow:row column:column];

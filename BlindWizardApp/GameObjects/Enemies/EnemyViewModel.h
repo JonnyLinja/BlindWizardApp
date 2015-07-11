@@ -36,5 +36,5 @@ typedef enum {
 - (void) animateMoveAndRemoveToCGPoint:(CGPoint)point;
 - (void) runDangerAnimation;
 - (void) stopDangerAnimation;
-- (void) runDestroyAnimation;
+- (void) runDestroyAnimationWithScore:(NSInteger)score;
 @end

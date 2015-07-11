@@ -17,6 +17,7 @@
 @property (nonatomic, assign) CGFloat moveDuration;
 @property (nonatomic, strong) NSString *face;
 @property (nonatomic, assign) BOOL dangerous;
+@property (nonatomic, assign) NSInteger score;
 @end
 
 @implementation EnemyViewModel
@@ -47,9 +48,9 @@
         case NoAnimation:
         case CreateAnimation:
             if(self.dangerous) {
-                self.face = @"˃⌂˂";
+                self.face = @"*෴*";
             }else {
-                self.face = @"'-'";
+                self.face = @"'‸'";
             }
             break;
         case MoveAnimation:
@@ -58,7 +59,7 @@
             self.face = @"ᵔ.ᵔ";
             break;
         case DestroyAndRemoveAnimation:
-            self.face = @"*෴*";
+            self.face = [NSString stringWithFormat:@"%li", self.score];
             break;
         default:
             break;
@@ -117,7 +118,8 @@
     [self updateFace];
 }
 
-- (void) runDestroyAnimation {
+- (void) runDestroyAnimationWithScore:(NSInteger)score {
+    self.score = score;
     self.animationType = DestroyAndRemoveAnimation;
     [self updateFace];
 }

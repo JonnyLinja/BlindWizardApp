@@ -142,6 +142,7 @@
     }
     
     //remove and notify
+    NSInteger score = [self.calculator calculateScorePerEnemyAfterDestroying:indicesToDestroy.count];
     for(int i=0; i<indicesToDestroy.count; i++) {
         //remove from data
         NSInteger index = [[indicesToDestroy objectAtIndex:i] integerValue];
@@ -152,12 +153,13 @@
                                                             object:self
                                                           userInfo:@{
                                                                      @"row" : [rowsToDestroy objectAtIndex:i],
-                                                                     @"column" : [columnsToDestroy objectAtIndex:i]
+                                                                     @"column" : [columnsToDestroy objectAtIndex:i],
+                                                                     @"score" : @(score)
                                                                      }];
     }
     
     //score
-    self.gameBoard.score += [self.calculator calculateScoreFromNumberOfEnemiesDestroyed:indicesToDestroy.count];
+    self.gameBoard.score += [self.calculator calculateTotalScoreFromNumberOfEnemiesDestroyed:indicesToDestroy.count];
 }
 
 - (BOOL) isValid {

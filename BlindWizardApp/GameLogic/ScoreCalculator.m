@@ -10,7 +10,11 @@
 
 @implementation ScoreCalculator
 
-- (NSInteger) calculateScoreFromNumberOfEnemiesDestroyed:(NSInteger)count {
+- (NSInteger) calculateScorePerEnemyAfterDestroying:(NSInteger)count {
+    return count;
+}
+
+- (NSInteger) calculateTotalScoreFromNumberOfEnemiesDestroyed:(NSInteger)count {
     return count * count;
 }
 

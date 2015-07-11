@@ -326,8 +326,9 @@ describe(@"BoardViewModel", ^{
                 //context
                 NSInteger row = 2;
                 NSInteger column = 2;
+                NSInteger score = 7;
                 id modelMock = OCMClassMock([EnemyViewModel class]);
-                NSDictionary *userInfo = @{@"row" : @(row), @"column" : @(column)};
+                NSDictionary *userInfo = @{@"row" : @(row), @"column" : @(column), @"score" : @(score)};
                 OCMStub([gridStorageMock objectForRow:row column:column]).andReturn(modelMock);
                 
                 //because
@@ -335,7 +336,7 @@ describe(@"BoardViewModel", ^{
                 
                 //expect
                 OCMVerify([gridStorageMock objectForRow:row column:column]);
-                OCMVerify([modelMock runDestroyAnimation]);
+                OCMVerify([modelMock runDestroyAnimationWithScore:score]);
                 OCMVerify([gridStorageMock promiseRemoveObjectForRow:row column:column]);
                 
                 //cleanup

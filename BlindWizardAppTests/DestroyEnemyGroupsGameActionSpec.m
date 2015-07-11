@@ -35,6 +35,8 @@ describe(@"DestroyEnemyGroupsGameAction", ^{
             sut.gameBoard.numRows = 5;
             sut.gameBoard.numColumns = 5;
             sut.gameBoard.data = startData;
+            NSInteger scorePerEnemy = 13;
+            OCMStub([calculatorMock calculateScorePerEnemyAfterDestroying:13]).andReturn(scorePerEnemy);
             id notificationMock = OCMObserverMock();
             [[NSNotificationCenter defaultCenter] addMockObserver:notificationMock name:GameUpdateDestroyEnemy object:sut];
             [[notificationMock expect] notificationWithName:GameUpdateDestroyEnemy
@@ -42,6 +44,7 @@ describe(@"DestroyEnemyGroupsGameAction", ^{
                                                    userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
                 expect([userInfo objectForKey:@"row"]).to.equal(@2);
                 expect([userInfo objectForKey:@"column"]).to.equal(@1);
+                expect([userInfo objectForKey:@"score"]).to.equal(@(scorePerEnemy));
                 return YES;
             }]];
             [[notificationMock expect] notificationWithName:GameUpdateDestroyEnemy
@@ -49,6 +52,7 @@ describe(@"DestroyEnemyGroupsGameAction", ^{
                                                    userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
                 expect([userInfo objectForKey:@"row"]).to.equal(@2);
                 expect([userInfo objectForKey:@"column"]).to.equal(@2);
+                expect([userInfo objectForKey:@"score"]).to.equal(@(scorePerEnemy));
                 return YES;
             }]];
             [[notificationMock expect] notificationWithName:GameUpdateDestroyEnemy
@@ -56,6 +60,7 @@ describe(@"DestroyEnemyGroupsGameAction", ^{
                                                    userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
                 expect([userInfo objectForKey:@"row"]).to.equal(@2);
                 expect([userInfo objectForKey:@"column"]).to.equal(@3);
+                expect([userInfo objectForKey:@"score"]).to.equal(@(scorePerEnemy));
                 return YES;
             }]];
             [[notificationMock expect] notificationWithName:GameUpdateDestroyEnemy
@@ -63,6 +68,7 @@ describe(@"DestroyEnemyGroupsGameAction", ^{
                                                    userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
                 expect([userInfo objectForKey:@"row"]).to.equal(@2);
                 expect([userInfo objectForKey:@"column"]).to.equal(@4);
+                expect([userInfo objectForKey:@"score"]).to.equal(@(scorePerEnemy));
                 return YES;
             }]];
             [[notificationMock expect] notificationWithName:GameUpdateDestroyEnemy
@@ -70,6 +76,7 @@ describe(@"DestroyEnemyGroupsGameAction", ^{
                                                    userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
                 expect([userInfo objectForKey:@"row"]).to.equal(@3);
                 expect([userInfo objectForKey:@"column"]).to.equal(@0);
+                expect([userInfo objectForKey:@"score"]).to.equal(@(scorePerEnemy));
                 return YES;
             }]];
             [[notificationMock expect] notificationWithName:GameUpdateDestroyEnemy
@@ -77,6 +84,7 @@ describe(@"DestroyEnemyGroupsGameAction", ^{
                                                    userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
                 expect([userInfo objectForKey:@"row"]).to.equal(@3);
                 expect([userInfo objectForKey:@"column"]).to.equal(@1);
+                expect([userInfo objectForKey:@"score"]).to.equal(@(scorePerEnemy));
                 return YES;
             }]];
             [[notificationMock expect] notificationWithName:GameUpdateDestroyEnemy
@@ -84,6 +92,7 @@ describe(@"DestroyEnemyGroupsGameAction", ^{
                                                    userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
                 expect([userInfo objectForKey:@"row"]).to.equal(@3);
                 expect([userInfo objectForKey:@"column"]).to.equal(@2);
+                expect([userInfo objectForKey:@"score"]).to.equal(@(scorePerEnemy));
                 return YES;
             }]];
             [[notificationMock expect] notificationWithName:GameUpdateDestroyEnemy
@@ -91,6 +100,7 @@ describe(@"DestroyEnemyGroupsGameAction", ^{
                                                    userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
                 expect([userInfo objectForKey:@"row"]).to.equal(@0);
                 expect([userInfo objectForKey:@"column"]).to.equal(@0);
+                expect([userInfo objectForKey:@"score"]).to.equal(@(scorePerEnemy));
                 return YES;
             }]];
             [[notificationMock expect] notificationWithName:GameUpdateDestroyEnemy
@@ -98,6 +108,7 @@ describe(@"DestroyEnemyGroupsGameAction", ^{
                                                    userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
                 expect([userInfo objectForKey:@"row"]).to.equal(@1);
                 expect([userInfo objectForKey:@"column"]).to.equal(@0);
+                expect([userInfo objectForKey:@"score"]).to.equal(@(scorePerEnemy));
                 return YES;
             }]];
             [[notificationMock expect] notificationWithName:GameUpdateDestroyEnemy
@@ -105,6 +116,7 @@ describe(@"DestroyEnemyGroupsGameAction", ^{
                                                    userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
                 expect([userInfo objectForKey:@"row"]).to.equal(@2);
                 expect([userInfo objectForKey:@"column"]).to.equal(@0);
+                expect([userInfo objectForKey:@"score"]).to.equal(@(scorePerEnemy));
                 return YES;
             }]];
             [[notificationMock expect] notificationWithName:GameUpdateDestroyEnemy
@@ -112,6 +124,7 @@ describe(@"DestroyEnemyGroupsGameAction", ^{
                                                    userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
                 expect([userInfo objectForKey:@"row"]).to.equal(@1);
                 expect([userInfo objectForKey:@"column"]).to.equal(@3);
+                expect([userInfo objectForKey:@"score"]).to.equal(@(scorePerEnemy));
                 return YES;
             }]];
             [[notificationMock expect] notificationWithName:GameUpdateDestroyEnemy
@@ -119,6 +132,8 @@ describe(@"DestroyEnemyGroupsGameAction", ^{
                                                    userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
                 expect([userInfo objectForKey:@"row"]).to.equal(@3);
                 expect([userInfo objectForKey:@"column"]).to.equal(@3);
+                expect([userInfo objectForKey:@"score"]).to.equal(@(scorePerEnemy));
+
                 return YES;
             }]];
             [[notificationMock expect] notificationWithName:GameUpdateDestroyEnemy
@@ -126,6 +141,7 @@ describe(@"DestroyEnemyGroupsGameAction", ^{
                                                    userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
                 expect([userInfo objectForKey:@"row"]).to.equal(@4);
                 expect([userInfo objectForKey:@"column"]).to.equal(@3);
+                expect([userInfo objectForKey:@"score"]).to.equal(@(scorePerEnemy));
                 return YES;
             }]];
             
@@ -147,7 +163,7 @@ describe(@"DestroyEnemyGroupsGameAction", ^{
             sut.gameBoard.numColumns = 5;
             sut.gameBoard.data = startData;
             sut.gameBoard.score = 10;
-            OCMStub([calculatorMock calculateScoreFromNumberOfEnemiesDestroyed:13]).andReturn(169);
+            OCMStub([calculatorMock calculateTotalScoreFromNumberOfEnemiesDestroyed:13]).andReturn(169);
             
             //because
             [sut execute];

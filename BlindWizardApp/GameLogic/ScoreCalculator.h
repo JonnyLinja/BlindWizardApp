@@ -9,5 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface ScoreCalculator : NSObject
-- (NSInteger) calculateScoreFromNumberOfEnemiesDestroyed:(NSInteger)count;
+- (NSInteger) calculateScorePerEnemyAfterDestroying:(NSInteger)count;
+- (NSInteger) calculateTotalScoreFromNumberOfEnemiesDestroyed:(NSInteger)count;
 @end

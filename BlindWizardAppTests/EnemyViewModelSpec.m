@@ -7,6 +7,7 @@
 
 @interface EnemyViewModel (Test)
 @property (nonatomic, assign) BOOL dangerous;
+@property (nonatomic, assign, readonly) NSInteger score;
 @end
 
 SpecBegin(EnemyViewModel)
@@ -30,7 +31,7 @@ describe(@"EnemyViewModel", ^{
             [sut runNeutralAnimation];
             
             //expect
-            expect(sut.face).to.equal(@"'-'");
+            expect(sut.face).to.equal(@"'‸'");
         });
     });
     
@@ -48,25 +49,29 @@ describe(@"EnemyViewModel", ^{
             [sut runCreateAnimation];
             
             //expect
-            expect(sut.face).to.equal(@"'-'");
+            expect(sut.face).to.equal(@"'‸'");
         });
     });
     
     context(@"when running a destroy animation", ^{
-        it(@"should set animation type to destroy and set the face", ^{
+        it(@"should set animation type to destroy and save the score", ^{
+            //context
+            NSInteger score = 3;
+            
             //because
-            [sut runDestroyAnimation];
+            [sut runDestroyAnimationWithScore:score];
             
             //expect
             expect(sut.animationType).to.equal(DestroyAndRemoveAnimation);
+            expect(sut.score).to.equal(score);
         });
         
         it(@"should set the face", ^{
             //because
-            [sut runDestroyAnimation];
+            [sut runDestroyAnimationWithScore:3];
             
             //expect
-            expect(sut.face).to.equal(@"*෴*");
+            expect(sut.face).to.equal(@"3");
         });
     });
 
@@ -168,7 +173,7 @@ describe(@"EnemyViewModel", ^{
             [sut runDangerAnimation];
             
             //expect
-            expect(sut.face).to.equal(@"˃⌂˂");
+            expect(sut.face).to.equal(@"*෴*");
         });
     });
     
@@ -186,7 +191,7 @@ describe(@"EnemyViewModel", ^{
             [sut stopDangerAnimation];
             
             //expect
-            expect(sut.face).to.equal(@"'-'");
+            expect(sut.face).to.equal(@"'‸'");
         });
     });
 });
