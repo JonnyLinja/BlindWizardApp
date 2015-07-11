@@ -331,7 +331,7 @@
                         <viewControllerLayoutGuide type="top" id="JIs-jX-5Oy"/>
                         <viewControllerLayoutGuide type="bottom" id="KrN-xh-akb"/>
                     </layoutGuides>
-                    <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="1L1-NF-ajx">
+                    <view key="view" opaque="NO" multipleTouchEnabled="YES" contentMode="center" id="1L1-NF-ajx">
                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

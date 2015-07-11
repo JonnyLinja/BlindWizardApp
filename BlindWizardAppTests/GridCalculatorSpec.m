@@ -27,9 +27,9 @@ describe(@"GridCalculator", ^{
             expect(sut.size).to.equal(size);
             expect(sut.elementWidth).to.equal(elementWidth);
             expect(sut.elementHeight).to.equal(elementHeight);
-            expect(sut.numRows).to.equal(15);
+            expect(sut.numRows).to.equal(16);
             expect(sut.numColumns).to.equal(10);
-            expect(sut.verticalPadding).to.equal(4);
+            expect(sut.verticalPadding).to.equal(-36);
             expect(sut.horizontalPadding).to.equal(3);
         });
     });

@@ -35,7 +35,7 @@
 }
 
 - (void) calculateNumberOfRowsAndColumnsForSize:(CGSize)size {
-    self.numRows = size.height / self.elementHeight;
+    self.numRows = 1 + (size.height / self.elementHeight);
     self.numColumns = size.width / self.elementWidth;
     
     CGFloat maxHeight = self.numRows * self.elementHeight;
