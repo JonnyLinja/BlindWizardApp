@@ -168,7 +168,7 @@ describe(@"EnemyViewModel", ^{
             [sut runDangerAnimation];
             
             //expect
-            expect(sut.face).to.equal(@"ಠ_ಠ");
+            expect(sut.face).to.equal(@"˃⌂˂");
         });
     });
     

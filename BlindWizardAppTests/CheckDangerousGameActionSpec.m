@@ -29,7 +29,7 @@ describe(@"CheckDangerousGameAction", ^{
             id notificationMock = OCMObserverMock();
             [[NSNotificationCenter defaultCenter] addMockObserver:notificationMock name:GameUpdateMarkEnemyAsDangerous object:sut];
             [[NSNotificationCenter defaultCenter] addMockObserver:notificationMock name:GameUpdateMarkEnemyAsHarmless object:sut];
-            [[notificationMock expect] notificationWithName:GameUpdateMarkEnemyAsDangerous
+            [[notificationMock expect] notificationWithName:GameUpdateMarkEnemyAsHarmless
                                                      object:sut
                                                    userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
                 expect([userInfo objectForKey:@"column"]).to.equal(@0);

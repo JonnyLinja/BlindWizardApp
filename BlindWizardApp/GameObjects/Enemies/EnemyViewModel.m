@@ -47,7 +47,7 @@
         case NoAnimation:
         case CreateAnimation:
             if(self.dangerous) {
-                self.face = @"ಠ_ಠ";
+                self.face = @"˃⌂˂";
             }else {
                 self.face = @"'-'";
             }
