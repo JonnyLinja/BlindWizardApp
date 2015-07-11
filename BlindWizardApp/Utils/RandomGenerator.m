@@ -26,7 +26,7 @@
 }
 
 - (NSInteger) generate {
-    uint32_t difference = (uint32_t)(self.maximum-self.minimum);
+    uint32_t difference = (uint32_t)(self.maximum-self.minimum+1);
     return arc4random_uniform(difference)+self.minimum;
 }
 

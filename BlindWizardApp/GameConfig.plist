@@ -11,7 +11,7 @@
 	<key>EnemyWidth</key>
 	<integer>50</integer>
 	<key>EnemyHeight</key>
-	<integer>77</integer>
+	<integer>70</integer>
 	<key>Enemies</key>
 	<array>
 		<dict>
@@ -29,10 +29,6 @@
 		<dict>
 			<key>Color</key>
 			<string>#0000FF</string>
-		</dict>
-		<dict>
-			<key>Color</key>
-			<string>#FF0000</string>
 		</dict>
 	</array>
 </dict>
