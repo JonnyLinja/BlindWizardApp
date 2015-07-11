@@ -160,12 +160,13 @@ describe(@"EnemyViewModel", ^{
     });
     
     context(@"when running a danger animation", ^{
-        it(@"should set to dangerous", ^{
+        it(@"should set to dangerous and flicker", ^{
             //because
             [sut runDangerAnimation];
             
             //expect
             expect(sut.dangerous).to.beTruthy();
+            expect(sut.shouldFlicker).to.beTruthy();
         });
         
         it(@"should set the face", ^{
@@ -184,6 +185,7 @@ describe(@"EnemyViewModel", ^{
             
             //expect
             expect(sut.dangerous).to.beFalsy();
+            expect(sut.shouldFlicker).to.beFalsy();
         });
         
         it(@"should set the face", ^{

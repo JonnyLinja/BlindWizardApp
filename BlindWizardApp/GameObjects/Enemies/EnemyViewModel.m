@@ -18,6 +18,7 @@
 @property (nonatomic, strong) NSString *face;
 @property (nonatomic, assign) BOOL dangerous;
 @property (nonatomic, assign) NSInteger score;
+@property (nonatomic, assign) BOOL shouldFlicker;
 @end
 
 @implementation EnemyViewModel
@@ -111,11 +112,13 @@
 - (void) runDangerAnimation {
     self.dangerous = YES;
     [self updateFace];
+    self.shouldFlicker = YES;
 }
 
 - (void) stopDangerAnimation {
     self.dangerous = NO;
     [self updateFace];
+    self.shouldFlicker = NO;
 }
 
 - (void) runDestroyAnimationWithScore:(NSInteger)score {

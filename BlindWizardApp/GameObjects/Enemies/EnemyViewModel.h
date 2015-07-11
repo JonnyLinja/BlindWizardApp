@@ -29,6 +29,7 @@ typedef enum {
 @property (nonatomic, strong, readonly) UIColor *color;
 @property (nonatomic, assign) EnemyAnimationType animationType;
 @property (nonatomic, strong, readonly) NSString *face;
+@property (nonatomic, assign, readonly) BOOL shouldFlicker;
 - (void) runNeutralAnimation;
 - (void) runCreateAnimation;
 - (void) animateMoveToCGPoint:(CGPoint)point;

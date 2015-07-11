@@ -58,6 +58,26 @@ describe(@"EnemyView", ^{
             });
         });
         
+        context(@"when flickering", ^{
+            it(@"should run a flicker animation", ^{
+                //because
+                [sut notifyKeyPath:@"viewModel.shouldFlicker" setTo:@YES];
+                
+                //expect
+                expect(sut.bg.layer.animationKeys).to.contain(@"opacity");
+            });
+        });
+        
+        context(@"when not flickering", ^{
+            it(@"should stop flicker animation", ^{
+                //because
+                [sut notifyKeyPath:@"viewModel.shouldFlicker" setTo:@NO];
+                
+                //expect
+                expect(sut.bg.layer.animationKeys).to.beNil();
+            });
+        });
+        
         //TODO: figure out how to test create stomp animation
         context(@"when animation becomes create", ^{
             it(@"should animate stomp and fade in", ^{

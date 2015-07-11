@@ -24,11 +24,6 @@
     //vm
     self.viewModel = viewModel;
     
-    //bind
-    [self removeAllObservations];
-    [self observeProperty:@keypath(self.viewModel.animationType) withSelector:@selector(runAnimation)];
-    [self map:@keypath(self.viewModel.face) to:@keypath(self.text) null:@""];
-    
     //background
     UIView *bg = [[UIView alloc] initWithFrame:self.bounds];
     bg.backgroundColor = [self.viewModel color];
@@ -36,6 +31,27 @@
     bg.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [self addSubview:bg];
     self.bg = bg;
+    
+    //bind
+    [self removeAllObservations];
+    [self observeProperty:@keypath(self.viewModel.animationType) withSelector:@selector(runAnimation)];
+    [self map:@keypath(self.viewModel.face) to:@keypath(self.text) null:@""];
+    [self observeProperty:@keypath(self.viewModel.shouldFlicker) withBlock:^(__weak typeof(self) self, NSNumber *old, NSNumber *newVal) {
+        if([newVal boolValue]) {
+            //flicker
+            [UIView animateKeyframesWithDuration:0.5 delay:0.0 options:UIViewKeyframeAnimationOptionRepeat animations:^{
+                [UIView addKeyframeWithRelativeStartTime:0.0 relativeDuration:0.25 animations:^{
+                    self.bg.alpha = 0.4;
+                }];
+                [UIView addKeyframeWithRelativeStartTime:0.25 relativeDuration:0.5 animations:^{
+                    self.bg.alpha = 0.2;
+                }];
+            } completion:nil];
+        }else {
+            //stop
+            [self.bg.layer removeAllAnimations];
+        }
+    }];
     
     //view
     self.layer.borderColor = [self.viewModel color].CGColor;
