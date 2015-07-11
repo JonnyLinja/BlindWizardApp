@@ -33,15 +33,18 @@ describe(@"BoardViewModel", ^{
             sut.gridStorage = gridStorageMock;
 
             //because
-            [sut notifyKeyPath:@"game.gameInProgress" setTo:@"YES"];
+            [sut notifyKeyPath:@"game.gameInProgress" setTo:@YES];
             
             //expect
             OCMVerify([gridStorageMock removeAllObjects]);
+            
+            //cleanup
+            [gridStorageMock stopMocking];
         });
         
         it(@"should set started to yes", ^{
             //because
-            [sut notifyKeyPath:@"game.gameInProgress" setTo:@"YES"];
+            [sut notifyKeyPath:@"game.gameInProgress" setTo:@YES];
             
             //expect
             expect(sut.isActive).to.beTruthy();
