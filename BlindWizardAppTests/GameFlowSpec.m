@@ -109,7 +109,7 @@ describe(@"GameFlow", ^{
             OCMStub([gameBoardMock isActive]).andReturn(YES);
             id gameActionMock = OCMProtocolMock(@protocol(GameAction));
             OCMStub([gameActionMock isValid]).andReturn(YES);
-            OCMStub([gameActionMock duration]).andReturn(duration);
+            OCMStub([((id<GameAction>)gameActionMock) duration]).andReturn(duration);
             OCMStub([gameActionMock generateNextGameActions]).andReturn(array);
             OCMExpect([queueMock hasObject]).andDo(^(NSInvocation *invocation) {
                 BOOL returnVal = !runOnce;
@@ -129,7 +129,7 @@ describe(@"GameFlow", ^{
             
             //expect
             OCMVerify([gameActionMock execute]);
-            OCMVerify([gameActionMock duration]);
+            OCMVerify([((id<GameAction>)gameActionMock) duration]);
             OCMVerify([gameActionMock generateNextGameActions]);
             OCMVerifyAll(queueMock);
             expect(sut.isReady).to.beFalsy();
@@ -151,7 +151,7 @@ describe(@"GameFlow", ^{
             OCMStub([gameBoardMock isActive]).andReturn(YES);
             id gameActionMock = OCMProtocolMock(@protocol(GameAction));
             OCMStub([gameActionMock isValid]).andReturn(YES);
-            OCMStub([gameActionMock duration]).andReturn(duration);
+            OCMStub([((id<GameAction>)gameActionMock) duration]).andReturn(duration);
             OCMStub([gameActionMock generateNextGameActions]).andReturn(@[gameActionMock]);
             OCMStub([queueMock pop]).andReturn(gameActionMock);
             OCMStub([queueMock hasObject]).andDo(^(NSInvocation *invocation) {
@@ -170,7 +170,7 @@ describe(@"GameFlow", ^{
             OCMVerify([queueMock hasObject]);
             OCMVerify([queueMock pop]);
             OCMVerify([gameActionMock execute]);
-            OCMVerify([gameActionMock duration]);
+            OCMVerify([((id<GameAction>)gameActionMock) duration]);
             OCMVerify([gameActionMock generateNextGameActions]);
             OCMVerify([queueMock push:gameActionMock]);
             expect(sut.isReady).to.beFalsy();
