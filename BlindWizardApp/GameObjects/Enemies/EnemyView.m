@@ -54,6 +54,7 @@
     }];
     
     //view
+    self.layer.cornerRadius = 2;
     self.layer.borderColor = [self.viewModel color].CGColor;
     self.layer.borderWidth = 3;
     self.layer.anchorPoint = CGPointMake(0.5, 0.5);
