@@ -15,7 +15,8 @@ typedef enum {
     DestroyAndRemoveAnimation,
     MoveAnimation,
     SnapAndMoveAnimation,
-    MoveAndRemoveAnimation
+    MoveAndRemoveAnimation,
+    DropAnimation,
 } EnemyAnimationType;
 
 @class UIColor;
@@ -33,6 +34,7 @@ typedef enum {
 - (void) runNeutralAnimation;
 - (void) runCreateAnimation;
 - (void) animateMoveToCGPoint:(CGPoint)point;
+- (void) animateDropToCGPoint:(CGPoint)point;
 - (void) snapToCGPoint:(CGPoint)snapPoint thenAnimateMoveToCGPoint:(CGPoint)movePoint;
 - (void) animateMoveAndRemoveToCGPoint:(CGPoint)point;
 - (void) runDangerAnimation;

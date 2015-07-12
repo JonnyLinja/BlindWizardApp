@@ -98,7 +98,37 @@ describe(@"EnemyViewModel", ^{
         
         it(@"should reset the animation type", ^{
             //because
-            [sut runNeutralAnimation];
+            [sut animateMoveToCGPoint:CGPointZero];
+            
+            //expect
+            expect(sut.animationType).after(0.1).to.equal(NoAnimation);
+        });
+    });
+    
+    context(@"when running a drop animation", ^{
+        it(@"should set animation type to drop AND set movePoint", ^{
+            //context
+            CGPoint movePoint = CGPointMake(13, 37);
+            
+            //because
+            [sut animateDropToCGPoint:movePoint];
+            
+            //expect
+            expect(sut.animationType).to.equal(DropAnimation);
+            expect(sut.movePoint).to.equal(movePoint);
+        });
+        
+        it(@"should set the face", ^{
+            //because
+            [sut animateDropToCGPoint:CGPointZero];
+            
+            //expect
+            expect(sut.face).to.equal(@"ಠ益ಠ");
+        });
+        
+        it(@"should reset the animation type", ^{
+            //because
+            [sut animateDropToCGPoint:CGPointZero];
             
             //expect
             expect(sut.animationType).after(0.1).to.equal(NoAnimation);
@@ -130,7 +160,7 @@ describe(@"EnemyViewModel", ^{
         
         it(@"should reset the animation type", ^{
             //because
-            [sut runNeutralAnimation];
+            [sut snapToCGPoint:CGPointZero thenAnimateMoveToCGPoint:CGPointZero];
             
             //expect
             expect(sut.animationType).after(0.1).to.equal(NoAnimation);

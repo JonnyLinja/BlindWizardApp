@@ -168,7 +168,7 @@
     
     //animate
     CGPoint toPoint = [self.gridCalculator calculatePointForRow:toRow column:column];
-    [evm animateMoveToCGPoint:toPoint];
+    [evm animateDropToCGPoint:toPoint];
     
     //store
     [self.gridStorage promiseSetObject:evm forRow:toRow column:column];

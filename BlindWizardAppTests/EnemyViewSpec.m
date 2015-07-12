@@ -93,6 +93,37 @@ describe(@"EnemyView", ^{
             });
         });
         
+        context(@"when animation becomes drop", ^{
+            it(@"should animate move to the point", ^{
+                //context
+                CGFloat duration = 0.1;
+                CGPoint movePoint = CGPointMake(13, 37);
+                OCMStub([viewModelMock animationType]).andReturn(DropAnimation);
+                OCMStub([viewModelMock movePoint]).andReturn(movePoint);
+                OCMStub([viewModelMock moveDuration]).andReturn(duration);
+                
+                //because
+                [sut notifyKeyPath:@"viewModel.animationType" setTo:@(DropAnimation)];
+                
+                //expect
+                expect(sut.frame.origin).to.equal(movePoint);
+            });
+            
+            it(@"should run neutral animation after delay", ^{
+                //context
+                CGFloat duration = 0.1;
+                OCMStub([viewModelMock animationType]).andReturn(DropAnimation);
+                OCMStub([viewModelMock moveDuration]).andReturn(duration);
+                OCMExpect([viewModelMock runNeutralAnimation]);
+                
+                //because
+                [sut notifyKeyPath:@"viewModel.animationType" setTo:@(DropAnimation)];
+                
+                //expect
+                OCMVerifyAllWithDelay(viewModelMock, duration);
+            });
+        });
+        
         context(@"when animation becomes move", ^{
             it(@"should animate move to the point", ^{
                 //context

@@ -74,6 +74,7 @@
         case CreateAnimation:
             [self runCreateAnimation];
             break;
+        case DropAnimation:
         case MoveAnimation:
             [self runMoveAnimation];
             break;

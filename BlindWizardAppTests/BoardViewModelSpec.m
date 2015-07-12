@@ -274,7 +274,7 @@ describe(@"BoardViewModel", ^{
                 //expect
                 OCMVerify([gridCalculatorMock calculatePointForRow:toRow column:column]);
                 OCMVerify([gridStorageMock objectForRow:fromRow column:column]);
-                OCMVerify([modelMock animateMoveToCGPoint:toPoint]);
+                OCMVerify([modelMock animateDropToCGPoint:toPoint]);
                 OCMVerify([gridStorageMock promiseSetObject:modelMock forRow:toRow column:column]);
 
                 //cleanup

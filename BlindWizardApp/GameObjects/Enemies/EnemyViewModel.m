@@ -54,6 +54,9 @@
                 self.face = @"'‸'";
             }
             break;
+        case DropAnimation:
+            self.face = @"ಠ益ಠ";
+            break;
         case MoveAnimation:
         case MoveAndRemoveAnimation:
         case SnapAndMoveAnimation:
@@ -82,7 +85,20 @@
     [self updateFace];
     
     //TODO: find a way around this hack
-    //hack since KVO system doesn't fire if setting to save value sadly
+    //hack since KVO system doesn't fire if setting to same value sadly
+    //dispatch after hack since not sure how to test setting of the type rapidly
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        self.animationType = NoAnimation;
+    });
+}
+
+- (void) animateDropToCGPoint:(CGPoint)point {
+    self.movePoint = point;
+    self.animationType = DropAnimation;
+    [self updateFace];
+    
+    //TODO: find a way around this hack
+    //hack since KVO system doesn't fire if setting to same value sadly
     //dispatch after hack since not sure how to test setting of the type rapidly
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         self.animationType = NoAnimation;
@@ -96,7 +112,7 @@
     [self updateFace];
     
     //TODO: find a way around this hack
-    //hack since KVO system doesn't fire if setting to save value sadly
+    //hack since KVO system doesn't fire if setting to same value sadly
     //dispatch after hack since not sure how to test setting of the type rapidly
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         self.animationType = NoAnimation;
