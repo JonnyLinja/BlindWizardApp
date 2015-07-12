@@ -7,7 +7,7 @@
 	<key>WaveTimerMultiplier</key>
 	<real>0.99</real>
 	<key>MoveAnimationDuration</key>
-	<real>0.2</real>
+	<real>0.15</real>
 	<key>EnemyWidth</key>
 	<integer>50</integer>
 	<key>EnemyHeight</key>
