@@ -39,7 +39,6 @@
     [self observeProperty:@keypath(self.viewModel.shouldFlicker) withBlock:^(__weak typeof(self) self, NSNumber *old, NSNumber *newVal) {
         if([newVal boolValue]) {
             //flicker
-            self.backgroundColor = [UIColor clearColor]; //for some reason it needs to be clear to animate
             [UIView animateKeyframesWithDuration:0.5 delay:0.0 options:UIViewKeyframeAnimationOptionRepeat animations:^{
                 [UIView addKeyframeWithRelativeStartTime:0.0 relativeDuration:0.25 animations:^{
                     self.bg.alpha = 0.4;
@@ -50,13 +49,12 @@
             } completion:nil];
         }else {
             //stop
-            self.backgroundColor = [UIColor whiteColor];
             [self.bg.layer removeAllAnimations];
         }
     }];
     
     //view
-    self.backgroundColor = [UIColor whiteColor];
+    self.backgroundColor = [UIColor clearColor];
     self.layer.cornerRadius = 2;
     self.layer.borderColor = [self.viewModel color].CGColor;
     self.layer.borderWidth = 3;

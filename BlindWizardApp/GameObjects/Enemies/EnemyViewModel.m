@@ -55,7 +55,7 @@
             }
             break;
         case DropAnimation:
-            self.face = @"ಠ益ಠ";
+            self.face = @"‾᷅⚰‾᷄";
             break;
         case MoveAnimation:
         case MoveAndRemoveAnimation:

@@ -123,7 +123,7 @@ describe(@"EnemyViewModel", ^{
             [sut animateDropToCGPoint:CGPointZero];
             
             //expect
-            expect(sut.face).to.equal(@"ಠ益ಠ");
+            expect(sut.face).to.equal(@"‾᷅⚰‾᷄");
         });
         
         it(@"should reset the animation type", ^{
