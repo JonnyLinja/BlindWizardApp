@@ -126,12 +126,34 @@
 }
 
 - (void) destroyAndRemoveAnimation {
+    self.clipsToBounds = YES;
+    self.font = [UIFont systemFontOfSize:30];
     [self.superview sendSubviewToBack:self];
+    
+    //animate shrink
     [UIView animateWithDuration:0.4 animations:^{
         self.transform = CGAffineTransformMakeScale(0.05, 0.05);
     }completion:^(BOOL finished) {
         [self removeFromSuperview];
     }];
+    
+    //animate corner radius
+    CABasicAnimation *radiusAnimation = [CABasicAnimation animationWithKeyPath:@"cornerRadius"];
+    radiusAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
+    radiusAnimation.fromValue = [NSNumber numberWithFloat:2.0f];
+    radiusAnimation.toValue = [NSNumber numberWithFloat:0.7*self.bounds.size.width];
+    radiusAnimation.duration = 0.4;
+    self.layer.cornerRadius = 0.7*self.bounds.size.width;
+    [self.layer addAnimation:radiusAnimation forKey:@"cornerRadius"];
+    
+    //animate border width
+    CABasicAnimation *borderAnimation = [CABasicAnimation animationWithKeyPath:@"borderWidth"];
+    borderAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
+    borderAnimation.fromValue = [NSNumber numberWithFloat:3];
+    borderAnimation.toValue = [NSNumber numberWithFloat:0];
+    borderAnimation.duration = 0.4;
+    self.layer.cornerRadius = 0;
+    [self.layer addAnimation:borderAnimation forKey:@"borderWidth"];
 }
 
 - (void) dealloc {

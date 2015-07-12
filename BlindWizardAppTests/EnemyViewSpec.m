@@ -180,7 +180,7 @@ describe(@"EnemyView", ^{
         });
         
         context(@"when animation becomes destroy and remove", ^{
-            it(@"should shrink the view, move it to back, and remove from superview on completion", ^{
+            it(@"should shrink the view, animate cornerradius, animate borderwidth, move it to back, and remove from superview on completion", ^{
                 //context
                 CGFloat duration = 0.1; //hardcoded check for dispatch after
                 UIView *superView = [[UIView alloc] init];
@@ -196,6 +196,8 @@ describe(@"EnemyView", ^{
                 //expect
                 OCMVerify([superViewMock sendSubviewToBack:sut]);
                 expect(CGAffineTransformEqualToTransform(sut.transform, transform)).to.beFalsy();
+                expect(sut.layer.animationKeys).to.contain(@"cornerRadius");
+                expect(sut.layer.animationKeys).to.contain(@"borderWidth");
                 expect(sut.superview).after(duration).to.beNil();
                 
                 //cleanup
