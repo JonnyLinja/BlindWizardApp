@@ -93,7 +93,7 @@
 
 - (void) runCreateAnimation {
     self.alpha = 0;
-    self.transform = CGAffineTransformMakeScale(1.1, 1.1);
+    self.transform = CGAffineTransformMakeScale(1.4, 1.4);
     [UIView animateWithDuration:0.2 animations:^{
         self.alpha = 1;
         self.transform = CGAffineTransformIdentity;
