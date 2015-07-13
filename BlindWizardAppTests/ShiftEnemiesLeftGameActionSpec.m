@@ -115,9 +115,8 @@ describe(@"ShiftEnemiesLeftGameAction", ^{
     });
     
     context(@"when generating next game action", ^{
-        it(@"should create a dangerous and drop and a destroy game action", ^{
+        it(@"should create a drop and a destroy game action", ^{
             //context
-            OCMExpect([factoryMock checkDangerousGameActionWithBoard:gameBoardMock]).andReturn(sut);
             OCMExpect([factoryMock destroyEnemyGroupsGameActionWithBoard:gameBoardMock]).andReturn(sut);
             OCMExpect([factoryMock dropEnemiesDownGameActionWithBoard:gameBoardMock]).andReturn(sut);
             [factoryMock setExpectationOrderMatters:YES];

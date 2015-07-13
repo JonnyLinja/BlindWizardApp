@@ -236,10 +236,7 @@
 }
 
 - (NSArray *) generateNextGameActions {
-    return @[
-             [self.factory checkDangerousGameActionWithBoard:self.gameBoard],
-             [self.factory dropEnemiesDownGameActionWithBoard:self.gameBoard]
-             ];
+    return @[[self.factory dropEnemiesDownGameActionWithBoard:self.gameBoard]];
 }
 
 @end
