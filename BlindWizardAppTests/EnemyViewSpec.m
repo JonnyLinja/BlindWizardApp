@@ -65,6 +65,7 @@ describe(@"EnemyView", ^{
                 
                 //expect
                 expect(sut.bg.layer.animationKeys).to.contain(@"opacity");
+                OCMVerify([viewModelMock dangerAnimationDuration]);
             });
         });
         
@@ -96,16 +97,15 @@ describe(@"EnemyView", ^{
         context(@"when animation becomes drop", ^{
             it(@"should animate move to the point", ^{
                 //context
-                CGFloat duration = 0.1;
                 CGPoint movePoint = CGPointMake(13, 37);
                 OCMStub([viewModelMock animationType]).andReturn(DropAnimation);
                 OCMStub([viewModelMock movePoint]).andReturn(movePoint);
-                OCMStub([viewModelMock moveDuration]).andReturn(duration);
                 
                 //because
                 [sut notifyKeyPath:@"viewModel.animationType" setTo:@(DropAnimation)];
                 
                 //expect
+                OCMVerify([viewModelMock dropAnimationDuration]);
                 expect(sut.frame.origin).to.equal(movePoint);
             });
             
@@ -113,7 +113,7 @@ describe(@"EnemyView", ^{
                 //context
                 CGFloat duration = 0.1;
                 OCMStub([viewModelMock animationType]).andReturn(DropAnimation);
-                OCMStub([viewModelMock moveDuration]).andReturn(duration);
+                OCMStub([viewModelMock dropAnimationDuration]).andReturn(duration);
                 OCMExpect([viewModelMock runNeutralAnimation]);
                 
                 //because
@@ -127,16 +127,15 @@ describe(@"EnemyView", ^{
         context(@"when animation becomes move", ^{
             it(@"should animate move to the point", ^{
                 //context
-                CGFloat duration = 0.1;
                 CGPoint movePoint = CGPointMake(13, 37);
                 OCMStub([viewModelMock animationType]).andReturn(MoveAnimation);
                 OCMStub([viewModelMock movePoint]).andReturn(movePoint);
-                OCMStub([viewModelMock moveDuration]).andReturn(duration);
                 
                 //because
                 [sut notifyKeyPath:@"viewModel.animationType" setTo:@(MoveAnimation)];
                 
                 //expect
+                OCMVerify([viewModelMock shiftAnimationDuration]);
                 expect(sut.frame.origin).to.equal(movePoint);
             });
             
@@ -144,7 +143,7 @@ describe(@"EnemyView", ^{
                 //context
                 CGFloat duration = 0.1;
                 OCMStub([viewModelMock animationType]).andReturn(MoveAnimation);
-                OCMStub([viewModelMock moveDuration]).andReturn(duration);
+                OCMStub([viewModelMock shiftAnimationDuration]).andReturn(duration);
                 OCMExpect([viewModelMock runNeutralAnimation]);
                 
                 //because
@@ -164,7 +163,6 @@ describe(@"EnemyView", ^{
                 OCMStub([viewModelMock animationType]).andReturn(SnapAndMoveAnimation);
                 OCMStub([viewModelMock movePoint]).andReturn(movePoint);
                 OCMStub([viewModelMock snapPoint]).andReturn(snapPoint);
-                OCMStub([viewModelMock moveDuration]).andReturn(duration);
                 
                 //because
                 [sut notifyKeyPath:@"viewModel.animationType" setTo:@(SnapAndMoveAnimation)];
@@ -172,6 +170,7 @@ describe(@"EnemyView", ^{
                 //TODO: figure out how to properly test this, the frame isn't changing over time so not sure how
                 //expect
                 //expect(sut.frame.origin).to.equal(snapPoint);
+                OCMVerify([viewModelMock shiftAnimationDuration]);
                 expect(sut.frame.origin).after(duration).to.equal(movePoint);
             });
             
@@ -179,7 +178,7 @@ describe(@"EnemyView", ^{
                 //context
                 CGFloat duration = 0.1;
                 OCMStub([viewModelMock animationType]).andReturn(SnapAndMoveAnimation);
-                OCMStub([viewModelMock moveDuration]).andReturn(duration);
+                OCMStub([viewModelMock shiftAnimationDuration]).andReturn(duration);
                 OCMExpect([viewModelMock runNeutralAnimation]);
                 
                 //because
@@ -199,12 +198,12 @@ describe(@"EnemyView", ^{
                 CGPoint movePoint = CGPointMake(13, 37);
                 OCMStub([viewModelMock animationType]).andReturn(MoveAndRemoveAnimation);
                 OCMStub([viewModelMock movePoint]).andReturn(movePoint);
-                OCMStub([viewModelMock moveDuration]).andReturn(duration);
                 
                 //because
                 [sut notifyKeyPath:@"viewModel.animationType" setTo:@(MoveAndRemoveAnimation)];
                 
                 //expect
+                OCMVerify([viewModelMock shiftAnimationDuration]);
                 expect(sut.frame.origin).to.equal(movePoint);
                 expect(sut.superview).after(duration).to.beNil();
             });
@@ -226,6 +225,7 @@ describe(@"EnemyView", ^{
                 
                 //expect
                 OCMVerify([superViewMock sendSubviewToBack:sut]);
+                OCMVerify([viewModelMock destroyAnimationDuration]);
                 expect(CGAffineTransformEqualToTransform(sut.transform, transform)).to.beFalsy();
                 expect(sut.layer.animationKeys).to.contain(@"cornerRadius");
                 expect(sut.layer.animationKeys).to.contain(@"borderWidth");

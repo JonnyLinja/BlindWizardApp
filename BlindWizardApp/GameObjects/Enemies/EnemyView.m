@@ -39,7 +39,7 @@
     [self observeProperty:@keypath(self.viewModel.shouldFlicker) withBlock:^(__weak typeof(self) self, NSNumber *old, NSNumber *newVal) {
         if([newVal boolValue]) {
             //flicker
-            [UIView animateKeyframesWithDuration:0.5 delay:0.0 options:UIViewKeyframeAnimationOptionRepeat animations:^{
+            [UIView animateKeyframesWithDuration:self.viewModel.dangerAnimationDuration delay:0.0 options:UIViewKeyframeAnimationOptionRepeat animations:^{
                 [UIView addKeyframeWithRelativeStartTime:0.0 relativeDuration:0.25 animations:^{
                     self.bg.alpha = 0.4;
                 }];
@@ -73,6 +73,8 @@
             [self runCreateAnimation];
             break;
         case DropAnimation:
+            [self runDropAnimation];
+            break;
         case MoveAnimation:
             [self runMoveAnimation];
             break;
@@ -93,14 +95,22 @@
 - (void) runCreateAnimation {
     self.alpha = 0;
     self.transform = CGAffineTransformMakeScale(1.4, 1.4);
-    [UIView animateWithDuration:0.2 animations:^{
+    [UIView animateWithDuration:self.viewModel.createAnimationDuration animations:^{
         self.alpha = 1;
         self.transform = CGAffineTransformIdentity;
     }];
 }
 
+- (void) runDropAnimation {
+    [UIView animateWithDuration:self.viewModel.dropAnimationDuration animations:^{
+        self.frame = CGRectMake(self.viewModel.movePoint.x, self.viewModel.movePoint.y, self.bounds.size.width, self.bounds.size.height);
+    }completion:^(BOOL finished) {
+        [self.viewModel runNeutralAnimation];
+    }];
+}
+
 - (void) runMoveAnimation {
-    [UIView animateWithDuration:self.viewModel.moveDuration animations:^{
+    [UIView animateWithDuration:self.viewModel.shiftAnimationDuration animations:^{
         self.frame = CGRectMake(self.viewModel.movePoint.x, self.viewModel.movePoint.y, self.bounds.size.width, self.bounds.size.height);
     }completion:^(BOOL finished) {
         [self.viewModel runNeutralAnimation];
@@ -109,7 +119,7 @@
 
 - (void) runSnapAndMoveAnimation {
     self.frame = CGRectMake(self.viewModel.snapPoint.x, self.viewModel.snapPoint.y, self.bounds.size.width, self.bounds.size.height);
-    [UIView animateWithDuration:self.viewModel.moveDuration animations:^{
+    [UIView animateWithDuration:self.viewModel.shiftAnimationDuration animations:^{
         self.frame = CGRectMake(self.viewModel.movePoint.x, self.viewModel.movePoint.y, self.bounds.size.width, self.bounds.size.height);
     }completion:^(BOOL finished) {
         [self.viewModel runNeutralAnimation];
@@ -117,7 +127,7 @@
 }
 
 - (void) runMoveAndRemoveAnimation {
-    [UIView animateWithDuration:self.viewModel.moveDuration animations:^{
+    [UIView animateWithDuration:self.viewModel.shiftAnimationDuration animations:^{
         self.frame = CGRectMake(self.viewModel.movePoint.x, self.viewModel.movePoint.y, self.bounds.size.width, self.bounds.size.height);
     }completion:^(BOOL finished) {
         [self removeFromSuperview];
@@ -130,7 +140,7 @@
     [self.superview sendSubviewToBack:self];
     
     //animate shrink
-    [UIView animateWithDuration:0.3 animations:^{
+    [UIView animateWithDuration:self.viewModel.destroyAnimationDuration animations:^{
         self.transform = CGAffineTransformMakeScale(0.05, 0.05);
     }completion:^(BOOL finished) {
         [self removeFromSuperview];
@@ -141,7 +151,7 @@
     radiusAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
     radiusAnimation.fromValue = [NSNumber numberWithFloat:2.0f];
     radiusAnimation.toValue = [NSNumber numberWithFloat:0.7*self.bounds.size.width];
-    radiusAnimation.duration = 0.3;
+    radiusAnimation.duration = self.viewModel.destroyAnimationDuration;
     self.layer.cornerRadius = 0.7*self.bounds.size.width;
     [self.layer addAnimation:radiusAnimation forKey:@"cornerRadius"];
     
@@ -150,7 +160,7 @@
     borderAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
     borderAnimation.fromValue = [NSNumber numberWithFloat:3];
     borderAnimation.toValue = [NSNumber numberWithFloat:0];
-    borderAnimation.duration = 0.3;
+    borderAnimation.duration = self.viewModel.destroyAnimationDuration;
     self.layer.cornerRadius = 0;
     [self.layer addAnimation:borderAnimation forKey:@"borderWidth"];
 }

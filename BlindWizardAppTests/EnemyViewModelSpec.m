@@ -16,7 +16,24 @@ describe(@"EnemyViewModel", ^{
     __block EnemyViewModel *sut;
     
     beforeEach(^{
-        sut = [[EnemyViewModel alloc] initWithType:2 moveDuration:0 configuration:@{@"Color" : @"#FFFFFF"}];
+        NSDictionary *animations = @{
+                                     @"ShiftAnimationDuration" : @1,
+                                     @"DropAnimationDuration" : @2,
+                                     @"DangerAnimationDuration" : @3,
+                                     @"CreateAnimationDuration" : @4,
+                                     @"DestroyAnimationDuration" : @5,
+                                     };
+        sut = [[EnemyViewModel alloc] initWithType:2 animationDurations:animations configuration:@{@"Color" : @"#FFFFFF"}];
+    });
+    
+    context(@"when loaded", ^{
+        it(@"should set the animation durations", ^{
+            expect(sut.shiftAnimationDuration).to.equal(1);
+            expect(sut.dropAnimationDuration).to.equal(2);
+            expect(sut.dangerAnimationDuration).to.equal(3);
+            expect(sut.createAnimationDuration).to.equal(4);
+            expect(sut.destroyAnimationDuration).to.equal(5);
+        });
     });
     
     context(@"when type is set", ^{

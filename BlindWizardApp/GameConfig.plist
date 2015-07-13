@@ -6,7 +6,22 @@
 	<integer>5</integer>
 	<key>WaveTimerMultiplier</key>
 	<real>0.99</real>
-	<key>MoveAnimationDuration</key>
+	<key>Animations</key>
+	<dict>
+		<key>ShiftAnimationDuration</key>
+		<real>0.15</real>
+		<key>DropAnimationDuration</key>
+		<real>0.2</real>
+		<key>DangerAnimationDuration</key>
+		<real>0.5</real>
+		<key>CreateAnimationDuration</key>
+		<real>0.2</real>
+		<key>DestroyAnimationDuration</key>
+		<real>0.3</real>
+	</dict>
+	<key>ShiftGameActionDuration</key>
+	<real>0.1</real>
+	<key>DropGameActionDuration</key>
 	<real>0.15</real>
 	<key>EnemyWidth</key>
 	<integer>50</integer>

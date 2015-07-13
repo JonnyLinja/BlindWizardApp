@@ -93,7 +93,7 @@
             [initializer injectParameterWith:row];
             [initializer injectParameterWith:board];
             [initializer injectParameterWith:self];
-            [initializer injectParameterWith:TyphoonConfig(@"MoveAnimationDuration")];
+            [initializer injectParameterWith:TyphoonConfig(@"ShiftGameActionDuration")];
         }];
     }];
 }
@@ -104,7 +104,7 @@
             [initializer injectParameterWith:row];
             [initializer injectParameterWith:board];
             [initializer injectParameterWith:self];
-            [initializer injectParameterWith:TyphoonConfig(@"MoveAnimationDuration")];
+            [initializer injectParameterWith:TyphoonConfig(@"ShiftGameActionDuration")];
         }];
     }];
 }
@@ -124,7 +124,7 @@
         [definition useInitializer:@selector(initWithGameBoard:factory:duration:) parameters:^(TyphoonMethod *initializer) {
             [initializer injectParameterWith:board];
             [initializer injectParameterWith:self];
-            [initializer injectParameterWith:TyphoonConfig(@"MoveAnimationDuration")];
+            [initializer injectParameterWith:TyphoonConfig(@"DropGameActionDuration")];
         }];
     }];
 }

@@ -14,7 +14,11 @@
 @property (nonatomic, strong) UIColor *color;
 @property (nonatomic, assign) CGPoint movePoint;
 @property (nonatomic, assign) CGPoint snapPoint;
-@property (nonatomic, assign) CGFloat moveDuration;
+@property (nonatomic, assign) CGFloat shiftAnimationDuration;
+@property (nonatomic, assign) CGFloat dropAnimationDuration;
+@property (nonatomic, assign) CGFloat dangerAnimationDuration;
+@property (nonatomic, assign) CGFloat createAnimationDuration;
+@property (nonatomic, assign) CGFloat destroyAnimationDuration;
 @property (nonatomic, strong) NSString *face;
 @property (nonatomic, assign) BOOL dangerous;
 @property (nonatomic, assign) NSInteger score;
@@ -23,13 +27,18 @@
 
 @implementation EnemyViewModel
 
-- (id) initWithType:(NSInteger)enemyType moveDuration:(CGFloat)moveDuration configuration:(NSDictionary *)configuration {
+- (id) initWithType:(NSInteger)enemyType animationDurations:(NSDictionary *)animationDurations configuration:(NSDictionary *)configuration {
     self = [super init];
     if(!self) return nil;
     
     self.enemyType = enemyType;
-    self.moveDuration = moveDuration;
     
+    self.shiftAnimationDuration = [[animationDurations objectForKey:@"ShiftAnimationDuration"] floatValue];
+    self.dropAnimationDuration = [[animationDurations objectForKey:@"DropAnimationDuration"] floatValue];
+    self.dangerAnimationDuration = [[animationDurations objectForKey:@"DangerAnimationDuration"] floatValue];
+    self.createAnimationDuration = [[animationDurations objectForKey:@"CreateAnimationDuration"] floatValue];
+    self.destroyAnimationDuration = [[animationDurations objectForKey:@"DestroyAnimationDuration"] floatValue];
+
     NSString *hexColor = [configuration objectForKey:@"Color"];
     self.color = [self colorFromHexString:hexColor];
     

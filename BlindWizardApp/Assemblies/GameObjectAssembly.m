@@ -30,9 +30,9 @@
 
 - (EnemyViewModel *) enemyViewModelWithType:(NSNumber *)type configuration:(NSDictionary *)config {
     return [TyphoonDefinition withClass:[EnemyViewModel class] configuration:^(TyphoonDefinition* definition) {
-        [definition useInitializer:@selector(initWithType:moveDuration:configuration:) parameters:^(TyphoonMethod *initializer) {
+        [definition useInitializer:@selector(initWithType:animationDurations:configuration:) parameters:^(TyphoonMethod *initializer) {
             [initializer injectParameterWith:type];
-            [initializer injectParameterWith:TyphoonConfig(@"MoveAnimationDuration")];
+            [initializer injectParameterWith:TyphoonConfig(@"Animations")];
             [initializer injectParameterWith:config];
         }];
     }];
