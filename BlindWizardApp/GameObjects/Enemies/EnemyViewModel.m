@@ -80,6 +80,7 @@
 }
 
 - (void) runNeutralAnimation {
+    self.animationType = NoAnimation;
     [self updateFace];
 }
 
@@ -90,42 +91,24 @@
 
 - (void) animateMoveToCGPoint:(CGPoint)point {
     self.movePoint = point;
+    self.animationType = NoAnimation; //hack as the KVO framework doesn't run on anim type being set to the same value - not under test
     self.animationType = MoveAnimation;
     [self updateFace];
-    
-    //TODO: find a way around this hack
-    //hack since KVO system doesn't fire if setting to same value sadly
-    //dispatch after hack since not sure how to test setting of the type rapidly
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        self.animationType = NoAnimation;
-    });
 }
 
 - (void) animateDropToCGPoint:(CGPoint)point {
     self.movePoint = point;
+    self.animationType = NoAnimation; //hack as the KVO framework doesn't run on anim type being set to the same value - not under test
     self.animationType = DropAnimation;
     [self updateFace];
-    
-    //TODO: find a way around this hack
-    //hack since KVO system doesn't fire if setting to same value sadly
-    //dispatch after hack since not sure how to test setting of the type rapidly
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        self.animationType = NoAnimation;
-    });
 }
 
 - (void) snapToCGPoint:(CGPoint)snapPoint thenAnimateMoveToCGPoint:(CGPoint)movePoint {
     self.movePoint = movePoint;
     self.snapPoint = snapPoint;
+    self.animationType = NoAnimation; //hack as the KVO framework doesn't run on anim type being set to the same value - not under test
     self.animationType = SnapAndMoveAnimation;
     [self updateFace];
-    
-    //TODO: find a way around this hack
-    //hack since KVO system doesn't fire if setting to same value sadly
-    //dispatch after hack since not sure how to test setting of the type rapidly
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        self.animationType = NoAnimation;
-    });
 }
 
 - (void) animateMoveAndRemoveToCGPoint:(CGPoint)point {

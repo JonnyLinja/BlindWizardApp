@@ -43,6 +43,18 @@ describe(@"EnemyViewModel", ^{
     });
     
     context(@"when running neutral animation ", ^{
+        //TODO: figure out how to test this in order as order matters
+        it(@"should set animation type to no animation", ^{
+            //context
+            sut.animationType = CreateAnimation;
+            
+            //because
+            [sut runNeutralAnimation];
+            
+            //expect
+            expect(sut.animationType).to.equal(NoAnimation);
+        });
+        
         it(@"should set the face", ^{
             //because
             [sut runNeutralAnimation];
@@ -112,14 +124,6 @@ describe(@"EnemyViewModel", ^{
             //expect
             expect(sut.face).to.equal(@"ᵔ.ᵔ");
         });
-        
-        it(@"should reset the animation type", ^{
-            //because
-            [sut animateMoveToCGPoint:CGPointZero];
-            
-            //expect
-            expect(sut.animationType).after(0.1).to.equal(NoAnimation);
-        });
     });
     
     context(@"when running a drop animation", ^{
@@ -141,14 +145,6 @@ describe(@"EnemyViewModel", ^{
             
             //expect
             expect(sut.face).to.equal(@"‾᷅⚰‾᷄");
-        });
-        
-        it(@"should reset the animation type", ^{
-            //because
-            [sut animateDropToCGPoint:CGPointZero];
-            
-            //expect
-            expect(sut.animationType).after(0.1).to.equal(NoAnimation);
         });
     });
     
@@ -173,14 +169,6 @@ describe(@"EnemyViewModel", ^{
             
             //expect
             expect(sut.face).to.equal(@"ᵔ.ᵔ");
-        });
-        
-        it(@"should reset the animation type", ^{
-            //because
-            [sut snapToCGPoint:CGPointZero thenAnimateMoveToCGPoint:CGPointZero];
-            
-            //expect
-            expect(sut.animationType).after(0.1).to.equal(NoAnimation);
         });
     });
     
