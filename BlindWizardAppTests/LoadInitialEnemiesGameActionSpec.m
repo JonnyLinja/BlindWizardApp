@@ -29,7 +29,7 @@ describe(@"LoadInitialEnemiesGameAction", ^{
     context(@"when executing", ^{
         it(@"should preload the gameboard with 3 rows, guaranteeing the first 2, and the rest randomized", ^{
             //context
-            NSMutableArray *endData = [@[@1, @3, @2, @7, @2, @1, @2, @7, @1, @3, @1, @7] mutableCopy];
+            NSMutableArray *endData = [@[@1, @3, @2, @7, @3, @1, @2, @7, @1, @3, @1, @7] mutableCopy];
             OCMStub([randomGeneratorMock generate]).andReturn(7);
             id notificationMock = OCMObserverMock();
             [[NSNotificationCenter defaultCenter] addMockObserver:notificationMock name:GameUpdateCreateEnemy object:sut];
@@ -70,7 +70,7 @@ describe(@"LoadInitialEnemiesGameAction", ^{
                                                    userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
                 expect([userInfo objectForKey:@"row"]).to.equal(@1);
                 expect([userInfo objectForKey:@"column"]).to.equal(@0);
-                expect([userInfo objectForKey:@"type"]).to.equal(@2);
+                expect([userInfo objectForKey:@"type"]).to.equal(@3);
                 return YES;
             }]];
             [[notificationMock expect] notificationWithName:GameUpdateCreateEnemy

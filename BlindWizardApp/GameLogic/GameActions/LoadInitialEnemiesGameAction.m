@@ -42,7 +42,7 @@
     
     //second row
     index = [self.gameBoard indexFromRow:1 column:0];
-    [self.gameBoard.data setObject:@2 atIndexedSubscript:index++];
+    [self.gameBoard.data setObject:@3 atIndexedSubscript:index++];
     [self.gameBoard.data setObject:@1 atIndexedSubscript:index++];
     [self.gameBoard.data setObject:@2 atIndexedSubscript:index];
 
