@@ -25,7 +25,7 @@ describe(@"GameObjectFactory", ^{
             UIView *view = [UIView new];
             id gridCalculatorMock = OCMClassMock([GridCalculator class]);
             id factoryMock = OCMProtocolMock(@protocol(GameObjectDependencyFactory));
-            GameObjectFactory *sut = [[GameObjectFactory alloc] initWithView:view calculator:gridCalculatorMock dependencyFactory:factoryMock];
+            GameObjectFactory *sut = [[GameObjectFactory alloc] initWithView:view calculator:gridCalculatorMock dependencyFactory:factoryMock config:nil];
             
             //context - vars
             NSInteger row = 2;

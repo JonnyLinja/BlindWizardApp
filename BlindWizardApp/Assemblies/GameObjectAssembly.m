@@ -40,10 +40,11 @@
 
 - (GameObjectFactory *) gameObjectFactoryWithView:(UIView *)view gridCalculator:(GridCalculator *)calculator {
     return [TyphoonDefinition withClass:[GameObjectFactory class] configuration:^(TyphoonDefinition* definition) {
-        [definition useInitializer:@selector(initWithView:calculator:dependencyFactory:) parameters:^(TyphoonMethod *initializer) {
+        [definition useInitializer:@selector(initWithView:calculator:dependencyFactory:config:) parameters:^(TyphoonMethod *initializer) {
             [initializer injectParameterWith:view];
             [initializer injectParameterWith:calculator];
             [initializer injectParameterWith:self];
+            [initializer injectParameterWith:TyphoonConfig(@"Enemies")];
         }];
     }];
 }

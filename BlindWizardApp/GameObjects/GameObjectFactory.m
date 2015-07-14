@@ -16,17 +16,19 @@
 @property (nonatomic, strong) id<GameObjectDependencyFactory> factory; //inject
 @property (nonatomic, strong) GridCalculator *calculator; //inject
 @property (nonatomic, weak) UIView *view; //inject
+@property (nonatomic, strong) NSArray *config; //inject
 @end
 
 @implementation GameObjectFactory
 
-- (id) initWithView:(UIView *)view calculator:(GridCalculator *)calculator dependencyFactory:(id<GameObjectDependencyFactory>)factory {
+- (id) initWithView:(UIView *)view calculator:(GridCalculator *)calculator dependencyFactory:(id<GameObjectDependencyFactory>)factory config:(NSArray *)config {
     self = [super init];
     if(!self) return nil;
     
     self.view = view;
     self.calculator = calculator;
     self.factory = factory;
+    self.config = config;
     
     return self;
 }
@@ -36,10 +38,7 @@
     CGPoint point = [self.calculator calculatePointForRow:row column:column];
     
     //config
-    NSString *configPath = [[NSBundle mainBundle] pathForResource:@"GameConfig" ofType:@"plist"];
-    NSDictionary *gameConfig = [NSDictionary dictionaryWithContentsOfFile:configPath];
-    NSArray *enemies = [gameConfig objectForKey:@"Enemies"];
-    NSDictionary *configuration = [enemies objectAtIndex:type-1];
+    NSDictionary *configuration = [self.config objectAtIndex:type-1];
     
     //evm
     EnemyViewModel *evm = [self.factory enemyViewModelWithType:@(type) configuration:configuration];
