@@ -29,6 +29,9 @@
                                 <state key="normal" title="Play">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="Play Button"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <segue destination="HkQ-4G-IqO" kind="custom" customClass="SlideLeftSegue" id="HmE-rU-wqg"/>
                                 </connections>
@@ -39,6 +42,9 @@
                                 <state key="normal" title="Leaderboard">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="Leaderboard Button"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <segue destination="KYJ-Yb-tXc" kind="custom" identifier="" customClass="SlideUpSegue" id="jeL-CS-lHf"/>
                                 </connections>
@@ -122,6 +128,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="Leaderboard Scores"/>
+                                </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Leaderboard" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kXt-5S-o2S">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
