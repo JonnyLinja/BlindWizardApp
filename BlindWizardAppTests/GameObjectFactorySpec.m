@@ -42,13 +42,19 @@ describe(@"GameObjectFactory", ^{
             
             //context - created objects
             id enemyViewModelMock = OCMClassMock([EnemyViewModel class]);
+            id enemyViewModelMock2 = OCMClassMock([EnemyViewModel class]);
             EnemyView *enemyView = [[EnemyView alloc] initWithViewModel:enemyViewModelMock];
+            EnemyView *enemyView2 = [[EnemyView alloc] initWithViewModel:enemyViewModelMock2];
             OCMStub([factoryMock enemyViewModelWithType:@(type) configuration:[OCMArg any]]).andReturn(enemyViewModelMock);
             OCMStub([factoryMock enemyViewWithViewModel:enemyViewModelMock]).andReturn(enemyView);
+            OCMStub([factoryMock enemyViewModelWithType:@(type+1) configuration:[OCMArg any]]).andReturn(enemyViewModelMock2);
+            OCMStub([factoryMock enemyViewWithViewModel:enemyViewModelMock2]).andReturn(enemyView2);
 
             //because
             EnemyViewModel *evm = [sut createEnemyWithType:type atRow:row column:column];
             EnemyView *ev = [view.subviews objectAtIndex:0];
+            [sut createEnemyWithType:type+1 atRow:row column:column+1];
+            EnemyView *ev2 = [view.subviews objectAtIndex:1];
 
             //expect
             OCMVerify([factoryMock enemyViewModelWithType:@(type) configuration:[OCMArg any]]);
@@ -56,6 +62,8 @@ describe(@"GameObjectFactory", ^{
             expect(ev.frame).to.equal(CGRectMake(point.x, point.y, elementWidth, elementHeight));
             expect(ev).to.equal(enemyView);
             expect(evm).to.equal(enemyViewModelMock);
+            expect(ev.accessibilityIdentifier).to.equal(@"Enemy0");
+            expect(ev2.accessibilityIdentifier).to.equal(@"Enemy1");
             
             //cleanup
             [gridCalculatorMock stopMocking];

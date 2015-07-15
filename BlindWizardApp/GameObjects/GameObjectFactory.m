@@ -17,6 +17,7 @@
 @property (nonatomic, strong) GridCalculator *calculator; //inject
 @property (nonatomic, weak) UIView *view; //inject
 @property (nonatomic, strong) NSArray *config; //inject
+@property (nonatomic, assign) NSInteger count; //accessibility
 @end
 
 @implementation GameObjectFactory
@@ -46,6 +47,7 @@
     //ev
     EnemyView *ev = [self.factory enemyViewWithViewModel:evm];
     ev.frame = CGRectMake(point.x, point.y, self.calculator.elementWidth, self.calculator.elementHeight);
+    ev.accessibilityIdentifier = [NSString stringWithFormat:@"Enemy%zd", self.count++];
     [self.view addSubview:ev];
     
     //return
