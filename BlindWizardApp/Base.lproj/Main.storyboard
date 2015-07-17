@@ -258,6 +258,9 @@
                                 <state key="normal" title="Play Again">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="Game Play Again"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="tappedPlayAgain:" destination="HkQ-4G-IqO" eventType="touchUpInside" id="zBo-mT-acj"/>
                                 </connections>
