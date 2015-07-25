@@ -40,7 +40,7 @@
             NSInteger index = [self.gameBoard indexFromRow:row column:column];
             NSNumber *n = [self.gameBoard.data objectAtIndex:index];
             
-            if([n integerValue] == 0) {
+            if([n integerValue] <= 0) {
                 //found a free spot
                 
                 //add

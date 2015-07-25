@@ -30,7 +30,7 @@ describe(@"CallNextWaveGameAction", ^{
     context(@"when executing", ^{
         it(@"should create objects at the top most available spot in each column and notify", ^{
             //context
-            NSMutableArray *startData = [@[@3, @1, @1, @0, @2, @0, @0, @0, @0, @0] mutableCopy];
+            NSMutableArray *startData = [@[@3, @1, @1, @-1, @2, @0, @-1, @0, @0, @0] mutableCopy];
             NSMutableArray *endData = [@[@3, @1, @1, @1, @2, @0, @1, @0, @0, @0] mutableCopy];
             sut.gameBoard.data = startData;
             OCMStub([randomGeneratorMock generate]).andReturn(1);
