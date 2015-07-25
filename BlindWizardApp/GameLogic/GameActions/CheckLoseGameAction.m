@@ -34,7 +34,7 @@
         NSInteger current = [[self.gameBoard.data objectAtIndex:index] integerValue];
         
         //lose
-        if(current != 0) {
+        if(current > 0) {
             self.gameBoard.isActive = NO;
             return;
         }

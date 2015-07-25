@@ -26,7 +26,7 @@ describe(@"CheckLoseGameAction", ^{
     context(@"when executing and there is an enemy at the top of a column", ^{
         it(@"should set gameboard to not active", ^{
             //context
-            sut.gameBoard.data = [@[@1, @1, @2, @2, @0, @3] mutableCopy];
+            sut.gameBoard.data = [@[@1, @1, @2, @2, @-1, @3] mutableCopy];
             
             //because
             [sut execute];
@@ -36,10 +36,10 @@ describe(@"CheckLoseGameAction", ^{
         });
     });
     
-    context(@"when executing and there is an enemy at the top of a column", ^{
+    context(@"when executing and there isn't an enemy at the top of any column", ^{
         it(@"should keep gameboard active", ^{
             //context
-            sut.gameBoard.data = [@[@1, @1, @2, @2, @0, @0] mutableCopy];
+            sut.gameBoard.data = [@[@1, @1, @2, @2, @-1, @-1] mutableCopy];
             
             //because
             [sut execute];
