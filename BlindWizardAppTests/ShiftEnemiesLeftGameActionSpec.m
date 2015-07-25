@@ -28,9 +28,9 @@ describe(@"ShiftEnemiesLeftGameAction", ^{
     context(@"when executing", ^{
         it(@"should shift the items on row left, set the head of the row to the tail, and notify changes for actual objects", ^{
             //context
-            NSMutableArray *startData = [@[@0, @3, @0, @0, @1, @2, @0, @4] mutableCopy];
-            NSMutableArray *endData = [@[@3, @0, @0, @0, @2, @0, @4, @1] mutableCopy];
-            OCMStub([gameBoardMock numRows]).andReturn(2);
+            NSMutableArray *startData = [@[@-1, @3, @-1, @0, @1, @2, @0, @4, @0, @-1, @3, @-1] mutableCopy];
+            NSMutableArray *endData = [@[@3, @0, @-1, @0, @2, @0, @4, @1, @0, @3, @0, @-1] mutableCopy];
+            OCMStub([gameBoardMock numRows]).andReturn(3);
             OCMStub([gameBoardMock numColumns]).andReturn(4);
             OCMStub([gameBoardMock data]).andReturn(startData);
             id notificationMock = OCMObserverMock();
@@ -64,11 +64,20 @@ describe(@"ShiftEnemiesLeftGameAction", ^{
                 expect([userInfo objectForKey:@"column"]).to.equal(@0);
                 return YES;
             }]];
+            [[notificationMock expect] notificationWithName:GameUpdateShiftEnemyLeft
+                                                     object:sut
+                                                   userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
+                expect([userInfo objectForKey:@"row"]).to.equal(@2);
+                expect([userInfo objectForKey:@"column"]).to.equal(@2);
+                return YES;
+            }]];
             
             //because
             sut.row = 0;
             [sut execute];
             sut.row = 1;
+            [sut execute];
+            sut.row = 2;
             [sut execute];
             
             //expect
@@ -83,7 +92,7 @@ describe(@"ShiftEnemiesLeftGameAction", ^{
     context(@"when the row has at least one enemy", ^{
         it(@"should be valid", ^{
             //context
-            NSMutableArray *data = [@[@0, @0, @1, @1] mutableCopy];
+            NSMutableArray *data = [@[@0, @0, @-1, @1] mutableCopy];
             OCMStub([gameBoardMock numRows]).andReturn(2);
             OCMStub([gameBoardMock numColumns]).andReturn(2);
             OCMStub([gameBoardMock data]).andReturn(data);
@@ -100,7 +109,7 @@ describe(@"ShiftEnemiesLeftGameAction", ^{
     context(@"when the row has no enemies", ^{
         it(@"should be invalid", ^{
             //context
-            NSMutableArray *data = [@[@0, @0, @1, @1] mutableCopy];
+            NSMutableArray *data = [@[@-1, @0, @1, @1] mutableCopy];
             OCMStub([gameBoardMock numRows]).andReturn(2);
             OCMStub([gameBoardMock numColumns]).andReturn(2);
             OCMStub([gameBoardMock data]).andReturn(data);

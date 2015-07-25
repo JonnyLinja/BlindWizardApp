@@ -44,10 +44,17 @@
         NSNumber *n = [self.gameBoard.data objectAtIndex:index];
         
         //save
-        [self.gameBoard.data setObject:n atIndexedSubscript:index-1];
-        
-        //notify
-        if([n integerValue] != 0) {
+        if([n integerValue] <= 0) {
+            //do not shift negatives or 0 on top of negatives
+            NSNumber *lastNumber = [self.gameBoard.data objectAtIndex:index-1];
+            if([lastNumber integerValue] > 0) {
+                [self.gameBoard.data setObject:@0 atIndexedSubscript:index-1];
+            }
+        }else {
+            //shift
+            [self.gameBoard.data setObject:n atIndexedSubscript:index-1];
+            
+            //notify
             [[NSNotificationCenter defaultCenter] postNotificationName:GameUpdateShiftEnemyLeft
                                                                 object:self
                                                               userInfo:@{
@@ -58,10 +65,17 @@
     }
     
     //move to tail
-    [self.gameBoard.data setObject:head atIndexedSubscript:index-1];
-    
-    //notify
-    if([head integerValue] != 0) {
+    if([head integerValue] <= 0) {
+        //do not shift negatives or 0 on top of negatives
+        NSNumber *lastNumber = [self.gameBoard.data objectAtIndex:index-1];
+        if([lastNumber integerValue] > 0) {
+            [self.gameBoard.data setObject:@0 atIndexedSubscript:index-1];
+        }
+    }else {
+        //shift
+        [self.gameBoard.data setObject:head atIndexedSubscript:index-1];
+        
+        //notify
         [[NSNotificationCenter defaultCenter] postNotificationName:GameUpdateMoveEnemyToRowTail
                                                             object:self
                                                           userInfo:@{
@@ -81,7 +95,7 @@
         NSNumber *n = [self.gameBoard.data objectAtIndex:index];
         
         //check valid
-        if([n integerValue] != 0) {
+        if([n integerValue] > 0) {
             return YES;
         }
     }
