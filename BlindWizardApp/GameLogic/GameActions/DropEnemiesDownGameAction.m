@@ -45,7 +45,7 @@
             if(replaceIndex == -1) {
                 //nothing to replace yet
                 
-                if([n integerValue] == 0) {
+                if([n integerValue] <= 0) {
                     //it's 0, need to replace it
                     replaceIndex = index;
                     toRow = row;
@@ -53,7 +53,7 @@
             }else {
                 //searching to replace
                 
-                if([n integerValue] != 0) {
+                if([n integerValue] > 0) {
                     //found something
                     
                     //replace
@@ -89,10 +89,10 @@
             NSInteger index = [self.gameBoard indexFromRow:row column:column];
             NSInteger n = [[self.gameBoard.data objectAtIndex:index] integerValue];
             
-            if(!atLeastOneEmpty && n == 0) {
+            if(!atLeastOneEmpty && n <= 0) {
                 //found at least one empty
                 atLeastOneEmpty = YES;
-            }else if(atLeastOneEmpty && n != 0) {
+            }else if(atLeastOneEmpty && n > 0) {
                 //valid
                 return YES;
             }

@@ -25,11 +25,11 @@ describe(@"DropEnemiesDownGameAction", ^{
     });
     
     context(@"when executing", ^{
-        it(@"should drop everything down so there's no 0s at the bottom of the column and notify changes for actual objects", ^{
+        it(@"should drop everything > 0 down so there's no 0s at the bottom of the column and notify changes for actual objects", ^{
             //context
             NSInteger column = 0;
-            NSMutableArray *startData = [@[@0, @1, @0, @0, @3, @0, @1, @0, @0, @0, @2, @0] mutableCopy];
-            NSMutableArray *endData = [@[@3, @1, @1, @0, @2, @0, @0, @0, @0, @0, @0, @0] mutableCopy];
+            NSMutableArray *startData = [@[@-1, @1, @0, @-4, @3, @0, @1, @0, @-2, @0, @2, @-3] mutableCopy];
+            NSMutableArray *endData = [@[@3, @1, @1, @-4, @2, @0, @0, @0, @-2, @0, @0, @-3] mutableCopy];
             sut.gameBoard.numRows = 6;
             sut.gameBoard.numColumns = 2;
             sut.gameBoard.data = startData;
@@ -87,10 +87,25 @@ describe(@"DropEnemiesDownGameAction", ^{
         });
     });
     
-    context(@"when there are no columns with a 0 under a 1+", ^{
+    context(@"when at least one column has a <=0 under a 1+", ^{
+        it(@"should be valid", ^{
+            //context
+            sut.gameBoard.data = [@[@-2, @0, @1, @0] mutableCopy];
+            sut.gameBoard.numRows = 2;
+            sut.gameBoard.numColumns = 2;
+            
+            //because
+            BOOL valid = [sut isValid];
+            
+            //expect
+            expect(valid).to.beTruthy();
+        });
+    });
+    
+    context(@"when there are no columns with a <=0 under a 1+", ^{
         it(@"should be invalid", ^{
             //context
-            sut.gameBoard.data = [@[@1, @0, @1, @0] mutableCopy];
+            sut.gameBoard.data = [@[@1, @0, @1, @-1] mutableCopy];
             sut.gameBoard.numRows = 2;
             sut.gameBoard.numColumns = 2;
 
