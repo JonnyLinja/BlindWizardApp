@@ -36,7 +36,7 @@
             //index
             NSInteger index = [self.gameBoard indexFromRow:row column:column];
             
-            if([[self.gameBoard.data objectAtIndex:index] integerValue] != 0) {
+            if([[self.gameBoard.data objectAtIndex:index] integerValue] > 0) {
                 //found, notify
                 
                 if(index == dangerousIndex) {
@@ -64,12 +64,12 @@
 
 - (NSInteger) dangerousIndexForColumn:(NSInteger)column {
     NSInteger index = [self.gameBoard indexFromRow:self.gameBoard.numRows-1 column:column];
-    if([[self.gameBoard.data objectAtIndex:index] integerValue] != 0) {
+    if([[self.gameBoard.data objectAtIndex:index] integerValue] > 0) {
         return index;
     }
     
     index = [self.gameBoard indexFromRow:self.gameBoard.numRows-2 column:column];
-    if([[self.gameBoard.data objectAtIndex:index] integerValue] != 0) {
+    if([[self.gameBoard.data objectAtIndex:index] integerValue] > 0) {
         return index;
     }
     

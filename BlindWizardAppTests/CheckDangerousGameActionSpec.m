@@ -23,7 +23,7 @@ describe(@"CheckDangerousGameAction", ^{
     context(@"when executing", ^{
         it(@"should mark dangerous enemies that are near the top, and mark other enemies as harmless", ^{
             //context
-            sut.gameBoard.data = [@[@1, @2, @3, @0, @0, @0] mutableCopy];
+            sut.gameBoard.data = [@[@1, @2, @3, @-1, @-2, @0] mutableCopy];
             sut.gameBoard.numRows = 3;
             sut.gameBoard.numColumns = 2;
             id notificationMock = OCMObserverMock();
