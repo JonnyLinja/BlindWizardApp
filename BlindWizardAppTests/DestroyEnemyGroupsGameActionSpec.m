@@ -30,9 +30,9 @@ describe(@"DestroyEnemyGroupsGameAction", ^{
     context(@"when executing", ^{
         it(@"should destroy all objects of similar type that are in rows or columns of 3+", ^{
             //context
-            NSMutableArray *startData = [@[@1, @0, @2, @0, @0, @1, @2, @2, @3, @0, @1, @3, @3, @3, @3, @2, @2, @2, @3, @0, @1, @1, @0, @3, @1] mutableCopy];
-            NSMutableArray *endData = [@[@0, @0, @2, @0, @0, @0, @2, @2, @0, @0, @0, @0, @0, @0, @0, @0, @0, @0, @0, @0, @1, @1, @0, @0, @1] mutableCopy];
-            sut.gameBoard.numRows = 5;
+            NSMutableArray *startData = [@[@1, @0, @2, @0, @0, @1, @2, @2, @3, @0, @1, @3, @3, @3, @3, @2, @2, @2, @3, @0, @1, @1, @0, @3, @1, @-1, @-1, @-1, @-1, @-1] mutableCopy];
+            NSMutableArray *endData = [@[@0, @0, @2, @0, @0, @0, @2, @2, @0, @0, @0, @0, @0, @0, @0, @0, @0, @0, @0, @0, @1, @1, @0, @0, @1, @-1, @-1, @-1, @-1, @-1] mutableCopy];
+            sut.gameBoard.numRows = 6;
             sut.gameBoard.numColumns = 5;
             sut.gameBoard.data = startData;
             NSInteger scorePerEnemy = 13;
@@ -206,7 +206,7 @@ describe(@"DestroyEnemyGroupsGameAction", ^{
     context(@"when at at most 2 enemies of the same type in a row or column", ^{
         it(@"should be invalid", ^{
             //context
-            sut.gameBoard.data = [@[@0, @0, @0, @0, @0, @0, @0, @0, @0, @1, @1, @2, @0, @1, @1, @2, @0, @2, @2, @1] mutableCopy];
+            sut.gameBoard.data = [@[@-1, @-1, @-1, @0, @0, @0, @0, @0, @0, @1, @1, @2, @0, @1, @1, @2, @0, @2, @2, @1] mutableCopy];
             sut.gameBoard.numRows = 5;
             sut.gameBoard.numColumns = 4;
             

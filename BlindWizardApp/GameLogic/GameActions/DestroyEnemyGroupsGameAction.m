@@ -48,11 +48,11 @@
             NSInteger index = [self.gameBoard indexFromRow:row column:column];
             NSInteger n = [[self.gameBoard.data objectAtIndex:index] integerValue];
             
-            if(n != 0 && lastType == n) {
+            if(n > 0 && lastType == n) {
                 //same type, increment counter
                 count++;
             }else {
-                //new type or 0
+                //new type or <= 0
                 
                 //set to be destroyed
                 if(count >= 3) {
@@ -101,11 +101,11 @@
             NSInteger index = [self.gameBoard indexFromRow:row column:column];
             NSInteger n = [[self.gameBoard.data objectAtIndex:index] integerValue];
             
-            if(n != 0 && lastType == n) {
+            if(n > 0 && lastType == n) {
                 //same type, increment counter
                 count++;
             }else {
-                //new type or 0
+                //new type or <= 0
                 
                 //set to be destroyed
                 if(count >= 3) {
