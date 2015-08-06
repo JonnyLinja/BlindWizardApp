@@ -17,23 +17,20 @@ SpecBegin(CallNextWaveGameAction)
 
 describe(@"CallNextWaveGameAction", ^{
     __block CallNextWaveGameAction *sut;
-    __block id randomGeneratorMock;
     __block id factoryMock;
     
     beforeEach(^{
         GameBoard *board = [[GameBoard alloc] initWithRows:5 columns:2];
         factoryMock = OCMProtocolMock(@protocol(GameDependencyFactory));
-        randomGeneratorMock = OCMClassMock([RandomGenerator class]);
-        sut = [[CallNextWaveGameAction alloc] initWithGameBoard:board factory:factoryMock randomGenerator:randomGeneratorMock];
+        sut = [[CallNextWaveGameAction alloc] initWithGameBoard:board factory:factoryMock];
     });
     
     context(@"when executing", ^{
-        it(@"should create objects at the top most available spot in each column and notify", ^{
+        it(@"should flip the negatives to positives at the top most available spot in each column and notify", ^{
             //context
-            NSMutableArray *startData = [@[@3, @1, @1, @-1, @2, @0, @-1, @0, @0, @0] mutableCopy];
-            NSMutableArray *endData = [@[@3, @1, @1, @1, @2, @0, @1, @0, @0, @0] mutableCopy];
+            NSMutableArray *startData = [@[@3, @1, @1, @-2, @2, @0, @-1, @0, @0, @0] mutableCopy];
+            NSMutableArray *endData = [@[@3, @1, @1, @2, @2, @0, @1, @0, @0, @0] mutableCopy];
             sut.gameBoard.data = startData;
-            OCMStub([randomGeneratorMock generate]).andReturn(1);
             id notificationMock = OCMObserverMock();
             [[NSNotificationCenter defaultCenter] addMockObserver:notificationMock name:GameUpdateCreateEnemy object:sut];
             [[NSNotificationCenter defaultCenter] addMockObserver:notificationMock name:GameActionCallNextWaveComplete object:sut];
@@ -42,7 +39,7 @@ describe(@"CallNextWaveGameAction", ^{
                                                    userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
                 expect([userInfo objectForKey:@"row"]).to.equal(@3);
                 expect([userInfo objectForKey:@"column"]).to.equal(@0);
-                expect([userInfo objectForKey:@"type"]).to.beGreaterThan(0);
+                expect([userInfo objectForKey:@"type"]).to.equal(1);
                 return YES;
             }]];
             [[notificationMock expect] notificationWithName:GameUpdateCreateEnemy
@@ -50,7 +47,7 @@ describe(@"CallNextWaveGameAction", ^{
                                                    userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
                 expect([userInfo objectForKey:@"row"]).to.equal(@1);
                 expect([userInfo objectForKey:@"column"]).to.equal(@1);
-                expect([userInfo objectForKey:@"type"]).to.beGreaterThan(0);
+                expect([userInfo objectForKey:@"type"]).to.equal(2);
                 return YES;
             }]];
             [[notificationMock expect] notificationWithName:GameActionCallNextWaveComplete object:sut];
@@ -91,10 +88,6 @@ describe(@"CallNextWaveGameAction", ^{
             //expect
             OCMVerifyAll(factoryMock);
         });
-    });
-    
-    afterEach(^{
-        [randomGeneratorMock stopMocking];
     });
 });
 

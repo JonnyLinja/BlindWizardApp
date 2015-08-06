@@ -72,10 +72,9 @@
 
 - (CallNextWaveGameAction *) callNextWaveGameActionWithBoard:(GameBoard *)board {
     return [TyphoonDefinition withClass:[CallNextWaveGameAction class] configuration:^(TyphoonDefinition* definition) {
-        [definition useInitializer:@selector(initWithGameBoard:factory:randomGenerator:) parameters:^(TyphoonMethod *initializer) {
+        [definition useInitializer:@selector(initWithGameBoard:factory:) parameters:^(TyphoonMethod *initializer) {
             [initializer injectParameterWith:board];
             [initializer injectParameterWith:self];
-            [initializer injectParameterWith:[self.generalAssembly randomGenerator]];
         }];
     }];
 }

@@ -9,12 +9,11 @@
 #import "GameAction.h"
 
 @protocol GameDependencyFactory;
-@class RandomGenerator;
 @class GameBoard;
 
 @interface CallNextWaveGameAction : NSObject <GameAction>
 @property (nonatomic, assign, readonly) CGFloat duration;
-- (id) initWithGameBoard:(GameBoard *)board factory:(id<GameDependencyFactory>)factory randomGenerator:(RandomGenerator *)randomGenerator;
+- (id) initWithGameBoard:(GameBoard *)board factory:(id<GameDependencyFactory>)factory;
 - (void) execute;
 - (BOOL) isValid;
 - (NSArray *) generateNextGameActions;
