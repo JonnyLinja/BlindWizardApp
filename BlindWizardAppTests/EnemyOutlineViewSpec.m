@@ -10,18 +10,33 @@ SpecBegin(EnemyOutlineView)
 
 describe(@"EnemyOutlineView", ^{
     __block id viewModelMock;
-    
+    __block EnemyOutlineView *sut;
+
     beforeEach(^{
         viewModelMock = OCMClassMock([EnemyOutlineViewModel class]);
+        sut = [[EnemyOutlineView alloc] initWithViewModel:viewModelMock];
+
     });
     
-    //TODO: is it possible to test drive draw code?
-    pending(@"when loaded", ^{
-        it(@"should displayed a colored dotted rectangle", ^{
+    pending(@"when creating", ^{
+        it(@"should animate fade in", ^{
+            
         });
     });
     
-    context(@"animations", ^{
+    context(@"when removing", ^{
+        it(@"should remove the view", ^{
+            //context
+            UIView *superView = [[UIView alloc] init];
+            [superView addSubview:sut];
+            OCMStub([viewModelMock animationType]).andReturn(DestroyAndRemoveOutlineAnimation);
+            
+            //because
+            [sut notifyKeyPath:@"viewModel.animationType" setTo:@(DestroyAndRemoveOutlineAnimation)];
+            
+            //expect
+            expect(sut.superview).to.beNil();
+        });
     });
     
     afterEach(^{

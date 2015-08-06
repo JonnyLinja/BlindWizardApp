@@ -8,6 +8,7 @@
 
 #import "EnemyOutlineView.h"
 #import "EnemyOutlineViewModel.h"
+#import "MTKObserving.h"
 
 @interface EnemyOutlineView ()
 @property (nonatomic, strong) EnemyOutlineViewModel *viewModel; //inject
@@ -24,6 +25,9 @@
     
     //view
     self.backgroundColor = [UIColor clearColor];
+    
+    //bind
+    [self observeProperty:@keypath(self.viewModel.animationType) withSelector:@selector(runAnimation)];
     
     return self;
 }
@@ -44,6 +48,22 @@
     CGContextAddRect(ctx, self.bounds);
     CGContextClosePath(ctx);
     CGContextStrokePath(ctx);
+}
+
+- (void) runAnimation {
+    switch (self.viewModel.animationType) {
+        case CreateOutlineAnimation:
+            break;
+        case DestroyAndRemoveOutlineAnimation:
+            [self removeFromSuperview];
+            break;
+        default:
+            break;
+    }
+}
+
+- (void) dealloc {
+    [self removeAllObservations];
 }
 
 @end

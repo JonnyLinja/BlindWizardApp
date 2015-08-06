@@ -34,11 +34,11 @@
 }
 
 - (void) runCreateAnimation {
-    
+    self.animationType = CreateOutlineAnimation;
 }
 
 - (void) runDestroyAnimation {
-    
+    self.animationType = DestroyAndRemoveOutlineAnimation;
 }
 
 @end
