@@ -12,6 +12,8 @@
 
 #import "EnemyView.h"
 #import "EnemyViewModel.h"
+#import "EnemyOutlineView.h"
+#import "EnemyOutlineViewModel.h"
 #import "GameObjectFactory.h"
 
 @implementation GameObjectAssembly
@@ -30,6 +32,24 @@
 
 - (EnemyViewModel *) enemyViewModelWithType:(NSNumber *)type configuration:(NSDictionary *)config {
     return [TyphoonDefinition withClass:[EnemyViewModel class] configuration:^(TyphoonDefinition* definition) {
+        [definition useInitializer:@selector(initWithType:animationDurations:configuration:) parameters:^(TyphoonMethod *initializer) {
+            [initializer injectParameterWith:type];
+            [initializer injectParameterWith:TyphoonConfig(@"Animations")];
+            [initializer injectParameterWith:config];
+        }];
+    }];
+}
+
+- (EnemyOutlineView *) enemyOutlineViewWithViewModel:(EnemyOutlineViewModel *)viewModel {
+    return [TyphoonDefinition withClass:[EnemyOutlineView class] configuration:^(TyphoonDefinition* definition) {
+        [definition useInitializer:@selector(initWithViewModel:) parameters:^(TyphoonMethod *initializer) {
+            [initializer injectParameterWith:viewModel];
+        }];
+    }];
+}
+
+- (EnemyOutlineViewModel *) enemyOutlineViewModelWithType:(NSNumber *)type configuration:(NSDictionary *)config {
+    return [TyphoonDefinition withClass:[EnemyOutlineViewModel class] configuration:^(TyphoonDefinition* definition) {
         [definition useInitializer:@selector(initWithType:animationDurations:configuration:) parameters:^(TyphoonMethod *initializer) {
             [initializer injectParameterWith:type];
             [initializer injectParameterWith:TyphoonConfig(@"Animations")];

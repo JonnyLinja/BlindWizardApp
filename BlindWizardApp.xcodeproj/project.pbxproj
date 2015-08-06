@@ -12,6 +12,7 @@
 		C31AACA61B72D71C00299373 /* CreateEnemyOutlinesGameActionSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C31AACA51B72D71C00299373 /* CreateEnemyOutlinesGameActionSpec.m */; };
 		C31AACA91B72D74200299373 /* CreateEnemyOutlinesGameAction.m in Sources */ = {isa = PBXBuildFile; fileRef = C31AACA81B72D74200299373 /* CreateEnemyOutlinesGameAction.m */; };
 		C31AACAF1B730FA300299373 /* EnemyOutlineViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C31AACAE1B730FA300299373 /* EnemyOutlineViewModel.m */; };
+		C31AACB21B73169A00299373 /* EnemyOutlineView.m in Sources */ = {isa = PBXBuildFile; fileRef = C31AACB11B73169A00299373 /* EnemyOutlineView.m */; };
 		C32C54001B50323F004CE82E /* SlideLeftSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = C32C53FF1B50323F004CE82E /* SlideLeftSegue.m */; };
 		C32C54031B5055EA004CE82E /* SlideRightUnwindSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = C32C54021B5055EA004CE82E /* SlideRightUnwindSegue.m */; };
 		C32C54061B505907004CE82E /* SlideUpSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = C32C54051B505907004CE82E /* SlideUpSegue.m */; };
@@ -112,6 +113,8 @@
 		C31AACA81B72D74200299373 /* CreateEnemyOutlinesGameAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateEnemyOutlinesGameAction.m; sourceTree = "<group>"; };
 		C31AACAD1B730FA300299373 /* EnemyOutlineViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnemyOutlineViewModel.h; sourceTree = "<group>"; };
 		C31AACAE1B730FA300299373 /* EnemyOutlineViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnemyOutlineViewModel.m; sourceTree = "<group>"; };
+		C31AACB01B73169A00299373 /* EnemyOutlineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnemyOutlineView.h; sourceTree = "<group>"; };
+		C31AACB11B73169A00299373 /* EnemyOutlineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnemyOutlineView.m; sourceTree = "<group>"; };
 		C32C53FE1B50323F004CE82E /* SlideLeftSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideLeftSegue.h; sourceTree = "<group>"; };
 		C32C53FF1B50323F004CE82E /* SlideLeftSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideLeftSegue.m; sourceTree = "<group>"; };
 		C32C54011B5055EA004CE82E /* SlideRightUnwindSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideRightUnwindSegue.h; sourceTree = "<group>"; };
@@ -276,6 +279,8 @@
 			children = (
 				C31AACAD1B730FA300299373 /* EnemyOutlineViewModel.h */,
 				C31AACAE1B730FA300299373 /* EnemyOutlineViewModel.m */,
+				C31AACB01B73169A00299373 /* EnemyOutlineView.h */,
+				C31AACB11B73169A00299373 /* EnemyOutlineView.m */,
 			);
 			path = EnemyOutlines;
 			sourceTree = "<group>";
@@ -764,6 +769,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C31AACB21B73169A00299373 /* EnemyOutlineView.m in Sources */,
 				C345FF7A1B4F79B2004C249F /* ScoreCalculator.m in Sources */,
 				C345FF921B4FBD5F004C249F /* LeaderboardViewModel.m in Sources */,
 				C3A3B3301B3BD84700ADF11A /* PlayViewModel.m in Sources */,

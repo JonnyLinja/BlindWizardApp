@@ -9,7 +9,12 @@
 @class EnemyView;
 @class EnemyViewModel;
 
+@class EnemyOutlineView;
+@class EnemyOutlineViewModel;
+
 @protocol GameObjectDependencyFactory <NSObject>
 - (EnemyView *) enemyViewWithViewModel:(EnemyViewModel *)viewModel;
 - (EnemyViewModel *) enemyViewModelWithType:(NSNumber *)type configuration:(NSDictionary *)config;
+- (EnemyOutlineView *) enemyOutlineViewWithViewModel:(EnemyOutlineViewModel *)viewModel;
+- (EnemyOutlineViewModel *) enemyOutlineViewModelWithType:(NSNumber *)type configuration:(NSDictionary *)config;
 @end

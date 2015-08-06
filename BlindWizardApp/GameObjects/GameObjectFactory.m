@@ -10,6 +10,7 @@
 #import "GameObjectDependencyFactory.h"
 #import "EnemyView.h"
 #import "EnemyViewModel.h"
+#import "EnemyOutlineView.h"
 #import "EnemyOutlineViewModel.h"
 #import "GridCalculator.h"
 
@@ -56,7 +57,23 @@
 }
 
 - (EnemyOutlineViewModel *) createEnemyOutlineWithType:(NSInteger)type atRow:(NSInteger)row column:(NSInteger)column {
-    return nil;
+    //point
+    CGPoint point = [self.calculator calculatePointForRow:row column:column];
+    
+    //config
+    NSDictionary *configuration = [self.config objectAtIndex:type-1];
+    
+    //eovm
+    EnemyOutlineViewModel *eovm = [self.factory enemyOutlineViewModelWithType:@(type) configuration:configuration];
+    
+    //eov
+    EnemyOutlineView *eov = [self.factory enemyOutlineViewWithViewModel:eovm];
+    eov.frame = CGRectMake(point.x, point.y, self.calculator.elementWidth, self.calculator.elementHeight);
+    eov.accessibilityIdentifier = [NSString stringWithFormat:@"EnemyOutline%zd", self.count++];
+    [self.view addSubview:eov];
+    
+    //return
+    return eovm;
 }
 
 @end
