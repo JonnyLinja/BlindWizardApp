@@ -10,6 +10,7 @@
 #import "GameObjectDependencyFactory.h"
 #import "EnemyView.h"
 #import "EnemyViewModel.h"
+#import "EnemyOutlineViewModel.h"
 #import "GridCalculator.h"
 
 @interface GameObjectFactory ()
@@ -52,6 +53,10 @@
     
     //return
     return evm;
+}
+
+- (EnemyOutlineViewModel *) createEnemyOutlineWithType:(NSInteger)type atRow:(NSInteger)row column:(NSInteger)column {
+    return nil;
 }
 
 @end

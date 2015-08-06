@@ -14,6 +14,11 @@
 #import "GameObjectFactory.h"
 #import "EnemyViewModel.h"
 #import "GridStorage.h"
+#import "EnemyOutlineViewModel.h"
+
+@interface BoardViewModel ()
+@property (nonatomic, strong) NSMutableDictionary *outlines;
+@end
 
 @implementation BoardViewModel
 
@@ -21,7 +26,10 @@
     self = [super init];
     if(!self) return nil;
     
+    self.outlines = [NSMutableDictionary new];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(executeGameUpdateCreateEnemy:) name:GameUpdateCreateEnemy object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(executeGameUpdateCreateEnemyOutline:) name:GameUpdateCreateEnemyOutline object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(executeGameUpdateShiftEnemyLeft:) name:GameUpdateShiftEnemyLeft object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(executeGameUpdateShiftEnemyRight:) name:GameUpdateShiftEnemyRight object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(executeGameUpdateMoveEnemyToRowHead:) name:GameUpdateMoveEnemyToRowHead object:nil];
@@ -72,6 +80,22 @@
     
     //store
     [self.gridStorage promiseSetObject:evm forRow:row column:column];
+}
+
+- (void) executeGameUpdateCreateEnemyOutline:(NSNotification *)notification {
+    //parse values
+    NSInteger row = [[notification.userInfo objectForKey:@"row"] integerValue];
+    NSInteger column = [[notification.userInfo objectForKey:@"column"] integerValue];
+    NSInteger type = [[notification.userInfo objectForKey:@"type"] integerValue];
+
+    //create
+    EnemyOutlineViewModel *eovm = [self.factory createEnemyOutlineWithType:type atRow:row column:column];
+    
+    //animate
+    [eovm runCreateAnimation];
+    
+    //store
+    [self.outlines setObject:eovm forKey:@(column)];
 }
 
 - (void) executeGameUpdateShiftEnemyLeft:(NSNotification *)notification {

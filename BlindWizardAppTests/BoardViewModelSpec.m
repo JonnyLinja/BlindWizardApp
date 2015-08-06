@@ -11,6 +11,10 @@
 #import "EnemyViewModel.h"
 #import "GridStorage.h"
 
+@interface BoardViewModel (Test)
+@property (nonatomic, strong) NSMutableDictionary *outlines;
+@end
+
 SpecBegin(BoardViewModel)
 
 describe(@"BoardViewModel", ^{
@@ -114,6 +118,29 @@ describe(@"BoardViewModel", ^{
                 OCMVerify([modelMock runCreateAnimation]);
                 OCMVerify([gridStorageMock promiseSetObject:modelMock forRow:row column:column]);
 
+                //cleanup
+                [modelMock stopMocking];
+            });
+        });
+        
+        context(@"when there is an outline to be created", ^{
+            it(@"should create the outline, animate it, and store it", ^{
+                //context
+                NSInteger row = 5;
+                NSInteger column = 2;
+                NSInteger type = 1;
+                id modelMock = OCMClassMock([EnemyViewModel class]);
+                NSDictionary *userInfo = @{@"row" : @(row), @"column" : @(column), @"type" : @(type)};
+                OCMStub([gameFactoryMock createEnemyOutlineWithType:type atRow:row column:column]).andReturn(modelMock);
+                
+                //because
+                [[NSNotificationCenter defaultCenter] postNotificationName:GameUpdateCreateEnemyOutline object:nil userInfo:userInfo];
+                
+                //expect
+                OCMVerify([gameFactoryMock createEnemyOutlineWithType:type atRow:row column:column]);
+                OCMVerify([modelMock runCreateAnimation]);
+                expect([sut.outlines objectForKey:@(column)]).to.equal(modelMock);
+                
                 //cleanup
                 [modelMock stopMocking];
             });
@@ -366,6 +393,7 @@ describe(@"BoardViewModel", ^{
     afterEach(^{
         [gameMock stopMocking];
         [gridCalculatorMock stopMocking];
+        sut = nil; //TODO: remove hack fix here as lingering sut was interfering with another test, not sure why __block isn't enough as thought the sut would die after the block ends?
     });
 });
 

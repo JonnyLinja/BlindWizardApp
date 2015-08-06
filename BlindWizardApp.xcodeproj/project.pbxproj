@@ -11,6 +11,7 @@
 		C30A9CC81B449BAD00EBBD94 /* RandomGeneratorSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C30A9CC71B449BAD00EBBD94 /* RandomGeneratorSpec.m */; };
 		C31AACA61B72D71C00299373 /* CreateEnemyOutlinesGameActionSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C31AACA51B72D71C00299373 /* CreateEnemyOutlinesGameActionSpec.m */; };
 		C31AACA91B72D74200299373 /* CreateEnemyOutlinesGameAction.m in Sources */ = {isa = PBXBuildFile; fileRef = C31AACA81B72D74200299373 /* CreateEnemyOutlinesGameAction.m */; };
+		C31AACAF1B730FA300299373 /* EnemyOutlineViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C31AACAE1B730FA300299373 /* EnemyOutlineViewModel.m */; };
 		C32C54001B50323F004CE82E /* SlideLeftSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = C32C53FF1B50323F004CE82E /* SlideLeftSegue.m */; };
 		C32C54031B5055EA004CE82E /* SlideRightUnwindSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = C32C54021B5055EA004CE82E /* SlideRightUnwindSegue.m */; };
 		C32C54061B505907004CE82E /* SlideUpSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = C32C54051B505907004CE82E /* SlideUpSegue.m */; };
@@ -109,6 +110,8 @@
 		C31AACA51B72D71C00299373 /* CreateEnemyOutlinesGameActionSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateEnemyOutlinesGameActionSpec.m; sourceTree = "<group>"; };
 		C31AACA71B72D74200299373 /* CreateEnemyOutlinesGameAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateEnemyOutlinesGameAction.h; sourceTree = "<group>"; };
 		C31AACA81B72D74200299373 /* CreateEnemyOutlinesGameAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateEnemyOutlinesGameAction.m; sourceTree = "<group>"; };
+		C31AACAD1B730FA300299373 /* EnemyOutlineViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnemyOutlineViewModel.h; sourceTree = "<group>"; };
+		C31AACAE1B730FA300299373 /* EnemyOutlineViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnemyOutlineViewModel.m; sourceTree = "<group>"; };
 		C32C53FE1B50323F004CE82E /* SlideLeftSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideLeftSegue.h; sourceTree = "<group>"; };
 		C32C53FF1B50323F004CE82E /* SlideLeftSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideLeftSegue.m; sourceTree = "<group>"; };
 		C32C54011B5055EA004CE82E /* SlideRightUnwindSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideRightUnwindSegue.h; sourceTree = "<group>"; };
@@ -268,6 +271,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		C31AACAC1B730F9300299373 /* EnemyOutlines */ = {
+			isa = PBXGroup;
+			children = (
+				C31AACAD1B730FA300299373 /* EnemyOutlineViewModel.h */,
+				C31AACAE1B730FA300299373 /* EnemyOutlineViewModel.m */,
+			);
+			path = EnemyOutlines;
+			sourceTree = "<group>";
+		};
 		C32C53FD1B503220004CE82E /* Segues */ = {
 			isa = PBXGroup;
 			children = (
@@ -376,6 +388,7 @@
 			isa = PBXGroup;
 			children = (
 				C3BEFDFC1B3E1DFC002930BA /* Enemies */,
+				C31AACAC1B730F9300299373 /* EnemyOutlines */,
 				C34EFBFE1B425CCA0079B6DC /* Effects */,
 				C3BEFDF61B3E1997002930BA /* GameObjectFactory.h */,
 				C3BEFDF71B3E1997002930BA /* GameObjectFactory.m */,
@@ -763,6 +776,7 @@
 				C3EA5B851B43A1C000376A5F /* GridStorage.m in Sources */,
 				C3F8B7AD1B47A351006A2619 /* ShiftEnemiesLeftGameAction.m in Sources */,
 				C3A9E7B91B38FDC4006D9C68 /* LeaderboardViewController.m in Sources */,
+				C31AACAF1B730FA300299373 /* EnemyOutlineViewModel.m in Sources */,
 				C345FF861B4FAF75004C249F /* TopScores.m in Sources */,
 				C34F7F621B3C991200D07881 /* Game.m in Sources */,
 				C3F8B81E1B47B7DA006A2619 /* RandomGenerator.m in Sources */,
