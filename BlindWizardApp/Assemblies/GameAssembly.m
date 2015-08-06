@@ -16,6 +16,7 @@
 #import "GameFlow.h"
 #import "LoadInitialEnemiesGameAction.h"
 #import "CallNextWaveGameAction.h"
+#import "CreateEnemyOutlinesGameAction.h"
 #import "CheckLoseGameAction.h"
 #import "ShiftEnemiesLeftGameAction.h"
 #import "ShiftEnemiesRightGameAction.h"
@@ -74,6 +75,15 @@
         [definition useInitializer:@selector(initWithGameBoard:factory:randomGenerator:) parameters:^(TyphoonMethod *initializer) {
             [initializer injectParameterWith:board];
             [initializer injectParameterWith:self];
+            [initializer injectParameterWith:[self.generalAssembly randomGenerator]];
+        }];
+    }];
+}
+
+- (CreateEnemyOutlinesGameAction *) createEnemyOutlinesGameActionWithBoard:(GameBoard *)board {
+    return [TyphoonDefinition withClass:[CreateEnemyOutlinesGameAction class] configuration:^(TyphoonDefinition* definition) {
+        [definition useInitializer:@selector(initWithGameBoard:randomGenerator:) parameters:^(TyphoonMethod *initializer) {
+            [initializer injectParameterWith:board];
             [initializer injectParameterWith:[self.generalAssembly randomGenerator]];
         }];
     }];

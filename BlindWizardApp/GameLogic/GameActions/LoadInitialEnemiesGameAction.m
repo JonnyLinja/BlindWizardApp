@@ -90,7 +90,10 @@
 }
 
 - (NSArray *) generateNextGameActions {
-    return @[[self.factory destroyEnemyGroupsGameActionWithBoard:self.gameBoard]];
+    return @[
+             [self.factory createEnemyOutlinesGameActionWithBoard:self.gameBoard],
+             [self.factory destroyEnemyGroupsGameActionWithBoard:self.gameBoard]
+             ];
 }
 
 @end

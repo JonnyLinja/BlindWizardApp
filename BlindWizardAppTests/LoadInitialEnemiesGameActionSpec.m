@@ -155,6 +155,7 @@ describe(@"LoadInitialEnemiesGameAction", ^{
     context(@"when generating next game action", ^{
         it(@"should create a destroy game action", ^{
             //context
+            OCMExpect([factoryMock createEnemyOutlinesGameActionWithBoard:sut.gameBoard]).andReturn(sut);
             OCMExpect([factoryMock destroyEnemyGroupsGameActionWithBoard:sut.gameBoard]).andReturn(sut);
             
             //because

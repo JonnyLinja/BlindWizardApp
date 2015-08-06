@@ -12,6 +12,7 @@
 @class GameBoard;
 @class LoadInitialEnemiesGameAction;
 @class CallNextWaveGameAction;
+@class CreateEnemyOutlinesGameAction;
 @class CheckLoseGameAction;
 @class ShiftEnemiesLeftGameAction;
 @class ShiftEnemiesRightGameAction;
@@ -25,6 +26,7 @@
 - (GameFlow *) gameFlowWithBoard:(GameBoard *)board;
 - (LoadInitialEnemiesGameAction *) loadInitialEnemiesGameActionWithBoard:(GameBoard *)board;
 - (CallNextWaveGameAction *) callNextWaveGameActionWithBoard:(GameBoard *)board;
+- (CreateEnemyOutlinesGameAction *) createEnemyOutlinesGameActionWithBoard:(GameBoard *)board;
 - (CheckLoseGameAction *) checkLoseGameActionWithBoard:(GameBoard *)board;
 - (ShiftEnemiesLeftGameAction *) shiftEnemiesLeftGameActionWithBoard:(GameBoard *)board row:(NSNumber *)row;
 - (ShiftEnemiesRightGameAction *) shiftEnemiesRightGameActionWithBoard:(GameBoard *)board row:(NSNumber *)row;
