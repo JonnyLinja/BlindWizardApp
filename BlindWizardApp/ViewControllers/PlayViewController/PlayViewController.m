@@ -30,6 +30,9 @@
 }
 
 - (void) viewDidAppear:(BOOL)animated {
+    //super
+    [super viewDidAppear:animated];
+    
     if (animated) { //hack prevent segue calling this too early, not under test
         //inject
         [self injectDependencies];
