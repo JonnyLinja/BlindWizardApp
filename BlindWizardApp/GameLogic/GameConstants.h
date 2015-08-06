@@ -7,6 +7,7 @@
 //
 
 #define GameUpdateCreateEnemy           @"GameUpdateCreateEnemy"
+#define GameUpdateCreateEnemyOutline    @"GameUpdateCreateEnemyOutline"
 #define GameUpdateShiftEnemyLeft        @"GameUpdateShiftEnemyLeft"
 #define GameUpdateShiftEnemyRight       @"GameUpdateShiftEnemyRight"
 #define GameUpdateMoveEnemyToRowHead    @"GameUpdateMoveEnemyToRowHead"

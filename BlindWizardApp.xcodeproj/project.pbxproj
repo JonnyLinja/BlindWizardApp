@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		7FAB24D207C69E0B81926A2F /* libPods-BlindWizardApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F66DF0723764B2C29A3CB58 /* libPods-BlindWizardApp.a */; };
 		C30A9CC81B449BAD00EBBD94 /* RandomGeneratorSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C30A9CC71B449BAD00EBBD94 /* RandomGeneratorSpec.m */; };
+		C31AACA61B72D71C00299373 /* CreateEnemyOutlinesGameActionSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C31AACA51B72D71C00299373 /* CreateEnemyOutlinesGameActionSpec.m */; };
+		C31AACA91B72D74200299373 /* CreateEnemyOutlinesGameAction.m in Sources */ = {isa = PBXBuildFile; fileRef = C31AACA81B72D74200299373 /* CreateEnemyOutlinesGameAction.m */; };
 		C32C54001B50323F004CE82E /* SlideLeftSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = C32C53FF1B50323F004CE82E /* SlideLeftSegue.m */; };
 		C32C54031B5055EA004CE82E /* SlideRightUnwindSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = C32C54021B5055EA004CE82E /* SlideRightUnwindSegue.m */; };
 		C32C54061B505907004CE82E /* SlideUpSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = C32C54051B505907004CE82E /* SlideUpSegue.m */; };
@@ -104,6 +106,9 @@
 		A4C82791F95AB8508FB957CA /* Pods-BlindWizardApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlindWizardApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BlindWizardApp/Pods-BlindWizardApp.debug.xcconfig"; sourceTree = "<group>"; };
 		C0BC9E0C707035A355E75B87 /* Pods-BlindWizardAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlindWizardAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BlindWizardAppTests/Pods-BlindWizardAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		C30A9CC71B449BAD00EBBD94 /* RandomGeneratorSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RandomGeneratorSpec.m; sourceTree = "<group>"; };
+		C31AACA51B72D71C00299373 /* CreateEnemyOutlinesGameActionSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateEnemyOutlinesGameActionSpec.m; sourceTree = "<group>"; };
+		C31AACA71B72D74200299373 /* CreateEnemyOutlinesGameAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateEnemyOutlinesGameAction.h; sourceTree = "<group>"; };
+		C31AACA81B72D74200299373 /* CreateEnemyOutlinesGameAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateEnemyOutlinesGameAction.m; sourceTree = "<group>"; };
 		C32C53FE1B50323F004CE82E /* SlideLeftSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideLeftSegue.h; sourceTree = "<group>"; };
 		C32C53FF1B50323F004CE82E /* SlideLeftSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideLeftSegue.m; sourceTree = "<group>"; };
 		C32C54011B5055EA004CE82E /* SlideRightUnwindSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideRightUnwindSegue.h; sourceTree = "<group>"; };
@@ -471,6 +476,7 @@
 				C35C2E821B4891B400FF7944 /* GameBoardSpec.m */,
 				C345FF811B4F967E004C249F /* LoadInitialEnemiesGameActionSpec.m */,
 				C3F8B8231B47CFE6006A2619 /* CallNextWaveGameActionSpec.m */,
+				C31AACA51B72D71C00299373 /* CreateEnemyOutlinesGameActionSpec.m */,
 				C30A9CC71B449BAD00EBBD94 /* RandomGeneratorSpec.m */,
 				C35C2E871B48B27500FF7944 /* CheckLoseGameActionSpec.m */,
 				C35C2E741B484E1C00FF7944 /* ShiftEnemiesLeftGameActionSpec.m */,
@@ -551,6 +557,8 @@
 				C35C2E801B488EDD00FF7944 /* DestroyEnemyGroupsGameAction.m */,
 				C32C540A1B508744004CE82E /* CheckDangerousGameAction.h */,
 				C32C540B1B508744004CE82E /* CheckDangerousGameAction.m */,
+				C31AACA71B72D74200299373 /* CreateEnemyOutlinesGameAction.h */,
+				C31AACA81B72D74200299373 /* CreateEnemyOutlinesGameAction.m */,
 			);
 			path = GameActions;
 			sourceTree = "<group>";
@@ -769,6 +777,7 @@
 				C35032021B4B5E3A00A12F8E /* GameObjectAssembly.m in Sources */,
 				C35C2E781B4857AA00FF7944 /* DropEnemiesDownGameAction.m in Sources */,
 				C3EA5B841B43A1C000376A5F /* GridCalculator.m in Sources */,
+				C31AACA91B72D74200299373 /* CreateEnemyOutlinesGameAction.m in Sources */,
 				C35031F71B4B4DA700A12F8E /* ViewControllerAssembly.m in Sources */,
 				C32C540C1B508744004CE82E /* CheckDangerousGameAction.m in Sources */,
 				C345FF7D1B4F95BA004C249F /* LoadInitialEnemiesGameAction.m in Sources */,
@@ -812,6 +821,7 @@
 				C345FF8D1B4FBA77004C249F /* LeaderboardViewControllerSpec.m in Sources */,
 				C37B74951B3CF5FF00D22D5E /* BoardViewModelSpec.m in Sources */,
 				C35C2E881B48B27500FF7944 /* CheckLoseGameActionSpec.m in Sources */,
+				C31AACA61B72D71C00299373 /* CreateEnemyOutlinesGameActionSpec.m in Sources */,
 				C30A9CC81B449BAD00EBBD94 /* RandomGeneratorSpec.m in Sources */,
 				C35C2E8E1B48EF1400FF7944 /* EnemyViewSpec.m in Sources */,
 				C350320B1B4BB1BD00A12F8E /* NSObject+MTKTest.m in Sources */,
