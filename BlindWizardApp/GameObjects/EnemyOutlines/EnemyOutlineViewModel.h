@@ -10,4 +10,5 @@
 
 @interface EnemyOutlineViewModel : NSObject
 - (void) runCreateAnimation;
+- (void) runDestroyAnimation;
 @end

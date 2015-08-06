@@ -87,15 +87,22 @@
     NSInteger row = [[notification.userInfo objectForKey:@"row"] integerValue];
     NSInteger column = [[notification.userInfo objectForKey:@"column"] integerValue];
     NSInteger type = [[notification.userInfo objectForKey:@"type"] integerValue];
+    NSNumber *key = @(column);
+    
+    //remove existing
+    EnemyOutlineViewModel *eovm = [self.outlines objectForKey:key];
+    if(eovm) {
+        [eovm runDestroyAnimation];
+    }
 
     //create
-    EnemyOutlineViewModel *eovm = [self.factory createEnemyOutlineWithType:type atRow:row column:column];
+    eovm = [self.factory createEnemyOutlineWithType:type atRow:row column:column];
     
     //animate
     [eovm runCreateAnimation];
     
     //store
-    [self.outlines setObject:eovm forKey:@(column)];
+    [self.outlines setObject:eovm forKey:key];
 }
 
 - (void) executeGameUpdateShiftEnemyLeft:(NSNotification *)notification {

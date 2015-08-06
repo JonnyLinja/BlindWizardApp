@@ -9,6 +9,7 @@
 #import "GridCalculator.h"
 #import "GameObjectFactory.h"
 #import "EnemyViewModel.h"
+#import "EnemyOutlineViewModel.h"
 #import "GridStorage.h"
 
 @interface BoardViewModel (Test)
@@ -124,12 +125,14 @@ describe(@"BoardViewModel", ^{
         });
         
         context(@"when there is an outline to be created", ^{
-            it(@"should create the outline, animate it, and store it", ^{
+            it(@"should remove the previous outline, animate it, create the outline, animate it, and store it", ^{
                 //context
                 NSInteger row = 5;
                 NSInteger column = 2;
                 NSInteger type = 1;
-                id modelMock = OCMClassMock([EnemyViewModel class]);
+                id oldModelMock = OCMClassMock([EnemyOutlineViewModel class]);
+                [sut.outlines setObject:oldModelMock forKey:@(column)];
+                id modelMock = OCMClassMock([EnemyOutlineViewModel class]);
                 NSDictionary *userInfo = @{@"row" : @(row), @"column" : @(column), @"type" : @(type)};
                 OCMStub([gameFactoryMock createEnemyOutlineWithType:type atRow:row column:column]).andReturn(modelMock);
                 
@@ -137,6 +140,7 @@ describe(@"BoardViewModel", ^{
                 [[NSNotificationCenter defaultCenter] postNotificationName:GameUpdateCreateEnemyOutline object:nil userInfo:userInfo];
                 
                 //expect
+                OCMVerify([oldModelMock runDestroyAnimation]);
                 OCMVerify([gameFactoryMock createEnemyOutlineWithType:type atRow:row column:column]);
                 OCMVerify([modelMock runCreateAnimation]);
                 expect([sut.outlines objectForKey:@(column)]).to.equal(modelMock);
