@@ -50,11 +50,6 @@
 
 - (EnemyOutlineViewModel *) enemyOutlineViewModelWithType:(NSNumber *)type configuration:(NSDictionary *)config {
     return [TyphoonDefinition withClass:[EnemyOutlineViewModel class] configuration:^(TyphoonDefinition* definition) {
-        [definition useInitializer:@selector(initWithType:animationDurations:configuration:) parameters:^(TyphoonMethod *initializer) {
-            [initializer injectParameterWith:type];
-            [initializer injectParameterWith:TyphoonConfig(@"Animations")];
-            [initializer injectParameterWith:config];
-        }];
     }];
 }
 

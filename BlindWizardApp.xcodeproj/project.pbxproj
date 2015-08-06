@@ -13,6 +13,7 @@
 		C31AACA91B72D74200299373 /* CreateEnemyOutlinesGameAction.m in Sources */ = {isa = PBXBuildFile; fileRef = C31AACA81B72D74200299373 /* CreateEnemyOutlinesGameAction.m */; };
 		C31AACAF1B730FA300299373 /* EnemyOutlineViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C31AACAE1B730FA300299373 /* EnemyOutlineViewModel.m */; };
 		C31AACB21B73169A00299373 /* EnemyOutlineView.m in Sources */ = {isa = PBXBuildFile; fileRef = C31AACB11B73169A00299373 /* EnemyOutlineView.m */; };
+		C31AACB41B73194200299373 /* EnemyOutlineViewModelSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C31AACB31B73194200299373 /* EnemyOutlineViewModelSpec.m */; };
 		C32C54001B50323F004CE82E /* SlideLeftSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = C32C53FF1B50323F004CE82E /* SlideLeftSegue.m */; };
 		C32C54031B5055EA004CE82E /* SlideRightUnwindSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = C32C54021B5055EA004CE82E /* SlideRightUnwindSegue.m */; };
 		C32C54061B505907004CE82E /* SlideUpSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = C32C54051B505907004CE82E /* SlideUpSegue.m */; };
@@ -115,6 +116,7 @@
 		C31AACAE1B730FA300299373 /* EnemyOutlineViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnemyOutlineViewModel.m; sourceTree = "<group>"; };
 		C31AACB01B73169A00299373 /* EnemyOutlineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnemyOutlineView.h; sourceTree = "<group>"; };
 		C31AACB11B73169A00299373 /* EnemyOutlineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnemyOutlineView.m; sourceTree = "<group>"; };
+		C31AACB31B73194200299373 /* EnemyOutlineViewModelSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnemyOutlineViewModelSpec.m; sourceTree = "<group>"; };
 		C32C53FE1B50323F004CE82E /* SlideLeftSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideLeftSegue.h; sourceTree = "<group>"; };
 		C32C53FF1B50323F004CE82E /* SlideLeftSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideLeftSegue.m; sourceTree = "<group>"; };
 		C32C54011B5055EA004CE82E /* SlideRightUnwindSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideRightUnwindSegue.h; sourceTree = "<group>"; };
@@ -504,6 +506,7 @@
 				C32C540D1B50874F004CE82E /* CheckDangerousGameActionSpec.m */,
 				C35C2E8B1B48E13C00FF7944 /* EnemyViewModelSpec.m */,
 				C35C2E8D1B48EF1400FF7944 /* EnemyViewSpec.m */,
+				C31AACB31B73194200299373 /* EnemyOutlineViewModelSpec.m */,
 				C35C2E931B490D7600FF7944 /* GridCalculatorSpec.m */,
 				C3EA14021B4CE1900022CE9E /* WaveControllerSpec.m */,
 				C345FF761B4F7018004C249F /* ScoreCalculatorSpec.m */,
@@ -850,6 +853,7 @@
 				C345FF8F1B4FBC9A004C249F /* LeaderboardViewModel.m in Sources */,
 				C345FF771B4F7018004C249F /* ScoreCalculatorSpec.m in Sources */,
 				C35C2E8C1B48E13C00FF7944 /* EnemyViewModelSpec.m in Sources */,
+				C31AACB41B73194200299373 /* EnemyOutlineViewModelSpec.m in Sources */,
 				C35C2E7C1B4863ED00FF7944 /* DropEnemiesDownGameActionSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
