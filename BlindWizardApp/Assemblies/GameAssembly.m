@@ -23,6 +23,7 @@
 #import "DropEnemiesDownGameAction.h"
 #import "DestroyEnemyGroupsGameAction.h"
 #import "CheckDangerousGameAction.h"
+#import "DelayGameAction.h"
 #import "WaveController.h"
 #import "ScoreCalculator.h"
 
@@ -142,6 +143,14 @@
     return [TyphoonDefinition withClass:[CheckDangerousGameAction class] configuration:^(TyphoonDefinition* definition) {
         [definition useInitializer:@selector(initWithGameBoard:) parameters:^(TyphoonMethod *initializer) {
             [initializer injectParameterWith:board];
+        }];
+    }];
+}
+
+- (DelayGameAction *)delayGameActionWithDuration:(NSNumber *)duration {
+    return [TyphoonDefinition withClass:[DelayGameAction class] configuration:^(TyphoonDefinition* definition) {
+        [definition useInitializer:@selector(initWithDuration:) parameters:^(TyphoonMethod *initializer) {
+            [initializer injectParameterWith:duration];
         }];
     }];
 }

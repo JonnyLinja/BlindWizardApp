@@ -15,7 +15,7 @@
 @property (nonatomic, assign) NSInteger row;
 @property (nonatomic, strong) id<GameDependencyFactory> factory; //inject
 @property (nonatomic, strong) GameBoard *gameBoard; //inject
-@property (nonatomic, assign) CGFloat duration; //inject
+@property (nonatomic, assign) CGFloat delayDuration; //inject
 @end
 
 @implementation ShiftEnemiesRightGameAction
@@ -27,7 +27,7 @@
     self.row = row;
     self.gameBoard = board;
     self.factory = factory;
-    self.duration = duration;
+    self.delayDuration = duration;
 
     return self;
 }
@@ -106,6 +106,7 @@
 
 - (NSArray *) generateNextGameActions {
     return @[
+             [self.factory delayGameActionWithDuration:@(self.delayDuration)],
              [self.factory destroyEnemyGroupsGameActionWithBoard:self.gameBoard],
              [self.factory dropEnemiesDownGameActionWithBoard:self.gameBoard]
              ];

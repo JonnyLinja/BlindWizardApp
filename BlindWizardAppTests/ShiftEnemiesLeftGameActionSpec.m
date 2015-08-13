@@ -18,11 +18,13 @@ describe(@"ShiftEnemiesLeftGameAction", ^{
     __block ShiftEnemiesLeftGameAction *sut;
     __block id gameBoardMock;
     __block id factoryMock;
+    __block CGFloat duration;
     
     beforeEach(^{
+        duration = 5;
         gameBoardMock = OCMClassMock([GameBoard class]);
         factoryMock = OCMProtocolMock(@protocol(GameDependencyFactory));
-        sut = [[ShiftEnemiesLeftGameAction alloc] initWithRow:-1 gameBoard:gameBoardMock factory:factoryMock duration:0];
+        sut = [[ShiftEnemiesLeftGameAction alloc] initWithRow:-1 gameBoard:gameBoardMock factory:factoryMock duration:duration];
     });
     
     context(@"when executing", ^{
@@ -89,6 +91,12 @@ describe(@"ShiftEnemiesLeftGameAction", ^{
         });
     });
     
+    context(@"when checking duration", ^{
+        it(@"should return 0", ^{
+            expect(sut.duration).to.equal(0);
+        });
+    });
+    
     context(@"when the row has at least one enemy", ^{
         it(@"should be valid", ^{
             //context
@@ -126,6 +134,7 @@ describe(@"ShiftEnemiesLeftGameAction", ^{
     context(@"when generating next game action", ^{
         it(@"should create a drop and a destroy game action", ^{
             //context
+            OCMExpect([factoryMock delayGameActionWithDuration:@(duration)]).andReturn(sut);
             OCMExpect([factoryMock destroyEnemyGroupsGameActionWithBoard:gameBoardMock]).andReturn(sut);
             OCMExpect([factoryMock dropEnemiesDownGameActionWithBoard:gameBoardMock]).andReturn(sut);
             [factoryMock setExpectationOrderMatters:YES];

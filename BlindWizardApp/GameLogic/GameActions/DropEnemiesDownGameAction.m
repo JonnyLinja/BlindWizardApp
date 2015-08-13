@@ -14,7 +14,7 @@
 @interface DropEnemiesDownGameAction ()
 @property (nonatomic, strong) id<GameDependencyFactory> factory; //inject
 @property (nonatomic, strong) GameBoard *gameBoard; //inject
-@property (nonatomic, assign) CGFloat duration; //inject
+@property (nonatomic, assign) CGFloat delayDuration; //inject
 @end
 
 @implementation DropEnemiesDownGameAction
@@ -25,7 +25,7 @@
     
     self.gameBoard = board;
     self.factory = factory;
-    self.duration = duration;
+    self.delayDuration = duration;
     
     return self;
 }
@@ -105,6 +105,7 @@
 
 - (NSArray *) generateNextGameActions {
     return @[
+             [self.factory delayGameActionWithDuration:@(self.delayDuration)],
              [self.factory checkDangerousGameActionWithBoard:self.gameBoard],
              [self.factory destroyEnemyGroupsGameActionWithBoard:self.gameBoard]
              ];

@@ -17,11 +17,13 @@ SpecBegin(DropEnemiesDownGameAction)
 describe(@"DropEnemiesDownGameAction", ^{
     __block DropEnemiesDownGameAction *sut;
     __block id factoryMock;
+    __block CGFloat duration;
     
     beforeEach(^{
+        duration = 5;
         GameBoard *board = [[GameBoard alloc] init];
         factoryMock = OCMProtocolMock(@protocol(GameDependencyFactory));
-        sut = [[DropEnemiesDownGameAction alloc] initWithGameBoard:board factory:factoryMock duration:0];
+        sut = [[DropEnemiesDownGameAction alloc] initWithGameBoard:board factory:factoryMock duration:duration];
     });
     
     context(@"when executing", ^{
@@ -69,6 +71,12 @@ describe(@"DropEnemiesDownGameAction", ^{
             
             //cleanup
             [[NSNotificationCenter defaultCenter] removeObserver:notificationMock];
+        });
+    });
+    
+    context(@"when checking duration", ^{
+        it(@"should return 0", ^{
+            expect(sut.duration).to.equal(0);
         });
     });
     
@@ -120,6 +128,7 @@ describe(@"DropEnemiesDownGameAction", ^{
     context(@"when generating next game action", ^{
         it(@"should create a check dangerous and a destroy game action", ^{
             //context
+            OCMExpect([factoryMock delayGameActionWithDuration:@(duration)]).andReturn(sut);
             OCMExpect([factoryMock checkDangerousGameActionWithBoard:sut.gameBoard]).andReturn(sut);
             OCMExpect([factoryMock destroyEnemyGroupsGameActionWithBoard:sut.gameBoard]).andReturn(sut);
             
