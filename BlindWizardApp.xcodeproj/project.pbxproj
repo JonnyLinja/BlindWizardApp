@@ -65,6 +65,8 @@
 		C3A9E7B11B38FC1F006D9C68 /* PlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A9E7B01B38FC1F006D9C68 /* PlayViewController.m */; };
 		C3A9E7B51B38FC35006D9C68 /* TitleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A9E7B41B38FC35006D9C68 /* TitleViewController.m */; };
 		C3A9E7B91B38FDC4006D9C68 /* LeaderboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A9E7B81B38FDC4006D9C68 /* LeaderboardViewController.m */; };
+		C3BE7D0C1B7ED77800336ADD /* RepositionEnemyOutlinesGameActionSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C3BE7D0B1B7ED77800336ADD /* RepositionEnemyOutlinesGameActionSpec.m */; };
+		C3BE7D0F1B7ED79C00336ADD /* RepositionEnemyOutlinesGameAction.m in Sources */ = {isa = PBXBuildFile; fileRef = C3BE7D0E1B7ED79C00336ADD /* RepositionEnemyOutlinesGameAction.m */; };
 		C3BEFDF81B3E1997002930BA /* GameObjectFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = C3BEFDF71B3E1997002930BA /* GameObjectFactory.m */; };
 		C3BEFDFF1B3E1E0A002930BA /* EnemyViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C3BEFDFE1B3E1E0A002930BA /* EnemyViewModel.m */; };
 		C3BEFE021B3E1E1A002930BA /* EnemyView.m in Sources */ = {isa = PBXBuildFile; fileRef = C3BEFE011B3E1E1A002930BA /* EnemyView.m */; };
@@ -204,6 +206,9 @@
 		C3A9E7B41B38FC35006D9C68 /* TitleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleViewController.m; sourceTree = "<group>"; };
 		C3A9E7B71B38FDC4006D9C68 /* LeaderboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeaderboardViewController.h; sourceTree = "<group>"; };
 		C3A9E7B81B38FDC4006D9C68 /* LeaderboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeaderboardViewController.m; sourceTree = "<group>"; };
+		C3BE7D0B1B7ED77800336ADD /* RepositionEnemyOutlinesGameActionSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RepositionEnemyOutlinesGameActionSpec.m; sourceTree = "<group>"; };
+		C3BE7D0D1B7ED79C00336ADD /* RepositionEnemyOutlinesGameAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RepositionEnemyOutlinesGameAction.h; sourceTree = "<group>"; };
+		C3BE7D0E1B7ED79C00336ADD /* RepositionEnemyOutlinesGameAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RepositionEnemyOutlinesGameAction.m; sourceTree = "<group>"; };
 		C3BEFDF61B3E1997002930BA /* GameObjectFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameObjectFactory.h; sourceTree = "<group>"; };
 		C3BEFDF71B3E1997002930BA /* GameObjectFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameObjectFactory.m; sourceTree = "<group>"; };
 		C3BEFDFD1B3E1E0A002930BA /* EnemyViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnemyViewModel.h; sourceTree = "<group>"; };
@@ -512,6 +517,7 @@
 				C35C2E7D1B488E0C00FF7944 /* DestroyEnemyGroupsGameActionSpec.m */,
 				C32C540D1B50874F004CE82E /* CheckDangerousGameActionSpec.m */,
 				C34239D81B7A944D003F14A8 /* DelayGameActionSpec.m */,
+				C3BE7D0B1B7ED77800336ADD /* RepositionEnemyOutlinesGameActionSpec.m */,
 				C35C2E8B1B48E13C00FF7944 /* EnemyViewModelSpec.m */,
 				C35C2E8D1B48EF1400FF7944 /* EnemyViewSpec.m */,
 				C31AACB31B73194200299373 /* EnemyOutlineViewModelSpec.m */,
@@ -591,6 +597,8 @@
 				C32C540B1B508744004CE82E /* CheckDangerousGameAction.m */,
 				C34239DA1B7A9472003F14A8 /* DelayGameAction.h */,
 				C34239DB1B7A9472003F14A8 /* DelayGameAction.m */,
+				C3BE7D0D1B7ED79C00336ADD /* RepositionEnemyOutlinesGameAction.h */,
+				C3BE7D0E1B7ED79C00336ADD /* RepositionEnemyOutlinesGameAction.m */,
 			);
 			path = GameActions;
 			sourceTree = "<group>";
@@ -789,6 +797,7 @@
 				C3A3B3301B3BD84700ADF11A /* PlayViewModel.m in Sources */,
 				C34F7F671B3CD28A00D07881 /* BoardViewModel.m in Sources */,
 				C32C54001B50323F004CE82E /* SlideLeftSegue.m in Sources */,
+				C3BE7D0F1B7ED79C00336ADD /* RepositionEnemyOutlinesGameAction.m in Sources */,
 				C3A9E7B11B38FC1F006D9C68 /* PlayViewController.m in Sources */,
 				C3BEFDFF1B3E1E0A002930BA /* EnemyViewModel.m in Sources */,
 				C3F8B7B01B47A3E7006A2619 /* ShiftEnemiesRightGameAction.m in Sources */,
@@ -849,6 +858,7 @@
 				C350320C1B4BB1BD00A12F8E /* UIViewController+TestSegue.m in Sources */,
 				C34EFC071B427B350079B6DC /* GridStorageKeyGeneratorSpec.m in Sources */,
 				C3F8B8221B47C5EF006A2619 /* QueueSpec.m in Sources */,
+				C3BE7D0C1B7ED77800336ADD /* RepositionEnemyOutlinesGameActionSpec.m in Sources */,
 				C3A3B3291B3BCCBF00ADF11A /* PlayViewModelSpec.m in Sources */,
 				C3FE19E11B44BC0200F26152 /* GameFlowSpec.m in Sources */,
 				C345FF881B4FAF82004C249F /* TopScoresSpec.m in Sources */,

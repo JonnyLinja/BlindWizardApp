@@ -25,10 +25,11 @@ describe(@"CreateEnemyOutlinesGameAction", ^{
     });
     
     context(@"when executing", ^{
-        it(@"should create objects with negative values at the top most available spot in each column and notify the positive values", ^{
+        it(@"should create objects with negative values at the top most available spot in each column, set them to gameboard, and notify the positive values", ^{
             //context
             NSMutableArray *startData = [@[@3, @1, @1, @0, @2, @0, @0, @0, @0, @0] mutableCopy];
             NSMutableArray *endData = [@[@3, @1, @1, @-1, @2, @0, @-1, @0, @0, @0] mutableCopy];
+            NSArray *nextWaveData = @[@-1, @-1];
             sut.gameBoard.data = startData;
             OCMStub([randomGeneratorMock generate]).andReturn(1);
             id notificationMock = OCMObserverMock();
@@ -55,6 +56,7 @@ describe(@"CreateEnemyOutlinesGameAction", ^{
             
             //expect
             expect(startData).to.equal(endData);
+            expect(sut.gameBoard.nextWaveData).to.equal(nextWaveData);
             OCMVerifyAll(notificationMock);
             
             //cleanup

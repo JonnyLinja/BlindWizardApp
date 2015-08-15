@@ -13,6 +13,7 @@
 @property (nonatomic, assign, readonly) NSInteger numRows;
 @property (nonatomic, assign, readonly) NSInteger numColumns;
 @property (nonatomic, strong, readonly) NSMutableArray *data;
+@property (nonatomic, strong, readonly) NSArray *nextWaveData;
 @property (nonatomic, assign) BOOL isActive;
 - (id) initWithRows:(NSInteger)numRows columns:(NSInteger)numColumns;
 - (NSInteger) indexFromRow:(NSInteger)row column:(NSInteger)column;
