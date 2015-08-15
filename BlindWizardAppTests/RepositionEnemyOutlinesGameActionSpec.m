@@ -27,7 +27,7 @@ describe(@"RepositionEnemyOutlinesGameAction", ^{
             //context
             NSMutableArray *startData = [@[@1, @1, @0, @2, @0, @1, @-3, @-2, @0] mutableCopy];
             NSMutableArray *endData = [@[@1, @1, @0, @2, @-2, @1, @-3, @0, @-2] mutableCopy];
-            sut.gameBoard.nextWaveData = @[@-3, @-2, @-2];
+            sut.gameBoard.nextWaveData = [@[@-3, @-2, @-2] mutableCopy];
             sut.gameBoard.numRows = 3;
             sut.gameBoard.numColumns = 3;
             sut.gameBoard.data = startData;
