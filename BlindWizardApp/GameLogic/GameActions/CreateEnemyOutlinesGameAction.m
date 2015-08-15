@@ -29,6 +29,9 @@
 }
 
 - (void) execute {
+    //array
+    [self.gameBoard.nextWaveData removeAllObjects];
+    
     //loop through columns
     for(NSInteger column=0; column<self.gameBoard.numColumns; column++) {
         //loop through rows of that column
@@ -44,6 +47,7 @@
                 NSInteger newInteger = [self.randomGenerator generate];
                 NSNumber *negativeNumber = @(-1*newInteger);
                 NSNumber *positiveNumber = @(newInteger);
+                [self.gameBoard.nextWaveData addObject:negativeNumber];
                 [self.gameBoard.data setObject:negativeNumber atIndexedSubscript:index];
                 
                 //notify

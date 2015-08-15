@@ -29,7 +29,7 @@ describe(@"CreateEnemyOutlinesGameAction", ^{
             //context
             NSMutableArray *startData = [@[@3, @1, @1, @0, @2, @0, @0, @0, @0, @0] mutableCopy];
             NSMutableArray *endData = [@[@3, @1, @1, @-1, @2, @0, @-1, @0, @0, @0] mutableCopy];
-            NSArray *nextWaveData = @[@-1, @-1];
+            NSMutableArray *nextWaveData = [@[@-1, @-1] mutableCopy];
             sut.gameBoard.data = startData;
             OCMStub([randomGeneratorMock generate]).andReturn(1);
             id notificationMock = OCMObserverMock();

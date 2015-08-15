@@ -12,6 +12,7 @@
 @property (nonatomic, assign) NSInteger numRows;
 @property (nonatomic, assign) NSInteger numColumns;
 @property (nonatomic, strong) NSMutableArray *data;
+@property (nonatomic, strong) NSMutableArray *nextWaveData;
 @end
 
 @implementation GameBoard
@@ -23,6 +24,7 @@
     self.numRows = numRows;
     self.numColumns = numColumns;
     self.data = [NSMutableArray new];
+    self.nextWaveData = [NSMutableArray new];
     self.isActive = YES;
     
     [self fillData];
