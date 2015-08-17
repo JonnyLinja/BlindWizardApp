@@ -40,7 +40,7 @@
 - (DropEnemiesDownGameAction *) dropEnemiesDownGameActionWithBoard:(GameBoard *)board;
 - (CheckDangerousGameAction *) checkDangerousGameActionWithBoard:(GameBoard *)board;
 - (WaveController *) waveControllerWithBoard:(GameBoard *)board flow:(GameFlow *)flow;
-- (DelayGameAction *)delayGameActionWithDuration:(NSNumber *)duration;
+- (DelayGameAction *) delayGameActionWithDuration:(NSNumber *)duration;
 - (ScoreCalculator *) scoreCalculator;
 
 @end

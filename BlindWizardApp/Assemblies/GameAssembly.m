@@ -24,6 +24,7 @@
 #import "DestroyEnemyGroupsGameAction.h"
 #import "CheckDangerousGameAction.h"
 #import "DelayGameAction.h"
+#import "RepositionEnemyOutlinesGameAction.h"
 #import "WaveController.h"
 #import "ScoreCalculator.h"
 
@@ -151,6 +152,14 @@
     return [TyphoonDefinition withClass:[DelayGameAction class] configuration:^(TyphoonDefinition* definition) {
         [definition useInitializer:@selector(initWithDuration:) parameters:^(TyphoonMethod *initializer) {
             [initializer injectParameterWith:duration];
+        }];
+    }];
+}
+
+- (RepositionEnemyOutlinesGameAction *) repositionEnemyOutlinesGameActionWithBoard:(GameBoard *)board {
+    return [TyphoonDefinition withClass:[RepositionEnemyOutlinesGameAction class] configuration:^(TyphoonDefinition* definition) {
+        [definition useInitializer:@selector(initWithGameBoard:) parameters:^(TyphoonMethod *initializer) {
+            [initializer injectParameterWith:board];
         }];
     }];
 }

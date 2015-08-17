@@ -106,6 +106,7 @@
 
 - (NSArray *) generateNextGameActions {
     return @[
+             [self.factory repositionEnemyOutlinesGameActionWithBoard:self.gameBoard],
              [self.factory delayGameActionWithDuration:@(self.delayDuration)],
              [self.factory destroyEnemyGroupsGameActionWithBoard:self.gameBoard],
              [self.factory dropEnemiesDownGameActionWithBoard:self.gameBoard]

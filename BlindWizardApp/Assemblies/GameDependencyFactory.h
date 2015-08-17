@@ -20,6 +20,7 @@
 @class CheckDangerousGameAction;
 @class DropEnemiesDownGameAction;
 @class DelayGameAction;
+@class RepositionEnemyOutlinesGameAction;
 @class WaveController;
 
 @protocol GameDependencyFactory <NSObject>
@@ -34,6 +35,7 @@
 - (DestroyEnemyGroupsGameAction *) destroyEnemyGroupsGameActionWithBoard:(GameBoard *)board;
 - (DropEnemiesDownGameAction *) dropEnemiesDownGameActionWithBoard:(GameBoard *)board;
 - (CheckDangerousGameAction *) checkDangerousGameActionWithBoard:(GameBoard *)board;
-- (DelayGameAction *)delayGameActionWithDuration:(NSNumber *)duration;
+- (DelayGameAction *) delayGameActionWithDuration:(NSNumber *)duration;
+- (RepositionEnemyOutlinesGameAction *) repositionEnemyOutlinesGameActionWithBoard:(GameBoard *)board;
 - (WaveController *) waveControllerWithBoard:(GameBoard *)board flow:(GameFlow *)flow;
 @end

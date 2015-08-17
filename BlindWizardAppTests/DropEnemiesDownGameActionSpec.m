@@ -128,6 +128,7 @@ describe(@"DropEnemiesDownGameAction", ^{
     context(@"when generating next game action", ^{
         it(@"should create a check dangerous and a destroy game action", ^{
             //context
+            OCMExpect([factoryMock repositionEnemyOutlinesGameActionWithBoard:sut.gameBoard]).andReturn(sut);
             OCMExpect([factoryMock delayGameActionWithDuration:@(duration)]).andReturn(sut);
             OCMExpect([factoryMock checkDangerousGameActionWithBoard:sut.gameBoard]).andReturn(sut);
             OCMExpect([factoryMock destroyEnemyGroupsGameActionWithBoard:sut.gameBoard]).andReturn(sut);
