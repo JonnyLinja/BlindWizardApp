@@ -25,11 +25,11 @@ describe(@"RepositionEnemyOutlinesGameAction", ^{
     context(@"when executing", ^{
         it(@"should move/create negative values to above the top most enemy and notify of any changes", ^{
             //context
-            NSMutableArray *startData = [@[@1, @1, @0, @2, @0, @1, @-3, @-2, @0] mutableCopy];
-            NSMutableArray *endData = [@[@1, @1, @0, @2, @-2, @1, @-3, @0, @-2] mutableCopy];
-            sut.gameBoard.nextWaveData = [@[@-3, @-2, @-2] mutableCopy];
+            NSMutableArray *startData = [@[@1, @1, @0, @0, @2, @0, @1, @0, @-3, @-2, @0, @0] mutableCopy];
+            NSMutableArray *endData = [@[@1, @1, @0, @-1, @2, @-2, @1, @0, @-3, @0, @-2, @0] mutableCopy];
+            sut.gameBoard.nextWaveData = [@[@-3, @-2, @-2, @-1] mutableCopy];
             sut.gameBoard.numRows = 3;
-            sut.gameBoard.numColumns = 3;
+            sut.gameBoard.numColumns = 4;
             sut.gameBoard.data = startData;
             id notificationMock = OCMObserverMock();
             [[NSNotificationCenter defaultCenter] addMockObserver:notificationMock name:GameUpdateRepositionEnemyOutline object:sut];
@@ -45,6 +45,13 @@ describe(@"RepositionEnemyOutlinesGameAction", ^{
                                                    userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
                 expect([userInfo objectForKey:@"column"]).to.equal(@2);
                 expect([userInfo objectForKey:@"row"]).to.equal(@2);
+                return YES;
+            }]];
+            [[notificationMock expect] notificationWithName:GameUpdateRepositionEnemyOutline
+                                                     object:sut
+                                                   userInfo:[OCMArg checkWithBlock:^BOOL(NSDictionary *userInfo) {
+                expect([userInfo objectForKey:@"column"]).to.equal(@3);
+                expect([userInfo objectForKey:@"row"]).to.equal(@0);
                 return YES;
             }]];
 
